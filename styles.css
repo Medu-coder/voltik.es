@@ -36,7 +36,7 @@ header {
 }
 
 .logo-header {
-  height: 42px;
+  height: 36px;
   width: auto;
 }
 
@@ -124,6 +124,6 @@ footer {
 .hero-logo {
   display: block;
   margin: 0 auto 1.5rem;
-  max-width: 224px;
+  max-width: 100px;
   height: auto;
 }
