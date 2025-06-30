@@ -1,0 +1,87 @@
+
+:root {
+  --primary-color: #AC29FD;
+  --background: #F4F4F4;
+  --text: #222;
+  --font: 'Manrope', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--background);
+  color: var(--text);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.logo {
+  height: 48px;
+}
+
+nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: var(--primary-color);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  background: white;
+  color: var(--primary-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 4rem 2rem;
+  background: white;
+}
+
+.features div {
+  max-width: 300px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #eee;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #ddd;
+  font-size: 0.9rem;
+}
