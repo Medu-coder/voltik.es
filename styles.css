@@ -36,7 +36,7 @@ header {
 }
 
 .logo {
-  height: 72px;
+  height: 42px;
 }
 
 nav a {
@@ -55,7 +55,7 @@ nav a {
 }
 
 .hero h1 {
-  font-size: 56px;
+  font-size: 42px;
   margin-bottom: 1rem;
 }
 
