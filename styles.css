@@ -35,8 +35,9 @@ header {
   align-items: center;
 }
 
-.logo {
+.logo-header {
   height: 42px;
+  width: auto;
 }
 
 nav a {
