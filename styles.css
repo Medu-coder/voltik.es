@@ -8,6 +8,7 @@
   --font: 'Manrope', sans-serif;
 }
 
+/* =====================  BASE ============================== */
 body {
   margin: 0;
   font-family: var(--font);
@@ -22,19 +23,21 @@ body {
   padding: 0 1.5rem;
 }
 
+/* =====================  HEADER ============================ */
 header {
-  background: white;
-  border-bottom: 1px solid #eee;
+  background: #FFFFFF;
+  border-bottom: 1px solid #EEE;
   padding: 1rem 0;
   position: sticky;
   top: 0;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .header-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 2rem; /* aire entre logo, navegación y CTA */
 }
 
 .logo-header {
@@ -42,14 +45,33 @@ header {
   width: auto;
 }
 
-nav a {
-  margin-left: 1.5rem;
+/* --- Navegación principal --- */
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-nav a {
   text-decoration: none;
   color: var(--text);
   font-weight: 600;
   font-size: 16px;
+  margin: 0; /* evitamos margen extra en móvil */
 }
 
+/* --- Botón CTA en cabecera --- */
+.header-cta {
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  background: var(--text);
+  color: var(--primary-color);
+  border-radius: 8px;
+  white-space: nowrap; /* evita salto de línea */
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* =====================  HERO ============================== */
 .hero {
   background: var(--primary-color);
   color: var(--text);
@@ -68,6 +90,13 @@ nav a {
   margin: 0 auto 2rem;
 }
 
+.logo-hero {
+  display: block;
+  margin: 0 auto 1.5rem;
+  max-width: 340px;
+  height: auto;
+}
+
 .btn-primary {
   background: var(--text);
   color: var(--primary-color);
@@ -76,8 +105,10 @@ nav a {
   font-weight: 700;
   text-decoration: none;
   font-size: 18px;
+  display: inline-block;
 }
 
+/* =====================  FEATURES (Servicios, valores...) == */
 .features {
   display: flex;
   flex-wrap: wrap;
@@ -101,6 +132,7 @@ nav a {
   color: var(--neutral-dark);
 }
 
+/* ===================== CONTACTO =========================== */
 .contact {
   background: var(--neutral-light);
   text-align: center;
@@ -112,10 +144,14 @@ nav a {
   margin-bottom: 1rem;
 }
 
-.contact p {
+.contact p,
+.contact form label,
+.contact form input,
+.contact form textarea {
   font-size: 18px;
 }
 
+/* ===================== FOOTER ============================= */
 footer {
   background: #EEE;
   padding: 1.5rem;
@@ -123,39 +159,45 @@ footer {
   font-size: 14px;
 }
 
-.logo-hero {
-  display: block;
-  margin: 0 auto 1.5rem;
-  max-width: 340px;
-  height: auto;
-}
-
-/* === Mobile first @max-width : 768 px  ======================= */
+/* =====================  RESPONSIVE  ≤ 768px  ============== */
 @media (max-width: 768px) {
+  /* --- Ajustes globales --- */
   body {
-    font-size: 90%;          /* escala ligera para que quepa todo */
+    font-size: 90%;
   }
   .container {
-    padding: 0 1rem;         /* menos margen lateral */
+    padding: 0 1rem;
   }
 
-  /* 2. Header  ------------------------------------------------ */
+  /* --- Header reorganizado --- */
   .header-content {
-    flex-wrap: wrap;         /* permite saltar de línea */
+    flex-wrap: wrap; /* elementos pueden saltar de línea */
     gap: 0.75rem;
   }
-  nav {
+
+  .site-nav {
+    order: 2;           /* aparece después del logo */
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    /* si prefieres los enlaces apilados, cambia a column y text-align:center */
-  }
-  nav a {
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.25rem;
     font-size: 15px;
-    margin: 0;               /* quitamos left-margin para ganar espacio */
   }
 
-  /* 3. Hero --------------------------------------------------- */
+  .site-nav a {
+    font-size: 15px;    /* más pequeño para caber */
+  }
+
+  .header-cta {
+    order: 3;           /* siempre debajo de la navegación */
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 0.25rem;
+  }
+
+  /* --- Hero --- */
   .hero {
     padding: 3rem 1rem;
   }
@@ -170,9 +212,9 @@ footer {
     max-width: 220px;
   }
 
-  /* 4. Sección .features (Servicios, Proceso, Valores) -------- */
+  /* --- Features como columna --- */
   .features {
-    flex-direction: column;  /* una sola columna */
+    flex-direction: column;
     padding: 3rem 0;
   }
   .features div {
@@ -186,21 +228,15 @@ footer {
     font-size: 16px;
   }
 
-  /* 5. Contacto ---------------------------------------------- */
+  /* --- Contacto --- */
   .contact {
     padding: 3rem 1rem;
   }
   .contact h2 {
     font-size: 32px;
   }
-  .contact p,
-  .contact form label,
-  .contact form input,
-  .contact form textarea {
-    font-size: 16px;
-  }
 
-  /* 6. Botón principal --------------------------------------- */
+  /* --- Botones --- */
   .btn-primary {
     font-size: 16px;
     padding: 0.7rem 1.5rem;
