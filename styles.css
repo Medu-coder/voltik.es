@@ -160,7 +160,7 @@ footer {
 }
 
 /* =====================  RESPONSIVE  ≤ 768px  ============== */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   /* --- Ajustes globales --- */
   body {
     font-size: 90%;
