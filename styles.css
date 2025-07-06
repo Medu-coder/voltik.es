@@ -5,7 +5,7 @@
   --neutral-dark: #4F4F4F;
   --background: #FFFFFF;
   --text: #1A1A1A;
-  --font: 'Manrope', sans-serif;
+  --font: "Manrope", sans-serif;
 }
 
 /* ========== BASE ========================================= */
@@ -20,16 +20,18 @@ body {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-inline: clamp(1.5rem, 7vw, 2rem); /* márgenes fluidos */
 }
 
-/* Reutilizables */
-.centered   { text-align: center; }
+/* Utilidades */
+.centered       { text-align: center; }
 .section-spaced { padding-block: 4rem; }
-.lead       { max-width: 700px; margin: 1rem auto 2rem; }
-.testimonials { padding-block: 4rem; }
-
-.phone-link { font-weight: 600; text-decoration: none; color: var(--text); }
+.lead           { max-width: 700px; margin: 1rem auto 2rem; }
+.testimonials   { padding-block: 4rem; }
+.quote          { max-width: 600px; margin: 2rem auto; font-size: 1.125rem; font-style: italic; }
+.phone-link     { font-weight: 600; text-decoration: none; color: var(--text); }
+.contact-form   { max-width: 600px; margin: 2rem auto; text-align: left; }
+.input-field    { width: 100%; padding: .5rem; margin-bottom: 1rem; font-size: 18px; }
 
 /* ========== HEADER ======================================= */
 header {
@@ -50,32 +52,28 @@ header {
 
 .logo-header { height: 32px; }
 
-.site-nav {
-  display: flex;
-  gap: 1.5rem;
-}
-.site-nav a {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 16px;
-}
+.site-nav      { display: flex; gap: 1.5rem; }
+.site-nav a    { text-decoration: none; color: var(--text); font-weight: 600; font-size: 16px; }
 
-.header-cta,
-.btn-primary {
+.btn-primary,
+.header-cta {
   background: var(--text);
   color: var(--primary-color);
+  border: none;
   border-radius: 8px;
-  text-decoration: none;
+  padding: .8rem 2rem;
   font-weight: 700;
-  padding: 0.8rem 2rem;
+  font-size: 18px;
   display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* ========== HERO ========================================= */
-.hero { background: var(--primary-color); padding: 6rem 0; }
-.hero h1 { font-size: 42px; margin-bottom: 1rem; }
-.hero p.lead { font-size: 20px; }
+.hero       { background: var(--primary-color); padding: 6rem 0; }
+.logo-hero  { display: block; margin: 0 auto 1.5rem; max-width: 340px; }
+.hero h1    { font-size: 42px; margin-bottom: 1rem; }
+.hero p     { font-size: 20px; }
 
 /* ========== FEATURES ===================================== */
 .features {
@@ -85,50 +83,43 @@ header {
   padding: 4rem 0;
   text-align: center;
 }
-.features div    { flex: 1 1 30%; margin-bottom: 2rem; }
-.features h2     { font-size: 32px; margin-bottom: .5rem; }
-.features p      { font-size: 18px; color: var(--neutral-dark); }
+.features div { flex: 1 1 30%; margin-bottom: 2rem; }
+.features h2  { font-size: 32px; margin-bottom: .5rem; }
+.features p   { font-size: 18px; color: var(--neutral-dark); }
 
 /* ========== CONTACTO ===================================== */
-.contact      { background: var(--neutral-light); text-align: center; padding: 4rem 1.5rem; }
-.contact h2   { font-size: 40px; margin-bottom: 1rem; }
-
-.contact-form { max-width: 600px; margin: 2rem auto; text-align: left; }
-.contact-form input,
-.contact-form textarea {
-  width: 100%; padding: .5rem; margin-bottom: 1rem; font-size: 18px;
-}
-.contact-form button { border: none; cursor: pointer; }
+.contact     { background: var(--neutral-light); text-align: center; padding: 4rem 1.5rem; }
+.contact h2  { font-size: 40px; margin-bottom: 1rem; }
 
 /* ========== FOOTER ======================================= */
 footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px; }
 
 /* ========== MOBILE  ≤ 768px ============================== */
 @media (max-width: 768px) {
-  /* Márgenes laterales fluidos (≈24-32 px) */
-  .container { padding-inline: clamp(1.5rem, 7vw, 2rem); }
+  body      { font-size: 90%; }
 
-  /* Header en columnas */
+  /* Header */
   .header-content { flex-wrap: wrap; gap: .75rem; }
   .site-nav       { order: 2; width: 100%; justify-content: center; gap: 1rem; font-size: 15px; }
   .header-cta     { order: 3; width: 100%; text-align: center; font-size: 16px; padding: .7rem 1.5rem; }
 
   /* Hero */
-  .hero { padding: 3rem 1rem; }
-  .hero h1 { font-size: 30px; line-height: 1.2; }
-  .lead { max-width: 100%; font-size: 17px; }
+  .hero        { padding: 3rem 1rem; }
+  .logo-hero   { max-width: 220px; }
+  .hero h1     { font-size: 30px; line-height: 1.2; }
+  .hero p      { font-size: 17px; }
 
-  /* Features en columna */
-  .features        { flex-direction: column; padding: 3rem 0; }
-  .features div    { flex: 1 1 100%; margin-bottom: 2rem; padding: 0 .8rem; }
-  .features h2     { font-size: 26px; }
-  .features p      { font-size: 16px; }
+  /* Features */
+  .features      { flex-direction: column; padding: 3rem 0; }
+  .features div  { flex: 1 1 100%; margin-bottom: 2rem; padding: 0 .8rem; }
+  .features h2   { font-size: 26px; }
+  .features p    { font-size: 16px; }
 
   /* Contacto */
-  .contact         { padding: 3rem 1rem; }
-  .contact h2      { font-size: 32px; }
+  .contact       { padding: 3rem 1rem; }
+  .contact h2    { font-size: 32px; }
 
-  /* Secciones verticales más compactas */
-  .section-spaced  { padding-block: 3rem; }
-  .testimonials    { padding-block: 3rem; }
+  /* Secciones verticales compactas */
+  .section-spaced,
+  .testimonials  { padding-block: 3rem; }
 }
