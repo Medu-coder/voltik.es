@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voltik · Instalaciones eléctricas de calidad en Córdoba</title>
+  <title>Voltik · Instalaciones eléctricas ágiles en Córdoba</title>
 
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -27,11 +27,12 @@
   <!-- ===== HERO ===== -->
   <main>
     <section class="hero">
-      <div class="container">
+      <div class="container centered">
         <img src="assets/voltik-logo-web.svg" alt="Logotipo Voltik grande" class="logo-hero" />
         <h1>Tu instalación eléctrica, resuelta en 24&nbsp;h</h1>
         <p class="lead">
-          Somos instaladores autorizados en Córdoba que combinan un trato humano impecable con procesos 100&nbsp;% digitales: olvídate de esperas y complicaciones.
+          Somos instaladores autorizados en Córdoba que combinan un trato humano impecable con procesos 100&nbsp;% digitales:
+          olvídate de esperas y complicaciones.
         </p>
         <a href="#contacto" class="btn-primary">Pide presupuesto en 1&nbsp;min</a>
       </div>
@@ -41,7 +42,8 @@
     <section class="container section-spaced centered">
       <h2>¿Te han dejado colgado esperando un electricista?</h2>
       <p class="lead">
-        Cada hora sin luz, sin aire o con la obra parada cuesta dinero y credibilidad. En Voltik respondemos en menos de 24&nbsp;h y entregamos trabajos con garantía de 2&nbsp;años.
+        Cada hora sin luz, sin aire o con la obra parada cuesta dinero y credibilidad.  
+        En Voltik respondemos en menos de 24&nbsp;h y entregamos trabajos con garantía de 2&nbsp;años.
       </p>
     </section>
 
@@ -78,9 +80,9 @@
     </section>
 
     <!-- ===== CASOS DE ÉXITO ===== -->
-    <section id="casos" class="testimonials container section-spaced centered">
+    <section id="casos" class="container testimonials centered">
       <h2>Testimonios de clientes que confiaron en Voltik</h2>
-      <blockquote class="lead" style="font-style: italic;">
+      <blockquote class="quote">
         “Voltik me instaló el cargador para mi coche eléctrico en 48&nbsp;h y sin cortar la luz de mi negocio.” — <strong>María, hostelería</strong>
       </blockquote>
     </section>
@@ -107,24 +109,22 @@
 
     <!-- ===== CONTACTO ===== -->
     <section id="contacto" class="contact">
-      <div class="container">
+      <div class="container centered">
         <h2>¿Necesitas más luz?</h2>
-        <p>
-          Déjanos tus datos y recibe tu presupuesto <strong>gratis</strong> antes de 24&nbsp;h laborables.
-        </p>
+        <p>Déjanos tus datos y recibe tu presupuesto <strong>gratis</strong> antes de 24&nbsp;h laborables.</p>
 
         <form action="mailto:contacto@voltik.es" method="post" enctype="text/plain" class="contact-form">
           <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" required />
+          <input type="text" id="nombre" name="nombre" class="input-field" required />
 
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" class="input-field" required />
 
           <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" name="telefono" />
+          <input type="tel" id="telefono" name="telefono" class="input-field" />
 
           <label for="mensaje">¿Qué necesitas?</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+          <textarea id="mensaje" name="mensaje" rows="4" class="input-field" required></textarea>
 
           <button type="submit" class="btn-primary">Quiero mi presupuesto hoy</button>
         </form>
