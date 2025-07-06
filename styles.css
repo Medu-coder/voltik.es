@@ -33,10 +33,6 @@ body {
 .contact-form   { max-width: 600px; margin: 2rem auto; text-align: left; }
 .input-field    { width: 100%; padding: .5rem; margin-bottom: 1rem; font-size: 18px; }
 
-/* ===== BLOG ARTICLE HEADINGS ===== */
-.blog-article h1{ font-size: clamp(2.5rem,6vw,56px); line-height:1.15; text-align:center; margin-bottom:1rem; }
-.blog-article .lead{ text-align:center; font-size: clamp(1.125rem,2.5vw,24px); max-width:800px; margin:1rem auto 2rem; }
-
 /* ========== HEADER ======================================= */
 header {
   background: #fff;
