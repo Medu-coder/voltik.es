@@ -165,8 +165,10 @@ footer {
   body {
     font-size: 90%;
   }
+  /* 24-32 px de aire lateral, pero fluido para distintos anchos */
   .container {
-    padding: 0 2rem;
+    padding-left: clamp(1.5rem, 7vw, 2rem);
+    padding-right: clamp(1.5rem, 7vw, 2rem);
   }
 
   /* --- Header reorganizado --- */
@@ -220,6 +222,7 @@ footer {
   .features div {
     flex: 1 1 100%;
     margin-bottom: 2rem;
+    padding: 0 0.8rem;
   }
   .features h2 {
     font-size: 26px;
