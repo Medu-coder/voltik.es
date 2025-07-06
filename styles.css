@@ -245,3 +245,13 @@ footer {
     padding: 0.7rem 1.5rem;
   }
 }
+
+/* Padding vertical sin tocar los laterales */
+.section-spaced {
+  padding-block: 4rem;     /* top & bottom */
+}
+
+/* En móvil lo hacemos un poco más compacto */
+@media (max-width: 768px){
+  .section-spaced { padding-block: 3rem; }
+}
