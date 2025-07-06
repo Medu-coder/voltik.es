@@ -160,13 +160,13 @@ footer {
 }
 
 /* =====================  RESPONSIVE  ≤ 768px  ============== */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   /* --- Ajustes globales --- */
   body {
     font-size: 90%;
   }
   .container {
-    padding: 0 1.6rem;
+    padding: 0 2rem;
   }
 
   /* --- Header reorganizado --- */
