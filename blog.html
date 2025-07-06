@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog · Voltik</title>
+
+  <!-- Reutilizamos la misma hoja de estilos -->
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- ===== HEADER (idéntico al de index.html) ===== -->
+  <header>
+    <div class="container header-content">
+      <img src="assets/voltik-logo-web.svg" alt="Logotipo Voltik" class="logo-header" />
+
+      <nav class="site-nav">
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#valores">Valores</a>
+        <a href="index.html#casos">Casos de éxito</a>
+        <a href="blog.html" class="active">Blog</a><!-- nuevo enlace -->
+      </nav>
+
+      <a href="index.html#contacto" class="btn-primary header-cta">Pide presupuesto</a>
+    </div>
+  </header>
+
+  <!-- ===== LISTADO DE ARTÍCULOS ===== -->
+  <main>
+    <section class="container section-spaced centered">
+      <h1>Blog Voltik</h1>
+      <p class="lead">Consejos prácticos, guías y novedades sobre instalaciones eléctricas.</p>
+    </section>
+
+    <section class="blog-grid container">
+      <!-- Mock · Artículo 1 -->
+      <article class="post-card">
+        <a href="articulo-ejemplo.html">
+          <img src="assets/post-ejemplo.jpg" alt="Portada Ejemplo" />
+          <h2>¿Cuánto consume un cargador de coche eléctrico en casa?</h2>
+          <p class="excerpt">Instalar un punto de recarga doméstico no tiene por qué disparar tu factura. Analizamos potencias, horarios valle y consejos para optimizar el consumo…</p>
+          <span class="leer-mas">Leer más →</span>
+        </a>
+      </article>
+
+      <!-- Cuando subas más artículos duplica <article> y cambia datos -->
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Voltik. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
