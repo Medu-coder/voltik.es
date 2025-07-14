@@ -194,8 +194,8 @@ footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px;
   height: 44px;
 }
 
-.swiper-button-prev{ left: -72px; }
-.swiper-button-next{ right: -72px; }
+.swiper-button-prev{ left: calc(-44px - clamp(1.5rem, 7vw, 2rem)); }
+.swiper-button-next{ right: calc(-44px - clamp(1.5rem, 7vw, 2rem)); }
 
 /* Flechas de navegación Swiper */
 .swiper-button-next,
