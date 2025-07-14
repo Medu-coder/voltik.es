@@ -193,17 +193,17 @@ footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px;
   height: 44px;
   color: var(--secondary-color);
   transform: translateY(-50%);
-  z-index: 10;                 /* asegura que queden sobre las tarjetas */
+  z-index: 30;                 /* asegura que queden sobre las tarjetas */
 }
 
 .swiper-button-prev{
   left: 0;
-  transform: translate(-100%, -50%);  /* saca la flecha fuera del carrusel */
+  transform: translate(calc(-100% - 24px), -50%);
 }
 
 .swiper-button-next{
   right: 0;
-  transform: translate(100%, -50%);
+  transform: translate(calc(100% + 24px), -50%);
 }
 
 /* Oculta flechas en pantallas pequeñas */
