@@ -175,3 +175,19 @@ footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px;
   opacity: .4;
 }
 .swiper-pagination-bullet-active{ opacity: 1; }
+
+/* Flechas de navegación Swiper */
+.swiper-button-next,
+.swiper-button-prev{
+  color: var(--secondary-color);
+  width: 44px;
+  height: 44px;
+}
+
+/* Oculta flechas en pantallas pequeñas */
+@media (max-width: 768px){
+  .swiper-button-next,
+  .swiper-button-prev{
+    display: none;
+  }
+}
