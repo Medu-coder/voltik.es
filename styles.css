@@ -163,6 +163,13 @@ footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px;
 
 /* ===== Testimonios Swiper ===== */
 .testimonios-swiper { padding-block: 2rem; }
+/* Ajustes de Swiper para testimonios */
+.testimonios-swiper{
+  position: relative;                           /* posicionamiento para flechas absolutas */
+  --swiper-navigation-size: 32px;               /* tamaño de los iconos */
+  --swiper-navigation-color: var(--secondary-color);
+  --swiper-pagination-color: var(--secondary-color);
+}
 .testimonios-swiper .quote{
   background: var(--neutral-light);
   border-radius: 12px;
@@ -175,6 +182,19 @@ footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px;
   opacity: .4;
 }
 .swiper-pagination-bullet-active{ opacity: 1; }
+
+.swiper-button-next,
+.swiper-button-prev{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
+  width: 44px;
+  height: 44px;
+}
+
+.swiper-button-prev{ left: -56px; }
+.swiper-button-next{ right: -56px; }
 
 /* Flechas de navegación Swiper */
 .swiper-button-next,
