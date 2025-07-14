@@ -160,3 +160,18 @@ footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px;
 .leer-mas  { display: block; font-weight: 600; margin: 0 1rem 1.5rem; }
 .blog-article h1   { font-size: 34px; }
 .blog-article .lead{ font-size: 18px; }
+
+/* ===== Testimonios Swiper ===== */
+.testimonios-swiper { padding-block: 2rem; }
+.testimonios-swiper .quote{
+  background: var(--neutral-light);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  padding: 2rem;
+  font-style: italic;
+}
+.swiper-pagination-bullet{
+  background: var(--secondary-color);
+  opacity: .4;
+}
+.swiper-pagination-bullet-active{ opacity: 1; }
