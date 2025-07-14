@@ -1,6 +1,6 @@
 :root {
   --primary-color: #DDE6D5;
-  --secondary-color: #FF9C41;
+  --secondary-color: #F4E7C1;
   --neutral-light: #FCFCFC;
   --neutral-dark: #4F4F4F;
   --background: #FFFFFF;
@@ -165,8 +165,9 @@ footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px;
 .testimonios-swiper { padding-block: 2rem; }
 /* Ajustes de Swiper para testimonios */
 .testimonios-swiper{
-  position: relative;                           /* posicionamiento para flechas absolutas */
-  --swiper-navigation-size: 32px;               /* tamaño de los iconos */
+  position: relative;           /* contenedor para flechas absolutas */
+  overflow: visible;            /* deja que las flechas sobresalgan */
+  --swiper-navigation-size: 32px;
   --swiper-navigation-color: var(--secondary-color);
   --swiper-pagination-color: var(--secondary-color);
 }
@@ -193,8 +194,8 @@ footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px;
   height: 44px;
 }
 
-.swiper-button-prev{ left: -56px; }
-.swiper-button-next{ right: -56px; }
+.swiper-button-prev{ left: -72px; }
+.swiper-button-next{ right: -72px; }
 
 /* Flechas de navegación Swiper */
 .swiper-button-next,
