@@ -183,33 +183,3 @@ footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px;
   opacity: .4;
 }
 .swiper-pagination-bullet-active{ opacity: 1; }
-
-/* Flechas de navegación Swiper */
-.swiper-button-prev,
-.swiper-button-next{
-  position: absolute;
-  top: 50%;
-  width: 44px;
-  height: 44px;
-  color: var(--secondary-color);
-  transform: translateY(-50%);
-  z-index: 30;                 /* asegura que queden sobre las tarjetas */
-}
-
-.swiper-button-prev{
-  left: 0;
-  transform: translate(calc(-100% - 24px), -50%);
-}
-
-.swiper-button-next{
-  right: 0;
-  transform: translate(calc(100% + 24px), -50%);
-}
-
-/* Oculta flechas en pantallas pequeñas */
-@media (max-width: 768px){
-  .swiper-button-prev,
-  .swiper-button-next{
-    display: none;
-  }
-}
