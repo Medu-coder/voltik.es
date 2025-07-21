@@ -4,23 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog · Voltik</title>
+  <link rel="preload" as="image" href="/assets/voltik-logo-web.svg" type="image/svg+xml">
 
   <!-- Reutilizamos la misma hoja de estilos -->
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
   <!-- Fallback ICO -->
   <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="/favicon.ico">
   <!-- iOS / iPadOS -->
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+  <!-- Swiper CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
   <!-- ===== HEADER ===== -->
   <header>
     <div class="container header-content">
       <a href="/" class="logo-link">
-        <img src="../assets/voltik-logo-web.svg" alt="Logotipo Voltik" class="logo-header" />
+        <img src="/assets/voltik-logo-web.svg" alt="Voltik" class="logo-header" fetchpriority="high" decoding="async" />
       </a>
 
       <nav class="site-nav">
