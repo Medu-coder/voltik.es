@@ -23,12 +23,6 @@ body {
   padding-inline: clamp(1.5rem, 7vw, 2rem); /* márgenes fluidos */
 }
 
-.container-blog {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-inline: clamp(2.5rem, 7vw, 2rem);
-}
-
 /* Utilidades */
 .centered       { text-align: center; }
 .section-spaced { padding-block: 4rem; }
