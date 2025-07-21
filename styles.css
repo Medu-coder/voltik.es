@@ -23,6 +23,12 @@ body {
   padding-inline: clamp(1.5rem, 7vw, 2rem); /* márgenes fluidos */
 }
 
+.container-blog {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-inline: clamp(2.5rem, 7vw, 2rem);
+}
+
 /* Utilidades */
 .centered       { text-align: center; }
 .section-spaced { padding-block: 4rem; }
@@ -142,7 +148,7 @@ header {
   background: var(--secondary-color);
   opacity: .4;
 }
-.swiper-pagination-bullet-active{ opacity: 1; }
+.swiper-pagination-bullet-active{ opacity: 1; } 
 
 /* ========== CONTACTO ===================================== */
 .contact     { background: var(--neutral-light); text-align: center; padding: 4rem 1.5rem; }
