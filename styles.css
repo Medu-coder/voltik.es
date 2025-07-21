@@ -60,6 +60,15 @@ header {
   text-decoration: none;
 }
 
+/* Enlaces del menú sin subrayado ni color de enlace por defecto */
+.site-nav a:link,
+.site-nav a:visited,
+.site-nav a:hover,
+.site-nav a:focus {
+  color: var(--text);
+  text-decoration: none;
+}
+
 .site-nav a.active,
 .site-nav a:focus-visible {
   color: var(--secondary-color);         /* ya definido en palette */
@@ -135,7 +144,7 @@ footer { background: #eee; padding: 1.5rem; text-align: center; font-size: 14px;
 
   /* Header */
   .header-content { flex-wrap: wrap; gap: .75rem; }
-  .site-nav       { order: 2; width: 100%; justify-content: center; gap: 1rem; font-size: 15px; }
+  .site-nav       { order: 2; width: 100%; justify-content: center; gap: 1rem; font-size: 14px; }
   .header-cta     { order: 3; width: 100%; text-align: center; font-size: 16px; padding: .7rem 1.5rem; }
 
   /* Hero */
