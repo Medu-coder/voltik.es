@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voltik · Instalaciones eléctricas de calidad en Córdoba</title>
+  <link rel="preload" as="image" href="/assets/voltik-logo-web.svg" type="image/svg+xml">
 
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -22,7 +23,7 @@
   <header>
     <div class="container header-content">
       <a href="/" class="logo-link">
-        <img src="../assets/voltik-logo-web.svg" alt="Logotipo Voltik" class="logo-header" />
+        <img src="/assets/voltik-logo-web.svg" alt="Voltik" class="logo-header" fetchpriority="high" decoding="async" />
       </a>
 
       <nav class="site-nav">
@@ -41,7 +42,7 @@
   <main>
     <section class="hero">
       <div class="container centered">
-        <img src="assets/voltik-logo-web.svg" alt="Logotipo Voltik grande" class="logo-hero" />
+        <img src="/assets/voltik-logo-web.svg" alt="Voltik — instaladores eléctricos" class="logo-hero" fetchpriority="high" decoding="async" />
         <h1>Tu instalación eléctrica, resuelta en 24&nbsp;h</h1>
         <p class="lead">
           Somos instaladores autorizados en Córdoba que combinan un trato humano impecable con procesos 100&nbsp;% digitales:
@@ -210,6 +211,19 @@
       breakpoints: {             // ≥768 px: muestra 2 a la vez
         768: { slidesPerView: 2 }
       }
+    });
+  </script>
+  <script>
+    // lazy-img.js (inline) – añade loading="lazy" y decoding="async" a imágenes no críticas
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('img:not(.logo-header):not(.logo-hero)').forEach(img => {
+        if (!img.hasAttribute('loading')) {
+          img.setAttribute('loading', 'lazy');
+        }
+        if (!img.hasAttribute('decoding')) {
+          img.setAttribute('decoding', 'async');
+        }
+      });
     });
   </script>
   <!-- nav-active.js  – motivo: automatizar marcado activo -->
