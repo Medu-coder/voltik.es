@@ -11,7 +11,7 @@ export default function ProblemAgitation() {
           </h2>
 
           {/* Pain Points Grid */}
-          <div className="voltik-grid-3-centered mb-8">
+          <div className="voltik-grid-3 mb-8 mx-auto">
             <div className="voltik-card bg-destructive/10 border border-destructive/20">
               <AlertTriangle size={48} className="mx-auto mb-4 text-destructive" />
               <h3 className="font-semibold mb-2 text-destructive">Sin electricidad</h3>

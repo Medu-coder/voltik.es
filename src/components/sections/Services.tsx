@@ -92,8 +92,8 @@ export default function Services() {
                 ))}
               </div>
               
-              <VoltikButton variant="outline" size="sm" className="w-full">
-                Más información
+              <VoltikButton variant="outline" size="sm" className="w-full" asChild>
+                <a href="/#contacto">Más información</a>
               </VoltikButton>
             </div>
           ))}
@@ -110,7 +110,7 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="voltik-grid-3-centered">
+          <div className="voltik-grid-3 mx-auto">
             {process.map((step, index) => (
               <div key={index} className="text-center relative">
                 {/* Step Number */}

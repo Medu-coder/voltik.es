@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Clock, MessageCircle, Facebook, Instagram, Linkedin } from 'lucide-react'
-import voltikLogo from '@/assets/voltik-logo.png'
+import voltikLogo from '@/assets/voltik-logo-web.svg'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()

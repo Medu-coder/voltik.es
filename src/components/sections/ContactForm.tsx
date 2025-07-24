@@ -169,17 +169,16 @@ export default function ContactForm() {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              ¿Necesitas más luz?
+              ¡Contacta con nosotros!
             </h2>
             <p className="lead">
-              Déjanos tus datos y recibe tu presupuesto <strong>gratis</strong> 
-              antes de 24h laborables.
+              Déjanos tus datos y recibe tu presupuesto <strong>gratis</strong> antes de 24h laborables.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid gap-12 lg:grid-cols-2">
             {/* Contact Form */}
-            <div className="voltik-card">
+            <div className="voltik-card lg:col-span-2">
               <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 {/* Nombre */}
                 <div>
@@ -345,91 +344,88 @@ export default function ContactForm() {
               </form>
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-6">
-              {/* Contact Details */}
-              <div className="voltik-card">
-                <h3 className="text-xl font-semibold mb-6">Contacto directo</h3>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <Phone size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">Urgencias 24/7</div>
-                      <a 
-                        href="tel:+34957000000" 
-                        className="text-primary hover:underline"
-                      >
-                        957 000 000
-                      </a>
-                    </div>
+            {/* Contact Details */}
+            <div className="voltik-card">
+              <h3 className="text-xl font-semibold mb-6">Contacto directo</h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <Phone size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
+                  <div>
+                    <div className="font-medium">Urgencias 24/7</div>
+                    <a 
+                      href="tel:+34957000000" 
+                      className="text-primary hover:underline"
+                    >
+                      957 000 000
+                    </a>
                   </div>
+                </div>
 
-                  <div className="flex items-start">
-                    <MessageCircle size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">WhatsApp</div>
-                      <a 
-                        href="https://wa.me/34957000000" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline"
-                      >
-                        Consulta directa
-                      </a>
-                    </div>
+                <div className="flex items-start">
+                  <MessageCircle size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
+                  <div>
+                    <div className="font-medium">WhatsApp</div>
+                    <a 
+                      href="https://wa.me/34957000000" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      Consulta directa
+                    </a>
                   </div>
+                </div>
 
-                  <div className="flex items-start">
-                    <Mail size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">Email</div>
-                      <a 
-                        href="mailto:contacto@voltik.es" 
-                        className="text-primary hover:underline"
-                      >
-                        contacto@voltik.es
-                      </a>
-                    </div>
+                <div className="flex items-start">
+                  <Mail size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
+                  <div>
+                    <div className="font-medium">Email</div>
+                    <a 
+                      href="mailto:contacto@voltik.es" 
+                      className="text-primary hover:underline"
+                    >
+                      contacto@voltik.es
+                    </a>
                   </div>
+                </div>
 
-                  <div className="flex items-start">
-                    <MapPin size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">Zona de servicio</div>
-                      <span>Córdoba y provincia</span>
-                    </div>
+                <div className="flex items-start">
+                  <MapPin size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
+                  <div>
+                    <div className="font-medium">Zona de servicio</div>
+                    <span>Córdoba y provincia</span>
                   </div>
+                </div>
 
-                  <div className="flex items-start">
-                    <Clock size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
-                    <div>
-                      <div className="font-medium">Horario comercial</div>
-                      <span>Lun-Vie 8:00-18:00</span>
-                    </div>
+                <div className="flex items-start">
+                  <Clock size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
+                  <div>
+                    <div className="font-medium">Horario comercial</div>
+                    <span>Lun-Vie 8:00-18:00</span>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* WhatsApp CTA */}
-              <div className="voltik-card bg-green-50 border border-green-200">
-                <h3 className="text-lg font-semibold text-green-800 mb-3">
-                  ¿Tienes prisa? ¡WhatsApp directo!
-                </h3>
-                <p className="text-green-700 mb-4 text-sm">
-                  Para consultas urgentes o si prefieres un contacto más directo.
-                </p>
-                <VoltikButton variant="outline" asChild className="w-full border-green-600 text-green-700 hover:bg-green-600 hover:text-white">
-                  <a 
-                    href="https://wa.me/34957000000?text=Hola, necesito información sobre instalaciones eléctricas" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    <MessageCircle size={20} className="mr-2" />
-                    Abrir WhatsApp
-                  </a>
-                </VoltikButton>
-              </div>
+            {/* WhatsApp CTA */}
+            <div className="voltik-card bg-green-50 border border-green-200">
+              <h3 className="text-lg font-semibold text-green-800 mb-3">
+                ¿Tienes prisa? ¡WhatsApp directo!
+              </h3>
+              <p className="text-green-700 mb-4 text-sm">
+                Para consultas urgentes o si prefieres un contacto más directo.
+              </p>
+              <VoltikButton variant="outline" asChild className="w-full border-green-600 text-green-700 hover:bg-green-600 hover:text-white">
+                <a 
+                  href="https://wa.me/34957000000?text=Hola, necesito información sobre instalaciones eléctricas" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle size={20} className="mr-2" />
+                  Abrir WhatsApp
+                </a>
+              </VoltikButton>
             </div>
           </div>
         </div>

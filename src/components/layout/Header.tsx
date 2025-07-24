@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, Phone, MessageCircle } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
-import voltikLogo from '@/assets/voltik-logo.png'
+import voltikLogo from '@/assets/voltik-logo-web.svg'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,10 +18,10 @@ export default function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   const navigationItems = [
-    { href: '#home', label: 'Inicio' },
-    { href: '#servicios', label: 'Servicios' },
-    { href: '#valores', label: 'Valores' },
-    { href: '#casos', label: 'Casos de éxito' },
+    { href: '/#home', label: 'Inicio' },
+    { href: '/#servicios', label: 'Servicios' },
+    { href: '/#valores', label: 'Valores' },
+    { href: '/#casos', label: 'Casos de éxito' },
     { href: '/blog', label: 'Blog' },
   ]
 
@@ -37,7 +37,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a 
-            href="#home" 
+            href="/#home" 
             className="flex-shrink-0 hover:opacity-80 transition-opacity"
             aria-label="Voltik - Inicio"
           >
@@ -55,7 +55,7 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="relative text-foreground/80 hover:text-foreground transition-colors text-sm font-medium group"
+                className="relative text-foreground/80 hover:text-foreground transition-colors text-base font-medium group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
@@ -74,7 +74,7 @@ export default function Header() {
               957 000 000
             </a>
             <VoltikButton variant="voltik" size="sm" asChild>
-              <a href="#contacto">Pide presupuesto</a>
+              <a href="/#contacto">Pide presupuesto</a>
             </VoltikButton>
           </div>
 
@@ -131,7 +131,7 @@ export default function Header() {
                 </a>
                 
                 <VoltikButton variant="voltik" className="w-full" asChild>
-                  <a href="#contacto" onClick={() => setIsMenuOpen(false)}>
+                  <a href="/#contacto" onClick={() => setIsMenuOpen(false)}>
                     Pide presupuesto gratis
                   </a>
                 </VoltikButton>

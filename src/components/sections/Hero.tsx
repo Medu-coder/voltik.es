@@ -1,11 +1,11 @@
 import { ArrowRight, Clock, Shield, Zap } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import heroImage from '@/assets/hero-electrician.jpg'
-import voltikLogo from '@/assets/voltik-logo.png'
+import voltikLogo from '@/assets/voltik-logo-web.svg'
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden hero-bg min-h-screen flex items-center">
+    <section id="home" className="relative overflow-hidden bg-primary min-h-screen flex items-center">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -23,7 +23,7 @@ export default function Hero() {
             <img 
               src={voltikLogo} 
               alt="Voltik - Instaladores eléctricos" 
-              className="h-16 md:h-20 mx-auto mb-6"
+              className="h-24 md:h-32 mx-auto mb-6"
               loading="eager"
             />
           </div>
@@ -31,7 +31,7 @@ export default function Hero() {
           {/* Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
             Tu instalación eléctrica,{' '}
-            <span className="text-gradient bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="text-[hsl(var(--voltik-neutral-dark))]">
               resuelta en 24h
             </span>
           </h1>
@@ -83,7 +83,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-foreground/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-foreground/30 rounded-full mt-2 animate-pulse"></div>
         </div>
