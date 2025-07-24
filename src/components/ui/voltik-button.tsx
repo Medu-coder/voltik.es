@@ -13,7 +13,7 @@ const voltikButtonVariants = cva(
         secondary: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg", 
         outline: "border-2 border-foreground text-foreground hover:bg-foreground hover:text-background",
         ghost: "text-foreground hover:bg-accent hover:text-accent-foreground",
-        voltik: "bg-gradient-to-r from-primary to-secondary text-foreground font-bold hover:from-primary/90 hover:to-secondary/90 shadow-lg hover:shadow-xl transform hover:-translate-y-1",
+        voltik: "bg-primary text-primary-foreground font-bold hover:bg-primary/90 shadow-lg hover:shadow-xl transform hover:-translate-y-1",
         emergency: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md hover:shadow-lg animate-pulse",
       },
       size: {

@@ -79,7 +79,7 @@ export default function Values() {
 
         {/* Stats Section */}
         <div className="mt-20">
-          <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-primary rounded-2xl p-8 md:p-12 text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
               Números que hablan por nosotros
             </h3>

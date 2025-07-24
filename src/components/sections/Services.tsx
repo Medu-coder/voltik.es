@@ -100,7 +100,7 @@ export default function Services() {
         </div>
 
         {/* Process Section */}
-        <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 md:p-12">
+        <div className="bg-primary/10 rounded-2xl p-8 md:p-12">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Nuestro proceso en 3 pasos
@@ -110,7 +110,7 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="voltik-grid-3">
+          <div className="voltik-grid-3-centered">
             {process.map((step, index) => (
               <div key={index} className="text-center relative">
                 {/* Step Number */}

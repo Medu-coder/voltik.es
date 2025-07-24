@@ -11,7 +11,7 @@ export default function ProblemAgitation() {
           </h2>
 
           {/* Pain Points Grid */}
-          <div className="voltik-grid-3 mb-8">
+          <div className="voltik-grid-3-centered mb-8">
             <div className="voltik-card bg-destructive/10 border border-destructive/20">
               <AlertTriangle size={48} className="mx-auto mb-4 text-destructive" />
               <h3 className="font-semibold mb-2 text-destructive">Sin electricidad</h3>
@@ -38,7 +38,7 @@ export default function ProblemAgitation() {
           </div>
 
           {/* Solution Preview */}
-          <div className="bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl p-8 md:p-12">
+          <div className="bg-primary/20 rounded-2xl p-8 md:p-12">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               En Voltik hacemos las cosas diferentes
             </h3>
