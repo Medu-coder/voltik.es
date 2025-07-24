@@ -1,0 +1,460 @@
+/* 
+  Voltik Design System - CSS Custom Properties
+  Versión: 1.0.0
+  Fecha: 2025-01-24
+  
+  IMPORTANTE: Los colores de marca NO deben modificarse sin autorización.
+  Estos son los colores oficiales definidos en base.css del proyecto original.
+*/
+
+:root {
+  /* ========================================
+     COLORES DE MARCA (NO MODIFICAR)
+     ======================================== */
+  
+  /* Colores principales */
+  --voltik-primary: hsl(75, 33%, 85%);       /* #DDE6D5 - Verde salvia */
+  --voltik-secondary: hsl(46, 71%, 86%);     /* #F4E7C1 - Crema cálido */
+  --voltik-text: hsl(0, 0%, 10%);            /* #1A1A1A - Negro suave */
+  --voltik-background: hsl(0, 0%, 100%);     /* #FFFFFF - Blanco */
+  --voltik-neutral-light: hsl(0, 0%, 99%);   /* #FCFCFC - Blanco cálido */
+  --voltik-neutral-dark: hsl(0, 0%, 31%);    /* #4F4F4F - Gris medio */
+  --voltik-error: hsl(0, 43%, 70%);          /* #C97E7E - Rojo suave */
+  
+  /* Variaciones derivadas (permitidas) */
+  --voltik-primary-light: hsl(75, 33%, 92%);
+  --voltik-primary-dark: hsl(75, 33%, 75%);
+  --voltik-secondary-light: hsl(46, 71%, 93%);
+  --voltik-secondary-dark: hsl(46, 71%, 76%);
+  
+  /* Colores semánticos */
+  --voltik-success: hsl(142, 76%, 36%);      /* Verde éxito */
+  --voltik-warning: hsl(45, 93%, 47%);       /* Amarillo advertencia */
+  --voltik-info: hsl(217, 91%, 60%);         /* Azul información */
+  
+  /* ========================================
+     TIPOGRAFÍA
+     ======================================== */
+  
+  /* Familia de fuentes */
+  --voltik-font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Tamaños de fuente */
+  --voltik-text-xs: 0.75rem;      /* 12px */
+  --voltik-text-sm: 0.875rem;     /* 14px */
+  --voltik-text-base: 1rem;       /* 16px */
+  --voltik-text-lg: 1.125rem;     /* 18px */
+  --voltik-text-xl: 1.25rem;      /* 20px */
+  --voltik-text-2xl: 1.5rem;      /* 24px */
+  --voltik-text-3xl: 1.875rem;    /* 30px */
+  --voltik-text-4xl: 2.25rem;     /* 36px */
+  --voltik-text-5xl: 3rem;        /* 48px */
+  --voltik-text-6xl: 3.75rem;     /* 60px */
+  
+  /* Pesos de fuente */
+  --voltik-font-light: 300;
+  --voltik-font-normal: 400;
+  --voltik-font-medium: 500;
+  --voltik-font-semibold: 600;
+  --voltik-font-bold: 700;
+  --voltik-font-extrabold: 800;
+  
+  /* Altura de línea */
+  --voltik-leading-tight: 1.25;
+  --voltik-leading-normal: 1.5;
+  --voltik-leading-relaxed: 1.6;
+  --voltik-leading-loose: 1.8;
+  
+  /* ========================================
+     ESPACIADO (Sistema 8pt)
+     ======================================== */
+  
+  --voltik-space-1: 0.25rem;   /* 4px  - Muy próximo */
+  --voltik-space-2: 0.5rem;    /* 8px  - Próximo */
+  --voltik-space-3: 1rem;      /* 16px - Estándar */
+  --voltik-space-4: 1.5rem;    /* 24px - Medio */
+  --voltik-space-5: 2rem;      /* 32px - Amplio */
+  --voltik-space-6: 3rem;      /* 48px - Sección pequeña */
+  --voltik-space-7: 4rem;      /* 64px - Sección mediana */
+  --voltik-space-8: 6rem;      /* 96px - Sección grande */
+  --voltik-space-9: 8rem;      /* 128px - Máximo */
+  
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
+  
+  --voltik-radius-none: 0;
+  --voltik-radius-sm: 0.25rem;   /* 4px */
+  --voltik-radius-md: 0.5rem;    /* 8px */
+  --voltik-radius-lg: 0.75rem;   /* 12px */
+  --voltik-radius-xl: 1rem;      /* 16px */
+  --voltik-radius-2xl: 1.5rem;   /* 24px */
+  --voltik-radius-full: 9999px;
+  
+  /* ========================================
+     SOMBRAS
+     ======================================== */
+  
+  --voltik-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --voltik-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --voltik-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --voltik-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Sombras especiales con color de marca */
+  --voltik-shadow-primary: 0 4px 6px -1px hsl(var(--voltik-primary) / 0.1);
+  --voltik-shadow-secondary: 0 4px 6px -1px hsl(var(--voltik-secondary) / 0.1);
+  
+  /* ========================================
+     TRANSICIONES
+     ======================================== */
+  
+  --voltik-transition-fast: 0.15s ease;
+  --voltik-transition-base: 0.2s ease;
+  --voltik-transition-slow: 0.3s ease;
+  
+  /* Transiciones específicas */
+  --voltik-transition-colors: color var(--voltik-transition-fast), 
+                               background-color var(--voltik-transition-fast),
+                               border-color var(--voltik-transition-fast);
+  --voltik-transition-transform: transform var(--voltik-transition-base);
+  --voltik-transition-all: all var(--voltik-transition-base);
+  
+  /* ========================================
+     Z-INDEX SCALE
+     ======================================== */
+  
+  --voltik-z-below: -1;
+  --voltik-z-default: 1;
+  --voltik-z-overlay: 10;
+  --voltik-z-modal: 100;
+  --voltik-z-toast: 1000;
+  
+  /* ========================================
+     BREAKPOINTS (Para uso en JS)
+     ======================================== */
+  
+  --voltik-breakpoint-sm: 640px;
+  --voltik-breakpoint-md: 768px;
+  --voltik-breakpoint-lg: 1024px;
+  --voltik-breakpoint-xl: 1280px;
+  --voltik-breakpoint-2xl: 1536px;
+  
+  /* ========================================
+     DIMENSIONES DE COMPONENTES
+     ======================================== */
+  
+  /* Alturas de botones */
+  --voltik-button-height-sm: 2.25rem;    /* 36px */
+  --voltik-button-height-md: 3rem;       /* 48px */
+  --voltik-button-height-lg: 3.5rem;     /* 56px */
+  --voltik-button-height-xl: 4rem;       /* 64px */
+  
+  /* Alturas de inputs */
+  --voltik-input-height: 3rem;           /* 48px */
+  --voltik-input-height-sm: 2.5rem;      /* 40px */
+  --voltik-input-height-lg: 3.5rem;      /* 56px */
+  
+  /* Anchos máximos de contenedores */
+  --voltik-container-sm: 640px;
+  --voltik-container-md: 768px;
+  --voltik-container-lg: 1024px;
+  --voltik-container-xl: 1280px;
+  --voltik-container-2xl: 1536px;
+  
+  /* ========================================
+     UTILIDADES DE GRADIENTES
+     ======================================== */
+  
+  --voltik-gradient-primary: linear-gradient(135deg, 
+    hsl(var(--voltik-primary)), 
+    hsl(var(--voltik-primary-dark))
+  );
+  
+  --voltik-gradient-secondary: linear-gradient(135deg, 
+    hsl(var(--voltik-secondary)), 
+    hsl(var(--voltik-secondary-dark))
+  );
+  
+  --voltik-gradient-brand: linear-gradient(135deg, 
+    hsl(var(--voltik-primary)), 
+    hsl(var(--voltik-secondary))
+  );
+  
+  --voltik-gradient-hero: radial-gradient(circle at 25% 25%, hsl(var(--voltik-primary)) 0%, transparent 50%),
+                          radial-gradient(circle at 75% 75%, hsl(var(--voltik-secondary)) 0%, transparent 50%);
+}
+
+/* ========================================
+   MODO OSCURO (Dark Mode)
+   ======================================== */
+
+[data-theme="dark"], 
+.dark {
+  --voltik-background: hsl(var(--voltik-text));
+  --voltik-text: hsl(var(--voltik-neutral-light));
+  --voltik-neutral-light: hsl(0, 0%, 15%);
+  --voltik-neutral-dark: hsl(0, 0%, 70%);
+  
+  /* Los colores de marca se mantienen para mantener identidad */
+  /* Sólo cambiamos fondos y textos para legibilidad */
+}
+
+/* ========================================
+   UTILIDADES CSS
+   ======================================== */
+
+/* Contenedores responsivos */
+.voltik-container {
+  max-width: var(--voltik-container-2xl);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--voltik-space-4);
+  padding-right: var(--voltik-space-4);
+}
+
+@media (min-width: 640px) {
+  .voltik-container {
+    padding-left: var(--voltik-space-6);
+    padding-right: var(--voltik-space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .voltik-container {
+    padding-left: var(--voltik-space-8);
+    padding-right: var(--voltik-space-8);
+  }
+}
+
+/* Secciones con padding vertical */
+.voltik-section {
+  padding-top: var(--voltik-space-7);
+  padding-bottom: var(--voltik-space-7);
+}
+
+@media (min-width: 768px) {
+  .voltik-section {
+    padding-top: var(--voltik-space-8);
+    padding-bottom: var(--voltik-space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .voltik-section {
+    padding-top: var(--voltik-space-9);
+    padding-bottom: var(--voltik-space-9);
+  }
+}
+
+/* Tarjetas base */
+.voltik-card {
+  background-color: hsl(var(--voltik-neutral-light));
+  border-radius: var(--voltik-radius-xl);
+  padding: var(--voltik-space-6);
+  box-shadow: var(--voltik-shadow-md);
+  transition: var(--voltik-transition-all);
+}
+
+@media (min-width: 768px) {
+  .voltik-card {
+    padding: var(--voltik-space-8);
+  }
+}
+
+.voltik-card:hover {
+  box-shadow: var(--voltik-shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Grids responsivos */
+.voltik-grid {
+  display: grid;
+  gap: var(--voltik-space-6);
+}
+
+@media (min-width: 768px) {
+  .voltik-grid {
+    gap: var(--voltik-space-8);
+  }
+}
+
+.voltik-grid-2 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .voltik-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.voltik-grid-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .voltik-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .voltik-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.voltik-grid-4 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .voltik-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .voltik-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tipografía base */
+.voltik-text-lead {
+  font-size: var(--voltik-text-lg);
+  line-height: var(--voltik-leading-relaxed);
+  color: hsl(var(--voltik-neutral-dark));
+  max-width: 48rem; /* 768px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .voltik-text-lead {
+    font-size: var(--voltik-text-xl);
+  }
+}
+
+/* Estados de focus para accesibilidad */
+*:focus-visible {
+  outline: 2px solid hsl(var(--voltik-primary));
+  outline-offset: 2px;
+}
+
+/* Animaciones suaves por defecto */
+* {
+  transition: var(--voltik-transition-colors);
+}
+
+/* ========================================
+   COMPONENTES BASE
+   ======================================== */
+
+/* Botones base */
+.voltik-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: var(--voltik-radius-lg);
+  font-family: var(--voltik-font-family);
+  font-weight: var(--voltik-font-semibold);
+  font-size: var(--voltik-text-base);
+  transition: var(--voltik-transition-all);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.voltik-button:focus-visible {
+  outline: 2px solid hsl(var(--voltik-primary));
+  outline-offset: 2px;
+}
+
+.voltik-button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Variantes de botones */
+.voltik-button--primary {
+  background-color: hsl(var(--voltik-text));
+  color: hsl(var(--voltik-background));
+  box-shadow: var(--voltik-shadow-md);
+  height: var(--voltik-button-height-md);
+  padding-left: var(--voltik-space-6);
+  padding-right: var(--voltik-space-6);
+}
+
+.voltik-button--primary:hover {
+  background-color: hsl(var(--voltik-text) / 0.9);
+  box-shadow: var(--voltik-shadow-lg);
+  transform: translateY(-1px);
+}
+
+.voltik-button--secondary {
+  background-color: hsl(var(--voltik-primary));
+  color: hsl(var(--voltik-text));
+  box-shadow: var(--voltik-shadow-md);
+  height: var(--voltik-button-height-md);
+  padding-left: var(--voltik-space-6);
+  padding-right: var(--voltik-space-6);
+}
+
+.voltik-button--secondary:hover {
+  background-color: hsl(var(--voltik-primary) / 0.9);
+  box-shadow: var(--voltik-shadow-lg);
+  transform: translateY(-1px);
+}
+
+.voltik-button--outline {
+  background-color: transparent;
+  color: hsl(var(--voltik-text));
+  border: 2px solid hsl(var(--voltik-text));
+  height: var(--voltik-button-height-md);
+  padding-left: var(--voltik-space-6);
+  padding-right: var(--voltik-space-6);
+}
+
+.voltik-button--outline:hover {
+  background-color: hsl(var(--voltik-text));
+  color: hsl(var(--voltik-background));
+}
+
+.voltik-button--voltik {
+  background: var(--voltik-gradient-brand);
+  color: hsl(var(--voltik-text));
+  font-weight: var(--voltik-font-bold);
+  box-shadow: var(--voltik-shadow-lg);
+  height: var(--voltik-button-height-md);
+  padding-left: var(--voltik-space-6);
+  padding-right: var(--voltik-space-6);
+}
+
+.voltik-button--voltik:hover {
+  box-shadow: var(--voltik-shadow-xl);
+  transform: translateY(-2px);
+}
+
+/* Tamaños de botones */
+.voltik-button--sm {
+  height: var(--voltik-button-height-sm);
+  padding-left: var(--voltik-space-4);
+  padding-right: var(--voltik-space-4);
+  font-size: var(--voltik-text-sm);
+}
+
+.voltik-button--lg {
+  height: var(--voltik-button-height-lg);
+  padding-left: var(--voltik-space-8);
+  padding-right: var(--voltik-space-8);
+  font-size: var(--voltik-text-lg);
+}
+
+.voltik-button--xl {
+  height: var(--voltik-button-height-xl);
+  padding-left: calc(var(--voltik-space-8) + var(--voltik-space-2));
+  padding-right: calc(var(--voltik-space-8) + var(--voltik-space-2));
+  font-size: var(--voltik-text-xl);
+}

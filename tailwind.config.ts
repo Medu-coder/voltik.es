@@ -18,12 +18,25 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Manrope', 'sans-serif'],
+				manrope: ['Manrope', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				// Voltik brand colors
+				'voltik-primary': 'hsl(var(--voltik-primary))',
+				'voltik-secondary': 'hsl(var(--voltik-secondary))',
+				'voltik-neutral-light': 'hsl(var(--voltik-neutral-light))',
+				'voltik-neutral-dark': 'hsl(var(--voltik-neutral-dark))',
+				'voltik-background': 'hsl(var(--voltik-background))',
+				'voltik-error': 'hsl(var(--voltik-error))',
+				'voltik-text': 'hsl(var(--voltik-text))',
+				// Design system mapping
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -52,16 +65,47 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+			},
+			spacing: {
+				'space-1': 'var(--space-1)',
+				'space-2': 'var(--space-2)',
+				'space-3': 'var(--space-3)',
+				'space-4': 'var(--space-4)',
+				'space-5': 'var(--space-5)',
+				'space-6': 'var(--space-6)',
+				'space-7': 'var(--space-7)',
+				'space-8': 'var(--space-8)',
+				'space-9': 'var(--space-9)',
+			},
+			fontSize: {
+				'xs': 'var(--text-xs)',
+				'sm': 'var(--text-sm)',
+				'base': 'var(--text-base)',
+				'lg': 'var(--text-lg)',
+				'xl': 'var(--text-xl)',
+				'2xl': 'var(--text-2xl)',
+				'3xl': 'var(--text-3xl)',
+				'4xl': 'var(--text-4xl)',
+				'5xl': 'var(--text-5xl)',
+				'6xl': 'var(--text-6xl)',
+			},
+			boxShadow: {
+				'sm': 'var(--shadow-sm)',
+				'md': 'var(--shadow-md)',
+				'lg': 'var(--shadow-lg)',
+				'xl': 'var(--shadow-xl)',
+			},
+			zIndex: {
+				'below': 'var(--z-below)',
+				'default': 'var(--z-default)',
+				'overlay': 'var(--z-overlay)',
+				'modal': 'var(--z-modal)',
+				'toast': 'var(--z-toast)',
+			},
+			transitionDuration: {
+				'fast': 'var(--transition-fast)',
+				'base': 'var(--transition-base)',
+				'slow': 'var(--transition-slow)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
