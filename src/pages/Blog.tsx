@@ -61,7 +61,7 @@ const Blog = () => {
         <section className="voltik-section hero-bg">
           <div className="voltik-container text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Blog técnico de Voltik
+              Blog de electricidad Voltik
             </h1>
             <p className="lead">
               Consejos, guías y noticias sobre instalaciones eléctricas, placas solares, domótica y mucho más.
