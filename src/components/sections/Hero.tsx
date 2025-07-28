@@ -23,7 +23,7 @@ export default function Hero() {
             <img 
               src={voltikLogo} 
               alt="Voltik - Instaladores eléctricos" 
-              className="h-24 md:h-32 mx-auto mb-6"
+              className="h-20 md:h-32 mx-auto mb-6"
               loading="eager"
             />
           </div>

@@ -1,5 +1,5 @@
 import { Calendar, Clock, ArrowRight, Search, Tag } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { VoltikButton } from '@/components/ui/voltik-button'
@@ -111,6 +111,14 @@ const Blog = () => {
       day: 'numeric'
     })
   }
+
+  useEffect(() => {
+  document.title = 'Blog técnico de Voltik';
+  return () => {
+    // Opcional: restablece el título por defecto al abandonar la página
+    document.title = 'Voltik · Instaladores eléctricos en Córdoba';
+  };
+}, []);
 
   return (
     <div className="min-h-screen bg-background">
