@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { VoltikButton } from '@/components/ui/voltik-button'
-
+import { Link } from 'react-router-dom';
+import blogPosts from '@/data/blogPosts';
 interface BlogPost {
   id: string
   title: string
@@ -19,75 +20,6 @@ interface BlogPost {
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
-
-  const blogPosts: BlogPost[] = [
-    {
-      id: '1',
-      title: 'Instalación de puntos de recarga para vehículos eléctricos: Guía completa 2025',
-      excerpt: 'Todo lo que necesitas saber sobre la instalación de wallbox en tu hogar o negocio. Permisos, costes y proceso paso a paso.',
-      content: 'Contenido completo del artículo...',
-      date: '2025-01-15',
-      readTime: '8 min',
-      category: 'Movilidad Eléctrica',
-      tags: ['wallbox', 'coche eléctrico', 'instalación'],
-      featured: true
-    },
-    {
-      id: '2', 
-      title: 'Domótica en el hogar: Automatiza tu casa con inteligencia',
-      excerpt: 'Descubre cómo la domótica puede mejorar tu calidad de vida mientras reduces el consumo energético.',
-      content: 'Contenido completo del artículo...',
-      date: '2025-01-12',
-      readTime: '6 min',
-      category: 'Domótica',
-      tags: ['smart home', 'automatización', 'ahorro energético'],
-      featured: true
-    },
-    {
-      id: '3',
-      title: '¿Cuándo necesitas actualizar tu instalación eléctrica?',
-      excerpt: 'Señales que indican que tu instalación eléctrica necesita una renovación y cómo planificar el proyecto.',
-      content: 'Contenido completo del artículo...',
-      date: '2025-01-10',
-      readTime: '5 min',
-      category: 'Instalaciones',
-      tags: ['renovación', 'seguridad', 'normativa'],
-      featured: false
-    },
-    {
-      id: '4',
-      title: 'Mantenimiento preventivo: Evita averías costosas',
-      excerpt: 'La importancia del mantenimiento preventivo en instalaciones eléctricas comerciales e industriales.',
-      content: 'Contenido completo del artículo...',
-      date: '2025-01-08',
-      readTime: '7 min',
-      category: 'Mantenimiento',
-      tags: ['mantenimiento', 'prevención', 'industrial'],
-      featured: false
-    },
-    {
-      id: '5',
-      title: 'Normativa eléctrica en Andalucía: Lo que debes saber',
-      excerpt: 'Requisitos legales y normativas vigentes para instalaciones eléctricas en Andalucía.',
-      content: 'Contenido completo del artículo...',
-      date: '2025-01-05',
-      readTime: '9 min',
-      category: 'Normativa',
-      tags: ['legalización', 'REBT', 'certificados'],
-      featured: false
-    },
-    {
-      id: '6',
-      title: 'Urgencias eléctricas: Cómo actuar ante una avería',
-      excerpt: 'Protocolo de actuación ante averías eléctricas y cuándo es necesario llamar a un profesional.',
-      content: 'Contenido completo del artículo...',
-      date: '2025-01-03',
-      readTime: '4 min',
-      category: 'Urgencias',
-      tags: ['emergencias', 'seguridad', '24h'],
-      featured: false
-    }
-  ]
 
   const categories = ['all', ...Array.from(new Set(blogPosts.map(post => post.category)))]
 
@@ -113,7 +45,7 @@ const Blog = () => {
   }
 
   useEffect(() => {
-  document.title = 'Blog técnico de Voltik';
+  document.title = 'Voltik · Blog de electricidad';
   return () => {
     // Opcional: restablece el título por defecto al abandonar la página
     document.title = 'Voltik · Instaladores eléctricos en Córdoba';
@@ -132,7 +64,7 @@ const Blog = () => {
               Blog técnico de Voltik
             </h1>
             <p className="lead">
-              Consejos, guías y noticias sobre instalaciones eléctricas, domótica y eficiencia energética.
+              Consejos, guías y noticias sobre instalaciones eléctricas, placas solares, domótica y mucho más.
             </p>
           </div>
         </section>
@@ -222,9 +154,11 @@ const Blog = () => {
                       ))}
                     </div>
                     
-                    <VoltikButton variant="outline" size="sm" className="group">
-                      Leer más
-                      <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    <VoltikButton variant="outline" size="sm" className="group" asChild>
+                      <Link to={`/blog/${post.id}`}>
+                        Leer más
+                        <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     </VoltikButton>
                   </article>
                 ))}
@@ -280,9 +214,11 @@ const Blog = () => {
                       )}
                     </div>
                     
-                    <VoltikButton variant="ghost" size="sm" className="w-full group justify-between">
-                      Leer artículo
-                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    <VoltikButton variant="ghost" size="sm" className="w-full group justify-between" asChild>
+                      <Link to={`/blog/${post.id}`}>
+                        Leer artículo
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     </VoltikButton>
                   </article>
                 ))}
