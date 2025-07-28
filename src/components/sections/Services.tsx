@@ -9,14 +9,14 @@ export default function Services() {
     {
       icon: Home,
       title: "Viviendas",
-      description: "Reformas eléctricas completas, domótica inteligente y puntos de recarga para vehículo eléctrico.",
+      description: "Reformas eléctricas completas, instalación de placas solares, puntos de recarga para vehículo eléctrico y domótica inteligente.",
       image: residentialImage,
-      features: ["Instalaciones nuevas", "Reformas eléctricas", "Domótica", "Puntos de recarga VE"]
+      features: ["Instalaciones nuevas y reformas", "Placas solares", "Puntos de recarga VE", "Domótica inteligente",]
     },
     {
       icon: Building2,
       title: "Negocios",
-      description: "Cuadros eléctricos industriales, mantenimiento preventivo y legalizaciones oficiales.",
+      description: "Cuadros eléctricos para tu empresa, mantenimiento preventivo y legalizaciones oficiales.",
       image: commercialImage,
       features: ["Instalaciones comerciales", "Cuadros eléctricos", "Mantenimiento", "Legalizaciones"]
     },
@@ -106,7 +106,7 @@ export default function Services() {
               Nuestro proceso en 3 pasos
             </h3>
             <p className="lead">
-              Simplicidad y transparencia desde el primer contacto hasta la entrega final
+              Simplicidad y transparencia desde que nos contactas hasta que entregamos el trabajo.
             </p>
           </div>
 

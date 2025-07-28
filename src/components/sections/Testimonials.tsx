@@ -19,35 +19,35 @@ export default function Testimonials() {
       author: "Javier Martín",
       role: "Particular",
       rating: 5,
-      location: "Zona Sur"
+      location: "Provincia de Córdoba"
     },
     {
       quote: "Respondieron a una avería un domingo en menos de dos horas. Atención de 10 y precios transparentes.",
       author: "Carmen López",
       role: "Comercio local",
       rating: 5,
-      location: "Barrio de la Judería"
+      location: "Barrio de Cañero"
     },
     {
-      quote: "Optimizaron la potencia contratada y ahora pago 30€ menos cada mes. Una inversión que se paga sola.",
-      author: "Rubén Torres",
-      role: "Oficina",
-      rating: 5,
-      location: "Polígono Industrial"
-    },
-    {
-      quote: "Instalación domótica completa en tiempo récord. Ahora controlo toda la casa desde el móvil.",
+      quote: "Instalación completa de placas solares en tiempo récord. Además puedo ver la producción desde el móvil.",
       author: "Ana Delgado",
       role: "Vivienda unifamiliar",
       rating: 5,
-      location: "Urbanización Norte"
+      location: "El Tablero"
+    },
+    {
+      quote: "Optimizaron la potencia contratada y ahora pago 150€ menos cada mes. Una inversión que se paga sola.",
+      author: "Rubén Torres",
+      role: "Oficina",
+      rating: 5,
+      location: "Polígono Industrial las Quemadas"
     },
     {
       quote: "Legalización express en Industria. Documentación perfecta y seguimiento constante por WhatsApp.",
       author: "Miguel Ruiz",
       role: "Empresa industrial",
       rating: 5,
-      location: "Polígono El Higuerón"
+      location: "Polígono de La Torrecilla"
     }
   ]
 
@@ -86,7 +86,7 @@ export default function Testimonials() {
             Testimonios de clientes que confiaron en Voltik
           </h2>
           <p className="lead">
-            Más de 500 proyectos completados con éxito en toda Córdoba. 
+            Más de 500 proyectos completados con éxito en toda la provincia de Córdoba. 
             Conoce las experiencias reales de nuestros clientes.
           </p>
         </div>
@@ -171,7 +171,7 @@ export default function Testimonials() {
         {/* CTA */}
         <div className="text-center mt-16">
           <h3 className="text-xl md:text-2xl font-semibold mb-4">
-            ¿Quieres ser nuestro próximo cliente satisfecho?
+            ¿Tú también quieres ser un cliente satisfecho?
           </h3>
           <VoltikButton variant="voltik" size="lg" asChild>
             <a href="#contacto">Pide tu presupuesto gratis</a>
