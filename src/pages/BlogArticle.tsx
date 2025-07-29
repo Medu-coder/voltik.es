@@ -37,17 +37,15 @@ const BlogArticle = () => {
       {/* Contenido del artículo */}
       <section className="voltik-section">
         <div className="voltik-container max-w-3xl mx-auto prose prose-neutral">
-          {/* si usas markup plano, reemplaza dangerouslySetInnerHTML por componentes propios */}
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        </div>
-      </section>
-
-      {/* CTA al final del artículo */}
-      <section className="voltik-section">
-        <div className="voltik-container text-center">
-          <VoltikButton variant="voltik" size="lg" asChild>
-            <a href={post.ctaLink}>{post.ctaLabel}</a>
-          </VoltikButton>
+          {/* CTA al final del artículo */}
+          <div className="mt-8 text-center">
+            <VoltikButton variant="voltik" size="lg" asChild>
+              <a href={post.ctaLink} className="no-underline">
+                {post.ctaLabel}
+              </a>
+            </VoltikButton>
+          </div>
         </div>
       </section>
 
