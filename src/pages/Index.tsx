@@ -14,13 +14,17 @@ const Index = () => {
 
   useEffect(() => {
     if (location.hash) {
-      const id = location.hash.replace('#', '');
+      // Si hay un ancla, esperamos un tick y hacemos scroll al elemento
+      const id = location.hash.slice(1);
       setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
         }
       }, 0);
+    } else {
+      // Si no hay hash, colocamos la página en el inicio
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [location]);
 
