@@ -64,6 +64,7 @@ export default function Footer() {
               <h3 className="font-semibold text-lg mb-4 text-primary">Servicios</h3>
               <ul className="space-y-2 text-background/80">
                 <li><a href="/#servicios" className="hover:text-primary transition-colors">Instalaciones eléctricas</a></li>
+                <li><a href="/#servicios" className="hover:text-primary transition-colors">Paneles solares</a></li>
                 <li><a href="/#servicios" className="hover:text-primary transition-colors">Domótica y automatización</a></li>
                 <li><a href="/#servicios" className="hover:text-primary transition-colors">Puntos de recarga VE</a></li>
                 <li><a href="/#servicios" className="hover:text-primary transition-colors">Mantenimiento preventivo</a></li>
