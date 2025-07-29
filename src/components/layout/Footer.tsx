@@ -63,12 +63,12 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold text-lg mb-4 text-primary">Servicios</h3>
               <ul className="space-y-2 text-background/80">
-                <li><a href="#servicios" className="hover:text-primary transition-colors">Instalaciones eléctricas</a></li>
-                <li><a href="#servicios" className="hover:text-primary transition-colors">Domótica y automatización</a></li>
-                <li><a href="#servicios" className="hover:text-primary transition-colors">Puntos de recarga VE</a></li>
-                <li><a href="#servicios" className="hover:text-primary transition-colors">Mantenimiento preventivo</a></li>
-                <li><a href="#servicios" className="hover:text-primary transition-colors">Urgencias 24/7</a></li>
-                <li><a href="#servicios" className="hover:text-primary transition-colors">Legalizaciones</a></li>
+                <li><a href="/#servicios" className="hover:text-primary transition-colors">Instalaciones eléctricas</a></li>
+                <li><a href="/#servicios" className="hover:text-primary transition-colors">Domótica y automatización</a></li>
+                <li><a href="/#servicios" className="hover:text-primary transition-colors">Puntos de recarga VE</a></li>
+                <li><a href="/#servicios" className="hover:text-primary transition-colors">Mantenimiento preventivo</a></li>
+                <li><a href="/#servicios" className="hover:text-primary transition-colors">Urgencias 24/7</a></li>
+                <li><a href="/#servicios" className="hover:text-primary transition-colors">Legalizaciones</a></li>
               </ul>
             </div>
 
@@ -76,11 +76,11 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold text-lg mb-4 text-primary">Empresa</h3>
               <ul className="space-y-2 text-background/80">
-                <li><a href="#valores" className="hover:text-primary transition-colors">Nuestros valores</a></li>
-                <li><a href="#casos" className="hover:text-primary transition-colors">Casos de éxito</a></li>
+                <li><a href="/#valores" className="hover:text-primary transition-colors">Nuestros valores</a></li>
+                <li><a href="/#casos" className="hover:text-primary transition-colors">Casos de éxito</a></li>
                 <li><a href="/blog" className="hover:text-primary transition-colors">Blog técnico</a></li>
-                <li><a href="#contacto" className="hover:text-primary transition-colors">Contacto</a></li>
-                <li><a href="/presupuesto" className="hover:text-primary transition-colors">Pedir presupuesto</a></li>
+                <li><a href="/#contacto" className="hover:text-primary transition-colors">Contacto</a></li>
+                <li><a href="/#contacto" className="hover:text-primary transition-colors">Pedir presupuesto</a></li>
                 <li><a href="/privacidad" className="hover:text-primary transition-colors">Política de privacidad</a></li>
               </ul>
             </div>
@@ -107,7 +107,7 @@ export default function Footer() {
                 WhatsApp directo
               </a>
               <a
-                href="#contacto"
+                href="/#contacto"
                 className="inline-flex items-center px-6 py-3 bg-primary text-foreground rounded-lg hover:bg-primary/90 transition-colors"
               >
                 Formulario rápido

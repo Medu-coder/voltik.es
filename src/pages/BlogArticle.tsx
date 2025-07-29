@@ -21,34 +21,42 @@ const BlogArticle = () => {
   return (
     <>
       <Header />
+      {/* Añade un contenedor con padding top igual al de otras páginas */}
+      <main className="pt-16 md:pt-20">
 
-      {/* Hero o cabecera del artículo */}
-      <section className="voltik-section hero-bg">
-        <div className="voltik-container text-center">
-          <img src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg mb-8" />
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-2">{post.title}</h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4">{post.subtitle}</p>
-          <p className="text-sm text-muted-foreground mb-4">
-            {post.date} • {post.readTime} • {post.category}
-          </p>
-        </div>
-      </section>
-
-      {/* Contenido del artículo */}
-      <section className="voltik-section">
-        <div className="voltik-container max-w-3xl mx-auto prose prose-neutral">
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
-          {/* CTA al final del artículo */}
-          <div className="mt-8 text-center">
-            <VoltikButton variant="voltik" size="lg" asChild>
-              <a href={post.ctaLink} className="no-underline">
-                {post.ctaLabel}
-              </a>
-            </VoltikButton>
+        {/* Hero o cabecera del artículo */}
+        <section className="voltik-section hero-bg">
+          <div className="voltik-container text-center">
+            <img src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg mb-8" />
+            <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-2">{post.title}</h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-4">{post.subtitle}</p>
+            <p className="text-sm text-muted-foreground mb-4">
+              {post.date} • {post.readTime} • {post.category}
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
 
+        {/* Contenido del artículo */}
+        <section className="voltik-section">
+          <div className="voltik-container max-w-3xl mx-auto prose prose-neutral">
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+
+            {/* CTA adaptado */}
+            <div className="mt-8 flex justify-center">
+              <VoltikButton
+                variant="voltik"
+                size="lg"
+                className="w-full sm:w-auto"
+                asChild
+              >
+                <a href={post.ctaLink} className="no-underline">
+                  {post.ctaLabel}
+                </a>
+              </VoltikButton>
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
     </>
   );
