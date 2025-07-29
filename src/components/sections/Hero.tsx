@@ -5,7 +5,7 @@ import voltikLogo from '@/assets/voltik-logo-web.svg'
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-primary min-h-screen flex items-center pt-12 pb-20 md:mt-0 md:pb-0">
+    <section id="home" className="relative overflow-hidden bg-primary min-h-screen flex items-center pt-16 pb-20 md:pt-0 md:pb-0 scroll-mt-16 md:scroll-mt-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
