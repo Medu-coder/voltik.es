@@ -78,7 +78,7 @@ export default function Footer() {
               <ul className="space-y-2 text-background/80">
                 <li><a href="/#valores" className="hover:text-primary transition-colors">Nuestros valores</a></li>
                 <li><a href="/#casos" className="hover:text-primary transition-colors">Casos de éxito</a></li>
-                <li><a href="/blog" className="hover:text-primary transition-colors">Blog técnico</a></li>
+                <li><a href="/blog" className="hover:text-primary transition-colors">Blog Voltik</a></li>
                 <li><a href="/#contacto" className="hover:text-primary transition-colors">Contacto</a></li>
                 <li><a href="/#contacto" className="hover:text-primary transition-colors">Pedir presupuesto</a></li>
                 <li><a href="/privacidad" className="hover:text-primary transition-colors">Política de privacidad</a></li>

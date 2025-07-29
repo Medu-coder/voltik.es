@@ -43,13 +43,11 @@ const BlogArticle = () => {
 
             {/* CTA adaptado */}
             <div className="mt-8 flex justify-center">
-              <VoltikButton
-                variant="voltik"
-                size="lg"
-                className="w-full sm:w-auto"
-                asChild
-              >
-                <a href={post.ctaLink} className="no-underline">
+              <VoltikButton variant="voltik" size="lg" className="w-full sm:w-auto" asChild>
+                <a
+                  href={post.ctaLink}
+                  className="no-underline whitespace-normal text-center block"
+                >
                   {post.ctaLabel}
                 </a>
               </VoltikButton>
