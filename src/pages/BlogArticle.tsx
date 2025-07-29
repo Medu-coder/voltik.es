@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import blogPosts, { BlogPost } from '@/data/blogPosts';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { VoltikButton } from '@/components/ui/voltik-button';
 
 const BlogArticle = () => {
   const { id } = useParams<{ id: string }>();
@@ -20,7 +21,8 @@ const BlogArticle = () => {
       <section className="voltik-section hero-bg">
         <div className="voltik-container text-center">
           <img src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg mb-8" />
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">{post.title}</h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-2">{post.title}</h1>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-4">{post.subtitle}</p>
           <p className="text-sm text-muted-foreground mb-4">
             {post.date} • {post.readTime} • {post.category}
           </p>
@@ -32,6 +34,15 @@ const BlogArticle = () => {
         <div className="voltik-container max-w-3xl mx-auto prose prose-neutral">
           {/* si usas markup plano, reemplaza dangerouslySetInnerHTML por componentes propios */}
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        </div>
+      </section>
+
+      {/* CTA al final del artículo */}
+      <section className="voltik-section">
+        <div className="voltik-container text-center mt-12">
+          <VoltikButton variant="voltik" size="lg" asChild>
+            <a href={post.ctaLink}>{post.ctaLabel}</a>
+          </VoltikButton>
         </div>
       </section>
 

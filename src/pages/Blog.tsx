@@ -4,18 +4,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { Link } from 'react-router-dom';
-import blogPosts from '@/data/blogPosts';
-interface BlogPost {
-  id: string
-  title: string
-  excerpt: string
-  content: string
-  date: string
-  readTime: string
-  category: string
-  tags: string[]
-  featured: boolean
-}
+import blogPosts, { BlogPost } from '@/data/blogPosts';
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('')
