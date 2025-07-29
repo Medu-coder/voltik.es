@@ -3,10 +3,15 @@ import blogPosts, { BlogPost } from '@/data/blogPosts';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { VoltikButton } from '@/components/ui/voltik-button';
+import { useEffect } from 'react';
+
 
 const BlogArticle = () => {
   const { id } = useParams<{ id: string }>();
   const post = blogPosts.find(p => p.id === id) as BlogPost | undefined;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!post) {
     // si no encuentra el post, renderiza tu componente NotFound
@@ -39,7 +44,7 @@ const BlogArticle = () => {
 
       {/* CTA al final del artículo */}
       <section className="voltik-section">
-        <div className="voltik-container text-center mt-12">
+        <div className="voltik-container text-center">
           <VoltikButton variant="voltik" size="lg" asChild>
             <a href={post.ctaLink}>{post.ctaLabel}</a>
           </VoltikButton>

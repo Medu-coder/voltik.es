@@ -117,7 +117,9 @@ const Blog = () => {
                     </div>
                     
                     <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                      {post.title}
+                      <Link to={`/blog/${post.id}`} className="block hover:text-primary transition-colors">
+                        {post.title}
+                      </Link>
                     </h3>
                     
                     <p className="text-muted-foreground mb-4 line-clamp-3">
@@ -174,7 +176,9 @@ const Blog = () => {
                     </div>
                     
                     <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors">
-                      {post.title}
+                      <Link to={`/blog/${post.id}`} className="block hover:text-primary transition-colors">
+                        {post.title}
+                      </Link>
                     </h3>
                     
                     <p className="text-muted-foreground mb-4 line-clamp-2 text-sm">
