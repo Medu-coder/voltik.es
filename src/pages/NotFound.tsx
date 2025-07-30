@@ -9,12 +9,12 @@ const NotFound = () => {
       <Header />
       
       <main className="pt-16 md:pt-20">
-        <section className="voltik-section">
+        <section className="voltik-section bg-primary"> 
           <div className="voltik-container text-center">
             <div className="max-w-2xl mx-auto">
               {/* 404 Visual */}
               <div className="mb-8">
-                <div className="text-8xl md:text-9xl font-bold text-primary/20 mb-4">
+                <div className="text-8xl md:text-9xl font-bold text-foreground/20 mb-4">
                   404
                 </div>
                 <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
@@ -32,10 +32,10 @@ const NotFound = () => {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <VoltikButton variant="voltik" size="lg" asChild>
+                <VoltikButton variant="primary" size="lg" asChild>
                   <a href="/">
                     <Home size={20} className="mr-2" />
-                    Volver al inicio
+                    Volver a inicio
                   </a>
                 </VoltikButton>
                 
@@ -58,22 +58,22 @@ const NotFound = () => {
                     <h4 className="font-medium mb-2">Páginas populares:</h4>
                     <ul className="space-y-2 text-sm">
                       <li>
-                        <a href="/#servicios" className="text-primary hover:underline">
+                        <a href="/#servicios" className="text-seconday hover:underline">
                           Nuestros servicios
                         </a>
                       </li>
                       <li>
-                        <a href="/#valores" className="text-primary hover:underline">
+                        <a href="/#valores" className="text-seconday hover:underline">
                           Por qué elegirnos
                         </a>
                       </li>
                       <li>
-                        <a href="/#casos" className="text-primary hover:underline">
+                        <a href="/#casos" className="text-seconday hover:underline">
                           Casos de éxito
                         </a>
                       </li>
                       <li>
-                        <a href="/#contacto" className="text-primary hover:underline">
+                        <a href="/#contacto" className="text-seconday hover:underline">
                           Pedir presupuesto
                         </a>
                       </li>
@@ -85,13 +85,13 @@ const NotFound = () => {
                     <div className="space-y-2 text-sm">
                       <div>
                         <strong>Teléfono:</strong>{' '}
-                        <a href="tel:+34957000000" className="text-primary hover:underline">
+                        <a href="tel:+34957000000" className="text-seconday hover:underline">
                           957 000 000
                         </a>
                       </div>
                       <div>
                         <strong>Email:</strong>{' '}
-                        <a href="mailto:contacto@voltik.es" className="text-primary hover:underline">
+                        <a href="mailto:contacto@voltik.es" className="text-seconday hover:underline">
                           contacto@voltik.es
                         </a>
                       </div>
@@ -116,7 +116,7 @@ const NotFound = () => {
               <div className="mt-8">
                 <button 
                   onClick={() => window.history.back()} 
-                  className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors"
+                  className="inline-flex items-center text-muted-foreground hover:text-neutral-light transition-colors"
                 >
                   <ArrowLeft size={16} className="mr-2" />
                   Volver a la página anterior
