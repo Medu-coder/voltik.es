@@ -4,11 +4,12 @@ import { VoltikButton } from '@/components/ui/voltik-button'
 import { useToast } from '@/hooks/use-toast'
 
 interface FormData {
-  nombre: string
-  email: string
-  telefono: string
-  tipoServicio: string
-  mensaje: string
+  fecha: string
+  entry_1367672553: string // nombre
+  entry_1372703949: string // email
+  entry_725191283: string // telefono
+  entry_916166591: string // servicio
+  entry_1602707373: string // mensaje
 }
 
 interface FormErrors {
@@ -17,12 +18,15 @@ interface FormErrors {
 
 export default function ContactForm() {
   const { toast } = useToast()
+  // Fecha actual en formato YYYY-MM-DD
+  const today = new Date().toISOString().slice(0, 10)
   const [formData, setFormData] = useState<FormData>({
-    nombre: '',
-    email: '',
-    telefono: '',
-    tipoServicio: '',
-    mensaje: ''
+    fecha: today,
+    entry_1367672553: '',
+    entry_1372703949: '',
+    entry_725191283: '',
+    entry_916166591: '',
+    entry_1602707373: '',
   })
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -42,38 +46,38 @@ export default function ContactForm() {
     const newErrors: FormErrors = {}
 
     // Nombre
-    if (!formData.nombre.trim()) {
-      newErrors.nombre = 'El nombre es obligatorio'
-    } else if (formData.nombre.trim().length < 2) {
-      newErrors.nombre = 'El nombre debe tener al menos 2 caracteres'
+    if (!formData.entry_1367672553.trim()) {
+      newErrors.entry_1367672553 = 'El nombre es obligatorio'
+    } else if (formData.entry_1367672553.trim().length < 2) {
+      newErrors.entry_1367672553 = 'El nombre debe tener al menos 2 caracteres'
     }
 
     // Email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!formData.email.trim()) {
-      newErrors.email = 'El email es obligatorio'
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = 'Introduce un email válido'
+    if (!formData.entry_1372703949.trim()) {
+      newErrors.entry_1372703949 = 'El email es obligatorio'
+    } else if (!emailRegex.test(formData.entry_1372703949)) {
+      newErrors.entry_1372703949 = 'Introduce un email válido'
     }
 
     // Teléfono (formato español)
     const phoneRegex = /^(\+34)?[6-9]\d{8}$/
-    if (!formData.telefono.trim()) {
-      newErrors.telefono = 'El teléfono es obligatorio'
-    } else if (!phoneRegex.test(formData.telefono.replace(/\s/g, ''))) {
-      newErrors.telefono = 'Introduce un teléfono válido (ej: 687654321)'
+    if (!formData.entry_725191283.trim()) {
+      newErrors.entry_725191283 = 'El teléfono es obligatorio'
+    } else if (!phoneRegex.test(formData.entry_725191283.replace(/\s/g, ''))) {
+      newErrors.entry_725191283 = 'Introduce un teléfono válido (ej: 687654321)'
     }
 
     // Tipo de servicio
-    if (!formData.tipoServicio) {
-      newErrors.tipoServicio = 'Selecciona el tipo de servicio'
+    if (!formData.entry_916166591) {
+      newErrors.entry_916166591 = 'Selecciona el tipo de servicio'
     }
 
     // Mensaje
-    if (!formData.mensaje.trim()) {
-      newErrors.mensaje = 'Describe brevemente lo que necesitas'
-    } else if (formData.mensaje.trim().length < 10) {
-      newErrors.mensaje = 'Proporciona más detalles (mínimo 10 caracteres)'
+    if (!formData.entry_1602707373.trim()) {
+      newErrors.entry_1602707373 = 'Describe brevemente lo que necesitas'
+    } else if (formData.entry_1602707373.trim().length < 10) {
+      newErrors.entry_1602707373 = 'Proporciona más detalles (mínimo 10 caracteres)'
     }
 
     setErrors(newErrors)
@@ -85,25 +89,24 @@ export default function ContactForm() {
     if (!validateForm()) return
     setIsSubmitting(true)
     try {
-      // Enviar datos a Google Sheets
-      const webhookUrl = "https://script.google.com/macros/s/AKfycbw3HVQpfWerSn3U5DVDwZC3z3iyqruWkjOZz7Tbm3NldoU5Z50HZFgGpVlCdINQV_s9/exec"
-      const fecha = new Date().toISOString()
-      const payload = {
-        fecha,
-        nombre: formData.nombre,
-        email: formData.email,
-        telefono: formData.telefono,
-        tipoServicio: formData.tipoServicio,
-        mensaje: formData.mensaje
-      }
-      const response = await fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      })
-      if (!response.ok) throw new Error("No se pudo enviar el formulario, inténtalo de nuevo más tarde.")
+      // Construir FormData con los nombres de Google Forms
+      const form = new FormData()
+      form.append('entry.456367614', formData.fecha) // Fecha
+      form.append('entry.1367672553', formData.entry_1367672553) // Nombre
+      form.append('entry.1372703949', formData.entry_1372703949) // Email
+      form.append('entry.725191283', formData.entry_725191283) // Teléfono
+      form.append('entry.916166591', formData.entry_916166591) // Servicio
+      form.append('entry.1602707373', formData.entry_1602707373) // Mensaje
+
+      // Enviar a Google Forms (no-cors, no respuesta)
+      await fetch(
+        'https://docs.google.com/forms/d/e/1FAIpQLSdaF5kkJAPlsVZYph1V01g0ZflxRoQLxWlylTo6L5nDNh3I9g/formResponse',
+        {
+          method: 'POST',
+          mode: 'no-cors',
+          body: form,
+        }
+      )
 
       setSubmitted(true)
       toast({
@@ -112,11 +115,12 @@ export default function ContactForm() {
       })
       // Reset form
       setFormData({
-        nombre: '',
-        email: '',
-        telefono: '',
-        tipoServicio: '',
-        mensaje: ''
+        fecha: new Date().toISOString().slice(0, 10),
+        entry_1367672553: '',
+        entry_1372703949: '',
+        entry_725191283: '',
+        entry_916166591: '',
+        entry_1602707373: '',
       })
     } catch (error) {
       toast({
@@ -132,7 +136,6 @@ export default function ContactForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
-    
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }))
@@ -192,96 +195,105 @@ export default function ContactForm() {
             {/* Contact Form */}
             <div className="voltik-card lg:col-span-2">
               <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                {/* Fecha (oculto, autocompletado) */}
+                <input
+                  type="hidden"
+                  id="entry.456367614"
+                  name="fecha"
+                  value={formData.fecha}
+                  readOnly
+                />
+
                 {/* Nombre */}
                 <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="entry.1367672553" className="block text-sm font-medium text-foreground mb-2">
                     Nombre completo *
                   </label>
                   <input
                     type="text"
-                    id="nombre"
-                    name="nombre"
-                    value={formData.nombre}
+                    id="entry.1367672553"
+                    name="entry_1367672553"
+                    value={formData.entry_1367672553}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
-                      errors.nombre 
+                      errors.entry_1367672553 
                         ? 'border-destructive bg-destructive/5' 
                         : 'border-input bg-background hover:border-primary/50'
                     }`}
                     placeholder="Tu nombre y apellidos"
                     required
                   />
-                  {errors.nombre && (
+                  {errors.entry_1367672553 && (
                     <p className="mt-1 text-sm text-destructive" role="alert">
-                      {errors.nombre}
+                      {errors.entry_1367672553}
                     </p>
                   )}
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="entry.1372703949" className="block text-sm font-medium text-foreground mb-2">
                     Email *
                   </label>
                   <input
                     type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                    id="entry.1372703949"
+                    name="entry_1372703949"
+                    value={formData.entry_1372703949}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
-                      errors.email 
+                      errors.entry_1372703949 
                         ? 'border-destructive bg-destructive/5' 
                         : 'border-input bg-background hover:border-primary/50'
                     }`}
                     placeholder="tu@email.com"
                     required
                   />
-                  {errors.email && (
+                  {errors.entry_1372703949 && (
                     <p className="mt-1 text-sm text-destructive" role="alert">
-                      {errors.email}
+                      {errors.entry_1372703949}
                     </p>
                   )}
                 </div>
 
                 {/* Teléfono */}
                 <div>
-                  <label htmlFor="telefono" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="entry.725191283" className="block text-sm font-medium text-foreground mb-2">
                     Teléfono *
                   </label>
                   <input
                     type="tel"
-                    id="telefono"
-                    name="telefono"
-                    value={formData.telefono}
+                    id="entry.725191283"
+                    name="entry_725191283"
+                    value={formData.entry_725191283}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
-                      errors.telefono 
+                      errors.entry_725191283 
                         ? 'border-destructive bg-destructive/5' 
                         : 'border-input bg-background hover:border-primary/50'
                     }`}
                     placeholder="687 654 321"
                     required
                   />
-                  {errors.telefono && (
+                  {errors.entry_725191283 && (
                     <p className="mt-1 text-sm text-destructive" role="alert">
-                      {errors.telefono}
+                      {errors.entry_725191283}
                     </p>
                   )}
                 </div>
 
                 {/* Tipo de servicio */}
                 <div>
-                  <label htmlFor="tipoServicio" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="entry.916166591" className="block text-sm font-medium text-foreground mb-2">
                     Tipo de servicio *
                   </label>
                   <select
-                    id="tipoServicio"
-                    name="tipoServicio"
-                    value={formData.tipoServicio}
+                    id="entry.916166591"
+                    name="entry_916166591"
+                    value={formData.entry_916166591}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
-                      errors.tipoServicio 
+                      errors.entry_916166591 
                         ? 'border-destructive bg-destructive/5' 
                         : 'border-input bg-background hover:border-primary/50'
                     }`}
@@ -294,35 +306,35 @@ export default function ContactForm() {
                       </option>
                     ))}
                   </select>
-                  {errors.tipoServicio && (
+                  {errors.entry_916166591 && (
                     <p className="mt-1 text-sm text-destructive" role="alert">
-                      {errors.tipoServicio}
+                      {errors.entry_916166591}
                     </p>
                   )}
                 </div>
 
                 {/* Mensaje */}
                 <div>
-                  <label htmlFor="mensaje" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="entry.1602707373" className="block text-sm font-medium text-foreground mb-2">
                     Cuéntanos tu proyecto *
                   </label>
                   <textarea
-                    id="mensaje"
-                    name="mensaje"
-                    value={formData.mensaje}
+                    id="entry.1602707373"
+                    name="entry_1602707373"
+                    value={formData.entry_1602707373}
                     onChange={handleChange}
                     rows={4}
                     className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary resize-none ${
-                      errors.mensaje 
+                      errors.entry_1602707373 
                         ? 'border-destructive bg-destructive/5' 
                         : 'border-input bg-background hover:border-primary/50'
                     }`}
                     placeholder="Describe lo que necesitas: tipo de instalación, ubicación, plazos..."
                     required
                   />
-                  {errors.mensaje && (
+                  {errors.entry_1602707373 && (
                     <p className="mt-1 text-sm text-destructive" role="alert">
-                      {errors.mensaje}
+                      {errors.entry_1602707373}
                     </p>
                   )}
                 </div>
