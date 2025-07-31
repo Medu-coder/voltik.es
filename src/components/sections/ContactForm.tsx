@@ -82,21 +82,34 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
     if (!validateForm()) return
-
     setIsSubmitting(true)
-
     try {
-      // Simular envío de formulario
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
+      // Enviar datos a Google Sheets
+      const webhookUrl = "https://script.google.com/macros/s/AKfycbw3HVQpfWerSn3U5DVDwZC3z3iyqruWkjOZz7Tbm3NldoU5Z50HZFgGpVlCdINQV_s9/exec"
+      const fecha = new Date().toISOString()
+      const payload = {
+        fecha,
+        nombre: formData.nombre,
+        email: formData.email,
+        telefono: formData.telefono,
+        tipoServicio: formData.tipoServicio,
+        mensaje: formData.mensaje
+      }
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      })
+      if (!response.ok) throw new Error("No se pudo enviar el formulario, inténtalo de nuevo más tarde.")
+
       setSubmitted(true)
       toast({
         title: "¡Mensaje enviado!",
         description: "Te responderemos en menos de 24h laborables.",
       })
-      
       // Reset form
       setFormData({
         nombre: '',
@@ -105,7 +118,6 @@ export default function ContactForm() {
         tipoServicio: '',
         mensaje: ''
       })
-      
     } catch (error) {
       toast({
         title: "Error al enviar",
