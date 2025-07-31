@@ -16,7 +16,10 @@
     --voltik-background: 0 0% 100%;     /* #FFFFFF */
     --voltik-error: 0 43% 70%;          /* #C97E7E */
     --voltik-text: 0 0% 10%;            /* #1A1A1A */
-    
+    --voltik-success: 142 76% 36%;     /* #16A34A */
+    --voltik-warning: 45 93% 47%;      /* #FBBF24 */
+    --voltik-info: 217 91% 60%;        /* #60A5FA */
+
     /* == DESIGN SYSTEM MAPPING == */
     --background: var(--voltik-background);
     --foreground: var(--voltik-text);

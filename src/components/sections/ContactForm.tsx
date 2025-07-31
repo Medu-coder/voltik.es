@@ -35,8 +35,9 @@ export default function ContactForm() {
   const serviceTypes = [
     'Instalación nueva',
     'Reforma eléctrica', 
-    'Domótica',
+    'Placas solares',
     'Punto de recarga VE',
+    'Domótica',
     'Mantenimiento',
     'Urgencia',
     'Otro'
@@ -98,7 +99,7 @@ export default function ContactForm() {
       form.append('entry.916166591', formData.entry_916166591) // Servicio
       form.append('entry.1602707373', formData.entry_1602707373) // Mensaje
 
-      // Enviar a Google Forms (no-cors, no respuesta)
+      // Enviar a Google Forms
       await fetch(
         'https://docs.google.com/forms/d/e/1FAIpQLSdaF5kkJAPlsVZYph1V01g0ZflxRoQLxWlylTo6L5nDNh3I9g/formResponse',
         {
@@ -194,6 +195,11 @@ export default function ContactForm() {
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Contact Form */}
             <div className="voltik-card lg:col-span-2">
+              {/* Aviso de empresa en construcción */}
+              <div className="mb-6 p-4 rounded-lg bg-voltik-warning/30 border border-voltik-warning/90 text-lg text-center font-semibold">
+                <strong>Aviso:</strong> Voltik está en proceso de construcción y el formulario de contacto está temporalmente deshabilitado. ¡Gracias por tu interés!
+              </div>
+              
               <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 {/* Fecha (oculto, autocompletado) */}
                 <input
@@ -340,6 +346,7 @@ export default function ContactForm() {
                 </div>
 
                 {/* Submit Button */}
+                {/*
                 <VoltikButton 
                   type="submit" 
                   variant="voltik" 
@@ -359,6 +366,16 @@ export default function ContactForm() {
                     </>
                   )}
                 </VoltikButton>
+                */}
+                <VoltikButton
+                  type="submit"
+                  variant="voltik"
+                  size="lg"
+                  className="w-full"
+                  disabled
+                >
+                  Formulario temporalmente deshabilitado
+                </VoltikButton>
 
                 {/* Privacy Notice */}
                 <p className="text-xs text-muted-foreground text-center">
@@ -370,19 +387,21 @@ export default function ContactForm() {
 
             {/* Contact Details */}
             <div className="voltik-card">
-              <h3 className="text-xl font-semibold mb-6">Contacto directo</h3>
-              
+              <h3 className="text-lg font-semibold mb-6">Contacto</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <Phone size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
                   <div>
                     <div className="font-medium">Urgencias 24/7</div>
+                    {/*
                     <a 
                       href="tel:+34957000000" 
-                      className="text-primary hover:underline"
+                      className="text-voltik-info hover:underline"
                     >
                       957 000 000
                     </a>
+                    */}
+                    <span className="text-voltik-warning font-normal">No disponible temporalmente</span>
                   </div>
                 </div>
 
@@ -390,14 +409,17 @@ export default function ContactForm() {
                   <MessageCircle size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
                   <div>
                     <div className="font-medium">WhatsApp</div>
+                    {/*
                     <a 
                       href="https://wa.me/34957000000" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-primary hover:underline"
+                      className="text-voltik-info hover:underline"
                     >
                       Consulta directa
                     </a>
+                    */}
+                    <span className="text-voltik-warning font-normal">No disponible temporalmente</span>
                   </div>
                 </div>
 
@@ -405,12 +427,15 @@ export default function ContactForm() {
                   <Mail size={20} className="mr-3 mt-1 text-primary flex-shrink-0" />
                   <div>
                     <div className="font-medium">Email</div>
+                    {/*
                     <a 
                       href="mailto:contacto@voltik.es" 
-                      className="text-primary hover:underline"
+                      className="text-voltik-info hover:underline"
                     >
                       contacto@voltik.es
                     </a>
+                    */}
+                    <span className="text-voltik-warning font-normal">No disponible temporalmente</span>
                   </div>
                 </div>
 
@@ -434,12 +459,13 @@ export default function ContactForm() {
 
             {/* WhatsApp CTA */}
             <div className="voltik-card bg-green-50 border border-green-200">
-              <h3 className="text-lg font-semibold text-green-800 mb-3">
+              <h3 className="text-lg font-semibold text-green-800 mb-6">
                 ¿Tienes prisa? ¡WhatsApp directo!
               </h3>
               <p className="text-green-700 mb-4 text-sm">
                 Para consultas urgentes o si prefieres un contacto más directo.
               </p>
+              {/*
               <VoltikButton variant="outline" asChild className="w-full border-green-600 text-green-700 hover:bg-green-600 hover:text-white">
                 <a 
                   href="https://wa.me/34957000000?text=Hola, necesito información sobre instalaciones eléctricas" 
@@ -449,6 +475,15 @@ export default function ContactForm() {
                   <MessageCircle size={20} className="mr-2" />
                   Abrir WhatsApp
                 </a>
+              </VoltikButton>
+              */}
+              <VoltikButton
+                variant="outline"
+                className="w-full border-green-600 text-green-700"
+                disabled
+              >
+                <MessageCircle size={20} className="mr-2" />
+                WhatsApp temporalmente deshabilitado
               </VoltikButton>
             </div>
           </div>

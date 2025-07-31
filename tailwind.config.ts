@@ -36,6 +36,9 @@ export default {
 				'voltik-background': 'hsl(var(--voltik-background))',
 				'voltik-error': 'hsl(var(--voltik-error))',
 				'voltik-text': 'hsl(var(--voltik-text))',
+				'voltik-warning': 'hsl(var(--voltik-warning))',
+				'voltik-success': 'hsl(var(--voltik-success))',
+				'voltik-info': 'hsl(var(--voltik-info))',
 				// Design system mapping
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
