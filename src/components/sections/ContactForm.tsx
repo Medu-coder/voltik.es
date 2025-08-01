@@ -181,7 +181,7 @@ export default function ContactForm() {
   return (
     <section id="contacto" className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/10">
       <div className="voltik-container">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-full lg:max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -192,15 +192,15 @@ export default function ContactForm() {
             </p>
           </div>
 
-          <div className="grid gap-12 lg:grid-cols-2">
+          <div className="grid gap-6 lg:gap-12 lg:grid-cols-2">
             {/* Contact Form */}
-            <div className="voltik-card lg:col-span-2">
+            <div className="voltik-card lg:col-span-2 w-full">
               {/* Aviso de empresa en construcción */}
               <div className="mb-6 p-4 rounded-lg bg-voltik-warning/30 border border-voltik-warning/90 text-lg text-center font-semibold">
                 <strong>Aviso:</strong> Voltik está en proceso de construcción y el formulario de contacto está temporalmente deshabilitado. ¡Gracias por tu interés!
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+              <form onSubmit={handleSubmit} className="space-y-6 w-full" noValidate>
                 {/* Fecha (oculto, autocompletado) */}
                 <input
                   type="hidden"
@@ -386,7 +386,7 @@ export default function ContactForm() {
             </div>
 
             {/* Contact Details */}
-            <div className="voltik-card">
+            <div className="voltik-card lg:col-span-2 w-full">
               <h3 className="text-lg font-semibold mb-6">Contacto</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
@@ -401,7 +401,7 @@ export default function ContactForm() {
                       957 000 000
                     </a>
                     */}
-                    <span className="text-voltik-warning font-normal">No disponible temporalmente</span>
+                    <span className="block text-voltik-warning font-normal text-sm mt-1 mb-2 min-h-[1.5em]">No disponible temporalmente</span>
                   </div>
                 </div>
 
@@ -419,7 +419,7 @@ export default function ContactForm() {
                       Consulta directa
                     </a>
                     */}
-                    <span className="text-voltik-warning font-normal">No disponible temporalmente</span>
+                    <span className="block text-voltik-warning font-normal text-sm mt-1 mb-2 min-h-[1.5em]">No disponible temporalmente</span>
                   </div>
                 </div>
 
@@ -435,7 +435,7 @@ export default function ContactForm() {
                       contacto@voltik.es
                     </a>
                     */}
-                    <span className="text-voltik-warning font-normal">No disponible temporalmente</span>
+                    <span className="block text-voltik-warning font-normal text-sm mt-1 mb-2 min-h-[1.5em]">No disponible temporalmente</span>
                   </div>
                 </div>
 
@@ -458,7 +458,7 @@ export default function ContactForm() {
             </div>
 
             {/* WhatsApp CTA */}
-            <div className="voltik-card bg-green-50 border border-green-200">
+            <div className="voltik-card lg:col-span-2 bg-green-50 border border-green-200 w-full">
               <h3 className="text-lg font-semibold text-green-800 mb-6">
                 ¿Tienes prisa? ¡WhatsApp directo!
               </h3>
@@ -479,7 +479,7 @@ export default function ContactForm() {
               */}
               <VoltikButton
                 variant="outline"
-                className="w-full border-green-600 text-green-700"
+                className="w-full border-green-600 text-green-700 py-3 text-base"
                 disabled
               >
                 <MessageCircle size={20} className="mr-2" />

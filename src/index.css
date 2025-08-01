@@ -154,7 +154,7 @@
 @layer components {
   /* Voltik component utilities */
   .voltik-container {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-6xl mx-auto px-2 sm:px-4 lg:px-8;
   }
   
   .voltik-section {
@@ -162,7 +162,7 @@
   }
   
   .voltik-card {
-    @apply bg-card rounded-xl p-6 md:p-8 shadow-md hover:shadow-lg transition-shadow;
+    @apply bg-card rounded-xl p-6 md:p-8 shadow-md hover:shadow-lg transition-shadow w-full;
   }
   
   .voltik-grid {
