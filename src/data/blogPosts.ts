@@ -101,7 +101,7 @@ const blogPosts: BlogPost[] = [
   date: '2024-06-04',
   readTime: '4 min',
   category: 'Movilidad Eléctrica',
-  tags: ['bicicleta-eléctricas', 'eficiencia-energética', 'movilidad-urbana'],
+  tags: ['bicicleta-eléctrica', 'eficiencia-energética', 'movilidad-urbana'],
   featured: false,
   image: '/blog/bicicletas-electricas-y-ahorro-energia_image.png',
   ctaLabel: 'Consulta cómo pasarte a la movilidad eléctrica',
@@ -154,7 +154,7 @@ const blogPosts: BlogPost[] = [
   category: 'Movilidad Eléctrica',
   tags: ['bicicleta-eléctrica', 'movilidad-urbana', 'eficiencia-energética'],
   featured: true,
-  image: '/blog/bici-electrica-vs-convencional-que-conviene-mas.png',
+  image: '/blog/bici-electrica-vs-convencional-que-conviene-mas_image.png',
   ctaLabel: 'Contáctanos para asesorarte sobre movilidad eléctrica',
   ctaLink: '/#contacto'
 },
