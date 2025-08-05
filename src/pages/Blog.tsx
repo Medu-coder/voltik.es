@@ -98,7 +98,7 @@ const Blog = () => {
 
         {/* Featured Posts */}
         {featuredPosts.length > 0 && (
-          <section className="voltik-section pt-5">
+          <section className="voltik-section pt-5 pb-5">
             <div className="voltik-container">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
                 Artículos destacados
@@ -160,7 +160,7 @@ const Blog = () => {
 
         {/* Regular Posts */}
         {regularPosts.length > 0 && (
-          <section className="voltik-section bg-muted/30">
+          <section className="voltik-section bg-muted/30 pt-5 pb-5">
             <div className="voltik-container">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
                 Todos los artículos
