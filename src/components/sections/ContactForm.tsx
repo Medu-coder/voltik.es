@@ -164,11 +164,21 @@ export default function ContactForm() {
                 >
                   Enviar otro mensaje
                 </VoltikButton>
+                {/*
                 <VoltikButton variant="outline" asChild>
                   <a href="https://wa.me/34957000000" target="_blank" rel="noopener noreferrer">
                     <MessageCircle size={20} className="mr-2" />
                     WhatsApp directo
                   </a>
+                </VoltikButton>
+                */}
+                <VoltikButton
+                  variant="outline"
+                  className="w-full border-green-600 text-green-700 py-3 text-sm sm:text-base px-2 sm:px-4"
+                  disabled
+                >
+                  <MessageCircle size={20} className="mr-2" />
+                  WhatsApp temporalmente deshabilitado
                 </VoltikButton>
               </div>
             </div>
