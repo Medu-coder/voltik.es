@@ -56,7 +56,7 @@ const blogPosts: BlogPost[] = [
     date: '2025-01-15',
     readTime: '2 min',
     category: 'Movilidad Eléctrica',
-    tags: ['wallbox', 'coche eléctrico'],
+    tags: ['wallbox', 'coche-eléctrico'],
     featured: true,
     image: '/blog/wallbox.jpg',
     ctaLabel: 'Solicita información sobre tu punto de recarga',
@@ -101,10 +101,61 @@ const blogPosts: BlogPost[] = [
   date: '2024-06-04',
   readTime: '4 min',
   category: 'Movilidad Eléctrica',
-  tags: ['bicicletas eléctricas', 'eficiencia energética', 'movilidad urbana'],
+  tags: ['bicicleta-eléctricas', 'eficiencia-energética', 'movilidad-urbana'],
   featured: false,
   image: '/blog/bicicletas-electricas-y-ahorro-energia_image.png',
   ctaLabel: 'Consulta cómo pasarte a la movilidad eléctrica',
+  ctaLink: '/#contacto'
+},
+{
+  id: 'bici-electrica-vs-convencional-que-conviene-mas',
+  title: 'Bicicleta eléctrica vs convencional: ¿qué conviene más?',
+  subtitle: 'Ventajas, consumo y cuándo elegir cada tipo según tu estilo de vida',
+  excerpt: 'Comparamos bicicletas eléctricas y tradicionales para ayudarte a elegir la mejor opción según tu uso y consumo.',
+  content: `<p>Las bicicletas eléctricas han dejado de ser una rareza en las ciudades y poco a poco están ganando terreno como medio de transporte eficiente, económico y sostenible. Frente a ellas, las bicicletas convencionales siguen siendo la opción más simple, ligera y de bajo coste. Elegir entre una y otra depende del uso que vayas a darle, del entorno en el que vives y de tus hábitos energéticos.</p>
+
+<h2>¿Cómo funciona una bici eléctrica y cuánto consume?</h2>
+<p>Una bicicleta eléctrica incorpora un pequeño motor que asiste en el pedaleo, facilitando subir cuestas o recorrer largas distancias sin tanto esfuerzo. Este motor se alimenta de una batería recargable, que suele ofrecer entre 40 y 100 km de autonomía por carga, dependiendo del modelo y la asistencia empleada.</p>
+<p>En términos de consumo, una recarga completa puede costarte entre 0,10 y 0,20 €, ya que la batería suele tener 400-600 Wh. Es decir, recorrer 100 km en bici eléctrica puede salirte más barato que un billete de transporte público, y desde luego mucho más que llenar el depósito de un coche.</p>
+
+<h2>¿Cuándo conviene una bicicleta convencional?</h2>
+<p>Las bicis tradicionales son insuperables en sencillez: no requieren carga, son más ligeras y fáciles de mantener, y cuestan menos. Representan una excelente opción si:</p>
+<ul>
+  <li>Tu trayecto diario no supera los 5-7 km sin muchas cuestas.</li>
+  <li>Buscas hacer ejercicio físico con cada desplazamiento.</li>
+  <li>Puedes estacionarla con seguridad y sin necesitar recargar nada.</li>
+  <li>No quieres gastar en mantenimiento eléctrico o reemplazo de batería.</li>
+</ul>
+<p>Además, para quienes disfrutan del ciclismo deportivo o recreativo puro, la ligereza y respuesta de una bici convencional sigue siendo la más apreciada.</p>
+
+<h2>¿Y cuándo es mejor una eléctrica?</h2>
+<p>Una bici eléctrica es ideal para quien recorre largas distancias, va con prisa al trabajo (sin querer sudar), vive en zonas con desniveles o quiere reducir el uso del coche. Otras ventajas clave son:</p>
+<ul>
+  <li>Te permite llegar más rápido y con menos esfuerzo.</li>
+  <li>Facilita trayectos donde el transporte público no llega bien.</li>
+  <li>Es una excelente alternativa para personas mayores o con movilidad reducida.</li>
+  <li>Puede ser clave en planes de movilidad sostenible en ciudades.</li>
+</ul>
+<p>Aunque son más caras (unos 1.000-2.500 € de media), su mantenimiento es simple y el ahorro energético a largo plazo puede compensar la inversión inicial, sobre todo si sustituyen al coche o la moto.</p>
+
+<h2>¿Qué dice la normativa?</h2>
+<p>En España, las bicicletas eléctricas están reguladas por el Reglamento General de Vehículos y la normativa europea. Para ser consideradas bicicletas (y no ciclomotores) deben:</p>
+<ol>
+  <li>Tener una potencia máxima de 250W.</li>
+  <li>La asistencia debe cortarse al superar los 25 km/h.</li>
+  <li>Sólo deben funcionar cuando el usuario pedalea (sin acelerador).</li>
+</ol>
+<p>Si cumple con estos requisitos, no necesitas matrícula ni seguro obligatorio, lo que simplifica su uso legal en la vía pública.</p>
+
+<h2>Conclusión</h2>
+<p>La bicicleta sigue ganando terreno como opción realista para el transporte urbano y activo. Elegir entre eléctrica o convencional no tiene una única respuesta correcta: dependerá de tus recorridos, tu ritmo de vida, tu estado físico y tu compromiso con una movilidad sostenible. Frente a atascos y combustibles caros, ambas son opciones ganadoras, solo que cada una brilla en situaciones diferentes. <strong>Si estás pensando en electrificar tu movilidad, en Voltik te ayudamos a calcular el impacto energético y te asesoramos en la instalación de puntos de carga domésticos.</strong></p>`,
+  date: '2024-06-04',
+  readTime: '4 min',
+  category: 'Movilidad Eléctrica',
+  tags: ['bicicleta-eléctrica', 'movilidad-urbana', 'eficiencia-energética'],
+  featured: true,
+  image: '/blog/bici-electrica-vs-convencional-que-conviene-mas.png',
+  ctaLabel: 'Contáctanos para asesorarte sobre movilidad eléctrica',
   ctaLink: '/#contacto'
 },
   // añade más artículos aquí
