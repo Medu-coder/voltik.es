@@ -62,6 +62,51 @@ const blogPosts: BlogPost[] = [
     ctaLabel: 'Solicita información sobre tu punto de recarga',
     ctaLink: '/#contacto'
   },
+  {
+  id: 'bicicletas-electricas-y-ahorro-energia',
+  title: 'Bicicletas eléctricas: ahorro energético sobre ruedas',
+  subtitle: 'Descubre por qué las e-bikes son clave en la movilidad sostenible urbana',
+  excerpt: 'Las bicicletas eléctricas consumen menos energía, reducen emisiones y agilizan los trayectos urbanos.',
+  content: `<p>Las bicicletas eléctricas, conocidas también como e-bikes, están transformando la manera en que nos desplazamos por la ciudad. Más eficientes energéticamente que los vehículos tradicionales, permiten recorrer más kilómetros con mucho menos impacto ambiental. Pero ¿qué tan eficientes son realmente, y cómo pueden formar parte de un estilo de vida más sostenible?</p>
+
+<h2>¿Por qué las bicicletas eléctricas son energéticamente eficientes?</h2>
+<p>Una bicicleta eléctrica consume, en promedio, entre 1 y 1,5 kWh por cada 100 kilómetros recorridos. Para tener una idea, eso es menos energía que la que usa una tostadora en 20 minutos. Frente a los coches particulares —que requieren entre 15 y 20 kWh para la misma distancia— la diferencia es abismal.</p>
+<ul>
+  <li><strong>Baja demanda energética:</strong> los motores eléctricos de las e-bikes suelen tener potencias limitadas (250W en la mayoría de modelos urbanos), lo que reduce su consumo.</li>
+  <li><strong>Recarga sencilla:</strong> las baterías se recargan en casa o en el trabajo, usando una toma de corriente estándar.</li>
+  <li><strong>Sin emisiones directas:</strong> al no depender de combustibles fósiles, ayudan a reducir la huella de carbono urbana.</li>
+</ul>
+
+<h2>Ventajas frente a otros medios de transporte</h2>
+<p>Además de la eficiencia energética, las bicicletas eléctricas ofrecen ventajas prácticas cotidianas. No requieren combustible, ni seguro obligatorio, y los costes de mantenimiento son mínimos si se comparan con los de un automóvil.</p>
+<ol>
+  <li><strong>Agilidad urbana:</strong> se evitan atascos y se accede fácilmente a zonas peatonales o restringidas.</li>
+  <li><strong>Economía:</strong> recargar la batería cuesta apenas unos céntimos de euro.</li>
+  <li><strong>Salud y bienestar:</strong> el pedaleo asistido permite hacer ejercicio sin agotarse.</li>
+</ol>
+<p>Muchas ciudades han comenzado a incentivar su uso con subvenciones y carriles específicos, consolidando a la bicicleta eléctrica como uno de los medios de transporte del futuro inmediato.</p>
+
+<h2>Ahorra energía y contribuye al cambio desde hoy</h2>
+<p>Integrar una e-bike en el día a día no solo reduce el gasto en transporte, sino que también contribuye a alcanzar metas como las del Plan Nacional Integrado de Energía y Clima, que impulsa el uso de medios eléctricos no contaminantes.</p>
+<p>Algunas recomendaciones para maximizar el ahorro con tu bicicleta eléctrica:</p>
+<ul>
+  <li>Usar el modo de asistencia más bajo posible en tramos fáciles.</li>
+  <li>Mantener la presión adecuada en los neumáticos.</li>
+  <li>Optimizar la ruta para evitar desniveles innecesarios.</li>
+</ul>
+
+<h2>Conclusión</h2>
+<p>Las bicicletas eléctricas combinan eficiencia energética, movilidad sostenible y ahorro cotidiano. Si estás buscando una forma inteligente de moverte por la ciudad, reducir tu impacto ambiental y mejorar tu salud, este es el momento perfecto para dar el salto sobre dos ruedas.</p>
+<p><strong>¿Quieres asesoramiento sobre cómo integrar soluciones eléctricas eficientes como las bicicletas eléctricas en tu día a día o negocio?</strong> Ponte en contacto con nosotros. Desde Voltik te ayudamos a dar el primer paso hacia una movilidad más sostenible.</p>`,
+  date: '2024-06-04',
+  readTime: '4 min',
+  category: 'Movilidad Eléctrica',
+  tags: ['bicicletas eléctricas', 'eficiencia energética', 'movilidad urbana'],
+  featured: false,
+  image: '/blog/bicicletas-electricas-y-ahorro-energia_image.png',
+  ctaLabel: 'Consulta cómo pasarte a la movilidad eléctrica',
+  ctaLink: '/#contacto'
+},
   // añade más artículos aquí
 ];
 
