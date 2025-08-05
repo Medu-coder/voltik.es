@@ -59,7 +59,7 @@ const blogPosts: BlogPost[] = [
     tags: ['wallbox', 'coche eléctrico'],
     featured: true,
     image: '/blog/wallbox.jpg',
-    ctaLabel: 'Solicita la instalación de tu punto de recarga',
+    ctaLabel: 'Solicita información sobre tu punto de recarga',
     ctaLink: '/#contacto'
   },
   // añade más artículos aquí
