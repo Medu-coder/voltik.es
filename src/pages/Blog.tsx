@@ -259,11 +259,13 @@ const Blog = () => {
                 <VoltikButton variant="voltik" size="lg" asChild>
                   <a href="/#contacto">Consulta gratuita</a>
                 </VoltikButton>
+                {/*
                 <VoltikButton variant="outline" size="lg" asChild>
                   <a href="https://wa.me/34957000000" target="_blank" rel="noopener noreferrer">
                     WhatsApp directo
                   </a>
                 </VoltikButton>
+                */}
               </div>
             </div>
           </div>
