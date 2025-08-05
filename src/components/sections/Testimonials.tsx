@@ -79,7 +79,7 @@ export default function Testimonials() {
 
   return (
     <section id="casos" className="voltik-section bg-gradient-to-br from-primary/5 to-secondary/5">
-      <div className="voltik-container">
+      <div className="voltik-container px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
@@ -92,15 +92,15 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Carousel */}
-        <div className="relative max-w-4xl mx-auto">
-          <div className="overflow-hidden rounded-2xl">
-            <div 
+        <div className="relative w-full mx-auto lg:max-w-4xl">
+          <div className="overflow-x-hidden rounded-2xl max-w-full w-full">
+            <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="w-full flex-shrink-0 px-4">
-                  <div className="voltik-card text-center bg-background/80 backdrop-blur-sm border border-primary/20">
+                <div key={index} className="w-full flex-shrink-0">
+                  <div className="voltik-card text-center bg-background/80 backdrop-blur-sm border border-primary/20 px-4 py-6">
                     {/* Quote Icon */}
                     <Quote size={48} className="mx-auto mb-6 text-primary/30" />
                     

@@ -43,17 +43,17 @@ export default function Hero() {
           </p>
 
           {/* Value Props - Quick */}
-          <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm md:text-base">
-            <div className="flex items-center bg-background/20 backdrop-blur-sm rounded-full px-4 py-2">
-              <Clock size={18} className="mr-2 text-primary" />
+          <div className="flex flex-wrap justify-center text-center gap-6 mb-10 text-sm md:text-base">
+            <div className="flex items-center justify-center bg-background/20 backdrop-blur-sm rounded-full px-4 py-2">
+              <Clock size={18} className="mr-2" />
               <span className="font-medium">Respuesta &lt; 24h</span>
             </div>
-            <div className="flex items-center bg-background/20 backdrop-blur-sm rounded-full px-4 py-2">
-              <Shield size={18} className="mr-2 text-primary" />
+            <div className="flex items-center justify-center bg-background/20 backdrop-blur-sm rounded-full px-4 py-2">
+              <Shield size={18} className="mr-2" />
               <span className="font-medium">Garantía 2 años</span>
             </div>
-            <div className="flex items-center bg-background/20 backdrop-blur-sm rounded-full px-4 py-2">
-              <Zap size={18} className="mr-2 text-primary" />
+            <div className="flex items-center justify-center bg-background/20 backdrop-blur-sm rounded-full px-4 py-2">
+              <Zap size={18} className="mr-2" />
               <span className="font-medium">Instalador autorizado</span>
             </div>
           </div>
@@ -67,12 +67,14 @@ export default function Hero() {
               </a>
             </VoltikButton>
             
+            {/*
             <VoltikButton variant="outline" size="lg" asChild>
               <a href="tel:+34957000000">
                 <Clock size={20} className="mr-2" />
                 Urgencias 24/7
               </a>
             </VoltikButton>
+            */}
           </div>
 
           {/* Trust Indicator */}
