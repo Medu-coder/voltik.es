@@ -204,7 +204,7 @@ export default function ContactForm() {
         <div className="voltik-card w-full mb-8">
           {/* Aviso de empresa en construcción */}
           <div className="mb-6 p-4 rounded-lg bg-voltik-warning/30 border border-voltik-warning/90 text-lg text-center font-semibold">
-            <strong>Aviso:</strong> Voltik aún está en proceso de construcción y no atendemos nuevas solicitudes, aunque puedes dejarnos tus datos. ¡Gracias por tu interés!
+            <strong>Aviso:</strong> Voltik aún está en proceso de construcción y no realizamos nuevos presupuestos, aunque puedes enviar tu consulta. ¡Gracias por tu interés!
           </div>
           
           <form onSubmit={handleSubmit} className="space-y-6 w-full" noValidate>
@@ -369,8 +369,12 @@ export default function ContactForm() {
               ) : (
                 <>
                   <Send className="mr-2 w-6 h-6 flex-shrink-0" />
-                  <span className="block sm:hidden">Presupuesto hoy</span> {/* Short text for mobile */}
+                  <span className="block sm:hidden">Enviar consulta</span> {/* Short text for mobile */}
+                  <span className="hidden sm:block">Enviar consulta gratuita</span> {/* Full text for desktop */}
+                  {/*
+                  <span className="block sm:hidden">Presupuesto hoy</span> {/* Short text for mobile 
                   <span className="hidden sm:block">Quiero mi presupuesto hoy</span> {/* Full text for desktop */}
+                  
                 </>
               )}
             </VoltikButton>

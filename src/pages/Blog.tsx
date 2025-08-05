@@ -98,7 +98,7 @@ const Blog = () => {
 
         {/* Featured Posts */}
         {featuredPosts.length > 0 && (
-          <section className="voltik-section">
+          <section className="voltik-section pt-5">
             <div className="voltik-container">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
                 Artículos destacados

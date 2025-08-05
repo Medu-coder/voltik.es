@@ -25,6 +25,7 @@ export default function Footer() {
               
               {/* Contact Info */}
               <div className="space-y-3">
+                {/*
                 <div className="flex items-center">
                   <Phone size={18} className="mr-3 text-primary" />
                   <div>
@@ -36,6 +37,7 @@ export default function Footer() {
                     </span>
                   </div>
                 </div>
+                */}
                 
                 <div className="flex items-center">
                   <Mail size={18} className="mr-3 text-primary" />
@@ -92,12 +94,13 @@ export default function Footer() {
         <div className="py-8 border-t border-background/20">
           <div className="text-center">
             <h3 className="text-xl font-semibold mb-4 text-primary">
-              ¿Necesitas una instalación eléctrica?
+              ¿Tienes alguna consulta sobre tu instalación eléctrica?
             </h3>
             <p className="text-background/80 mb-6">
               Respuesta garantizada en menos de 24h laborables
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              {/* 
               <a
                 href="https://wa.me/34957000000"
                 target="_blank"
@@ -106,12 +109,13 @@ export default function Footer() {
               >
                 <MessageCircle size={20} className="mr-2" />
                 WhatsApp directo
-              </a>
+              </a> 
+              */}
               <a
                 href="/#contacto"
                 className="inline-flex items-center px-6 py-3 bg-primary text-foreground rounded-lg hover:bg-primary/90 transition-colors"
               >
-                Formulario rápido
+                Rellena el formulario
               </a>
             </div>
           </div>
@@ -121,8 +125,8 @@ export default function Footer() {
         <div className="py-6 border-t border-background/20">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-background/60 text-sm mb-4 md:mb-0">
-              © {currentYear} Voltik. Todos los derechos reservados. | 
-              <span className="ml-1">Instalador autorizado nº XXXX</span>
+              © {currentYear} Voltik. Todos los derechos reservados. {/*  | 
+              <span className="ml-1">Instalador autorizado nº XXXX</span> */}
             </div>
             
             {/* Social Links */}

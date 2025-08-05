@@ -65,6 +65,7 @@ export default function Header() {
 
           {/* CTA Buttons - Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
+            {/*
             <a
               href="tel:+34957000000"
               className="flex items-center text-sm text-foreground/80 hover:text-foreground transition-colors"
@@ -73,7 +74,8 @@ export default function Header() {
               <Phone size={16} className="mr-2" />
               957 000 000
             </a>
-            <VoltikButton variant="voltik" size="sm" asChild>
+            */}
+            <VoltikButton variant="voltik" size="md" asChild>
               <a href="/#contacto">Pide presupuesto</a>
             </VoltikButton>
           </div>
