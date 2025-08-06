@@ -10,7 +10,6 @@ export default defineConfig(() => ({
   },
   plugins: [
     react(),
-    // ya no incluimos componentTagger()
   ],
   resolve: {
     alias: {

@@ -9,8 +9,8 @@
     "generate-sitemap": "node generate-sitemap.cjs",
     "prebuild": "npm run extract-slugs",
     "build:dev": "vite build --mode development",
-    "build": "vite build",
-    "postbuild": "cp dist/index.html dist/404.html && npm run generate-sitemap && cp public/sitemap.xml dist/sitemap.xml", 
+    "build": "vite-ssg build",
+    "postbuild": "cp dist/index.html dist/404.html && npm run generate-sitemap && cp public/sitemap.xml dist/sitemap.xml",
     "deploy": "bash deploy.sh",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -64,6 +64,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.3",
+    "vite-ssg": "^27.1.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
