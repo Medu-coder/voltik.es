@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "extract-slugs": "node extract-blog-slugs.js",
+    "generate-sitemap": "node generate-sitemap.js",
+    "prebuild": "npm run extract-slugs",
     "build:dev": "vite build --mode development",
-    "postbuild": "cp dist/index.html dist/404.html",
+    "build": "vite build",
+    "postbuild": "cp dist/index.html dist/404.html && npm run generate-sitemap && cp public/sitemap.xml dist/sitemap.xml", 
     "deploy": "bash deploy.sh",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -76,6 +79,7 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "postcss": "^8.4.47",
+    "sitemap": "^8.0.0",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
