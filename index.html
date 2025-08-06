@@ -1,16 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script>
-    // Solo si NO estamos ya en la home
-    if (
-      location.pathname !== '/' &&
-      !location.pathname.startsWith('/index.html') &&
-      !location.pathname.startsWith('/404.html')
-    ) {
-      // Redirige a la home, pero preserva la ruta original en la query
-      location.replace('/?redirect=' + encodeURIComponent(location.pathname + location.search + location.hash));
-    }
-  </script>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,41 +16,51 @@
     <meta name="twitter:site" content="@voltikenergy" />
     <meta name="twitter:image" content="/assets/voltik-logo-web.svg" />
     <link rel="icon" href="/favicon.ico" />
+
+    <script>
+      // Solo si NO estamos ya en la home
+      if (
+        location.pathname !== '/' &&
+        !location.pathname.startsWith('/index.html') &&
+        !location.pathname.startsWith('/404.html')
+      ) {
+        // Redirige a la home, pero preserva la ruta original en la query
+        location.replace('/?redirect=' + encodeURIComponent(location.pathname + location.search + location.hash));
+      }
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <link rel="preload"
+          href="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          as="script">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q2DBBKYKLK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Q2DBBKYKLK', {
+        transport_type: 'beacon',  // envía datos cuando el usuario cierra la pestaña
+        send_page_view: true
+      });
+    </script>
+    <!-- End Google Analytics 4 -->
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5R9ZBQFP');</script>
+    <!-- End Google Tag Manager -->
   </head>
-  
-  <!-- Google Analytics 4 -->
-  <link rel="preload"
-        href="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-        as="script">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q2DBBKYKLK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-Q2DBBKYKLK', {
-      transport_type: 'beacon',  // envía datos cuando el usuario cierra la pestaña
-      send_page_view: true
-    });
-  </script>
-  <!-- End Google Analytics 4 -->
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5R9ZBQFP');</script>
-  <!-- End Google Tag Manager -->
-
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-  </body>
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5R9ZBQFP"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5R9ZBQFP"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
 </html>
