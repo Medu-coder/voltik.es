@@ -17,6 +17,22 @@
     <meta name="twitter:image" content="/assets/voltik-logo-web.svg" />
     <link rel="icon" href="/favicon.ico" />
   </head>
+  
+  <!-- Google Analytics 4 -->
+  <link rel="preload"
+        href="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        as="script">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q2DBBKYKLK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q2DBBKYKLK', {
+      transport_type: 'beacon',  // envía datos cuando el usuario cierra la pestaña
+      send_page_view: true
+    });
+  </script>
 
   <body>
     <div id="root"></div>
