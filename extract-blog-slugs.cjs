@@ -1,4 +1,4 @@
-// extract-blog-slugs.js
+// extract-blog-slugs.cjs
 const fs = require('fs');
 const path = require('path');
 

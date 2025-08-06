@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "extract-slugs": "node extract-blog-slugs.js",
-    "generate-sitemap": "node generate-sitemap.js",
+    "extract-slugs": "node extract-blog-slugs.cjs",
+    "generate-sitemap": "node generate-sitemap.cjs",
     "prebuild": "npm run extract-slugs",
     "build:dev": "vite build --mode development",
     "build": "vite build",

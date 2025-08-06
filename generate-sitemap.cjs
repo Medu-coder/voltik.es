@@ -1,4 +1,4 @@
-// generate-sitemap.js
+// generate-sitemap.cjs
 const { SitemapStream, streamToPromise } = require('sitemap');
 const { createWriteStream, readFileSync } = require('fs');
 
