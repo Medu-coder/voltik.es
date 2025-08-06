@@ -1,17 +1,13 @@
 import React from 'react'
-import { ViteSSG } from 'vite-ssg'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import blogPosts, { BlogPost } from '@/data/blogPosts';
 import './index.css'
 
-export const createApp = ViteSSG(
-  App,
-  {
-    routes: [
-      { path: '/' },
-      { path: '/blog' },
-      ...blogPosts.map(post => ({ path: `/blog/${post.id}` })),
-      // ...otras rutas estáticas si las tienes
-    ]
-  }
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
 )
