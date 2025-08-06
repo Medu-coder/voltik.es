@@ -76,7 +76,10 @@ export default function Header() {
             </a>
             */}
             <VoltikButton variant="voltik" size="md" asChild>
+              <a href="/#contacto">Contacta con nosotros</a>  
+              {/*
               <a href="/#contacto">Pide presupuesto</a>
+              */}            
             </VoltikButton>
           </div>
 
@@ -108,6 +111,7 @@ export default function Header() {
               
               {/* Mobile CTA */}
               <div className="px-4 pt-4 border-t border-border space-y-3">
+                {/*
                 <a
                   href="tel:+34957000000"
                   className="flex items-center py-3 text-foreground hover:text-primary transition-colors"
@@ -131,10 +135,14 @@ export default function Header() {
                     <div className="text-sm text-muted-foreground">Consulta rápida</div>
                   </div>
                 </a>
-                
+                */}
+
                 <VoltikButton variant="voltik" className="w-full" asChild>
                   <a href="/#contacto" onClick={() => setIsMenuOpen(false)}>
+                    Contacta con nosotros
+                    {/*
                     Pide presupuesto gratis
+                    */}
                   </a>
                 </VoltikButton>
               </div>

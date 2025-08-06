@@ -132,7 +132,8 @@ export default function Services() {
 
           <div className="text-center mt-10">
             <VoltikButton variant="voltik" size="lg" asChild>
-              <a href="#contacto">Empezar mi proyecto ahora</a>
+              <a href="#contacto">¡Contactar ya!</a>
+              {/*<a href="#contacto">Empezar mi proyecto ahora</a>*/}
             </VoltikButton>
           </div>
         </div>

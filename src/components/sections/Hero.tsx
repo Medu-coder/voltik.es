@@ -62,7 +62,10 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <VoltikButton variant="voltik" size="lg" asChild>
               <a href="#contacto" className="group">
+                Contacta con nosotros
+                {/*
                 Pide presupuesto en 1 min
+                */}
                 <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </VoltikButton>
