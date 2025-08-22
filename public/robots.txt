@@ -1,3 +1,4 @@
+# robots.txt — Voltik
 User-agent: Googlebot
 Allow: /
 
@@ -12,5 +13,10 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Evitar indexar artefactos de build o recursos internos (por si se publican)
+Disallow: /assets-dev/
+Disallow: /__vite/
+Disallow: /node_modules/
 
 Sitemap: https://voltik.es/sitemap.xml

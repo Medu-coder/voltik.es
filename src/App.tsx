@@ -12,8 +12,6 @@ import BlogArticle from './pages/BlogArticle';
 const queryClient = new QueryClient();
 
 const App = () => {
-
-  return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -27,7 +25,6 @@ const App = () => {
         </Routes>
       </TooltipProvider>
     </QueryClientProvider>
-  );
 };
 
 export default App;
