@@ -17,18 +17,6 @@
     <meta name="twitter:image" content="/assets/voltik-logo-web.svg" />
     <link rel="icon" href="/favicon.ico" />
 
-    <script>
-      // Solo si NO estamos ya en la home
-      if (
-        location.pathname !== '/' &&
-        !location.pathname.startsWith('/index.html') &&
-        !location.pathname.startsWith('/404.html')
-      ) {
-        // Redirige a la home, pero preserva la ruta original en la query
-        location.replace('/?redirect=' + encodeURIComponent(location.pathname + location.search + location.hash));
-      }
-    </script>
-
     <!-- Google Analytics 4 -->
     <link rel="preload"
           href="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"

@@ -5,15 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "extract-slugs": "node extract-blog-slugs.cjs",
-    "generate-sitemap": "node generate-sitemap.cjs",
-    "prebuild": "npm run extract-slugs",
-    "build:dev": "vite build --mode development",
     "build": "vite build",
-    "postbuild": "cp dist/index.html dist/404.html && npm run generate-sitemap && cp public/sitemap.xml dist/sitemap.xml",
-    "deploy": "bash deploy.sh",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
