@@ -8,6 +8,7 @@ import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import BlogArticle from "./pages/BlogArticle";
 import Privacy from "./pages/Privacy";
+import Canonical from "./components/seo/Canonical";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <Canonical />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
