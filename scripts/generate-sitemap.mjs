@@ -14,6 +14,7 @@ const OUT_FILE = path.join(OUT_DIR, 'sitemap.xml');
 const STATIC_ROUTES = [
   '/',        // Home
   '/blog',    // Listado blog
+  '/privacidad', // Política de privacidad
   // si mañana creas páginas "reales" (no secciones por hash), añádelas aquí:
   // '/servicios', '/valores', '/casos-de-exito', etc.
 ];
@@ -83,6 +84,7 @@ function main() {
     // Home: usa src/pages/Index.tsx; Blog: src/pages/Blog.tsx, etc.
     let probe = 'src/pages/Index.tsx';
     if (route === '/blog') probe = 'src/pages/Blog.tsx';
+    if (route === '/privacidad') probe = 'src/pages/Privacy.tsx';
 
     return {
       loc: `${SITE_URL}${route}`,
