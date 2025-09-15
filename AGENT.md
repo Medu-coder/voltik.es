@@ -6,7 +6,7 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
 - Framework: Vite + React 18 + TypeScript + React Router
 - Estilos: Tailwind CSS con tokens de diseño propios (sistema Voltik)
 - UI: shadcn/ui (Radix) + componentes personalizados `VoltikButton` y utilidades `voltik-*`
-- Datos: Artículos de blog en `src/data/blogPosts.ts` y assets en `public/blog`
+- Datos: Artículos de blog en `src/features/blog/data/blogPosts.ts` y assets en `public/blog`
 - SEO: `public/robots.txt` y sitemap generado en build
 - Deploy: Vercel (SPA con rewrites)
 
@@ -19,26 +19,26 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
   - Proveedores: React Query (`QueryClientProvider`), tooltips y toasts.
   - Rutas declaradas: `/`, `/blog`, `/blog/:id`, `/privacidad`, y catch-all `*`.
 
-## Rutas y páginas
-- Home: `src/pages/Index.tsx`
+-## Rutas y páginas
+- Home: `src/pages/home/Index.tsx`
   - Secciones: Hero, ProblemAgitation, Services, Values, Testimonials, ContactForm.
   - Gestiona anchors con `useLocation` para scroll suave.
-- Blog (listado): `src/pages/Blog.tsx`
+- Blog (listado): `src/pages/blog/Blog.tsx`
   - Filtro por texto/categoría, destacados, tarjetas y CTA.
-- Blog (detalle): `src/pages/BlogArticle.tsx`
+- Blog (detalle): `src/pages/blog/BlogArticle.tsx`
   - Busca el post por `id` en `blogPosts`. Render con `dangerouslySetInnerHTML`.
-- Privacidad: `src/pages/Privacy.tsx`
-- 404: `src/pages/NotFound.tsx`
+- Privacidad: `src/pages/privacy/Privacy.tsx`
+- 404: `src/pages/not-found/NotFound.tsx`
 
 ## Datos del blog
-- Fuente de artículos: `src/data/blogPosts.ts`
+- Fuente de artículos: `src/features/blog/data/blogPosts.ts`
   - Tipo `BlogPost` y array con posts.
   - Imágenes colocadas en `public/blog/*` y referenciadas por ruta absoluta (ej. `/blog/wallbox.jpg`).
   - El campo `content` es HTML listo para inyectar.
 
 ### Añadir un nuevo artículo
 1) Copia una imagen de cabecera en `public/blog/`.
-2) Añade un objeto al array en `src/data/blogPosts.ts` con:
+2) Añade un objeto al array en `src/features/blog/data/blogPosts.ts` con:
    - `id`, `title`, `subtitle`, `excerpt`, `content` (HTML), `date` (`YYYY-MM-DD`), `readTime`, `category`, `tags`, `featured?`, `image`, `ctaLabel`, `ctaLink`.
 3) Ejecuta `npm run build` para regenerar `public/sitemap.xml` (ver “Sitemap”).
 
@@ -48,12 +48,12 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
 - Pie: `src/components/layout/Footer.tsx`
   - Información de contacto, enlaces y CTA final.
 - Secciones Home:
-  - Hero: `src/components/sections/Hero.tsx`
-  - Problema/Agitación: `src/components/sections/ProblemAgitation.tsx`
-  - Servicios: `src/components/sections/Services.tsx`
-  - Valores: `src/components/sections/Values.tsx`
-  - Testimonios: `src/components/sections/Testimonials.tsx`
-  - Formulario contacto: `src/components/sections/ContactForm.tsx`
+  - Hero: `src/features/home/sections/Hero.tsx`
+  - Problema/Agitación: `src/features/home/sections/ProblemAgitation.tsx`
+  - Servicios: `src/features/home/sections/Services.tsx`
+  - Valores: `src/features/home/sections/Values.tsx`
+  - Testimonios: `src/features/home/sections/Testimonials.tsx`
+  - Formulario contacto: `src/features/home/sections/ContactForm.tsx`
 
 ## UI y utilidades
 - Botón de marca: `src/components/ui/voltik-button.tsx`
@@ -86,7 +86,7 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
 - Sitemap:
   - Generador: `scripts/generate-sitemap.mjs`
   - Hook: se ejecuta en `prebuild` y produce `public/sitemap.xml`.
-  - Incluye: `/`, `/blog`, `/privacidad` + `/blog/:id` a partir de `blogPosts.ts`.
+  - Incluye: `/`, `/servicios`, `/blog`, `/privacidad` + `/blog/:id` a partir de `blogPosts.ts`.
 
 ## Build y despliegue
 - Scripts (`package.json`):
@@ -108,8 +108,8 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
    - Enlaza desde `Header`/`Footer` si procede.
 
 2) Añadir un nuevo bloque/CTA en Home
-   - Crea un componente en `src/components/sections/`.
-   - Impórtalo y colócalo en `src/pages/Index.tsx` dentro del `<main>`.
+   - Crea un componente en `src/features/home/sections/`.
+   - Impórtalo y colócalo en `src/pages/home/Index.tsx` dentro del `<main>`.
 
 3) Añadir un componente UI compartido
    - Crea en `src/components/ui/` y reutiliza `cn` y `tailwind`.
@@ -137,13 +137,20 @@ src/
   assets/              # Imágenes internas
   components/
     layout/            # Header, Footer
-    sections/          # Bloques de la Home y Contacto
     ui/                # shadcn + UI de marca (VoltikButton)
-  data/
-    blogPosts.ts       # Array de artículos
+  features/
+    home/
+      sections/        # Bloques de la Home y Contacto
+    blog/
+      data/
+        blogPosts.ts   # Array de artículos
   hooks/               # use-toast, use-mobile
   lib/                 # utils (cn)
-  pages/               # Index, Blog, BlogArticle, Privacy, NotFound
+  pages/
+    home/              # Index
+    blog/              # Blog, BlogArticle
+    privacy/           # Privacy
+    not-found/         # NotFound
 public/
   blog/                # Imágenes de artículos
   robots.txt           # Robots
@@ -153,4 +160,3 @@ scripts/
 ```
 
 Con esto, un agente de IA puede localizar rápidamente los puntos de extensión, entender el flujo de renderizado y modificar/añadir contenido sin ambigüedades.
-

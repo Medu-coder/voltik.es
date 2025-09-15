@@ -1,6 +1,6 @@
 # Rutina de despliegue en Vercel (Voltik)
 
-Este proyecto es una SPA con Vite + React y enrutado con `react-router-dom`. Se despliega en Vercel como sitio estático con reescritura a `index.html`. El `sitemap.xml` se genera en build a partir de las rutas de la app y de los posts del blog definidos en `src/data/blogPosts.ts`.
+Este proyecto es una SPA con Vite + React y enrutado con `react-router-dom`. Se despliega en Vercel como sitio estático con reescritura a `index.html`. El `sitemap.xml` se genera en build a partir de las rutas de la app y de los posts del blog definidos en `src/features/blog/data/blogPosts.ts`.
 
 ## Configuración del Proyecto en Vercel
 
@@ -31,8 +31,8 @@ Este proyecto es una SPA con Vite + React y enrutado con `react-router-dom`. Se 
   - Se ejecuta automáticamente en `prebuild` (ver `package.json`).
   - Escribe `public/sitemap.xml`, que Vite copiará a `dist/` en el build.
   - Fuentes de datos:
-    - Rutas estáticas: `/, /blog, /privacidad` (ajústalas en el array `STATIC_ROUTES` si añades páginas reales nuevas).
-    - Rutas dinámicas de blog: se extraen de `src/data/blogPosts.ts` (campo `id`).
+    - Rutas estáticas: `/, /servicios, /blog, /privacidad` (ajústalas en el array `STATIC_ROUTES` si añades páginas reales nuevas).
+    - Rutas dinámicas de blog: se extraen de `src/features/blog/data/blogPosts.ts` (campo `id`).
   - `lastmod`: intenta obtener la fecha del último commit con `git log` por fichero; si no, usa la fecha actual.
 
 ### ¿Es necesario el script?
@@ -66,7 +66,7 @@ Sí, es recomendable para mantener el `sitemap.xml` sincronizado con las página
   - Añade la ruta en `STATIC_ROUTES` del script si debe indexarse.
   - Incluye meta tags/SEO si procede.
 - Post del blog:
-  - Añade un objeto en `src/data/blogPosts.ts` con `id` (slug), `date` y demás campos.
+  - Añade un objeto en `src/features/blog/data/blogPosts.ts` con `id` (slug), `date` y demás campos.
   - El sitemap se actualizará automáticamente en el siguiente build.
 
 ## SEO y verificación
