@@ -12,17 +12,18 @@ Este proyecto es una SPA con Vite + React y enrutado con `react-router-dom`. Se 
    ```json
    {
      "version": 2,
+     "framework": "vite",
+     "installCommand": "npm ci",
      "buildCommand": "npm run build",
      "outputDirectory": "dist",
      "trailingSlash": false,
-     "routes": [
-       { "handle": "filesystem" },
-       { "src": "/.*", "dest": "/index.html" }
+     "rewrites": [
+       { "source": "/(.*)", "destination": "/index.html" }
      ]
    }
    ```
-   - Con `handle: filesystem` Vercel sirve primero ficheros reales de `dist/` (p. ej., `/robots.txt`, `/sitemap.xml`, imágenes, etc.).
-   - El resto de rutas hacen fallback a `index.html` para que las resuelva React Router sin tener que añadir reescrituras por cada página.
+   - `rewrites` envía cualquier ruta al `index.html` para que la resuelva React Router.
+   - Archivos reales en `dist/` (p. ej., `/robots.txt`, `/sitemap.xml`, imágenes, etc.) se sirven directamente.
 
 ## Generación del sitemap
 
