@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import ContactForm from '@/components/sections/ContactForm'
+import ContactForm from '@/features/home/sections/ContactForm'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { Home, Building2, Zap, CheckCircle2, Shield, Clock, Wrench, Car } from 'lucide-react'
 import residentialImage from '@/assets/residential-service.jpg'
@@ -167,7 +167,7 @@ const ServicesPage = () => {
               <div className="grid gap-8 lg:grid-cols-12 items-start">
                 {/* Visual side */}
                 <div className={`lg:col-span-5 ${idx % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div className="voltik-card h-full">
+                  <div className="voltik-card">
                     <img src={s.image} alt={s.title} className="w-full h-64 object-cover rounded-lg mb-6" loading="lazy" />
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div className="flex items-center gap-2">
@@ -191,17 +191,17 @@ const ServicesPage = () => {
                 </div>
 
                 {/* Textual side */}
-                <div className={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
+                <div className={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-2' : 'lg:order-1'} h-full flex flex-col`}>
                   <p className="text-muted-foreground mb-8">{s.lead}</p>
 
                   {/* Two balanced cards within unified grid lines */}
-                  <div className="grid gap-6 md:grid-cols-2 items-stretch">
+                  <div className="grid gap-6 md:grid-cols-2 items-stretch grow">
                     <div className="bg-card rounded-xl p-6 border border-border h-full">
                       <h3 className="text-lg font-semibold mb-4">Qué incluye</h3>
                       <ul className="space-y-3 text-sm">
                         {s.include.map((item) => (
                           <li key={item} className="flex items-start">
-                            <CheckCircle2 size={18} className="text-text mr-3 mt-0.5" />
+                            <CheckCircle2 className="text-primary mr-3 mt-0.5 shrink-0 w-4 h-4" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -212,7 +212,7 @@ const ServicesPage = () => {
                       <ul className="space-y-3 text-sm">
                         {s.cases.map((item) => (
                           <li key={item} className="flex items-start">
-                            <CheckCircle2 size={18} className="text-text mr-3 mt-0.5" />
+                            <CheckCircle2 className="text-primary mr-3 mt-0.5 shrink-0 w-4 h-4" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -265,7 +265,7 @@ const ServicesPage = () => {
               <p className="lead">Resolvemos las dudas más habituales antes de empezar.</p>
             </div>
 
-            <div className="max-w-4xl mx-auto bg-card rounded-xl border border-border text-font-light p-2 md:p-4">
+            <div className="max-w-4xl mx-auto bg-card rounded-xl border border-border p-2 md:p-4">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger>¿Realizáis certificados y legalizaciones?</AccordionTrigger>

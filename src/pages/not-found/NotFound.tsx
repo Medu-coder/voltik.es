@@ -58,7 +58,7 @@ const NotFound = () => {
                     <h4 className="font-medium mb-2">Páginas populares:</h4>
                     <ul className="space-y-2 text-sm">
                       <li>
-                        <a href="/#servicios" className="text-seconday hover:underline">
+                        <a href="/servicios" className="text-seconday hover:underline">
                           Nuestros servicios
                         </a>
                       </li>

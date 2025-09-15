@@ -93,7 +93,7 @@ export default function Services() {
               </div>
               
               <VoltikButton variant="outline" size="sm" className="w-full" asChild>
-                <a href="/#contacto">Más información</a>
+                <a href="/servicios">Más información</a>
               </VoltikButton>
             </div>
           ))}

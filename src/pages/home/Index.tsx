@@ -1,11 +1,11 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import Hero from '@/components/sections/Hero';
-import ProblemAgitation from '@/components/sections/ProblemAgitation';
-import Services from '@/components/sections/Services';
-import Values from '@/components/sections/Values';
-import Testimonials from '@/components/sections/Testimonials';
-import ContactForm from '@/components/sections/ContactForm';
+import Hero from '@/features/home/sections/Hero';
+import ProblemAgitation from '@/features/home/sections/ProblemAgitation';
+import Services from '@/features/home/sections/Services';
+import Values from '@/features/home/sections/Values';
+import Testimonials from '@/features/home/sections/Testimonials';
+import ContactForm from '@/features/home/sections/ContactForm';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 

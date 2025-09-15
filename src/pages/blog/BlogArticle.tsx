@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import blogPosts, { BlogPost } from '@/data/blogPosts';
+import blogPosts, { BlogPost } from '@/features/blog/data/blogPosts';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { VoltikButton } from '@/components/ui/voltik-button';

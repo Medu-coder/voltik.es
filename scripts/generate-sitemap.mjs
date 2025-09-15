@@ -6,17 +6,18 @@ import { execSync } from 'node:child_process';
 // ------- Config -------
 const ROOT = process.cwd();
 const SITE_URL = process.env.SITE_URL || 'https://voltik.es';
-const BLOG_TS = path.join(ROOT, 'src', 'data', 'blogPosts.ts');
+const BLOG_TS = path.join(ROOT, 'src', 'features', 'blog', 'data', 'blogPosts.ts');
 const OUT_DIR = path.join(ROOT, 'public');
 const OUT_FILE = path.join(OUT_DIR, 'sitemap.xml');
 
 // Rutas "reales" rastreables (no ponemos anchors #... porque Google los ignora)
 const STATIC_ROUTES = [
-  '/',        // Home
-  '/blog',    // Listado blog
-  '/privacidad', // Política de privacidad
+  '/',            // Home
+  '/servicios',   // Página de servicios
+  '/blog',        // Listado blog
+  '/privacidad',  // Política de privacidad
   // si mañana creas páginas "reales" (no secciones por hash), añádelas aquí:
-  // '/servicios', '/valores', '/casos-de-exito', etc.
+  // '/valores', '/casos-de-exito', etc.
 ];
 
 // ------- Utils -------
@@ -81,10 +82,11 @@ function main() {
   // 2) Rutas estáticas con lastmod desde git si es posible
   const staticUrls = STATIC_ROUTES.map(route => {
     // Heurística para lastmod de cada página estática (puedes ajustar)
-    // Home: usa src/pages/Index.tsx; Blog: src/pages/Blog.tsx, etc.
-    let probe = 'src/pages/Index.tsx';
-    if (route === '/blog') probe = 'src/pages/Blog.tsx';
-    if (route === '/privacidad') probe = 'src/pages/Privacy.tsx';
+    // Home: usa src/pages/home/Index.tsx; Blog: src/pages/blog/Blog.tsx, etc.
+    let probe = 'src/pages/home/Index.tsx';
+    if (route === '/servicios') probe = 'src/pages/services/Services.tsx';
+    if (route === '/blog') probe = 'src/pages/blog/Blog.tsx';
+    if (route === '/privacidad') probe = 'src/pages/privacy/Privacy.tsx';
 
     return {
       loc: `${SITE_URL}${route}`,
