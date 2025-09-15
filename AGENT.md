@@ -4,6 +4,7 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
 
 ## Resumen del proyecto
 - Framework: Vite + React 18 + TypeScript + React Router
+- Datos remotos/caché: TanStack Query (React Query)
 - Estilos: Tailwind CSS con tokens de diseño propios (sistema Voltik)
 - UI: shadcn/ui (Radix) + componentes personalizados `VoltikButton` y utilidades `voltik-*`
 - Datos: Artículos de blog en `src/features/blog/data/blogPosts.ts` y assets en `public/blog`
@@ -16,13 +17,15 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
 - Punto de entrada JS: `src/main.tsx`
   - Monta React y envuelve con `BrowserRouter`.
 - App + rutas: `src/App.tsx`
-  - Proveedores: React Query (`QueryClientProvider`), tooltips y toasts.
-  - Rutas declaradas: `/`, `/blog`, `/blog/:id`, `/privacidad`, y catch-all `*`.
+  - Proveedores: React Query (`QueryClientProvider`), tooltips, toasts y `<Canonical />`.
+  - Rutas declaradas: `/`, `/servicios`, `/blog`, `/blog/:id`, `/privacidad`, y catch-all `*`.
 
--## Rutas y páginas
+## Rutas y páginas
 - Home: `src/pages/home/Index.tsx`
   - Secciones: Hero, ProblemAgitation, Services, Values, Testimonials, ContactForm.
   - Gestiona anchors con `useLocation` para scroll suave.
+- Servicios: `src/pages/services/Services.tsx`
+  - Página de detalle de servicios (viviendas, negocios, urgencias), proceso y FAQ.
 - Blog (listado): `src/pages/blog/Blog.tsx`
   - Filtro por texto/categoría, destacados, tarjetas y CTA.
 - Blog (detalle): `src/pages/blog/BlogArticle.tsx`
@@ -73,7 +76,7 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
   - `src/design-system/tokens.css` (variables listas para CSS)
 
 ## Formulario de contacto
-- Componente: `src/components/sections/ContactForm.tsx`
+- Componente: `src/features/home/sections/ContactForm.tsx`
   - Validación básica (nombre, email, teléfono español, servicio y mensaje).
   - Envío vía `fetch` a Google Forms (endpoint en el archivo).
   - Estados: `isSubmitting`, `submitted`, notificaciones con `useToast`.
@@ -82,6 +85,7 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
 ## SEO y analítica
 - Metas base: `index.html` (title, description, OG/Twitter y favicon).
 - Analytics: GA4 y GTM inyectados en `index.html`.
+- Canonical: `src/app/seo/Canonical.tsx` fija `<link rel="canonical">` usando `VITE_SITE_URL`.
 - Robots: `public/robots.txt`
 - Sitemap:
   - Generador: `scripts/generate-sitemap.mjs`
@@ -148,6 +152,7 @@ src/
   lib/                 # utils (cn)
   pages/
     home/              # Index
+    services/          # Services
     blog/              # Blog, BlogArticle
     privacy/           # Privacy
     not-found/         # NotFound

@@ -47,6 +47,9 @@ Sí, es recomendable para mantener el `sitemap.xml` sincronizado con las página
 - `SITE_URL`: dominio canónico de producción, por ejemplo `https://voltik.es`.
   - El script usa `SITE_URL` si está definida; si no, por defecto `https://voltik.es`.
   - Recomendación: definir `SITE_URL` en el Environment “Production” de Vercel.
+- `VITE_SITE_URL`: dominio base para la etiqueta canónica (`<Canonical />`).
+  - Ejemplo: `https://voltik.es`.
+  - Recomendación: definir `VITE_SITE_URL` en Production para que las canónicas sean absolutas y correctas.
 - Opcional (previews): `VERCEL_ENV` y `VERCEL_URL` están disponibles en Vercel.
   - Si no quieres publicar sitemaps con dominio de producción en previsualizaciones, puedes condicionar el prebuild (ver “Buenas prácticas” más abajo).
 
