@@ -8,13 +8,11 @@ import residentialImage from '@/assets/residential-service.jpg'
 import commercialImage from '@/assets/commercial-service.jpg'
 import emergencyImage from '@/assets/emergency-service.jpg'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import Seo from '@/app/seo/Seo'
 
 const ServicesPage = () => {
   useEffect(() => {
-    document.title = 'Voltik · Servicios eléctricos en Córdoba'
-    return () => {
-      document.title = 'Voltik · Instaladores eléctricos en Córdoba'
-    }
+    // Mantiene comportamiento de scroll y otros efectos si se añaden en el futuro
   }, [])
 
   const services = [
@@ -111,6 +109,11 @@ const ServicesPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Voltik · Servicios eléctricos en Córdoba"
+        description="Instalaciones y mantenimiento para viviendas y negocios en Córdoba: cuadros, iluminación, puntos de recarga VE, domótica y urgencias 24/7."
+        type="website"
+      />
       <Header />
 
       <main className="pt-16 md:pt-20">

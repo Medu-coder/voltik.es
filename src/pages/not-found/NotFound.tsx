@@ -2,10 +2,17 @@ import { Home, ArrowLeft, Search, MessageCircle } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import Seo from '@/app/seo/Seo'
 
 const NotFound = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="404 · Página no encontrada · Voltik"
+        description="La URL solicitada no existe o ha cambiado. Vuelve al inicio o visita el blog."
+        robots="noindex,follow"
+        type="website"
+      />
       <Header />
       
       <main className="pt-16 md:pt-20">

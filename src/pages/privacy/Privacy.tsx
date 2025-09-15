@@ -1,16 +1,21 @@
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { useEffect } from 'react'
+import Seo from '@/app/seo/Seo'
 
 const Privacy = () => {
   useEffect(() => {
-    const prev = document.title
-    document.title = 'Voltik · Política de privacidad'
-    return () => { document.title = prev }
+    // Mantén otros efectos si fueran necesarios
   }, [])
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Voltik · Política de privacidad"
+        description="Información sobre el tratamiento de datos personales conforme a RGPD y LOPDGDD en voltik.es."
+        type="website"
+        robots="index,follow"
+      />
       <Header />
 
       <main className="pt-16 md:pt-20">

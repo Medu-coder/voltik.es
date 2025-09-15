@@ -10,6 +10,7 @@ import ServicesPage from "./pages/services/Services";
 import BlogArticle from "./pages/blog/BlogArticle";
 import Privacy from "./pages/privacy/Privacy";
 import Canonical from "./app/seo/Canonical";
+import RouteAnalytics from "./app/analytics/RouteAnalytics";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <Canonical />
+        <RouteAnalytics />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/servicios" element={<ServicesPage />} />

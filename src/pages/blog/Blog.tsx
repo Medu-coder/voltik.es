@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { Link } from 'react-router-dom';
 import blogPosts, { BlogPost } from '@/features/blog/data/blogPosts';
+import Seo from '@/app/seo/Seo'
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -34,15 +35,16 @@ const Blog = () => {
   }
 
   useEffect(() => {
-  document.title = 'Voltik · Blog de electricidad';
-  return () => {
-    // Opcional: restablece el título por defecto al abandonar la página
-    document.title = 'Voltik · Instaladores eléctricos en Córdoba';
-  };
-}, []);
+    // no-op: mantenemos hook por consistencia
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Voltik · Blog de electricidad"
+        description="Consejos, guías y noticias sobre instalaciones eléctricas, placas solares, domótica y movilidad eléctrica en Córdoba."
+        type="website"
+      />
       <Header />
       
       <main className="pt-16 md:pt-20">

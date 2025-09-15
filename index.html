@@ -1,39 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
     <title>Voltik · Instaladores eléctricos en Córdoba</title>
     <meta name="description" content="Instaladores eléctricos en Córdoba. Instalaciones, Reformas, reparaciones, puntos de recarga, domótica y urgencias 24/7." />
     <meta name="author" content="Voltik" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <meta property="og:title" content="Voltik · Instaladores eléctricos en Córdoba" />
     <meta property="og:description" content="Instalaciones eléctricas, reformas, reparaciones, puntos de recarga, domótica y urgencias 24/7." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/voltik-logo-web.svg" />
+    <meta property="og:url" content="https://voltik.es/" />
+    <meta property="og:site_name" content="Voltik" />
+    <meta property="og:locale" content="es_ES" />
 
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@voltikenergy" />
-    <meta name="twitter:image" content="/assets/voltik-logo-web.svg" />
+    <meta name="twitter:title" content="Voltik · Instaladores eléctricos en Córdoba" />
+    <meta name="twitter:description" content="Instalaciones eléctricas, reformas, reparaciones, puntos de recarga, domótica y urgencias 24/7." />
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href="https://voltik.es/" />
-
-    <!-- Google Analytics 4 -->
-    <link rel="preload"
-          href="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-          as="script">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q2DBBKYKLK"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Q2DBBKYKLK', {
-        transport_type: 'beacon',  // envía datos cuando el usuario cierra la pestaña
-        send_page_view: true
-      });
+    
+    <!-- LocalBusiness structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Voltik",
+        "url": "https://voltik.es/",
+        "image": "https://voltik.es/assets/voltik-logo-web.svg",
+        "logo": "https://voltik.es/assets/voltik-logo-web.svg",
+        "email": "mailto:contacto@voltik.es",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Córdoba",
+          "addressCountry": "ES"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Córdoba"
+        },
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday","Tuesday","Wednesday","Thursday","Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        }]
+      }
     </script>
-    <!-- End Google Analytics 4 -->
+
+    <!-- Analytics handled via Google Tag Manager; SPA pageviews pushed from RouteAnalytics -->
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { VoltikButton } from '@/components/ui/voltik-button';
 import { useEffect } from 'react';
+import Seo from '@/app/seo/Seo'
 
 
 const BlogArticle = () => {
@@ -20,6 +21,37 @@ const BlogArticle = () => {
 
   return (
     <>
+      <Seo
+        title={`${post.title} · Voltik`}
+        description={post.excerpt}
+        image={post.image}
+        type="article"
+        articlePublishedTime={new Date(post.date).toISOString()}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: post.title,
+          description: post.excerpt,
+          image: post.image,
+          datePublished: new Date(post.date).toISOString(),
+          author: {
+            '@type': 'Organization',
+            name: 'Voltik',
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Voltik',
+            logo: {
+              '@type': 'ImageObject',
+              url: '/assets/voltik-logo-web.svg',
+            },
+          },
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': 'https://voltik.es',
+          },
+        }}
+      />
       <Header />
       {/* Añade un contenedor con padding top igual al de otras páginas */}
       <main className="pt-16 md:pt-20">
