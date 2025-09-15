@@ -8,12 +8,12 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
 - Estilos: Tailwind CSS con tokens de diseño propios (sistema Voltik)
 - UI: shadcn/ui (Radix) + componentes personalizados `VoltikButton` y utilidades `voltik-*`
 - Datos: Artículos de blog en `src/features/blog/data/blogPosts.ts` y assets en `public/blog`
-- SEO: `public/robots.txt` y sitemap generado en build
+- SEO: `public/robots.txt`, JSON‑LD `LocalBusiness` en `index.html` y sitemap generado en build
 - Deploy: Vercel (SPA con rewrites)
 
 ## Entradas y arranque
 - HTML raíz: `index.html`
-  - Metadatos SEO básicos, GA4 y GTM.
+  - Metadatos SEO base (OG/Twitter), `lang=es`, JSON‑LD LocalBusiness y solo GTM (sin GA4 directo).
 - Punto de entrada JS: `src/main.tsx`
   - Monta React y envuelve con `BrowserRouter`.
 - App + rutas: `src/App.tsx`
@@ -83,14 +83,18 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
   - Algunos canales (teléfono/WhatsApp/email) están comentados o “temporalmente deshabilitados”. Habilítalos retirando comentarios y actualizando números/URLs.
 
 ## SEO y analítica
-- Metas base: `index.html` (title, description, OG/Twitter y favicon).
-- Analytics: GA4 y GTM inyectados en `index.html`.
+- Metas base: `index.html` (title, description, OG/Twitter y favicon) + JSON‑LD `LocalBusiness`.
+- SEO per‑route: `src/app/seo/Seo.tsx` para title/description/OG/Twitter/robots/JSON‑LD por página.
 - Canonical: `src/app/seo/Canonical.tsx` fija `<link rel="canonical">` usando `VITE_SITE_URL`.
 - Robots: `public/robots.txt`
 - Sitemap:
   - Generador: `scripts/generate-sitemap.mjs`
   - Hook: se ejecuta en `prebuild` y produce `public/sitemap.xml`.
   - Incluye: `/`, `/servicios`, `/blog`, `/privacidad` + `/blog/:id` a partir de `blogPosts.ts`.
+- Analytics (GTM + GA4 mediante GTM):
+  - SPA pageviews desde `src/app/analytics/RouteAnalytics.tsx` → `dataLayer` `{ event: 'pageview', page_title, page_location, page_path }`.
+  - El primer page_view lo envía GTM (se evita duplicado en el código).
+  - Configurar en GTM una etiqueta GA4 de evento `page_view` con trigger Custom Event `pageview`.
 
 ## Build y despliegue
 - Scripts (`package.json`):
