@@ -8,9 +8,21 @@ Este proyecto es una SPA con Vite + React y enrutado con `react-router-dom`. Se 
 - Install Command: (por defecto) `npm install`
 - Build Command: `npm run build`
 - Output Directory: `dist`
-- `vercel.json`:
-  - `rewrites`: `/(.*) -> /index.html` (SPA)
-  - Los ficheros estáticos como `/robots.txt` y `/sitemap.xml` se sirven directamente si existen en `dist/`.
+ - `vercel.json` (SPA con fallback global):
+   ```json
+   {
+     "version": 2,
+     "buildCommand": "npm run build",
+     "outputDirectory": "dist",
+     "trailingSlash": false,
+     "routes": [
+       { "handle": "filesystem" },
+       { "src": "/.*", "dest": "/index.html" }
+     ]
+   }
+   ```
+   - Con `handle: filesystem` Vercel sirve primero ficheros reales de `dist/` (p. ej., `/robots.txt`, `/sitemap.xml`, imágenes, etc.).
+   - El resto de rutas hacen fallback a `index.html` para que las resuelva React Router sin tener que añadir reescrituras por cada página.
 
 ## Generación del sitemap
 
@@ -81,4 +93,3 @@ Sí, es recomendable para mantener el `sitemap.xml` sincronizado con las página
 ---
 
 Ante cualquier cambio de arquitectura (p. ej., pasar a SSR con Next.js), la generación del sitemap puede moverse a una ruta serverless y hacerse dinámica, pero para esta SPA estática el flujo anterior es simple, fiable y suficiente.
-
