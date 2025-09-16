@@ -280,7 +280,7 @@ export default function ContactForm() {
                 name="entry_725191283"
                 value={formData.entry_725191283}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
+                className={`w-full px-4 py-3 rounded-xl border transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background ${
                   errors.entry_725191283 
                     ? 'border-destructive bg-destructive/5' 
                     : 'border-input bg-background hover:border-primary/50'
@@ -305,7 +305,7 @@ export default function ContactForm() {
                 name="entry_916166591"
                 value={formData.entry_916166591}
                 onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
+                className={`w-full px-4 py-3 rounded-xl border transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background ${
                   errors.entry_916166591 
                     ? 'border-destructive bg-destructive/5' 
                     : 'border-input bg-background hover:border-primary/50'
@@ -337,7 +337,7 @@ export default function ContactForm() {
                 value={formData.entry_1602707373}
                 onChange={handleChange}
                 rows={4}
-                className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary resize-none ${
+                className={`w-full px-4 py-3 rounded-xl border transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background resize-none ${
                   errors.entry_1602707373 
                     ? 'border-destructive bg-destructive/5' 
                     : 'border-input bg-background hover:border-primary/50'

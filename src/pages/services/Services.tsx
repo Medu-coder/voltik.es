@@ -206,7 +206,7 @@ const ServicesPage = () => {
                       <ul className="space-y-3 text-sm">
                         {s.include.map((item) => (
                           <li key={item} className="flex items-start">
-                            <CheckCircle2 className="text-text mr-3 mt-0.5 shrink-0 w-4 h-4" />
+                            <CheckCircle2 className="text-primary mr-3 mt-0.5 shrink-0 w-4 h-4" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -217,7 +217,7 @@ const ServicesPage = () => {
                       <ul className="space-y-3 text-sm">
                         {s.cases.map((item) => (
                           <li key={item} className="flex items-start">
-                            <CheckCircle2 className="text-text mr-3 mt-0.5 shrink-0 w-4 h-4" />
+                            <CheckCircle2 className="text-primary mr-3 mt-0.5 shrink-0 w-4 h-4" />
                             <span>{item}</span>
                           </li>
                         ))}

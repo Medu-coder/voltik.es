@@ -81,7 +81,7 @@ const Blog = () => {
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary min-w-[200px]"
+                  className="px-4 py-3 rounded-lg border border-input bg-background hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary transition-colors min-w-[200px]"
                 >
                   <option value="all">Todas las categorías</option>
                   {categories.slice(1).map(category => (
@@ -110,7 +110,7 @@ const Blog = () => {
                 {featuredPosts.map((post) => (
                   <article key={post.id} className="voltik-card group hover:scale-105 transition-all duration-300">
                     <div className="flex items-center gap-2 mb-4">
-                      <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">
+                      <span className="px-3 py-1 bg-primary/20 text-text text-xs font-medium rounded-full">
                         Destacado
                       </span>
                       <span className="px-3 py-1 bg-secondary/20 text-secondary-foreground text-xs font-medium rounded-full">
