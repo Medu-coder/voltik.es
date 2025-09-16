@@ -9,9 +9,9 @@ export default function Services() {
     {
       icon: Home,
       title: "Viviendas",
-      description: "Reformas eléctricas completas, instalación de placas solares, puntos de recarga para vehículo eléctrico y domótica inteligente.",
+      description: "Realizamos todo tipo de servicios eléctricos para tu hogar: servicios profesionales, ágiles y con garantía.",
       image: residentialImage,
-      features: ["Instalaciones nuevas y reformas", "Cerfificados de eficiencia energética y boletines", "Placas solares", "Puntos de recarga VE", "Domótica inteligente",]
+      features: ["Instalaciones nuevas y reformas eléctricas", "Cerfificados de eficiencia energética y boletines", "Placas solares", "Puntos de recarga VE", "Domótica inteligente",]
     },
     {
       icon: Building2,

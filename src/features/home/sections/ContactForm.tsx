@@ -33,14 +33,15 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
 
   const serviceTypes = [
-    'Instalación nueva',
-    'Reforma eléctrica', 
-    'Placas solares',
-    'Punto de recarga VE',
+    'Instalación eléctrica nueva y reformas',
+    'Cerfificados de eficiencia energética',
+    'Boletines',
+    'Estudios de eficiencia energética',
+    'Instalación o mantenimiento de placas solares',
+    'Punto de recarga Vehículo Eléctrico',
     'Domótica',
-    'Mantenimiento',
-    'Urgencia',
-    'Otro'
+    'Urgencias',
+    'Otro (especificar)'
   ]
 
   const validateForm = (): boolean => {
