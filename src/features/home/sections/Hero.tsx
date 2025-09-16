@@ -38,7 +38,7 @@ export default function Hero() {
 
           {/* Lead */}
           <p className="lead mb-8">
-            Somos instaladores autorizados en Córdoba que combinan un trato humano impecable 
+            Somos instaladores autorizados. Combinamos un trato humano impecable 
             con procesos 100% digitales: olvídate de esperas y complicaciones.
           </p>
 
@@ -82,7 +82,7 @@ export default function Hero() {
 
           {/* Trust Indicator */}
           <p className="mt-8 text-sm text-muted-foreground">
-            Más de <strong className="text-foreground">500 instalaciones</strong> realizadas en Córdoba
+            Más de <strong className="text-foreground">5000 instalaciones nuevas</strong> realizadas
           </p>
         </div>
       </div>

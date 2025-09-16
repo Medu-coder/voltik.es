@@ -86,7 +86,7 @@ export default function Values() {
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">+500</div>
+                <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">+5000</div>
                 <div className="text-sm text-foreground/80">Instalaciones realizadas</div>
               </div>
               <div>

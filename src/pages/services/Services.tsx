@@ -22,18 +22,19 @@ const ServicesPage = () => {
       title: 'Viviendas',
       image: residentialImage,
       lead:
-        'Reformas eléctricas completas, placas solares, puntos de recarga para vehículo eléctrico y domótica inteligente con acabados profesionales.',
+        'Instalaciones eléctricas, certificados de eficiencia energética, placas solares, puntos de recarga y domótica inteligente con un trato profesional impecable.',
       include: [
-        'Instalaciones nuevas y reformas (cocinas, baños y viviendas completas)',
-        'Ampliación de líneas, cuadros y protecciones diferenciales',
-        'Placas solares y optimización de autoconsumo',
-        'Puntos de recarga para vehículo eléctrico (modo 3/Wallbox)',
-        'Domótica: iluminación, clima y seguridad conectada',
-        'Certificados y legalizaciones cuando sea necesario'
+        'Instalaciones nuevas y reformas',
+        'Certificados de eficiencia energética y boletines',
+        'Expedición de boletines eléctricos',
+        'Placas solares e instalaciones de autoconsumo',
+        'Puntos de recarga para vehículo eléctrico',
+        'Domótica, iluminación, clima y seguridad conectada',
       ],
       cases: [
         'Reforma integral con redistribución de puntos de luz y tomas',
-        'Sustitución de cuadro eléctrico antiguo por uno actualizado',
+        'Ánalisis y mejora de eficiencia energética',
+        'Sustituciones de cuadros eléctricos',
         'Instalación de cargador VE en garaje comunitario o privado',
         'Integración de sensores y escenas de iluminación'
       ]
@@ -44,20 +45,21 @@ const ServicesPage = () => {
       title: 'Negocios',
       image: commercialImage,
       lead:
-        'Cuadros eléctricos, cableado estructurado, alumbrado eficiente, mantenimiento preventivo y legalizaciones para tu empresa o local.',
+        'Cuadros eléctricos, estudios de eficiencia energética, mantenimiento preventivo y legalizaciones para tu empresa o local.',
       include: [
-        'Instalaciones comerciales y adaptación a normativa vigente',
-        'Diseño y montaje de cuadros eléctricos y subcuadros',
-        'Iluminación LED eficiente para retail, oficinas y naves',
-        'Mantenimiento preventivo y correctivo planificado',
-        'Legalizaciones y boletines (según alcance)',
-        'Ampliaciones de potencia y equilibrado de cargas'
+        'Diseño de instalaciones comerciales y adaptación a normativa vigente',
+        'Certificados de eficiencia energética',
+        'Iluminación LED eficiente para locales, oficinas y naves',
+        'Mantenimiento preventivo y correctivo',
+        'Ampliaciones de potencia y equilibrado de cargas',
+        'Legalizaciones y boletines'
+
       ],
       cases: [
-        'Apertura de local con instalación y cuadro nuevos',
-        'Renovación de iluminación para reducir consumo',
-        'Mantenimiento periódico con priorización de seguridad',
-        'Legalización y adecuación tras inspección'
+        'Apertura de local con instalación y cuadros nuevos',
+        'Estudios de impacto enérgetico para reducir consumo',
+        'Planes de mantenimiento periódicos',
+        'Legalización y adecuación tras inspecciones'
       ]
     },
     {
@@ -66,16 +68,16 @@ const ServicesPage = () => {
       title: 'Urgencias 24/7',
       image: emergencyImage,
       lead:
-        'Atención de averías y cortocircuitos con respuesta ágil, diagnóstico claro y reparación segura, día y noche.',
+        'Atención a averías con respuesta ágil. Realizamos un diagnóstico claro del problema y buscamos la mejor solución para ti o tu negocio.',
       include: [
         'Diagnóstico rápido de fallos e interrupciones',
         'Reparación de cortocircuitos y derivaciones',
-        'Restitución de suministro tras disparos de diferencial',
+        'Restitución de suministro',
         'Sustitución de protecciones y componentes dañados',
-        'Asesoramiento para evitar futuras incidencias'
+        'Asesoramiento preventivo'
       ],
       cases: [
-        'Diferencial que salta continuamente',
+        'Cuadros de mando dañados',
         'Olor a quemado o sobrecalentamiento en un punto',
         'Pérdida parcial de tensión en estancias',
         'Fallo en cargador de vehículo o termo eléctrico'
@@ -88,21 +90,21 @@ const ServicesPage = () => {
       step: '1',
       title: 'Cuéntanos tu proyecto',
       description:
-        'Explícanos qué necesitas por formulario o WhatsApp. Te orientamos sin tecnicismos y valoramos el alcance real.',
+        'Explícanos qué necesitas por formulario o WhatsApp. Te orientamos sin tecnicismos y valoramos la solución que mejor se adapte a ti.',
       icon: Wrench
     },
     {
       step: '2',
       title: 'Presupuesto en 24h',
       description:
-        'Propuesta detallada con materiales, plazos y precio transparente. Ajustes ágiles hasta cerrar el alcance final.',
+        'Propuesta detallada con materiales, plazos y precios transparentes. Ajustes ágiles hasta cerrar el alcance final.',
       icon: Shield
     },
     {
       step: '3',
       title: 'Instalación sin estrés',
       description:
-        'Ejecución limpia y segura. Seguimiento digital, firma electrónica y garantía escrita de 2 años.',
+        'Ejecución limpia y segura. Seguimiento digital, firma electrónica y garantía de 2 años.',
       icon: Car
     }
   ]
@@ -111,7 +113,7 @@ const ServicesPage = () => {
     <div className="min-h-screen bg-background">
       <Seo
         title="Voltik · Servicios eléctricos en Córdoba"
-        description="Instalaciones y mantenimiento para viviendas y negocios en Córdoba: cuadros, iluminación, puntos de recarga VE, domótica y urgencias 24/7."
+        description="Instalaciones eléctricas y mantenimiento para viviendas y negocios en Córdoba: instalaciones nuevas, reparaciones, eficiencia energética, puntos de recarga vehículo eléctrico, placas solares, domótica y urgencias 24/7."
         type="website"
       />
       <Header />
@@ -124,7 +126,7 @@ const ServicesPage = () => {
               Servicios eléctricos profesionales
             </h1>
             <p className="lead">
-              Instalaciones y mantenimiento para viviendas y negocios en Córdoba. Proyecto claro, ejecución segura y garantía escrita.
+              Instalaciones eléctricas, mantenimiento y eficiencia energética para viviendas y negocios en Córdoba. Proyecto claro, ejecución profesional y garantía escrita.
             </p>
           </div>
         </section>
@@ -204,7 +206,7 @@ const ServicesPage = () => {
                       <ul className="space-y-3 text-sm">
                         {s.include.map((item) => (
                           <li key={item} className="flex items-start">
-                            <CheckCircle2 className="text-primary mr-3 mt-0.5 shrink-0 w-4 h-4" />
+                            <CheckCircle2 className="text-text mr-3 mt-0.5 shrink-0 w-4 h-4" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -215,7 +217,7 @@ const ServicesPage = () => {
                       <ul className="space-y-3 text-sm">
                         {s.cases.map((item) => (
                           <li key={item} className="flex items-start">
-                            <CheckCircle2 className="text-primary mr-3 mt-0.5 shrink-0 w-4 h-4" />
+                            <CheckCircle2 className="text-text mr-3 mt-0.5 shrink-0 w-4 h-4" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -271,33 +273,33 @@ const ServicesPage = () => {
             <div className="max-w-4xl mx-auto bg-card rounded-xl border border-border p-2 md:p-4">
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
-                  <AccordionTrigger>¿Realizáis certificados y legalizaciones?</AccordionTrigger>
+                  <AccordionTrigger>¿Qué garantía tengo de vuestro trabajo?</AccordionTrigger>
                   <AccordionContent>
-                    Sí. Cuando el alcance lo requiere, gestionamos boletines y legalizaciones con la documentación necesaria.
+                    Somos profesionales con amplio conocmiento y experiencia. Todos nuestros trabajos cuentan con garantía de 2 años.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
-                  <AccordionTrigger>¿Dáis garantía del trabajo?</AccordionTrigger>
+                  <AccordionTrigger>¿Realizáis certificados energéticos y legalizaciones?</AccordionTrigger>
                   <AccordionContent>
-                    Todos nuestros trabajos cuentan con garantía escrita de 2 años sobre la instalación ejecutada.
+                    Sí. No tienes que preocuparte de nada, nosotros gestionamos toda la documentación necesaria para expedir tu certificado energético, boletín o legalizar tu instalación.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
                   <AccordionTrigger>¿Trabajáis en comunidades de vecinos y garajes?</AccordionTrigger>
                   <AccordionContent>
-                    Sí, tanto en zonas comunes como en viviendas o plazas particulares, coordinándonos con la comunidad cuando es necesario.
+                    Sí, tanto en zonas comunes como en viviendas o plazas particulares, coordinándonos con la comunidad y cuidando del bienestar de los residentes.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-4">
                   <AccordionTrigger>¿Cómo se calcula el presupuesto?</AccordionTrigger>
                   <AccordionContent>
-                    Desglosamos materiales y mano de obra con precios transparentes. Ajustamos el alcance contigo antes de comenzar.
+                    Desglosamos materiales y mano de obra con precios unitarios y transparentes. Ajustamos el alcance contigo antes de comenzar.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-5">
                   <AccordionTrigger>¿Atendéis urgencias fuera del horario laboral?</AccordionTrigger>
                   <AccordionContent>
-                    Prestamos servicio de urgencias 24/7 para averías prioritarias con respuesta rápida y reparación segura.
+                    Prestamos servicios de urgencias 24h para averías prioritarias, respondiendo rápido con la máxima calidad.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>

@@ -20,6 +20,12 @@
     --voltik-warning: 45 93% 47%;      /* #FBBF24 */
     --voltik-info: 217 91% 60%;        /* #60A5FA */
 
+      /* Variaciones derivadas (permitidas) */
+    --voltik-primary-light: 75, 33%, 92%;
+    --voltik-primary-dark: 75, 33%, 75%;
+    --voltik-secondary-light: 46, 71%, 93%;
+    --voltik-secondary-dark: 46, 71%, 76%;
+
     /* == DESIGN SYSTEM MAPPING == */
     --background: var(--voltik-background);
     --foreground: var(--voltik-text);

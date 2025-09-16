@@ -30,7 +30,7 @@ export default function ProblemAgitation() {
 
             <div className="voltik-card bg-destructive/10 border border-destructive/20">
               <TrendingDown size={48} className="mx-auto mb-4 text-destructive" />
-              <h3 className="font-semibold mb-2 text-destructive">Pérdidas económicas</h3>
+              <h3 className="font-semibold mb-2 text-destructive whitespace-nowrap text-base md:text-lg">Pérdidas económicas</h3>
               <p className="text-sm text-muted-foreground">
                 Cada hora de retraso cuesta dinero y credibilidad
               </p>
@@ -44,7 +44,7 @@ export default function ProblemAgitation() {
             </h3>
             <p className="lead">
               Respondemos en menos de 24h, entregamos trabajos con garantía de 2 años 
-              y utilizamos tecnología para que todo sea más ágil y transparente.
+              y utilizamos la tecnología para que todo sea más ágil y transparente.
             </p>
           </div>
         </div>

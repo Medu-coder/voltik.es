@@ -1,4 +1,4 @@
-import { Home, Building2, Zap, Wrench, Car, Shield } from 'lucide-react'
+import { Home, Building2, Zap, Wrench, Car, Shield, CheckCircle2 } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import residentialImage from '@/assets/residential-service.jpg'
 import commercialImage from '@/assets/commercial-service.jpg'
@@ -11,21 +11,21 @@ export default function Services() {
       title: "Viviendas",
       description: "Reformas eléctricas completas, instalación de placas solares, puntos de recarga para vehículo eléctrico y domótica inteligente.",
       image: residentialImage,
-      features: ["Instalaciones nuevas y reformas", "Placas solares", "Puntos de recarga VE", "Domótica inteligente",]
+      features: ["Instalaciones nuevas y reformas", "Cerfificados de eficiencia energética y boletines", "Placas solares", "Puntos de recarga VE", "Domótica inteligente",]
     },
     {
       icon: Building2,
       title: "Negocios",
       description: "Cuadros eléctricos para tu empresa, mantenimiento preventivo y legalizaciones oficiales.",
       image: commercialImage,
-      features: ["Instalaciones comerciales", "Cuadros eléctricos", "Mantenimiento", "Legalizaciones"]
+      features: ["Instalaciones comerciales", "Estudios de eficiencia energética", "Protecciones", "Mantenimiento", "Legalizaciones"]
     },
     {
       icon: Zap,
       title: "Urgencias 24/7",
       description: "Reparación inmediata de averías y cortocircuitos sin esperas ni sorpresas.",
       image: emergencyImage,
-      features: ["Respuesta inmediata", "Disponible 24/7", "Sin sobrecostes", "Diagnóstico gratuito"]
+      features: ["Respuesta inmediata", "Disponibles 24h", "Sin sobrecostes", "Diagnóstico gratuito"]
     }
   ]
 
@@ -67,7 +67,7 @@ export default function Services() {
         {/* Services Grid */}
         <div className="voltik-grid-3 mb-20">
           {services.map((service, index) => (
-            <div key={index} className="voltik-card group hover:scale-105 transition-transform duration-300">
+            <div key={index} className="voltik-card group hover:scale-105 transition-transform duration-300 h-full flex flex-col">
               <div className="relative overflow-hidden rounded-lg mb-6">
                 <img 
                   src={service.image} 
@@ -80,19 +80,21 @@ export default function Services() {
                 </div>
               </div>
               
-              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-              <p className="text-muted-foreground mb-6">{service.description}</p>
+              <div className="mb-6 min-h-[180px] md:min-h-[120px]">
+                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed line-clamp-3">{service.description}</p>
+              </div>
               
               <div className="space-y-2 mb-6">
                 {service.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center text-sm">
-                    <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                  <div key={idx} className="flex items-start text-sm">
+                    <CheckCircle2 className="text-primary w-5 h-5 mr-3 mt-0.5 shrink-0" />
                     <span>{feature}</span>
                   </div>
                 ))}
               </div>
               
-              <VoltikButton variant="outline" size="sm" className="w-full" asChild>
+              <VoltikButton variant="outline" size="sm" className="w-full mt-auto" asChild>
                 <a href="/servicios">Más información</a>
               </VoltikButton>
             </div>
