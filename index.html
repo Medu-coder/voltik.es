@@ -67,6 +67,23 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (function() {
+        var doc = document
+        if (!doc) return
+        var link = doc.querySelector("link[rel='canonical']")
+        if (!link) {
+          link = doc.createElement('link')
+          link.setAttribute('rel', 'canonical')
+          doc.head.appendChild(link)
+        }
+        var loc = window.location
+        var origin = loc.origin || (loc.protocol + '//' + loc.host)
+        var path = loc.pathname.replace(/index\.html$/, '/')
+        if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1)
+        link.setAttribute('href', origin + path)
+      })()
+    </script>
     <script type="module" src="/src/main.tsx"></script>
 
     <!-- Google Tag Manager (noscript) -->
