@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, MessageCircle, Facebook, Instagram, Linkedin } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, UploadCloud } from 'lucide-react'
 import voltikLogo from '@/assets/voltik-logo-web.svg'
 
 export default function Footer() {
@@ -19,8 +19,7 @@ export default function Footer() {
                 className="h-8 mb-4 filter brightness-0 invert"
               />
               <p className="text-background/80 mb-6 max-w-md">
-                Instaladores eléctricos autorizados en Córdoba. Combinamos un trato humano impecable 
-                con procesos 100% digitales para ofrecerte el mejor servicio.
+                Servicios de eficiencia energética para hogares y negocios. Analizamos tu factura de luz y negociamos las mejores condiciones para que empieces a ahorrar ahora.
               </p>
               
               {/* Contact Info */}
@@ -65,13 +64,10 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold text-lg mb-4 text-primary">Servicios</h3>
               <ul className="space-y-2 text-background/80">
-                <li><a href="/servicios" className="hover:text-primary transition-colors">Instalaciones eléctricas</a></li>
-                <li><a href="/servicios" className="hover:text-primary transition-colors">Paneles solares</a></li>
-                <li><a href="/servicios" className="hover:text-primary transition-colors">Domótica y automatización</a></li>
-                <li><a href="/servicios" className="hover:text-primary transition-colors">Puntos de recarga VE</a></li>
-                <li><a href="/servicios" className="hover:text-primary transition-colors">Mantenimiento preventivo</a></li>
-                <li><a href="/servicios" className="hover:text-primary transition-colors">Urgencias 24/7</a></li>
-                <li><a href="/servicios" className="hover:text-primary transition-colors">Legalizaciones</a></li>
+                <li><a href="/#formulario" className="hover:text-primary transition-colors">Optimización de factura de luz</a></li>
+                <li><a href="/#servicios" className="hover:text-primary transition-colors">Certificados de eficiencia energética</a></li>
+                <li><a href="/#servicios" className="hover:text-primary transition-colors">Boletines eléctricos (CIE)</a></li>
+                <li><a href="/servicios" className="hover:text-primary transition-colors">Servicios profesionales</a></li>
               </ul>
             </div>
 
@@ -79,11 +75,11 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold text-lg mb-4 text-primary">Empresa</h3>
               <ul className="space-y-2 text-background/80">
-                <li><a href="/#valores" className="hover:text-primary transition-colors">Nuestros valores</a></li>
-                <li><a href="/#casos" className="hover:text-primary transition-colors">Casos de éxito</a></li>
+                <li><a href="/#proceso" className="hover:text-primary transition-colors">Cómo funciona</a></li>
+                <li><a href="/#beneficios" className="hover:text-primary transition-colors">Beneficios</a></li>
+                <li><a href="/#testimonios" className="hover:text-primary transition-colors">Testimonios</a></li>
                 <li><a href="/blog" className="hover:text-primary transition-colors">Blog Voltik</a></li>
-                <li><a href="/#contacto" className="hover:text-primary transition-colors">Contacto</a></li>
-                <li><a href="/#contacto" className="hover:text-primary transition-colors">Pedir presupuesto</a></li>
+                <li><a href="/#faqs" className="hover:text-primary transition-colors">FAQs</a></li>
                 <li><a href="/privacidad" className="hover:text-primary transition-colors">Política de privacidad</a></li>
               </ul>
             </div>
@@ -92,30 +88,29 @@ export default function Footer() {
 
         {/* Contact CTA Section */}
         <div className="py-8 border-t border-background/20">
-          <div className="text-center">
-            <h3 className="text-xl font-semibold mb-4 text-primary">
-              ¿Tienes alguna consulta sobre tu instalación eléctrica?
+          <div className="max-w-3xl mx-auto text-center bg-secondary/30 rounded-2xl px-8 py-10 shadow-lg shadow-background/30">
+            <div className="flex items-center justify-center gap-3 text-primary mb-4">
+              <UploadCloud size={24} />
+              <span className="text-sm font-semibold uppercase tracking-wide">Ahorra hoy mismo</span>
+            </div>
+            <h3 className="text-2xl font-semibold mb-3 text-foreground">
+              ¿Listo para recibir tu propuesta personalizada?
             </h3>
             <p className="text-background/80 mb-6">
-              Respuesta garantizada en menos de 24h laborables
+              Adjunta tu factura y en menos de 48 horas recibirás una comparativa clara con la mejor oferta del mercado.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              {/* 
               <a
-                href="https://wa.me/34957000000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                href="/#formulario"
+                className="inline-flex items-center px-6 py-3 bg-primary text-foreground rounded-lg hover:bg-primary/90 transition-colors shadow-md"
               >
-                <MessageCircle size={20} className="mr-2" />
-                WhatsApp directo
-              </a> 
-              */}
+                Subir mi factura
+              </a>
               <a
-                href="/#contacto"
-                className="inline-flex items-center px-6 py-3 bg-primary text-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                href="/#proceso"
+                className="inline-flex items-center px-6 py-3 bg-background text-foreground rounded-lg border border-primary/40 hover:border-primary/80 transition-colors"
               >
-                Rellena el formulario
+                Ver cómo funciona
               </a>
             </div>
           </div>
@@ -125,8 +120,7 @@ export default function Footer() {
         <div className="py-6 border-t border-background/20">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-background/60 text-sm mb-4 md:mb-0">
-              © {currentYear} Voltik. Todos los derechos reservados. {/*  | 
-              <span className="ml-1">Instalador autorizado nº XXXX</span> */}
+              © {currentYear} Voltik · Servicios de eficiencia energética. Todos los derechos reservados.
             </div>
             
             {/* Social Links */}

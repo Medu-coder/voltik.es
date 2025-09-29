@@ -8,47 +8,41 @@ export default function Testimonials() {
 
   const testimonials = [
     {
-      quote: "Voltik me instaló el cargador para mi coche eléctrico en 48h y sin cortar la luz de mi negocio. Profesionalidad de primera.",
-      author: "María González",
-      role: "Propietaria de restaurante",
+      quote: 'Envié mi factura un lunes y el miércoles ya tenía una oferta nueva. Ahora pago 32€ menos al mes en mi piso.',
+      author: 'Lucía Rodríguez',
+      role: 'Hogar urbano (2 personas)',
       rating: 5,
-      location: "Centro de Córdoba"
+      location: 'Córdoba capital',
+      savings: 'Ahorro mensual 32€',
+      initials: 'LR',
     },
     {
-      quote: "Reforma eléctrica impecable y limpia. Cumplieron plazos y precio al céntimo. Los recomiendo sin dudarlo.",
-      author: "Javier Martín",
-      role: "Particular",
+      quote: 'Nos ajustaron la potencia nocturna y añadieron discriminación horaria. La factura de mi familia bajó 480€ al año.',
+      author: 'Familia Sánchez',
+      role: 'Vivienda unifamiliar',
       rating: 5,
-      location: "Provincia de Córdoba"
+      location: 'Almodóvar del Río',
+      savings: 'Ahorro anual 480€',
+      initials: 'FS',
     },
     {
-      quote: "Respondieron a una avería un domingo en menos de dos horas. Atención de 10 y precios transparentes.",
-      author: "Carmen López",
-      role: "Comercio local",
+      quote: 'Compararon 6 comercializadoras y negociaron por nosotros. El restaurante ahorra un 21% sin cambiar de hábitos.',
+      author: 'Laura Gómez',
+      role: 'Restaurante de barrio',
       rating: 5,
-      location: "Barrio de Cañero"
+      location: 'Lucena',
+      savings: 'Ahorro mensual 210€',
+      initials: 'LG',
     },
     {
-      quote: "Instalación completa de placas solares en tiempo récord. Además puedo ver la producción desde el móvil.",
-      author: "Ana Delgado",
-      role: "Vivienda unifamiliar",
+      quote: 'Para la nave industrial consiguieron una tarifa indexada con cobertura. El ahorro anual supera los 3.500€.',
+      author: 'Manuel Ortega',
+      role: 'Empresa industrial',
       rating: 5,
-      location: "El Tablero"
+      location: 'Polígono Las Quemadas',
+      savings: 'Ahorro anual 3.500€',
+      initials: 'MO',
     },
-    {
-      quote: "Optimizaron la potencia contratada y ahora pago 150€ menos cada mes. Una inversión que se paga sola.",
-      author: "Rubén Torres",
-      role: "Oficina",
-      rating: 5,
-      location: "Polígono Industrial las Quemadas"
-    },
-    {
-      quote: "Legalización express en Industria. Documentación perfecta y seguimiento constante por WhatsApp.",
-      author: "Miguel Ruiz",
-      role: "Empresa industrial",
-      rating: 5,
-      location: "Polígono de La Torrecilla"
-    }
   ]
 
   // Auto-advance slides
@@ -78,16 +72,15 @@ export default function Testimonials() {
   }
 
   return (
-    <section id="casos" className="voltik-section bg-gradient-to-br from-primary/5 to-secondary/5">
+    <section id="testimonios" className="voltik-section bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="voltik-container px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Testimonios de clientes que confiaron en Voltik
+            Historias reales de ahorro con Voltik
           </h2>
           <p className="lead">
-            Más de 500 proyectos completados con éxito en toda la provincia de Córdoba. 
-            Conoce las experiencias reales de nuestros clientes.
+            Hogares, comercios e industria ya están pagando menos por la luz gracias a nuestro análisis personalizado.
           </p>
         </div>
 
@@ -101,23 +94,33 @@ export default function Testimonials() {
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="w-full flex-shrink-0">
                   <div className="voltik-card text-center bg-background/80 backdrop-blur-sm border border-primary/20 px-4 py-6">
+                    {testimonial.savings && (
+                      <span className="inline-flex items-center px-3 py-1 mb-4 rounded-full bg-primary text-sm font-semibold text-foreground">
+                        {testimonial.savings}
+                      </span>
+                    )}
                     {/* Quote Icon */}
                     <Quote size={48} className="mx-auto mb-6 text-primary/30" />
-                    
+
                     {/* Stars */}
                     <div className="flex justify-center mb-6">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star key={i} size={20} className="text-yellow-400 fill-current" />
                       ))}
                     </div>
-                    
+
                     {/* Quote */}
                     <blockquote className="text-lg md:text-xl text-foreground mb-8 italic font-medium">
                       "{testimonial.quote}"
                     </blockquote>
-                    
+
                     {/* Author */}
                     <div className="border-t border-primary/20 pt-6">
+                      <div className="flex justify-center mb-4">
+                        <div className="w-12 h-12 rounded-full bg-primary/15 text-primary font-semibold flex items-center justify-center">
+                          {testimonial.initials}
+                        </div>
+                      </div>
                       <div className="font-semibold text-foreground text-lg">
                         {testimonial.author}
                       </div>
@@ -174,7 +177,7 @@ export default function Testimonials() {
             ¿Tú también quieres ser un cliente satisfecho?
           </h3>
           <VoltikButton variant="voltik" size="lg" asChild>
-            <a href="#contacto">Contacta con nosotros gratis</a>
+            <a href="#formulario">Contacta con nosotros gratis</a>
             {/*<a href="#contacto">Pide tu presupuesto gratis</a>*/}
           </VoltikButton>
         </div>

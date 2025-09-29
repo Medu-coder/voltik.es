@@ -22,7 +22,7 @@ const BlogArticle = () => {
   return (
     <>
       <Seo
-        title={`${post.title} · Voltik`}
+        title={`${post.title} · Voltik · Servicios de eficiencia energética`}
         description={post.excerpt}
         image={post.image}
         type="article"
@@ -36,11 +36,11 @@ const BlogArticle = () => {
           datePublished: new Date(post.date).toISOString(),
           author: {
             '@type': 'Organization',
-            name: 'Voltik',
+            name: 'Voltik · Servicios de eficiencia energética',
           },
           publisher: {
             '@type': 'Organization',
-            name: 'Voltik',
+            name: 'Voltik · Servicios de eficiencia energética',
             logo: {
               '@type': 'ImageObject',
               url: '/assets/voltik-logo-web.svg',

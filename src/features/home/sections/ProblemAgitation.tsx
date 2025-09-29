@@ -1,51 +1,89 @@
-import { AlertTriangle, Clock, TrendingDown } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { VoltikButton } from '@/components/ui/voltik-button'
 
 export default function ProblemAgitation() {
+  const painPoints = [
+    {
+      title: 'Pagas de más cada mes',
+      description: 'Las tarifas antiguas y los cambios de mercado disparan tu factura sin avisar.',
+    },
+    {
+      title: 'Oferta poco transparente',
+      description: 'Comparar comercializadoras lleva horas y la letra pequeña complica cualquier decisión.',
+    },
+    {
+      title: 'Sin datos para negociar',
+      description: 'Sin un análisis experto, es difícil saber qué potencia y tramo horario realmente necesitas.',
+    },
+  ]
+
+  const solutionHighlights = [
+    'Analizamos tu consumo real y detectamos sobrecostes',
+    'Lanzamos tu factura a comercializadoras para recibir sus mejores propuestas',
+    'Te entregamos un informe claro para que solo tengas que decidir',
+  ]
+
   return (
-    <section className="voltik-section bg-muted/50">
-      <div className="voltik-container text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Problem Statement */}
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            ¿Te han dejado <span className="text-destructive">colgado</span> esperando un electricista?
-          </h2>
+    <section id="problema" className="voltik-section bg-muted/40">
+      <div className="voltik-container">
+        <div className="max-w-6xl mx-auto grid gap-12">
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              ¿Pagas demasiado en tu factura de la luz?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Las tarifas cambian cada mes y la mayoría de hogares y negocios siguen pagando condiciones que dejaron de ser competitivas hace tiempo. Sin un estudio experto, es fácil asumir costes que no corresponden.
+            </p>
 
-          {/* Pain Points Grid */}
-          <div className="voltik-grid-3 mb-8 mx-auto">
-            <div className="voltik-card bg-destructive/10 border border-destructive/20">
-              <AlertTriangle size={48} className="mx-auto mb-4 text-destructive" />
-              <h3 className="font-semibold mb-2 text-destructive">Sin electricidad</h3>
-              <p className="text-sm text-muted-foreground">
-                Cada hora sin luz es productividad perdida y estrés innecesario
-              </p>
-            </div>
-
-            <div className="voltik-card bg-destructive/10 border border-destructive/20">
-              <Clock size={48} className="mx-auto mb-4 text-destructive" />
-              <h3 className="font-semibold mb-2 text-destructive">Esperas infinitas</h3>
-              <p className="text-sm text-muted-foreground">
-                Promesas incumplidas y electricistas que no aparecen
-              </p>
-            </div>
-
-            <div className="voltik-card bg-destructive/10 border border-destructive/20">
-              <TrendingDown size={48} className="mx-auto mb-4 text-destructive" />
-              <h3 className="font-semibold mb-2 text-destructive whitespace-nowrap text-base md:text-lg">Pérdidas económicas</h3>
-              <p className="text-sm text-muted-foreground">
-                Cada hora de retraso cuesta dinero y credibilidad
-              </p>
+            <div className="space-y-4">
+              {painPoints.map((point, index) => (
+                <div
+                  key={point.title}
+                  className="voltik-card bg-gradient-to-r from-destructive/10 via-background to-background border border-destructive/20 text-left flex items-start gap-4"
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-destructive text-white text-sm font-semibold shadow-md">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-semibold text-destructive mb-2">{point.title}</h3>
+                    <p className="text-sm text-muted-foreground">{point.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Solution Preview */}
-          <div className="bg-primary/20 rounded-2xl p-8 md:p-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              En Voltik hacemos las cosas diferentes
+          <div className="voltik-card bg-background relative overflow-hidden">
+            <div className="absolute inset-y-0 right-0 w-1/3 bg-primary/10 blur-2xl" aria-hidden />
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/20 text-primary-foreground text-sm font-medium mb-6">
+              La solución Voltik
+            </div>
+            <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
+              Analizamos tu factura y te enviamos la mejor oferta. Gratis y sin complicaciones.
             </h3>
-            <p className="lead">
-              Respondemos en menos de 24h, entregamos trabajos con garantía de 2 años 
-              y utilizamos la tecnología para que todo sea más ágil y transparente.
+            <p className="text-muted-foreground mb-8">
+              Deja que las eléctricas se peleen por ofrecerte su mejor precio. Nosotros nos encargamos de todo y tú solo eliges si quieres aceptar la propuesta.
             </p>
+
+            <ul className="space-y-4">
+              {solutionHighlights.map((text, index) => (
+                <li key={text} className="flex items-center gap-4">
+                  <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-sm font-semibold text-foreground">
+                    {index + 1}
+                  </div>
+                  <span className="text-sm md:text-base text-foreground/90 flex-1">{text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 text-center">
+              <VoltikButton variant="voltik" size="lg" asChild>
+                <a href="#formulario" className="group">
+                  Quiero mi oferta ya
+                  <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
+                </a>
+              </VoltikButton>
+            </div>
           </div>
         </div>
       </div>

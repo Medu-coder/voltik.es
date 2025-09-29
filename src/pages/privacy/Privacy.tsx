@@ -11,8 +11,8 @@ const Privacy = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Voltik · Política de privacidad"
-        description="Información sobre el tratamiento de datos personales conforme a RGPD y LOPDGDD en voltik.es."
+        title="Política de privacidad · Voltik · Servicios de eficiencia energética"
+        description="Conoce cómo Voltik trata los datos que nos facilitas al enviarnos tu factura de luz o solicitar certificados y boletines."
         type="website"
         robots="index,follow"
       />

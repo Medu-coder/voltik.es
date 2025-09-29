@@ -41,8 +41,8 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Voltik · Blog de electricidad"
-        description="Consejos, guías y noticias sobre instalaciones eléctricas, placas solares, domótica y movilidad eléctrica en Córdoba."
+        title="Voltik · Blog de eficiencia energética"
+        description="Consejos para reducir tu factura de la luz, novedades en eficiencia energética, movilidad eléctrica y soluciones profesionales para hogares y negocios."
         type="website"
       />
       <Header />

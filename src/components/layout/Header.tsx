@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Phone, MessageCircle } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import voltikLogo from '@/assets/voltik-logo-web.svg'
 
@@ -18,10 +18,12 @@ export default function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   const navigationItems = [
-    { href: '/#home', label: 'Inicio' },
-    { href: '/servicios', label: 'Servicios' },
-    { href: '/#valores', label: 'Valores' },
-    { href: '/#casos', label: 'Casos de éxito' },
+    { href: '/#hero', label: 'Inicio' },
+    { href: '/#proceso', label: 'Cómo funciona' },
+    { href: '/#servicios', label: 'Servicios' },
+    { href: '/#beneficios', label: 'Beneficios' },
+    { href: '/#testimonios', label: 'Testimonios' },
+    { href: '/#faqs', label: 'FAQs' },
     { href: '/blog', label: 'Blog' },
   ]
 
@@ -37,13 +39,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a 
-            href="/#home" 
+            href="/#hero" 
             className="flex-shrink-0 hover:opacity-80 transition-opacity"
-            aria-label="Voltik - Inicio"
+            aria-label="Voltik · Servicios de eficiencia energética"
           >
             <img 
               src={voltikLogo} 
-              alt="Voltik" 
+              alt="Voltik · Servicios de eficiencia energética" 
               className="h-8 md:h-10 w-auto"
               loading="eager"
             />
@@ -76,10 +78,12 @@ export default function Header() {
             </a>
             */}
             <VoltikButton variant="voltik" size="md" asChild>
-              <a href="/#contacto">Contacta con nosotros</a>  
-              {/*
-              <a href="/#contacto">Pide presupuesto</a>
-              */}            
+              <a href="/#formulario" className="flex items-center">
+                Subir mi factura
+                <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-voltik-success/20 text-voltik-success font-semibold">
+                  Gratis
+                </span>
+              </a>            
             </VoltikButton>
           </div>
 
@@ -138,11 +142,8 @@ export default function Header() {
                 */}
 
                 <VoltikButton variant="voltik" className="w-full" asChild>
-                  <a href="/#contacto" onClick={() => setIsMenuOpen(false)}>
-                    Contacta con nosotros
-                    {/*
-                    Pide presupuesto gratis
-                    */}
+                  <a href="/#formulario" onClick={() => setIsMenuOpen(false)}>
+                    Subir mi factura
                   </a>
                 </VoltikButton>
               </div>

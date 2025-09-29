@@ -112,8 +112,8 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Voltik · Servicios eléctricos en Córdoba"
-        description="Instalaciones eléctricas y mantenimiento para viviendas y negocios en Córdoba: instalaciones nuevas, reparaciones, eficiencia energética, puntos de recarga vehículo eléctrico, placas solares, domótica y urgencias 24/7."
+        title="Voltik · Servicios de eficiencia energética"
+        description="Optimiza tu consumo eléctrico con servicios de certificados, boletines y proyectos de eficiencia. Analizamos tu factura y gestionamos todo el proceso para hogares y negocios."
         type="website"
       />
       <Header />

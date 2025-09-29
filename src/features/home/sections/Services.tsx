@@ -1,143 +1,54 @@
-import { Home, Building2, Zap, Wrench, Car, Shield, CheckCircle2 } from 'lucide-react'
+import { FileText, ScrollText } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
-import residentialImage from '@/assets/residential-service.jpg'
-import commercialImage from '@/assets/commercial-service.jpg'
-import emergencyImage from '@/assets/emergency-service.jpg'
 
 export default function Services() {
-  const services = [
+  const secondaryServices = [
     {
-      icon: Home,
-      title: "Viviendas",
-      description: "Realizamos todo tipo de servicios eléctricos para tu hogar: servicios profesionales, ágiles y con garantía.",
-      image: residentialImage,
-      features: ["Instalaciones nuevas y reformas eléctricas", "Cerfificados de eficiencia energética y boletines", "Placas solares", "Puntos de recarga VE", "Domótica inteligente",]
+      title: 'Certificados de eficiencia energética',
+      description: 'Preparamos el certificado oficial que necesitas para vender o alquilar tu inmueble, incluyendo asesoramiento sobre mejoras de consumo.',
+      icon: FileText,
+      cta: 'Solicitar certificado',
     },
     {
-      icon: Building2,
-      title: "Negocios",
-      description: "Cuadros eléctricos para tu empresa, mantenimiento preventivo y legalizaciones oficiales.",
-      image: commercialImage,
-      features: ["Instalaciones comerciales", "Estudios de eficiencia energética", "Protecciones", "Mantenimiento", "Legalizaciones"]
+      title: 'Boletines eléctricos (CIE)',
+      description: 'Tramitamos y legalizamos tu instalación para altas nuevas, cambios de potencia o revisiones obligatorias ante la distribuidora.',
+      icon: ScrollText,
+      cta: 'Solicitar boletín',
     },
-    {
-      icon: Zap,
-      title: "Urgencias 24/7",
-      description: "Reparación inmediata de averías y cortocircuitos sin esperas ni sorpresas.",
-      image: emergencyImage,
-      features: ["Respuesta inmediata", "Disponibles 24h", "Sin sobrecostes", "Diagnóstico gratuito"]
-    }
-  ]
-
-  const process = [
-    {
-      step: "1",
-      title: "Cuéntanos tu proyecto",
-      description: "Rellena un breve formulario o envíanos WhatsApp con lo que necesitas.",
-      icon: Wrench
-    },
-    {
-      step: "2", 
-      title: "Presupuesto en 24h",
-      description: "Recibe una propuesta detallada con plazos claros y precios transparentes.",
-      icon: Shield
-    },
-    {
-      step: "3",
-      title: "Instalación sin estrés",
-      description: "Seguimiento digital, firma electrónica y garantía escrita de 2 años.",
-      icon: Car
-    }
   ]
 
   return (
     <section id="servicios" className="voltik-section">
       <div className="voltik-container">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Servicios eléctricos profesionales
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Servicios que completan tu ahorro energético
           </h2>
-          <p className="lead">
-            Desde instalaciones domésticas hasta proyectos industriales, 
-            con la garantía y profesionalidad que tu proyecto merece.
+          <p className="text-lg text-muted-foreground">
+            Además de optimizar tu tarifa, gestionamos todos los trámites técnicos y legales para que tengas tu instalación al día sin complicaciones.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="voltik-grid-3 mb-20">
-          {services.map((service, index) => (
-            <div key={index} className="voltik-card group hover:scale-105 transition-transform duration-300 h-full flex flex-col">
-              <div className="relative overflow-hidden rounded-lg mb-6">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute top-4 left-4 p-3 bg-primary rounded-full">
-                  <service.icon size={24} className="text-primary-foreground" />
+        <div className="voltik-grid-2">
+          {secondaryServices.map((service) => (
+            <article
+              key={service.title}
+              className="voltik-card h-full flex flex-col justify-between transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl"
+            >
+              <div>
+                <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-6">
+                  <service.icon size={32} className="text-primary" />
                 </div>
-              </div>
-              
-              <div className="mb-6 min-h-[180px] md:min-h-[120px]">
                 <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed line-clamp-3">{service.description}</p>
+                <p className="text-muted-foreground text-base">
+                  {service.description}
+                </p>
               </div>
-              
-              <div className="space-y-2 mb-6">
-                {service.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-start text-sm">
-                    <CheckCircle2 className="text-primary w-5 h-5 mr-3 mt-0.5 shrink-0" />
-                    <span>{feature}</span>
-                  </div>
-                ))}
-              </div>
-              
-              <VoltikButton variant="outline" size="sm" className="w-full mt-auto" asChild>
-                <a href="/servicios">Más información</a>
+              <VoltikButton variant="outline" size="lg" className="mt-8 border-primary/40 hover:border-primary" asChild>
+                <a href="#formulario">{service.cta}</a>
               </VoltikButton>
-            </div>
+            </article>
           ))}
-        </div>
-
-        {/* Process Section */}
-        <div className="bg-primary/10 rounded-2xl p-8 md:p-12">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Nuestro proceso en 3 pasos
-            </h3>
-            <p className="lead">
-              Simplicidad y transparencia desde que nos contactas hasta que entregamos el trabajo.
-            </p>
-          </div>
-
-          <div className="voltik-grid-3 mx-auto">
-            {process.map((step, index) => (
-              <div key={index} className="text-center relative">
-                {/* Step Number */}
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center text-2xl font-bold text-primary-foreground">
-                    {step.step}
-                  </div>
-                  {index < process.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-primary/30"></div>
-                  )}
-                </div>
-                
-                <step.icon size={32} className="mx-auto mb-4 text-primary" />
-                <h4 className="text-lg font-semibold mb-3">{step.title}</h4>
-                <p className="text-muted-foreground text-sm">{step.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <VoltikButton variant="voltik" size="lg" asChild>
-              <a href="#contacto">¡Contactar ya!</a>
-              {/*<a href="#contacto">Empezar mi proyecto ahora</a>*/}
-            </VoltikButton>
-          </div>
         </div>
       </div>
     </section>

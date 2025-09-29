@@ -8,8 +8,8 @@ const NotFound = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="404 · Página no encontrada · Voltik"
-        description="La URL solicitada no existe o ha cambiado. Vuelve al inicio o visita el blog."
+        title="404 · Página no encontrada · Voltik · Servicios de eficiencia energética"
+        description="La URL solicitada no existe o ha cambiado. Vuelve al inicio y envíanos tu factura para recibir una propuesta de ahorro."
         robots="noindex,follow"
         type="website"
       />
