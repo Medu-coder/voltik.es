@@ -33,7 +33,7 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
 
   const serviceTypes = [
-    'Instalación eléctrica nueva y reformas',
+    'Instalaciones eléctricas nuevas y reformas',
     'Cerfificados de eficiencia energética',
     'Boletines',
     'Estudios de eficiencia energética',
