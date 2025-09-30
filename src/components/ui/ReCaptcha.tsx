@@ -55,19 +55,25 @@ export default function ReCaptcha({
     setIsExecuting(true)
 
     try {
-      window.grecaptcha.ready(async () => {
-        try {
-          const token = await window.grecaptcha.execute(siteKey, {
-            action: 'submit_form'
-          })
-          onVerify(token)
-        } catch (error) {
-          onError?.()
-        } finally {
-          setIsExecuting(false)
-        }
+      await new Promise<void>((resolve, reject) => {
+        window.grecaptcha.ready(async () => {
+          try {
+            const token = await window.grecaptcha.execute(siteKey, {
+              action: 'submit_form'
+            })
+            onVerify(token)
+            resolve()
+          } catch (error) {
+            console.error('Error ejecutando reCAPTCHA:', error)
+            onError?.()
+            reject(error)
+          } finally {
+            setIsExecuting(false)
+          }
+        })
       })
     } catch (error) {
+      console.error('Error en reCAPTCHA:', error)
       onError?.()
       setIsExecuting(false)
     }
