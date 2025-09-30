@@ -1,6 +1,6 @@
 import { ArrowRight, Upload, PiggyBank, ShieldCheck } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
-import heroImage from '@/assets/hero-electrician.jpg'
+import heroImage from '@/assets/hero-family.png'
 import voltikLogo from '@/assets/voltik-logo-web.svg'
 
 export default function Hero() {
