@@ -28,7 +28,6 @@ export default function ReCaptcha({
   useEffect(() => {
     // Verificar si reCAPTCHA ya está cargado
     if (window.grecaptcha) {
-      console.log('reCAPTCHA ya está cargado')
       setIsLoaded(true)
       return
     }
@@ -39,15 +38,12 @@ export default function ReCaptcha({
     
     const checkRecaptcha = () => {
       attempts++
-      console.log(`Verificando reCAPTCHA, intento ${attempts}/${maxAttempts}`)
       
       if (window.grecaptcha) {
-        console.log('reCAPTCHA cargado exitosamente')
         setIsLoaded(true)
       } else if (attempts < maxAttempts) {
         setTimeout(checkRecaptcha, 100)
       } else {
-        console.error('reCAPTCHA no se pudo cargar después de 5 segundos')
         onError?.()
       }
     }
@@ -58,33 +54,27 @@ export default function ReCaptcha({
   // Solo ejecutar cuando el usuario haga clic en el botón
 
   const executeRecaptcha = async () => {
-    console.log('Iniciando ejecución de reCAPTCHA...')
-    console.log('isLoaded:', isLoaded)
-    console.log('window.grecaptcha:', !!window.grecaptcha)
-    console.log('siteKey:', siteKey)
-    
     if (!isLoaded || !window.grecaptcha) {
-      console.error('reCAPTCHA no está cargado o disponible')
+      console.warn('reCAPTCHA: No disponible')
       onError?.()
       return
     }
 
     setIsExecuting(true)
-    console.log('Ejecutando reCAPTCHA...')
+    console.log('reCAPTCHA: Iniciando verificación...')
 
     try {
       await new Promise<void>((resolve, reject) => {
         window.grecaptcha.ready(async () => {
           try {
-            console.log('reCAPTCHA ready callback ejecutado')
             const token = await window.grecaptcha.execute(siteKey, {
               action: 'submit_form'
             })
-            console.log('Token reCAPTCHA obtenido:', token ? 'Sí' : 'No')
+            console.log('reCAPTCHA: Verificación exitosa')
             onVerify(token)
             resolve()
           } catch (error) {
-            console.error('Error ejecutando reCAPTCHA:', error)
+            console.error('reCAPTCHA: Error en verificación:', error)
             onError?.()
             reject(error)
           } finally {
@@ -93,7 +83,7 @@ export default function ReCaptcha({
         })
       })
     } catch (error) {
-      console.error('Error en reCAPTCHA:', error)
+      console.error('reCAPTCHA: Error general:', error)
       onError?.()
       setIsExecuting(false)
     }
