@@ -28,39 +28,59 @@ export default function ReCaptcha({
   useEffect(() => {
     // Verificar si reCAPTCHA ya está cargado
     if (window.grecaptcha) {
+      console.log('reCAPTCHA ya está cargado')
       setIsLoaded(true)
       return
     }
 
     // Si no está cargado, esperar a que se cargue
+    let attempts = 0
+    const maxAttempts = 50 // 5 segundos máximo
+    
     const checkRecaptcha = () => {
+      attempts++
+      console.log(`Verificando reCAPTCHA, intento ${attempts}/${maxAttempts}`)
+      
       if (window.grecaptcha) {
+        console.log('reCAPTCHA cargado exitosamente')
         setIsLoaded(true)
-      } else {
+      } else if (attempts < maxAttempts) {
         setTimeout(checkRecaptcha, 100)
+      } else {
+        console.error('reCAPTCHA no se pudo cargar después de 5 segundos')
+        onError?.()
       }
     }
     checkRecaptcha()
-  }, [])
+  }, [onError])
 
   // NO ejecutar reCAPTCHA automáticamente al montar el componente
   // Solo ejecutar cuando el usuario haga clic en el botón
 
   const executeRecaptcha = async () => {
+    console.log('Iniciando ejecución de reCAPTCHA...')
+    console.log('isLoaded:', isLoaded)
+    console.log('window.grecaptcha:', !!window.grecaptcha)
+    console.log('siteKey:', siteKey)
+    
     if (!isLoaded || !window.grecaptcha) {
+      console.error('reCAPTCHA no está cargado o disponible')
       onError?.()
       return
     }
 
     setIsExecuting(true)
+    console.log('Ejecutando reCAPTCHA...')
 
     try {
       await new Promise<void>((resolve, reject) => {
         window.grecaptcha.ready(async () => {
           try {
+            console.log('reCAPTCHA ready callback ejecutado')
             const token = await window.grecaptcha.execute(siteKey, {
               action: 'submit_form'
             })
+            console.log('Token reCAPTCHA obtenido:', token ? 'Sí' : 'No')
             onVerify(token)
             resolve()
           } catch (error) {
