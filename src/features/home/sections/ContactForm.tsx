@@ -1,7 +1,9 @@
-import { useState } from 'react'
-import { UploadCloud, ShieldCheck, Clock, Lock, Check, BadgeCheck } from 'lucide-react'
+import { useState, useRef, useEffect } from 'react'
+import { UploadCloud, ShieldCheck, Clock, Lock, Check, BadgeCheck, FileText, X } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { useToast } from '@/hooks/use-toast'
+import { useFileUpload } from '@/hooks/use-file-upload'
+import ReCaptcha from '@/components/ui/ReCaptcha'
 
 interface FormData {
   fecha: string
@@ -14,13 +16,19 @@ interface FormErrors {
   nombre?: string
   email?: string
   telefono?: string
+  archivo?: string
 }
 
 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdaF5kkJAPlsVZYph1V01g0ZflxRoQLxWlylTo6L5nDNh3I9g/formResponse'
+const RECAPTCHA_SITE_KEY = '6Lft8dkrAAAAAMLeuF9nGQVsQelP7wIAJVGPHtF6'
+// URL del backend para envío de facturas
+const BACKEND_URL = 'http://localhost:3001/api/public/intake'
 
 export default function ContactForm() {
   const { toast } = useToast()
   const today = new Date().toISOString().slice(0, 10)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+  const recaptchaRef = useRef<any>(null)
 
   const [formData, setFormData] = useState<FormData>({
     fecha: today,
@@ -31,6 +39,27 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [recaptchaToken, setRecaptchaToken] = useState<string>('')
+  const [showRecaptcha, setShowRecaptcha] = useState(false)
+
+  // Hook para manejo de archivos
+  const { file, error: fileError, isValid: isFileValid, handleFileSelect, reset: resetFile } = useFileUpload({
+    maxSizeInMB: 10,
+    allowedTypes: ['application/pdf']
+  })
+
+  // Mostrar reCAPTCHA cuando el archivo sea válido
+  useEffect(() => {
+    console.log('useEffect ejecutado:', { file: file?.name, isFileValid, showRecaptcha })
+    if (file && isFileValid) {
+      console.log('Mostrando reCAPTCHA')
+      setShowRecaptcha(true)
+    } else {
+      console.log('Ocultando reCAPTCHA')
+      setShowRecaptcha(false)
+      setRecaptchaToken('')
+    }
+  }, [file, isFileValid])
 
   const validateForm = () => {
     const newErrors: FormErrors = {}
@@ -56,6 +85,16 @@ export default function ContactForm() {
       newErrors.telefono = 'Introduce un teléfono móvil español válido.'
     }
 
+    // Validar archivo si está presente
+    if (file && !isFileValid) {
+      newErrors.archivo = fileError || 'El archivo no es válido.'
+    }
+
+    // Validar reCAPTCHA si hay archivo
+    if (file && !recaptchaToken) {
+      newErrors.archivo = 'Debes completar la verificación reCAPTCHA.'
+    }
+
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -68,29 +107,146 @@ export default function ContactForm() {
     }
   }
 
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault()
+    event.stopPropagation()
+    
+    const selectedFile = event.target.files?.[0] || null
+    console.log('Archivo seleccionado:', selectedFile?.name)
+    
+    handleFileSelect(selectedFile)
+    
+    // Limpiar errores de archivo
+    if (errors.archivo) {
+      setErrors((prev) => ({ ...prev, archivo: undefined }))
+    }
+  }
+
+  const handleRemoveFile = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+    resetFile()
+    setShowRecaptcha(false)
+    setRecaptchaToken('')
+    setErrors((prev) => ({ ...prev, archivo: undefined }))
+  }
+
+  const handleRecaptchaVerify = (token: string) => {
+    setRecaptchaToken(token)
+    if (errors.archivo) {
+      setErrors((prev) => ({ ...prev, archivo: undefined }))
+    }
+    toast({
+      title: 'Verificación completada',
+      description: 'Ya puedes enviar el formulario.',
+    })
+  }
+
+  const handleRecaptchaError = () => {
+    setRecaptchaToken('')
+    toast({
+      title: 'Error en reCAPTCHA',
+      description: 'Hubo un problema con la verificación. Inténtalo de nuevo.',
+      variant: 'destructive',
+    })
+  }
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    event.stopPropagation()
+    console.log('Formulario enviado!', { formData, file: file?.name, recaptchaToken })
+    
     if (!validateForm()) return
 
     setIsSubmitting(true)
 
     try {
-      const payload = new FormData()
-      payload.append('entry.456367614', formData.fecha)
-      payload.append('entry.1367672553', formData.nombre)
-      payload.append('entry.1372703949', formData.email)
-      payload.append('entry.725191283', formData.telefono)
-      payload.append('entry.916166591', 'Análisis y optimización de factura eléctrica')
-      payload.append(
+      // Preparar datos para Google Forms (mantener formato original)
+      const googleFormPayload = new FormData()
+      googleFormPayload.append('entry.456367614', formData.fecha)
+      googleFormPayload.append('entry.1367672553', formData.nombre)
+      googleFormPayload.append('entry.1372703949', formData.email)
+      googleFormPayload.append('entry.725191283', formData.telefono)
+      googleFormPayload.append('entry.916166591', 'Análisis y optimización de factura eléctrica')
+      googleFormPayload.append(
         'entry.1602707373',
-        'Solicitud enviada desde voltik.es para analizar factura eléctrica. Adjuntaremos el PDF manualmente hasta habilitar la subida desde la web.'
+        'Solicitud enviada desde voltik.es para analizar factura eléctrica.'
       )
 
+      // Enviar a Google Forms (fallback)
       await fetch(GOOGLE_FORM_URL, {
         method: 'POST',
         mode: 'no-cors',
-        body: payload,
+        body: googleFormPayload,
       })
+
+      // Enviar al backend con todos los datos
+      const backendPayload = new FormData()
+      backendPayload.append('fecha', formData.fecha)
+      backendPayload.append('nombre', formData.nombre)
+      backendPayload.append('email', formData.email)
+      backendPayload.append('telefono', formData.telefono)
+      
+      if (file) {
+        backendPayload.append('archivo', file)
+      }
+      if (recaptchaToken) {
+        backendPayload.append('recaptchaToken', recaptchaToken)
+      }
+
+      // Log del FormData para debugging
+      console.log('📋 FormData creado:')
+      for (const [key, value] of backendPayload.entries()) {
+        if (value instanceof File) {
+          console.log(`  - ${key}: File(${value.name}, ${value.size} bytes, ${value.type})`)
+        } else {
+          console.log(`  - ${key}: ${value}`)
+        }
+      }
+
+      // Enviar al backend con todos los datos
+      console.log('🚀 Iniciando envío al backend...')
+      console.log('📍 URL del backend:', BACKEND_URL)
+      console.log('📦 Datos a enviar al backend:')
+      console.log('  - fecha:', formData.fecha)
+      console.log('  - nombre:', formData.nombre)
+      console.log('  - email:', formData.email)
+      console.log('  - telefono:', formData.telefono)
+      console.log('  - archivo:', file ? `${file.name} (${(file.size / 1024 / 1024).toFixed(2)}MB)` : 'No hay archivo')
+      console.log('  - recaptchaToken:', recaptchaToken ? `${recaptchaToken.substring(0, 20)}...` : 'No hay token')
+      
+      try {
+        console.log('📡 Enviando solicitud POST al backend...')
+        const response = await fetch(BACKEND_URL, {
+          method: 'POST',
+          body: backendPayload,
+        })
+        
+        console.log('✅ Respuesta del backend recibida:')
+        console.log('  - Status:', response.status)
+        console.log('  - Status Text:', response.statusText)
+        console.log('  - Headers:', Object.fromEntries(response.headers.entries()))
+        
+        if (response.ok) {
+          const responseData = await response.json()
+          console.log('📄 Datos de respuesta:', responseData)
+          console.log('🎉 ¡Envío al backend exitoso!')
+        } else {
+          console.error('❌ Error en la respuesta del backend:')
+          console.error('  - Status:', response.status)
+          console.error('  - Status Text:', response.statusText)
+          const errorText = await response.text()
+          console.error('  - Error Body:', errorText)
+        }
+        
+      } catch (backendError) {
+        console.error('💥 Error enviando al backend:')
+        console.error('  - Tipo de error:', backendError.constructor.name)
+        console.error('  - Mensaje:', backendError.message)
+        console.error('  - Stack:', backendError.stack)
+        console.warn('⚠️ Continuando con Google Forms como fallback...')
+      }
 
       setSubmitted(true)
       toast({
@@ -98,12 +254,14 @@ export default function ContactForm() {
         description: 'Te contactaremos en menos de 48h con tu oferta para que comiences a ahorrar ya.',
       })
 
+      // Resetear formulario
       setFormData({
         fecha: new Date().toISOString().slice(0, 10),
         nombre: '',
         email: '',
         telefono: '',
       })
+      handleRemoveFile()
     } catch (error) {
       toast({
         title: 'No hemos podido enviar tus datos',
@@ -147,7 +305,7 @@ export default function ContactForm() {
             Recibe tu oferta personalizada en menos de 48h
           </h2>
           <p className="text-lg text-muted-foreground">
-            Completa el formulario, sube tu factura cuando esté disponible la opción y nuestros analistas te enviarán la mejor propuesta sin compromiso.
+            Completa el formulario, sube tu factura PDF y nuestros analistas te enviarán la mejor propuesta sin compromiso.
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             Tus datos están seguros. Solo los usamos para preparar tu oferta.
@@ -246,19 +404,95 @@ export default function ContactForm() {
               <div className="rounded-xl border border-dashed border-primary/50 bg-primary/5 p-6">
                 <div className="flex items-start gap-4">
                   <UploadCloud size={28} className="text-primary mt-1" />
-                  <div>
+                  <div className="flex-1">
                     <p className="text-base font-semibold text-foreground mb-1">Subir factura (PDF)</p>
-                    <p className="text-sm text-muted-foreground">
-                      Estamos ultimando la subida directa de archivos. De momento, tras enviar tus datos te pediremos el PDF por email.
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Selecciona tu factura PDF para un análisis más preciso. Máximo 10MB.
                     </p>
-                    <VoltikButton variant="outline" size="sm" className="mt-4" disabled>
-                      Próximamente disponible
-                    </VoltikButton>
+                    
+                    {!file ? (
+                      <div>
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          accept="application/pdf"
+                          onChange={handleFileChange}
+                          className="hidden"
+                          id="file-upload"
+                        />
+                        <VoltikButton 
+                          type="button"
+                          variant="outline" 
+                          size="sm" 
+                          className="mt-2"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            fileInputRef.current?.click()
+                          }}
+                        >
+                          <UploadCloud size={16} className="mr-2" />
+                          Seleccionar archivo PDF
+                        </VoltikButton>
+                      </div>
+                    ) : (
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 p-3 bg-background rounded-lg border">
+                          <FileText size={20} className="text-primary" />
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-foreground truncate">
+                              {file.name}
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                              {(file.size / 1024 / 1024).toFixed(2)} MB
+                            </p>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              handleRemoveFile()
+                            }}
+                            className="p-1 hover:bg-destructive/10 rounded transition-colors"
+                          >
+                            <X size={16} className="text-destructive" />
+                          </button>
+                        </div>
+                        
+                        {fileError && (
+                          <p className="text-sm text-destructive" role="alert">
+                            {fileError}
+                          </p>
+                        )}
+                        
+                        {isFileValid && showRecaptcha && (
+                          <div className="space-y-2">
+                            <ReCaptcha
+                              siteKey={RECAPTCHA_SITE_KEY}
+                              onVerify={handleRecaptchaVerify}
+                              onError={handleRecaptchaError}
+                              className="flex justify-center"
+                            />
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    
+                    {errors.archivo && (
+                      <p className="mt-2 text-sm text-destructive" role="alert">
+                        {errors.archivo}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
 
-              <VoltikButton type="submit" variant="primary" size="lg" className="w-full" disabled={isSubmitting}>
+              <VoltikButton 
+                type="submit" 
+                variant="primary" 
+                size="lg" 
+                className="w-full" 
+                disabled={isSubmitting || (file && !recaptchaToken)}
+              >
                 {isSubmitting ? 'Enviando datos…' : 'Enviar factura'}
               </VoltikButton>
             </form>
