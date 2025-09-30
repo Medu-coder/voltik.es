@@ -16,7 +16,8 @@ Sitio web de Voltik (instalaciones eléctricas en Córdoba) construido con Vite 
 - Páginas: `src/pages/home/Index.tsx`, `src/pages/services/Services.tsx`, `src/pages/blog/Blog.tsx`, `src/pages/blog/BlogArticle.tsx`, `src/pages/privacy/Privacy.tsx`, `src/pages/not-found/NotFound.tsx`
 - Secciones Home: `src/features/home/sections/*`
 - Layout: `src/components/layout/*` (Header, Footer)
-- UI compartida: `src/components/ui/*` (incl. `voltik-button.tsx`)
+- UI compartida: `src/components/ui/*` (incl. `voltik-button.tsx`, `ReCaptcha.tsx`)
+- Hooks personalizados: `src/hooks/*` (incl. `use-file-upload.tsx`)
 - Datos Blog: `src/features/blog/data/blogPosts.ts` + imágenes en `public/blog/`
 - Estilos y tokens: `src/index.css`, `src/design-system/*`, `tailwind.config.ts`
 - SEO: `public/robots.txt`, `scripts/generate-sitemap.mjs` (genera `public/sitemap.xml` en build) y `<Canonical />` (`src/app/seo/Canonical.tsx`)
@@ -40,8 +41,20 @@ Sitio web de Voltik (instalaciones eléctricas en Córdoba) construido con Vite 
 
 ## Formulario de contacto
 - `src/features/home/sections/ContactForm.tsx`
-  - Validación básica; envío a Google Forms (endpoint definido en el componente).
-  - WhatsApp/teléfono/email están comentados o deshabilitados temporalmente; habilitar quitando comentarios y actualizando valores.
+  - **Funcionalidades implementadas:**
+    - Validación de datos básicos (nombre, email, teléfono)
+    - Subida de archivos PDF con validación (máximo 10MB)
+    - Integración con reCAPTCHA v3 (solo cuando hay archivo)
+    - Envío dual: Google Forms (fallback) + Backend API
+  - **Configuración:**
+    - Google Forms: `GOOGLE_FORM_URL` (fallback)
+    - Backend API: `BACKEND_URL` (principal)
+    - reCAPTCHA: `RECAPTCHA_SITE_KEY` (clave de sitio)
+  - **Flujo de usuario:**
+    1. Completar datos básicos
+    2. Seleccionar archivo PDF (opcional)
+    3. Si hay archivo → completar reCAPTCHA
+    4. Enviar formulario → datos van a ambos destinos
 
 ## Estilos y Design System
 - Tokens CSS base y utilidades Voltik en `src/index.css` (clases `voltik-*`).
@@ -55,6 +68,13 @@ Sitio web de Voltik (instalaciones eléctricas en Córdoba) construido con Vite 
 - Robots: `public/robots.txt`.
 - Sitemap: autogenerado por `scripts/generate-sitemap.mjs` en `prebuild` (usa `SITE_URL`).
 - Vercel: `vercel.json` con `rewrites` a `index.html`, `framework: "vite"` e instalación con `npm ci`.
+
+## Configuración de reCAPTCHA
+- **Script**: Cargado en `index.html` con la clave de sitio
+- **Clave de sitio**: `6Lft8dkrAAAAAMLeuF9nGQVsQelP7wIAJVGPHtF6`
+- **Componente**: `src/components/ui/ReCaptcha.tsx` (reCAPTCHA v3)
+- **Configuración**: Solo se ejecuta cuando el usuario hace clic en "Verificar"
+- **Dominios permitidos**: `localhost` y `voltik.es` (configurar en Google reCAPTCHA Admin)
 
 ## Analítica (GTM + GA4)
 - Carga: solo Google Tag Manager en `index.html` (no se incluye GA4 directo). ID actual: `GTM-5R9ZBQFP`.

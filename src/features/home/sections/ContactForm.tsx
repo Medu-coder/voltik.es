@@ -50,12 +50,9 @@ export default function ContactForm() {
 
   // Mostrar reCAPTCHA cuando el archivo sea válido
   useEffect(() => {
-    console.log('useEffect ejecutado:', { file: file?.name, isFileValid, showRecaptcha })
     if (file && isFileValid) {
-      console.log('Mostrando reCAPTCHA')
       setShowRecaptcha(true)
     } else {
-      console.log('Ocultando reCAPTCHA')
       setShowRecaptcha(false)
       setRecaptchaToken('')
     }
@@ -112,8 +109,6 @@ export default function ContactForm() {
     event.stopPropagation()
     
     const selectedFile = event.target.files?.[0] || null
-    console.log('Archivo seleccionado:', selectedFile?.name)
-    
     handleFileSelect(selectedFile)
     
     // Limpiar errores de archivo
@@ -155,7 +150,6 @@ export default function ContactForm() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     event.stopPropagation()
-    console.log('Formulario enviado!', { formData, file: file?.name, recaptchaToken })
     
     if (!validateForm()) return
 
@@ -195,57 +189,19 @@ export default function ContactForm() {
         backendPayload.append('recaptchaToken', recaptchaToken)
       }
 
-      // Log del FormData para debugging
-      console.log('📋 FormData creado:')
-      for (const [key, value] of backendPayload.entries()) {
-        if (value instanceof File) {
-          console.log(`  - ${key}: File(${value.name}, ${value.size} bytes, ${value.type})`)
-        } else {
-          console.log(`  - ${key}: ${value}`)
-        }
-      }
-
       // Enviar al backend con todos los datos
-      console.log('🚀 Iniciando envío al backend...')
-      console.log('📍 URL del backend:', BACKEND_URL)
-      console.log('📦 Datos a enviar al backend:')
-      console.log('  - fecha:', formData.fecha)
-      console.log('  - nombre:', formData.nombre)
-      console.log('  - email:', formData.email)
-      console.log('  - telefono:', formData.telefono)
-      console.log('  - archivo:', file ? `${file.name} (${(file.size / 1024 / 1024).toFixed(2)}MB)` : 'No hay archivo')
-      console.log('  - recaptchaToken:', recaptchaToken ? `${recaptchaToken.substring(0, 20)}...` : 'No hay token')
-      
       try {
-        console.log('📡 Enviando solicitud POST al backend...')
         const response = await fetch(BACKEND_URL, {
           method: 'POST',
           body: backendPayload,
         })
         
-        console.log('✅ Respuesta del backend recibida:')
-        console.log('  - Status:', response.status)
-        console.log('  - Status Text:', response.statusText)
-        console.log('  - Headers:', Object.fromEntries(response.headers.entries()))
-        
-        if (response.ok) {
-          const responseData = await response.json()
-          console.log('📄 Datos de respuesta:', responseData)
-          console.log('🎉 ¡Envío al backend exitoso!')
-        } else {
-          console.error('❌ Error en la respuesta del backend:')
-          console.error('  - Status:', response.status)
-          console.error('  - Status Text:', response.statusText)
-          const errorText = await response.text()
-          console.error('  - Error Body:', errorText)
+        if (!response.ok) {
+          console.error('Error del backend:', response.status, response.statusText)
         }
         
       } catch (backendError) {
-        console.error('💥 Error enviando al backend:')
-        console.error('  - Tipo de error:', backendError.constructor.name)
-        console.error('  - Mensaje:', backendError.message)
-        console.error('  - Stack:', backendError.stack)
-        console.warn('⚠️ Continuando con Google Forms como fallback...')
+        console.error('Error enviando al backend:', backendError.message)
       }
 
       setSubmitted(true)

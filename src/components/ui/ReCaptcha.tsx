@@ -48,7 +48,6 @@ export default function ReCaptcha({
 
   const executeRecaptcha = async () => {
     if (!isLoaded || !window.grecaptcha) {
-      console.error('reCAPTCHA not loaded')
       onError?.()
       return
     }
@@ -56,23 +55,19 @@ export default function ReCaptcha({
     setIsExecuting(true)
 
     try {
-      // Usar grecaptcha.ready para asegurar que esté cargado
       window.grecaptcha.ready(async () => {
         try {
           const token = await window.grecaptcha.execute(siteKey, {
             action: 'submit_form'
           })
-          console.log('reCAPTCHA token generated:', token)
           onVerify(token)
         } catch (error) {
-          console.error('Error executing reCAPTCHA:', error)
           onError?.()
         } finally {
           setIsExecuting(false)
         }
       })
     } catch (error) {
-      console.error('Error with reCAPTCHA ready:', error)
       onError?.()
       setIsExecuting(false)
     }
