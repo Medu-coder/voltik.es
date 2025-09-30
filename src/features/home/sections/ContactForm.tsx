@@ -22,7 +22,7 @@ interface FormErrors {
 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdaF5kkJAPlsVZYph1V01g0ZflxRoQLxWlylTo6L5nDNh3I9g/formResponse'
 const RECAPTCHA_SITE_KEY = '6Lft8dkrAAAAAMLeuF9nGQVsQelP7wIAJVGPHtF6'
 // URL del backend para envío de facturas
-const BACKEND_URL = 'http://localhost:3001/api/public/intake'
+const BACKEND_URL = 'https://backend-voltik-invoices-2h9lbx24h-medu-coders-projects.vercel.app/api/public/intake'
 
 export default function ContactForm() {
   const { toast } = useToast()
