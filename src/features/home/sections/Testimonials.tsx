@@ -177,8 +177,7 @@ export default function Testimonials() {
             ¿Tú también quieres ser un cliente satisfecho?
           </h3>
           <VoltikButton variant="voltik" size="lg" asChild>
-            <a href="#formulario">Contacta con nosotros gratis</a>
-            {/*<a href="#contacto">Pide tu presupuesto gratis</a>*/}
+            <a href="/formulario">Contacta con nosotros gratis</a>
           </VoltikButton>
         </div>
       </div>

@@ -7,6 +7,8 @@ import Index from "./pages/home/Index";
 import Blog from "./pages/blog/Blog";
 import NotFound from "./pages/not-found/NotFound";
 import ServicesPage from "./pages/services/Services";
+import ComoFuncionaPage from "./pages/como-funciona/ComoFunciona";
+import FormularioPage from "./pages/formulario/Formulario";
 import BlogArticle from "./pages/blog/BlogArticle";
 import Privacy from "./pages/privacy/Privacy";
 import Canonical from "./app/seo/Canonical";
@@ -25,6 +27,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/servicios" element={<ServicesPage />} />
+          <Route path="/como-funciona" element={<ComoFuncionaPage />} />
+          <Route path="/formulario" element={<FormularioPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogArticle />} />
           <Route path="/privacidad" element={<Privacy />} />

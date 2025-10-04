@@ -19,11 +19,9 @@ export default function Header() {
 
   const navigationItems = [
     { href: '/#hero', label: 'Inicio' },
-    { href: '/#proceso', label: 'Cómo funciona' },
-    { href: '/#servicios', label: 'Servicios' },
-    { href: '/#beneficios', label: 'Beneficios' },
+    { href: '/como-funciona', label: 'Cómo funciona' },
+    { href: '/servicios', label: 'Servicios' },
     { href: '/#testimonios', label: 'Testimonios' },
-    { href: '/#faqs', label: 'FAQs' },
     { href: '/blog', label: 'Blog' },
   ]
 
@@ -78,7 +76,7 @@ export default function Header() {
             </a>
             */}
             <VoltikButton variant="voltik" size="md" asChild>
-              <a href="/#formulario" className="flex items-center">
+              <a href="/formulario" className="flex items-center">
                 Subir mi factura
                 <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-voltik-success/20 text-voltik-success font-semibold">
                   Gratis
@@ -142,7 +140,7 @@ export default function Header() {
                 */}
 
                 <VoltikButton variant="voltik" className="w-full" asChild>
-                  <a href="/#formulario" onClick={() => setIsMenuOpen(false)}>
+                  <a href="/formulario" onClick={() => setIsMenuOpen(false)}>
                     Subir mi factura
                   </a>
                 </VoltikButton>

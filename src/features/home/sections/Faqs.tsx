@@ -26,7 +26,7 @@ const faqs = [
 export default function Faqs() {
   return (
     <section id="faqs" className="voltik-section bg-muted/30">
-      <div className="voltik-container max-w-3xl mx-auto">
+      <div className="voltik-container px-4 lg:px-8 max-w-3xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Preguntas frecuentes

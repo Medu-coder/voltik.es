@@ -1,7 +1,8 @@
-import { Home, ArrowLeft, Search, MessageCircle } from 'lucide-react'
+import { Home, ArrowLeft, UploadCloud, MessageCircle, Mail, Phone } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import voltikLogo from '@/assets/voltik-logo-web.svg'
 import Seo from '@/app/seo/Seo'
 
 const NotFound = () => {
@@ -47,70 +48,72 @@ const NotFound = () => {
                 </VoltikButton>
                 
                 <VoltikButton variant="outline" size="lg" asChild>
-                  <a href="/blog">
-                    <Search size={20} className="mr-2" />
-                    Explorar blog
+                  <a href="/formulario">
+                    <UploadCloud size={20} className="mr-2" />
+                    Subir mi factura
                   </a>
                 </VoltikButton>
               </div>
 
               {/* Help Section */}
-              <div className="voltik-card bg-muted/50 text-left">
-                <h3 className="text-xl font-semibold mb-4 text-center">
+              <div className="voltik-card bg-muted/50 text-center max-w-2xl mx-auto">
+                <h3 className="text-xl font-semibold mb-6">
                   ¿Necesitas ayuda?
                 </h3>
                 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="font-medium mb-2">Páginas populares:</h4>
-                    <ul className="space-y-2 text-sm">
+                    <h4 className="font-medium mb-4">Páginas populares:</h4>
+                    <ul className="space-y-3 text-sm">
                       <li>
-                        <a href="/servicios" className="text-seconday hover:underline">
+                        <a href="/formulario" className="text-text hover:underline">
+                          Subir mi factura
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/servicios" className="text-text hover:underline">
                           Nuestros servicios
                         </a>
                       </li>
                       <li>
-                        <a href="/#valores" className="text-seconday hover:underline">
+                        <a href="/como-funciona" className="text-text hover:underline">
+                          Cómo funciona
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/#beneficios" className="text-text hover:underline">
                           Por qué elegirnos
                         </a>
                       </li>
                       <li>
-                        <a href="/#casos" className="text-seconday hover:underline">
-                          Casos de éxito
+                        <a href="/#testimonios" className="text-text hover:underline">
+                          Testimonios
                         </a>
                       </li>
                       <li>
-                        <a href="/#contacto" className="text-seconday hover:underline">
-                          Pedir presupuesto
+                        <a href="/blog" className="text-text hover:underline">
+                          Blog
                         </a>
                       </li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h4 className="font-medium mb-2">Contacto directo:</h4>
-                    <div className="space-y-2 text-sm">
-                      <div>
-                        <strong>Teléfono:</strong>{' '}
-                        <a href="tel:+34957000000" className="text-seconday hover:underline">
-                          957 000 000
-                        </a>
-                      </div>
+                    <h4 className="font-medium mb-4">Contacto directo:</h4>
+                    <div className="space-y-3 text-sm">
                       <div>
                         <strong>Email:</strong>{' '}
-                        <a href="mailto:contacto@voltik.es" className="text-seconday hover:underline">
+                        <a href="mailto:contacto@voltik.es" className="text-text hover:underline">
                           contacto@voltik.es
                         </a>
                       </div>
                       <div className="pt-2">
-                        <VoltikButton variant="ghost" size="sm" asChild>
+                        <VoltikButton variant="outline" size="sm" asChild>
                           <a 
-                            href="https://wa.me/34957000000" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
+                            href="mailto:contacto@voltik.es"
                           >
-                            <MessageCircle size={16} className="mr-2" />
-                            WhatsApp
+                            <Mail size={16} className="mr-2" />
+                            Enviar email
                           </a>
                         </VoltikButton>
                       </div>

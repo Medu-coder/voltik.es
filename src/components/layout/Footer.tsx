@@ -50,12 +50,12 @@ export default function Footer() {
                 
                 <div className="flex items-center">
                   <MapPin size={18} className="mr-3 text-primary" />
-                  <span>Córdoba, España</span>
+                  <span>Toda España</span>
                 </div>
                 
                 <div className="flex items-center">
                   <Clock size={18} className="mr-3 text-primary" />
-                  <span>Lun-Vie 8:00-18:00</span>
+                  <span>Lun-Vie 9:00-18:00</span>
                 </div>
               </div>
             </div>
@@ -64,9 +64,9 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold text-lg mb-4 text-primary">Servicios</h3>
               <ul className="space-y-2 text-background/80">
-                <li><a href="/#formulario" className="hover:text-primary transition-colors">Optimización de factura de luz</a></li>
-                <li><a href="/#servicios" className="hover:text-primary transition-colors">Certificados de eficiencia energética</a></li>
-                <li><a href="/#servicios" className="hover:text-primary transition-colors">Boletines eléctricos (CIE)</a></li>
+                <li><a href="/formulario" className="hover:text-primary transition-colors">Ahorro en tu factura de luz</a></li>
+                <li><a href="/servicios" className="hover:text-primary transition-colors">Certificados de eficiencia energética</a></li>
+                <li><a href="/servicios" className="hover:text-primary transition-colors">Boletines eléctricos (CIE)</a></li>
                 <li><a href="/servicios" className="hover:text-primary transition-colors">Servicios profesionales</a></li>
               </ul>
             </div>
@@ -75,8 +75,7 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold text-lg mb-4 text-primary">Empresa</h3>
               <ul className="space-y-2 text-background/80">
-                <li><a href="/#proceso" className="hover:text-primary transition-colors">Cómo funciona</a></li>
-                <li><a href="/#beneficios" className="hover:text-primary transition-colors">Beneficios</a></li>
+                <li><a href="/como-funciona" className="hover:text-primary transition-colors">Cómo funciona</a></li>
                 <li><a href="/#testimonios" className="hover:text-primary transition-colors">Testimonios</a></li>
                 <li><a href="/blog" className="hover:text-primary transition-colors">Blog Voltik</a></li>
                 <li><a href="/#faqs" className="hover:text-primary transition-colors">FAQs</a></li>
@@ -87,13 +86,13 @@ export default function Footer() {
         </div>
 
         {/* Contact CTA Section */}
-        <div className="py-8 border-t border-background/20">
-          <div className="max-w-3xl mx-auto text-center bg-secondary/30 rounded-2xl px-8 py-10 shadow-lg shadow-background/30">
+        <div className="py-8 border-t border-secondary/20">
+          <div className="max-w-3xl mx-auto text-center bg-primary/10 rounded-2xl px-8 py-10 shadow-lg shadow-background/30">
             <div className="flex items-center justify-center gap-3 text-primary mb-4">
               <UploadCloud size={24} />
-              <span className="text-sm font-semibold uppercase tracking-wide">Ahorra hoy mismo</span>
+              <span className="text-sm font-semibold uppercase tracking-wide">Empieza a ahorrar hoy</span>
             </div>
-            <h3 className="text-2xl font-semibold mb-3 text-foreground">
+            <h3 className="text-2xl font-semibold mb-3 text-background">
               ¿Listo para recibir tu propuesta personalizada?
             </h3>
             <p className="text-background/80 mb-6">
@@ -101,13 +100,13 @@ export default function Footer() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="/#formulario"
+                href="/formulario"
                 className="inline-flex items-center px-6 py-3 bg-primary text-foreground rounded-lg hover:bg-primary/90 transition-colors shadow-md"
               >
                 Subir mi factura
               </a>
               <a
-                href="/#proceso"
+                href="/como-funciona"
                 className="inline-flex items-center px-6 py-3 bg-background text-foreground rounded-lg border border-primary/40 hover:border-primary/80 transition-colors"
               >
                 Ver cómo funciona

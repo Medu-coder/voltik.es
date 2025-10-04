@@ -18,35 +18,37 @@ export default function ProblemAgitation() {
   ]
 
   const solutionHighlights = [
-    'Analizamos tu consumo real y detectamos sobrecostes',
-    'Lanzamos tu factura a comercializadoras para recibir sus mejores propuestas',
+    'Nuestros expertos analizan tu consumo real y detectan sobrecostes',
+    'Hacemos que las comercializadoras se peleen por ofrecerte las mejores ofertas',
     'Te entregamos un informe claro para que solo tengas que decidir',
   ]
 
   return (
     <section id="problema" className="voltik-section bg-muted/40">
-      <div className="voltik-container">
+      <div className="voltik-container px-4 lg:px-8">
         <div className="max-w-6xl mx-auto grid gap-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              ¿Pagas demasiado en tu factura de la luz?
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
+              ¿Estás harto de pagar facturas de luz desorbitadas?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Las tarifas cambian cada mes y la mayoría de hogares y negocios siguen pagando condiciones que dejaron de ser competitivas hace tiempo. Sin un estudio experto, es fácil asumir costes que no corresponden.
-            </p>
 
-            <div className="space-y-4">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
               {painPoints.map((point, index) => (
                 <div
                   key={point.title}
-                  className="voltik-card bg-gradient-to-r from-destructive/10 via-background to-background border border-destructive/20 text-left flex items-start gap-4"
+                  className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-destructive/5 to-destructive/10 border border-destructive/20 p-6 transition-all duration-300 hover:shadow-lg hover:shadow-destructive/10 hover:-translate-y-1 flex flex-col ${index === 2 ? 'sm:col-span-2 sm:justify-self-center sm:max-w-sm lg:col-span-1 lg:justify-self-stretch lg:max-w-none' : ''}`}
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-destructive text-white text-sm font-semibold shadow-md">
-                    {index + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-lg font-semibold text-destructive mb-2">{point.title}</h3>
-                    <p className="text-sm text-muted-foreground">{point.description}</p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-destructive/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-destructive to-destructive/80 text-white text-sm font-bold shadow-md group-hover:scale-110 transition-transform duration-300">
+                        {index + 1}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-destructive mb-3 group-hover:text-destructive/90 transition-colors">{point.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed flex-1">{point.description}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -58,23 +60,30 @@ export default function ProblemAgitation() {
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/20 text-primary-foreground text-sm font-medium mb-6">
               La solución Voltik
             </div>
-            <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              Analizamos tu factura y te enviamos la mejor oferta. Gratis y sin complicaciones.
+            <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-8 text-center">
+              Analizamos tu factura y te enviamos la mejor oferta.<br />
+              Gratis y sin complicaciones, nosotros nos encargamos de todo.<br />
+              Deja que las eléctricas se peleen por ti.
             </h3>
-            <p className="text-muted-foreground mb-8">
-              Deja que las eléctricas se peleen por ofrecerte su mejor precio. Nosotros nos encargamos de todo y tú solo eliges si quieres aceptar la propuesta.
-            </p>
 
-            <ul className="space-y-4">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
               {solutionHighlights.map((text, index) => (
-                <li key={text} className="flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-sm font-semibold text-foreground">
-                    {index + 1}
+                <div
+                  key={text}
+                  className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 flex flex-col ${index === 2 ? 'sm:col-span-2 sm:justify-self-center sm:max-w-sm lg:col-span-1 lg:justify-self-stretch lg:max-w-none' : ''}`}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80 text-text text-md font-bold shadow-md group-hover:scale-110 transition-transform duration-300">
+                        {index + 1}
+                      </div>
+                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed flex-1">{text}</p>
+                    </div>
                   </div>
-                  <span className="text-sm md:text-base text-foreground/90 flex-1">{text}</span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
 
             <div className="mt-8 text-center">
               <VoltikButton variant="voltik" size="lg" asChild>

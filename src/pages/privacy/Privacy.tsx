@@ -1,18 +1,48 @@
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { useEffect } from 'react'
+import { Shield, Lock, Eye, Trash2, Download, AlertCircle, Mail, Phone } from 'lucide-react'
+import voltikLogo from '@/assets/voltik-logo-web.svg'
 import Seo from '@/app/seo/Seo'
 
 const Privacy = () => {
-  useEffect(() => {
-    // Mantén otros efectos si fueran necesarios
-  }, [])
+  const sections = [
+    {
+      icon: Shield,
+      title: "Responsable del tratamiento",
+      content: "Voltik, con domicilio en España, es el responsable del tratamiento de tus datos personales. Puedes contactarnos en contacto@voltik.es"
+    },
+    {
+      icon: Eye,
+      title: "Datos que recopilamos",
+      content: "Recopilamos únicamente los datos necesarios para proporcionarte nuestros servicios: nombre, email, teléfono y factura de la luz que nos envías para el análisis."
+    },
+    {
+      icon: Lock,
+      title: "Finalidad del tratamiento",
+      content: "Utilizamos tus datos para analizar tu factura eléctrica, preparar tu propuesta personalizada de ahorro y contactarte con la mejor oferta disponible en el mercado."
+    },
+    {
+      icon: Trash2,
+      title: "Conservación de datos",
+      content: "Utilizamos tus datos únicamente durante el tiempo necesario para cumplir con la finalidad del tratamiento. Una vez enviada tu propuesta, eliminamos tus datos personales."
+    },
+    {
+      icon: Download,
+      title: "Tus derechos",
+      content: "Tienes derecho a acceder, rectificar, suprimir, oponerte al tratamiento, limitar el uso y portar tus datos. Contacta con nosotros para ejercer cualquier derecho."
+    },
+    {
+      icon: AlertCircle,
+      title: "Seguridad y confidencialidad",
+      content: "Implementamos medidas técnicas y organizativas para proteger tus datos. No compartimos tu información con terceros sin tu consentimiento explícito."
+    }
+  ]
 
   return (
     <div className="min-h-screen bg-background">
       <Seo
         title="Política de privacidad · Voltik · Servicios de eficiencia energética"
-        description="Conoce cómo Voltik trata los datos que nos facilitas al enviarnos tu factura de luz o solicitar certificados y boletines."
+        description="Conoce cómo Voltik protege y trata tus datos personales. Transparencia total en el tratamiento de tu información conforme al RGPD."
         type="website"
         robots="index,follow"
       />
@@ -20,93 +50,114 @@ const Privacy = () => {
 
       <main className="pt-16 md:pt-20">
         {/* Hero */}
-        <section className="voltik-section hero-bg">
-          <div className="voltik-container text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Política de privacidad
-            </h1>
-            <p className="lead">
-              Información sobre cómo tratamos tus datos personales conforme al RGPD y la LOPDGDD.
-            </p>
+        <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
+          {/* Background image */}
+          <div className="absolute inset-0 z-0 opacity-20">
+            <img
+              src={voltikLogo}
+              alt="Ahorro energético con Voltik"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
+          </div>
+          
+          <div className="voltik-container px-4 lg:px-8 relative z-10">
+            <div className="text-center max-w-4xl mx-auto">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                  <Shield size={40} className="text-text" />
+                </div>
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                  Política de privacidad
+                </h1>
+              </div>
+              <p className="text-xl text-muted-foreground mb-8">
+                Tu privacidad es nuestra prioridad. Te explicamos de forma clara y transparente cómo protegemos y tratamos tus datos personales.
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-voltik-success/20 text-voltik-success rounded-full text-sm font-medium">
+                <Lock size={16} />
+                Cumplimiento RGPD
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Content */}
-        <section className="voltik-section bg-muted/30">
-          <div className="voltik-container">
-            <div className="voltik-card space-y-6">
-              <p>
-                En cumplimiento del Reglamento (UE) 2016/679 (RGPD) y de la Ley Orgánica 3/2018 (LOPDGDD),
-                te informamos sobre el tratamiento de tus datos personales cuando utilizas este sitio web.
-              </p>
+        <section className="voltik-section">
+          <div className="voltik-container px-4 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              {/* Introduction */}
+              <div className="voltik-card bg-gradient-to-br from-primary/5 to-secondary/10 border border-primary/20 mb-12">
+                <div className="text-center p-8">
+                  <h2 className="text-2xl font-bold text-foreground mb-4">
+                    Compromiso con tu privacidad
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    En Voltik creemos en la transparencia total. Por eso, te explicamos de manera sencilla 
+                    qué datos recopilamos, para qué los usamos y cómo los protegemos. Tu confianza es fundamental para nosotros.
+                  </p>
+                </div>
+              </div>
 
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">1. Responsable del tratamiento</h2>
-                <p>
-                  <strong>Voltik</strong> — Córdoba, España — Correo de contacto:
-                  <a className="text-voltik-info hover:underline ml-1" href="mailto:contacto@voltik.es">contacto@voltik.es</a>.
+              {/* Main content */}
+              <div className="grid gap-8 md:grid-cols-2">
+                {sections.map((section, index) => (
+                  <div key={index} className="voltik-card group hover:shadow-lg transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <section.icon size={22} className="text-text" />
+                      </div>
+                      <h3 className="text-xl font-semibold text-foreground">
+                        {section.title}
+                      </h3>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {section.content}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Contact section */}
+              <div className="voltik-card bg-gradient-to-br from-secondary/10 to-primary/10 border border-secondary/20 mt-12">
+                <div className="text-center p-8">
+                  <h3 className="text-2xl font-bold text-foreground mb-4">
+                    ¿Tienes preguntas sobre tu privacidad?
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    Nuestro equipo está disponible para resolver cualquier duda sobre el tratamiento de tus datos personales.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a
+                      href="mailto:contacto@voltik.es"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                    >
+                      <Mail size={20} />
+                      contacto@voltik.es
+                    </a>
+                    <a
+                      href="https://www.aepd.es"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-background text-foreground rounded-lg border border-primary/40 hover:border-primary/80 transition-colors"
+                    >
+                      <AlertCircle size={20} />
+                      Agencia Española de Protección de Datos
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Last updated */}
+              <div className="text-center mt-12 p-6 bg-muted/30 rounded-lg">
+                <p className="text-sm text-muted-foreground">
+                  Última actualización: {new Date().toLocaleDateString('es-ES', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
                 </p>
               </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">2. Datos que tratamos</h2>
-                <ul className="list-disc pl-6 space-y-1">
-                  <li>Datos de contacto que nos facilitas (p. ej., nombre, email y mensaje) a través del formulario.</li>
-                  <li>Datos de uso del sitio (p. ej., páginas visitadas, dispositivo, navegador) mediante cookies o tecnologías similares.</li>
-                </ul>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">3. Finalidades y base legal</h2>
-                <ul className="list-disc pl-6 space-y-1">
-                  <li>Atender tus consultas o solicitudes enviadas mediante el formulario — <em>consentimiento</em> (art. 6.1.a RGPD).</li>
-                  <li>Mejorar el sitio y su seguridad mediante estadísticas agregadas — <em>interés legítimo</em> (art. 6.1.f RGPD).</li>
-                </ul>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">4. Conservación</h2>
-                <p>
-                  Conservamos tus datos el tiempo necesario para la finalidad indicada y para cumplir obligaciones legales.
-                  Las consultas comerciales se conservan, con carácter general, hasta 12 meses.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">5. Destinatarios</h2>
-                <p>
-                  No cedemos tus datos a terceros salvo obligación legal. Podemos contar con proveedores que prestan servicios
-                  (alojamiento, analítica, correo) bajo contratos de encargo de tratamiento y, en su caso, con garantías adecuadas.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">6. Derechos</h2>
-                <p>
-                  Puedes ejercitar los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad enviando un email a
-                  <a className="text-voltik-info hover:underline ml-1" href="mailto:contacto@voltik.es">contacto@voltik.es</a>.
-                  Tienes derecho a presentar una reclamación ante la <a className="text-voltik-info hover:underline" href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">AEPD</a>.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">7. Cookies</h2>
-                <p>
-                  Usamos cookies técnicas necesarias y, en su caso, de analítica de forma agregada. Puedes configurar o bloquear las cookies desde la 
-                  configuración de tu navegador. Si publicamos una política de cookies específica, prevalecerá sobre este apartado.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">8. Seguridad</h2>
-                <p>
-                  Aplicamos medidas técnicas y organizativas para proteger tus datos frente a accesos no autorizados, pérdida o alteración.
-                </p>
-              </div>
-
-              <p className="text-sm text-muted-foreground">
-                Última actualización: {new Date().toLocaleDateString('es-ES')}
-              </p>
             </div>
           </div>
         </section>

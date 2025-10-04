@@ -4,7 +4,7 @@ import { MessageCircle, Phone, Mail } from 'lucide-react'
 export default function ContactOptions() {
   return (
     <section id="contacto-alternativo" className="voltik-section">
-      <div className="voltik-container max-w-4xl mx-auto text-center">
+      <div className="voltik-container px-4 lg:px-8 max-w-4xl mx-auto text-center">
         <div className="voltik-card bg-primary/10 border-primary/30">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             ¿Prefieres que te contactemos por otro canal?

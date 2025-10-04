@@ -4,7 +4,6 @@ import Hero from '@/features/home/sections/Hero';
 import ProblemAgitation from '@/features/home/sections/ProblemAgitation';
 import ContactForm from '@/features/home/sections/ContactForm';
 import Services from '@/features/home/sections/Services';
-import Process from '@/features/home/sections/Process';
 import Values from '@/features/home/sections/Values';
 import Testimonials from '@/features/home/sections/Testimonials';
 import Faqs from '@/features/home/sections/Faqs';
@@ -45,7 +44,6 @@ const Index = () => {
         <ProblemAgitation />
         <ContactForm />
         <Services />
-        <Process />
         <Values />
         <Testimonials />
         <Faqs />
