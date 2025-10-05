@@ -6,6 +6,10 @@ const faqs = [
     answer: 'Nuestro servicio es 100% gratuito. Solo necesitamos tu factura para comparar tarifas y proponerte la opción de ahorro que mejor se adapte a tu consumo.',
   },
   {
+    question: '¿Hay riesgo de que se corte mi suministro eléctrico?',
+    answer: 'No. Tu suministro eléctrico siempre será seguro. Solo cambiamos la comercializadora, pero la luz sigue llegando exactamente igual. No hay cortes, no hay interrupciones, no hay riesgo alguno.',
+  },
+  {
     question: '¿Qué tengo que hacer una vez os envío la factura?',
     answer: 'Nada más. Analizamos los datos por ti, negociamos con las comercializadoras y te enviamos la propuesta lista para aceptar o rechazar.',
   },
@@ -32,7 +36,7 @@ export default function Faqs() {
             Preguntas frecuentes
           </h2>
           <p className="text-lg text-muted-foreground">
-            Resolviendo las dudas más habituales antes de que subas tu factura.
+            No queremos que tengas dudas, por eso resolvemos las más habituales.
           </p>
         </div>
 

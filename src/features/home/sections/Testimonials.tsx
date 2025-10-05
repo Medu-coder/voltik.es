@@ -1,75 +1,105 @@
-import { useState, useEffect } from 'react'
-import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { Star, Quote, MapPin, TrendingDown } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 
 export default function Testimonials() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlay, setIsAutoPlay] = useState(true)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const testimonials = [
     {
-      quote: 'Envié mi factura un lunes y el miércoles ya tenía una oferta nueva. Ahora pago 32€ menos al mes en mi piso.',
-      author: 'Lucía Rodríguez',
-      role: 'Hogar urbano (2 personas)',
+      quote: 'No me lo podía creer. Envié la factura por WhatsApp y al día siguiente ya tenía una oferta mejor. Ahora pago 28€ menos cada mes.',
+      author: 'María González',
+      role: 'Piso en Madrid',
       rating: 5,
-      location: 'Córdoba capital',
-      savings: 'Ahorro mensual 32€',
-      initials: 'LR',
+      location: 'Madrid',
+      savings: '28€/mes',
+      initials: 'MG',
+      time: 'Hace 2 semanas',
     },
     {
-      quote: 'Nos ajustaron la potencia nocturna y añadieron discriminación horaria. La factura de mi familia bajó 480€ al año.',
-      author: 'Familia Sánchez',
-      role: 'Vivienda unifamiliar',
+      quote: 'Mi madre me insistió en que lo probara. Al principio no me fiaba, pero ahora ahorro 45€ al mes en mi casa. Totalmente recomendable.',
+      author: 'Carlos Ruiz',
+      role: 'Casa unifamiliar',
       rating: 5,
-      location: 'Almodóvar del Río',
-      savings: 'Ahorro anual 480€',
-      initials: 'FS',
+      location: 'Valencia',
+      savings: '45€/mes',
+      initials: 'CR',
+      time: 'Hace 1 mes',
     },
     {
-      quote: 'Compararon 6 comercializadoras y negociaron por nosotros. El restaurante ahorra un 21% sin cambiar de hábitos.',
-      author: 'Laura Gómez',
-      role: 'Restaurante de barrio',
+      quote: 'Para el bar conseguimos una tarifa mucho mejor. Sin cambiar nada de nuestros horarios, la factura bajó 180€ al mes.',
+      author: 'Ana Martín',
+      role: 'Bar de barrio',
       rating: 5,
-      location: 'Lucena',
-      savings: 'Ahorro mensual 210€',
-      initials: 'LG',
+      location: 'Barcelona',
+      savings: '180€/mes',
+      initials: 'AM',
+      time: 'Hace 3 semanas',
     },
     {
-      quote: 'Para la nave industrial consiguieron una tarifa indexada con cobertura. El ahorro anual supera los 3.500€.',
-      author: 'Manuel Ortega',
-      role: 'Empresa industrial',
+      quote: 'Estaba pagando una barbaridad en mi oficina. Ahora con la nueva tarifa ahorro 320€ al mes. No entiendo por qué no lo hice antes.',
+      author: 'David López',
+      role: 'Oficina pequeña',
       rating: 5,
-      location: 'Polígono Las Quemadas',
-      savings: 'Ahorro anual 3.500€',
-      initials: 'MO',
+      location: 'Sevilla',
+      savings: '320€/mes',
+      initials: 'DL',
+      time: 'Hace 1 semana',
+    },
+    {
+      quote: 'Mi pareja y yo estábamos desesperados con la factura. En 48 horas teníamos una oferta que nos ahorra 35€ mensuales.',
+      author: 'Sofía Herrera',
+      role: 'Pareja joven',
+      rating: 5,
+      location: 'Bilbao',
+      savings: '35€/mes',
+      initials: 'SH',
+      time: 'Hace 5 días',
+    },
+    {
+      quote: 'Para la tienda de ropa conseguimos una tarifa nocturna perfecta. Ahorramos 95€ al mes sin tocar nada.',
+      author: 'Roberto Silva',
+      role: 'Tienda local',
+      rating: 5,
+      location: 'Málaga',
+      savings: '95€/mes',
+      initials: 'RS',
+      time: 'Hace 2 semanas',
+    },
+    {
+      quote: 'No sabía que se podía negociar la luz. Ahora pago 42€ menos cada mes en mi piso. El proceso fue súper fácil.',
+      author: 'Laura Jiménez',
+      role: 'Piso centro',
+      rating: 5,
+      location: 'Zaragoza',
+      savings: '42€/mes',
+      initials: 'LJ',
+      time: 'Hace 1 mes',
+    },
+    {
+      quote: 'El taller funciona 24/7 y la factura era un drama. Ahora ahorramos 450€ al mes con la nueva tarifa industrial.',
+      author: 'Miguel Torres',
+      role: 'Taller mecánico',
+      rating: 5,
+      location: 'Murcia',
+      savings: '450€/mes',
+      initials: 'MT',
+      time: 'Hace 3 semanas',
     },
   ]
 
-  // Auto-advance slides
+  // Auto-scroll infinito
   useEffect(() => {
-    if (!isAutoPlay) return
-    
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % testimonials.length)
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length)
     }, 5000)
     
-    return () => clearInterval(timer)
-  }, [isAutoPlay, testimonials.length])
+    return () => clearInterval(interval)
+  }, [testimonials.length])
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % testimonials.length)
-    setIsAutoPlay(false)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-    setIsAutoPlay(false)
-  }
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-    setIsAutoPlay(false)
-  }
+  // Duplicar testimonios para el efecto infinito
+  const duplicatedTestimonials = [...testimonials, ...testimonials]
 
   return (
     <section id="testimonios" className="voltik-section bg-gradient-to-br from-primary/5 to-secondary/5">
@@ -77,107 +107,95 @@ export default function Testimonials() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Historias reales de ahorro con Voltik
+            Lo que dicen nuestros clientes
           </h2>
-          <p className="lead">
-            Hogares, comercios e industria ya están pagando menos por la luz gracias a nuestro análisis personalizado.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Miles de personas en toda España ya están ahorrando en su factura de la luz. Historias reales, ahorros reales.
           </p>
         </div>
 
-        {/* Testimonials Carousel */}
-        <div className="relative w-full mx-auto lg:max-w-4xl">
-          <div className="overflow-x-hidden rounded-2xl max-w-full w-full">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="w-full flex-shrink-0">
-                  <div className="voltik-card text-center bg-background/80 backdrop-blur-sm border border-primary/20 px-4 py-6">
-                    {testimonial.savings && (
-                      <span className="inline-flex items-center px-3 py-1 mb-4 rounded-full bg-primary text-sm font-semibold text-foreground">
-                        {testimonial.savings}
-                      </span>
-                    )}
-                    {/* Quote Icon */}
-                    <Quote size={48} className="mx-auto mb-6 text-primary/30" />
-
-                    {/* Stars */}
-                    <div className="flex justify-center mb-6">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} size={20} className="text-yellow-400 fill-current" />
-                      ))}
+        {/* Infinite Carousel */}
+        <div className="relative overflow-hidden max-w-3xl mx-auto">
+          <div 
+            ref={scrollContainerRef}
+            className="flex transition-transform duration-1000 ease-in-out"
+            style={{ 
+              transform: `translateX(-${currentIndex * (100 / testimonials.length)}%)`,
+              width: `${testimonials.length * 2 * 100}%`
+            }}
+          >
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <div 
+                key={index} 
+                className="flex-shrink-0 px-2 sm:px-3"
+                style={{ width: `${100 / (testimonials.length * 2)}%` }}
+              >
+                <div className="voltik-card bg-background/95 backdrop-blur-sm border border-primary/20 p-6 h-full">
+                  {/* Savings Badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/40 text-text text-sm font-semibold">
+                      <TrendingDown size={14} />
+                      {testimonial.savings}
                     </div>
+                    <div className="text-xs text-muted-foreground">
+                      {testimonial.time}
+                    </div>
+                  </div>
 
-                    {/* Quote */}
-                    <blockquote className="text-lg md:text-xl text-foreground mb-8 italic font-medium">
-                      "{testimonial.quote}"
-                    </blockquote>
+                  {/* Quote */}
+                  <blockquote className="text-base text-foreground mb-6 leading-relaxed">
+                    "{testimonial.quote}"
+                  </blockquote>
 
-                    {/* Author */}
-                    <div className="border-t border-primary/20 pt-6">
-                      <div className="flex justify-center mb-4">
-                        <div className="w-12 h-12 rounded-full bg-primary/15 text-primary font-semibold flex items-center justify-center">
-                          {testimonial.initials}
-                        </div>
-                      </div>
-                      <div className="font-semibold text-foreground text-lg">
+                  {/* Stars */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} size={16} className="text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+
+                  {/* Author Info */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-primary/10">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 text-primary font-semibold flex items-center justify-center text-sm">
+                      {testimonial.initials}
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-foreground text-sm">
                         {testimonial.author}
                       </div>
-                      <div className="text-primary font-medium">
-                        {testimonial.role}
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {testimonial.location}
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                        <MapPin size={12} />
+                        {testimonial.location} • {testimonial.role}
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 p-3 bg-background shadow-lg rounded-full hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-            aria-label="Testimonio anterior"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 p-3 bg-background shadow-lg rounded-full hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-            aria-label="Siguiente testimonio"
-          >
-            <ChevronRight size={24} />
-          </button>
-
-          {/* Dots Navigation */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
-                  currentSlide === index 
-                    ? 'bg-primary' 
-                    : 'bg-primary/30 hover:bg-primary/50'
-                }`}
-                aria-label={`Ir al testimonio ${index + 1}`}
-              />
+              </div>
             ))}
           </div>
+        </div>
+
+        {/* Progress Dots */}
+        <div className="flex justify-center mt-8 gap-2">
+          {testimonials.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentIndex === index 
+                  ? 'bg-primary w-6' 
+                  : 'bg-primary/30'
+              }`}
+            />
+          ))}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-16">
           <h3 className="text-xl md:text-2xl font-semibold mb-4">
-            ¿Tú también quieres ser un cliente satisfecho?
+            ¿Quieres ser el siguiente en ahorrar?
           </h3>
           <VoltikButton variant="voltik" size="lg" asChild>
-            <a href="/formulario">Contacta con nosotros gratis</a>
+            <a href="/formulario">Empieza a ahorrar ahora</a>
           </VoltikButton>
         </div>
       </div>

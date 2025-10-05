@@ -56,7 +56,7 @@ const Privacy = () => {
             <img
               src={voltikLogo}
               alt="Ahorro energético con Voltik"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
           </div>

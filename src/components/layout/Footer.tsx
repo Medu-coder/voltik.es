@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, UploadCloud } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, MessageCircle, UploadCloud, Facebook, Instagram, Linkedin } from 'lucide-react'
+import ComingSoonModal from '@/components/ui/ComingSoonModal'
 import voltikLogo from '@/assets/voltik-logo-web.svg'
 
 export default function Footer() {
@@ -28,8 +29,8 @@ export default function Footer() {
                 <div className="flex items-center">
                   <Phone size={18} className="mr-3 text-primary" />
                   <div>
-                    <a href="tel:+34957000000" className="hover:text-primary transition-colors">
-                      957 000 000
+                    <a href="tel:+34600000000" className="hover:text-primary transition-colors">
+                      600 00 00 00
                     </a>
                     <span className="text-background/60 text-sm ml-2">
                       (24/7 urgencias)
@@ -65,8 +66,8 @@ export default function Footer() {
               <h3 className="font-semibold text-lg mb-4 text-primary">Servicios</h3>
               <ul className="space-y-2 text-background/80">
                 <li><a href="/formulario" className="hover:text-primary transition-colors">Ahorro en tu factura de luz</a></li>
-                <li><a href="/servicios" className="hover:text-primary transition-colors">Certificados de eficiencia energética</a></li>
-                <li><a href="/servicios" className="hover:text-primary transition-colors">Boletines eléctricos (CIE)</a></li>
+                <li><a href="/formulario-sec" className="hover:text-primary transition-colors">Certificados de eficiencia energética</a></li>
+                <li><a href="/formulario-sec" className="hover:text-primary transition-colors">Boletines eléctricos (CIE)</a></li>
                 <li><a href="/servicios" className="hover:text-primary transition-colors">Servicios profesionales</a></li>
               </ul>
             </div>
@@ -125,26 +126,59 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="mailto:contacto@voltik.es"
                 className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                aria-label="Facebook"
+                aria-label="Email"
+              >
+                <Mail size={20} />
+              </a>
+              
+              <ComingSoonModal
+                trigger={
+                  <button
+                    className="p-2 hover:bg-background/10 rounded-lg transition-colors"
+                    aria-label="WhatsApp (próximamente)"
+                  >
+                    <MessageCircle size={20} />
+                  </button>
+                }
+                serviceName="WhatsApp"
+                description="WhatsApp estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
+              />
+
+              <ComingSoonModal
+                trigger={
+                  <button
+                    className="p-2 hover:bg-background/10 rounded-lg transition-colors"
+                    aria-label="Teléfono (próximamente)"
+                  >
+                    <Phone size={20} />
+                  </button>
+                }
+                serviceName="Teléfono"
+                description="El servicio telefónico estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
+              />
+              <div
+                className="p-2 opacity-50 cursor-not-allowed"
+                aria-label="Facebook (próximamente)"
+                title="Facebook (próximamente)"
               >
                 <Facebook size={20} />
-              </a>
-              <a
-                href="#"
-                className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                aria-label="Instagram"
+              </div>
+              <div
+                className="p-2 opacity-50 cursor-not-allowed"
+                aria-label="Instagram (próximamente)"
+                title="Instagram (próximamente)"
               >
                 <Instagram size={20} />
-              </a>
-              <a
-                href="#"
-                className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                aria-label="LinkedIn"
+              </div>
+              <div
+                className="p-2 opacity-50 cursor-not-allowed"
+                aria-label="LinkedIn (próximamente)"
+                title="LinkedIn (próximamente)"
               >
                 <Linkedin size={20} />
-              </a>
+              </div>
             </div>
           </div>
         </div>

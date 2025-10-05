@@ -1,5 +1,6 @@
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { MessageCircle, Phone, Mail } from 'lucide-react'
+import ComingSoonModal from '@/components/ui/ComingSoonModal'
 
 export default function ContactOptions() {
   return (
@@ -13,24 +14,34 @@ export default function ContactOptions() {
             Si lo prefieres, escríbenos directamente o llámanos. Resolveremos todas tus dudas inmediatamente.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <VoltikButton variant="voltik" size="lg" asChild className="md:flex-1 shadow-md">
-              <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-                <MessageCircle size={20} className="mr-2" />
-                WhatsApp
-              </a>
-            </VoltikButton>
-            <VoltikButton variant="outline" size="lg" asChild className="md:flex-1">
-              <a href="tel:+34957000000" aria-label="Llamar por teléfono">
-                <Phone size={20} className="mr-2" />
-                Teléfono
-              </a>
-            </VoltikButton>
-            <VoltikButton variant="ghost" size="lg" asChild className="md:flex-1">
+            <VoltikButton variant="voltik" size="lg" asChild className="md:flex-1">
               <a href="mailto:contacto@voltik.es" aria-label="Enviar correo a Voltik">
                 <Mail size={20} className="mr-2" />
                 Email
               </a>
             </VoltikButton>
+
+            <ComingSoonModal
+              trigger={
+                <VoltikButton variant="outline" size="lg" className="md:flex-1 border-green-500 text-green-600 hover:bg-green-50 hover:border-green-600 hover:text-green-700">
+                  <MessageCircle size={20} className="mr-2" />
+                  WhatsApp
+                </VoltikButton>
+              }
+              serviceName="WhatsApp"
+              description="WhatsApp estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
+            />
+
+            <ComingSoonModal
+              trigger={
+                <VoltikButton variant="outline" size="lg" className="md:flex-1">
+                  <Phone size={20} className="mr-2" />
+                  Teléfono
+                </VoltikButton>
+              }
+              serviceName="Teléfono"
+              description="El servicio telefónico estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
+            />
           </div>
         </div>
       </div>

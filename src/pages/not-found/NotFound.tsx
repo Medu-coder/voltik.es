@@ -81,7 +81,7 @@ const NotFound = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="/#beneficios" className="text-text hover:underline">
+                        <a href="/#valores" className="text-text hover:underline">
                           Por qué elegirnos
                         </a>
                       </li>

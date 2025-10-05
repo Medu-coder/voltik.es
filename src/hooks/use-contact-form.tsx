@@ -102,6 +102,11 @@ export const useContactForm = () => {
     const selectedFile = event.target.files?.[0] || null
     handleFileSelect(selectedFile)
     
+    // Mostrar reCAPTCHA cuando se selecciona un archivo
+    if (selectedFile) {
+      setShowRecaptcha(true)
+    }
+    
     // Limpiar errores de archivo
     if (errors.archivo) {
       setErrors((prev) => ({ ...prev, archivo: undefined }))

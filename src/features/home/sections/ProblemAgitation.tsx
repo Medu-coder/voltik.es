@@ -87,7 +87,7 @@ export default function ProblemAgitation() {
 
             <div className="mt-8 text-center">
               <VoltikButton variant="voltik" size="lg" asChild>
-                <a href="#formulario" className="group">
+                <a href="/formulario" className="group">
                   Quiero mi oferta ya
                   <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                 </a>

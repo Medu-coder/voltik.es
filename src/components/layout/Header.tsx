@@ -22,6 +22,7 @@ export default function Header() {
     { href: '/como-funciona', label: 'Cómo funciona' },
     { href: '/servicios', label: 'Servicios' },
     { href: '/#testimonios', label: 'Testimonios' },
+    { href: '/#faqs', label: 'Preguntas frecuentes' },
     { href: '/blog', label: 'Blog' },
   ]
 
@@ -69,10 +70,10 @@ export default function Header() {
             <a
               href="tel:+34957000000"
               className="flex items-center text-sm text-foreground/80 hover:text-foreground transition-colors"
-              aria-label="Llamar al 957 000 000"
+              aria-label="Llamar al 600 00 00 00"
             >
               <Phone size={16} className="mr-2" />
-              957 000 000
+                      600 00 00 00
             </a>
             */}
             <VoltikButton variant="voltik" size="md" asChild>
@@ -115,18 +116,18 @@ export default function Header() {
               <div className="px-4 pt-4 border-t border-border space-y-3">
                 {/*
                 <a
-                  href="tel:+34957000000"
+                  href="tel:+34600000000"
                   className="flex items-center py-3 text-foreground hover:text-primary transition-colors"
                 >
                   <Phone size={20} className="mr-3" />
                   <div>
                     <div className="font-medium">Llama ahora</div>
-                    <div className="text-sm text-muted-foreground">957 000 000</div>
+                    <div className="text-sm text-muted-foreground">600 00 00 00</div>
                   </div>
                 </a>
                 
                 <a
-                  href="https://wa.me/34957000000"
+                  href="https://wa.me/34600000000"
                   className="flex items-center py-3 text-foreground hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"

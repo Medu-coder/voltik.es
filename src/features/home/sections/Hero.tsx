@@ -1,4 +1,4 @@
-import { ArrowRight, Upload, PiggyBank, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Upload, PiggyBank, ShieldCheck, Zap } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import heroImage from '@/assets/hero-family.png'
 import voltikLogo from '@/assets/voltik-logo-web.svg'
@@ -14,7 +14,7 @@ export default function Hero() {
         <img
           src={heroImage}
           alt="Factura de luz digital"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
       </div>
@@ -37,14 +37,16 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg md:text-2xl text-foreground mb-8 lg:max-w-2xl mx-auto lg:mx-0">
-              Totalmente gratuito para ti. Ahorra en tu consumo energético. Envíanos tu última factura y mejoramos tus condiciones. Sin compromiso y con una propuesta personalizada en menos de 48&nbsp;horas.
+              Totalmente gratuito para ti.<br />
+              Envíanos tu última factura y mejoramos las condiciones.<br />
+              Sin compromiso y con una propuesta personalizada en menos de 48&nbsp;horas.
             </p>
 
             <div className="flex flex-col items-center sm:items-start gap-2">
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4">
                 <div className="flex flex-col items-center gap-2">
                   <VoltikButton variant="primary" size="lg" className="shadow-lg shadow-primary/40" asChild>
-                    <a href="#formulario" className="group">
+                    <a href="/formulario" className="group">
                       Empieza a ahorrar hoy
                       <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                     </a>
@@ -54,7 +56,7 @@ export default function Hero() {
                   </span>
                 </div>
                 <VoltikButton variant="ghost" size="lg" className="bg-background/60 hover:bg-background/80" asChild>
-                  <a href="#proceso" className="group text-base">
+                  <a href="/como-funciona" className="group text-base">
                     Ver cómo funciona
                     <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                   </a>
@@ -64,8 +66,8 @@ export default function Hero() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12">
               <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20">
-                <Upload size={20} className="text-text" />
-                <span className="text-sm font-medium">Sube tu factura en 1&nbsp;min</span>
+                <Zap size={20} className="text-text" />
+                <span className="text-sm font-medium">La misma luz por menos dinero</span>
               </div>
               <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20">
                 <PiggyBank size={20} className="text-text" />

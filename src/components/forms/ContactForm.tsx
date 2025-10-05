@@ -164,10 +164,10 @@ export default function ContactForm({
               ) : (
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 p-3 bg-background rounded-lg border">
-                    <FileText size={20} className="text-primary" />
+                    <FileText size={20} className="text-primary flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-foreground truncate">
-                        {file.name}
+                      <p className="text-sm font-medium text-foreground" title={file.name}>
+                        {file.name.length > 30 ? `${file.name.substring(0, 30)}...` : file.name}
                       </p>
                       <p className="text-xs text-muted-foreground">
                         {(file.size / 1024 / 1024).toFixed(2)} MB
@@ -179,7 +179,7 @@ export default function ContactForm({
                         e.preventDefault()
                         handleRemoveFile()
                       }}
-                      className="p-1 hover:bg-destructive/10 rounded transition-colors"
+                      className="p-1 hover:bg-destructive/10 rounded transition-colors flex-shrink-0"
                     >
                       <X size={16} className="text-destructive" />
                     </button>

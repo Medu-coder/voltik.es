@@ -108,7 +108,7 @@ const ServicesPage = () => {
             <img
               src={heroElectricianImage}
               alt="Eficiencia energética y ahorro en facturas"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
           </div>
@@ -183,7 +183,7 @@ const ServicesPage = () => {
 
                 <div className="text-center mt-12">
                   <VoltikButton variant="voltik" size="lg" asChild>
-                    <a href="#formulario" className="group">
+                    <a href="/formulario" className="group">
                       Empieza a ahorrar hoy
                       <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                     </a>
@@ -241,8 +241,8 @@ const ServicesPage = () => {
                     </div>
                   </div>
 
-                  <VoltikButton variant="outline" size="lg" className="w-full border-primary/40 hover:border-primary" asChild>
-                    <a href="#formulario">{service.cta}</a>
+                  <VoltikButton variant="voltik" size="lg" className="w-full border-primary/40 hover:border-primary" asChild>
+                    <a href="/formulario-sec">{service.cta}</a>
                   </VoltikButton>
                 </article>
               ))}
@@ -290,7 +290,7 @@ const ServicesPage = () => {
                 Gratis y sin compromiso.
               </p>
               <VoltikButton variant="voltik" size="lg" asChild>
-                <a href="#formulario" className="group">
+                <a href="/formulario" className="group">
                   Quiero mi oferta ya
                   <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                 </a>

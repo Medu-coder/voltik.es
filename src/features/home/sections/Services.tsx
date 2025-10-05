@@ -47,8 +47,8 @@ export default function Services() {
                   {service.description}
                 </p>
               </div>
-              <VoltikButton variant="outline" size="lg" className="mt-8 border-primary/40 hover:border-primary" asChild>
-                <a href="#formulario">{service.cta}</a>
+              <VoltikButton variant="voltik" size="lg" className="mt-8 border-primary/40 hover:border-primary" asChild>
+                <a href="/formulario-sec">{service.cta}</a>
               </VoltikButton>
             </article>
           ))}

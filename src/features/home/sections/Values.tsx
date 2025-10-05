@@ -7,7 +7,7 @@ export default function Values() {
       title: 'Transparencia total',
       description: 'Te mostramos comparativas reales y sin letra pequeña para que elijas con seguridad.',
       accent: 'bg-voltik-secondary/40 text-text',
-      metric: '+5.000 informes emitidos',
+      metric: '+8.000 informes emitidos',
     },
     {
       icon: Clock3,

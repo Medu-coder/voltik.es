@@ -82,7 +82,7 @@ const ComoFuncionaPage = () => {
             <img
               src={voltikLogo}
               alt="Ahorro energético con Voltik"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
           </div>
@@ -115,7 +115,7 @@ const ComoFuncionaPage = () => {
               {steps.map((step, index) => (
                 <article
                   key={step.title}
-                  className="voltik-card h-full relative overflow-hidden text-left group hover:shadow-lg transition-all duration-300"
+                  className="voltik-card h-full relative overflow-hidden text-left group hover:shadow-lg transition-all duration-300 flex flex-col"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -123,12 +123,11 @@ const ComoFuncionaPage = () => {
                     </div>
                     <h3 className="text-xl font-semibold">{step.title}</h3>
                   </div>
-                  <p className="text-muted-foreground text-base mb-6">
+                  <p className="text-muted-foreground text-base mb-6 flex-1">
                     {step.description}
                   </p>
 
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-foreground text-sm">Incluye:</h4>
+                  <div className="space-y-3 mt-auto">
                     {step.details.map((detail, detailIndex) => (
                       <div key={detailIndex} className="flex items-start gap-2">
                         <CheckCircle2 size={16} className="text-text mt-0.5 flex-shrink-0" />
@@ -157,7 +156,7 @@ const ComoFuncionaPage = () => {
             <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
               {benefits.map((benefit, index) => (
                 <div key={index}>
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-3 mb-2">
                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                       <benefit.icon size={22} className="text-text" />
                     </div>
@@ -182,7 +181,7 @@ const ComoFuncionaPage = () => {
                 Gratis y sin compromiso.
               </p>
               <VoltikButton variant="voltik" size="lg" asChild>
-                <a href="/#formulario" className="group">
+                <a href="/formulario" className="group">
                   Subir mi factura ahora
                   <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                 </a>

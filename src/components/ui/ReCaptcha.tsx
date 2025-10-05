@@ -99,9 +99,6 @@ export default function ReCaptcha({
 
   return (
     <div className={`flex flex-col items-center space-y-2 ${className}`}>
-      <p className="text-sm text-muted-foreground text-center">
-        Verificación de seguridad automática
-      </p>
       <button
         type="button"
         onClick={executeRecaptcha}

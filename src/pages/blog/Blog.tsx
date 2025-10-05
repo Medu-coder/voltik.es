@@ -42,7 +42,7 @@ const Blog = () => {
     <div className="min-h-screen bg-background">
       <Seo
         title="Voltik · Blog de eficiencia energética"
-        description="Consejos para reducir tu factura de la luz, novedades en eficiencia energética, movilidad eléctrica y soluciones profesionales para hogares y negocios."
+        description="Consejos para reducir tu factura de la luz, novedades en eficiencia energética, placas solares y soluciones eléctricas para hogares y negocios."
         type="website"
       />
       <Header />
@@ -55,7 +55,7 @@ const Blog = () => {
               Blog de electricidad Voltik
             </h1>
             <p className="lead">
-              Consejos, guías y noticias sobre instalaciones eléctricas, placas solares, domótica y mucho más.
+              Consejos, guías y noticias sobre el precio de la luz, eficiencia energética, placas solares y mucho más.
             </p>
           </div>
         </section>
@@ -254,20 +254,16 @@ const Blog = () => {
                 ¿Te ha resultado útil?
               </h3>
               <p className="lead mb-8">
-                Si necesitas asesoramiento personalizado sobre tu instalación eléctrica, 
+                Si quieres reducir tu factura de la luz o asesoramiento profesional, 
                 no dudes en contactarnos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <VoltikButton variant="voltik" size="lg" asChild>
-                  <a href="/#contacto">Consulta gratuita</a>
+                  <a href="/formulario">Reducir mi factura</a>
                 </VoltikButton>
-                {/*
                 <VoltikButton variant="outline" size="lg" asChild>
-                  <a href="https://wa.me/34957000000" target="_blank" rel="noopener noreferrer">
-                    WhatsApp directo
-                  </a>
+                  <a href="/formulario-sec">Asesoramiento técnico</a>
                 </VoltikButton>
-                */}
               </div>
             </div>
           </div>

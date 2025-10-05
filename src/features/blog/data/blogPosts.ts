@@ -59,8 +59,8 @@ const blogPosts: BlogPost[] = [
     tags: ['wallbox', 'coche-eléctrico'],
     featured: true,
     image: '/blog/wallbox.jpg',
-    ctaLabel: 'Solicita información sobre tu punto de recarga',
-    ctaLink: '/#contacto'
+    ctaLabel: 'Reduce tu factura de la luz',
+    ctaLink: '/formulario'
   },
   {
   id: 'bicicletas-electricas-y-ahorro-energia',
@@ -104,8 +104,8 @@ const blogPosts: BlogPost[] = [
   tags: ['bicicleta-eléctrica', 'eficiencia-energética', 'movilidad-urbana'],
   featured: false,
   image: '/blog/bicicletas-electricas-y-ahorro-energia_image.png',
-  ctaLabel: 'Consulta cómo pasarte a la movilidad eléctrica',
-  ctaLink: '/#contacto'
+  ctaLabel: 'Reduce tu factura de la luz',
+  ctaLink: '/formulario'
 },
 {
   id: 'bici-electrica-vs-convencional-que-conviene-mas',
@@ -155,8 +155,8 @@ const blogPosts: BlogPost[] = [
   tags: ['bicicleta-eléctrica', 'movilidad-urbana', 'eficiencia-energética'],
   featured: true,
   image: '/blog/bici-electrica-vs-convencional-que-conviene-mas_image.png',
-  ctaLabel: 'Contáctanos para asesorarte sobre movilidad eléctrica',
-  ctaLink: '/#contacto'
+  ctaLabel: 'Reduce tu factura de la luz',
+  ctaLink: '/formulario'
 },
   // añade más artículos aquí
 ];
