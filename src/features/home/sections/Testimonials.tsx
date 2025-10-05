@@ -9,7 +9,7 @@ export default function Testimonials() {
   const testimonials = [
     {
       quote: 'No me lo podía creer. Envié la factura y al día siguiente ya tenía una oferta mejor totalmente gratis. Ahora pago 29€ menos cada mes.',
-      author: 'María González',
+      author: 'Antonio González',
       role: 'Piso',
       rating: 5,
       location: 'Madrid',
@@ -29,7 +29,7 @@ export default function Testimonials() {
     },
     {
       quote: 'Para el bar conseguimos una tarifa mucho mejor. Sin cambiar nada de nuestros horarios, la factura bajó 80€ al mes.',
-      author: 'Ana Martín',
+      author: 'Ana Luque',
       role: 'Restaurante',
       rating: 5,
       location: 'Córdoba',
