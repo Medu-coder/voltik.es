@@ -68,7 +68,7 @@ const ComoFuncionaPage = () => {
   return (
     <>
       <Seo
-        title="Cómo Funciona Voltik - Ahorro en Factura de Luz en 3 Pasos"
+        title="Cómo funciona Voltik - Ahorro en factura de luz en 3 pasos"
         description="Proceso simple para ahorrar en tu factura de luz: sube tu factura, analizamos tu consumo y recibes la mejor oferta en 48h. Servicio gratuito sin compromiso para hogares y negocios."
         type="website"
       />

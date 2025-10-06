@@ -36,8 +36,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Ahorra en tu Factura de Luz | Voltik - Análisis Gratuito en 48h"
-        description="Reduce tu factura de luz hasta un 20%: sube tu factura y recibe la mejor oferta energética personalizada en 48h. Servicio gratuito sin compromiso para hogares y negocios en España."
+        title="Voltik - Eficiencia energética | Ahorra en tu factura de luz"
+        description="Reduce tu factura de luz hasta un 20%: sube tu factura y recibe la mejor oferta personalizada en 48h. Servicio gratuito sin compromiso para hogares y negocios en España."
         type="website"
       />
       <Header />

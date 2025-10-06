@@ -138,7 +138,7 @@ export default function Footer() {
               </a>
               
               <a
-                href="https://www.linkedin.com/company/voltik"
+                href="https://www.linkedin.com/company/voltik-es"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 hover:bg-background/10 rounded-lg transition-colors"
@@ -150,7 +150,7 @@ export default function Footer() {
               </a>
               
               <a
-                href="https://twitter.com/voltikenergy"
+                href="https://x.com/voltikenergy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 hover:bg-background/10 rounded-lg transition-colors"

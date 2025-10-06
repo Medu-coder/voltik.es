@@ -193,7 +193,7 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Servicios de Eficiencia Energética | Voltik - Certificados y Boletines Eléctricos"
+        title="Servicios de eficiencia energética | Voltik - Certificados y Boletines Eléctricos"
         description="Servicios profesionales de eficiencia energética: certificados energéticos, boletines eléctricos (CIE) y análisis de facturas. Ingenieros colegiados para hogares y negocios en toda España."
         type="website"
       />

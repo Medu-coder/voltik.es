@@ -31,7 +31,7 @@ const FormularioSec = () => {
   return (
     <>
       <Seo
-        title={submitted ? "Solicitud enviada - Voltik" : "Servicios técnicos - Voltik · Certificados y boletines"}
+        title={submitted ? "Solicitud enviada - Voltik" : "Servicios eficiencia energética - Voltik · Certificados y boletines"}
         description={submitted 
           ? "Tu solicitud ha sido enviada correctamente. Te contactaremos en menos de 48h para gestionar tu solicitud de servicio técnico."
           : "Solicita tu certificado de eficiencia energética o boletín eléctrico (CIE). Servicios técnicos profesionales para tu inmueble o instalación."
