@@ -6,7 +6,14 @@
   "outputDirectory": "dist",
   "trailingSlash": false,
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/inicio", "destination": "/", "permanent": true },
+    { "source": "/servicio", "destination": "/servicios", "permanent": true },
+    { "source": "/como-funciona/", "destination": "/como-funciona", "permanent": true },
+    { "source": "/servicios/", "destination": "/servicios", "permanent": true },
+    { "source": "/blog/", "destination": "/blog", "permanent": true },
+    { "source": "/privacidad/", "destination": "/privacidad", "permanent": true }
   ],
   "rewrites": [
     { "source": "/:path*", "destination": "/index.html" }
