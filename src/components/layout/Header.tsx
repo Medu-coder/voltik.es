@@ -21,7 +21,6 @@ export default function Header() {
     { href: '/#hero', label: 'Inicio' },
     { href: '/como-funciona', label: 'Cómo funciona' },
     { href: '/servicios', label: 'Servicios' },
-    { href: '/#testimonios', label: 'Testimonios' },
     { href: '/#faqs', label: 'Preguntas frecuentes' },
     { href: '/blog', label: 'Blog' },
   ]

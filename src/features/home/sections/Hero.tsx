@@ -85,7 +85,7 @@ export default function Hero() {
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <p className="text-sm text-muted-foreground">Ahorro estimado</p>
-                  <p className="text-2xl font-semibold text-primary-foreground">-23%</p>
+                  <p className="text-2xl font-semibold text-primary-foreground">23%</p>
                 </div>
                 <div className="text-right">
                   <p className="text-sm text-muted-foreground">Tiempo medio de respuesta</p>

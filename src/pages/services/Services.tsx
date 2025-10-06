@@ -53,7 +53,7 @@ const ServicesPage = () => {
       icon: FileText,
       cta: 'Solicitar certificado',
       features: [
-        'Certificado oficial',
+        'Certificado energéticooficial',
         'Asesoramiento sobre mejoras de eficiencia',
         'Tramitación completa ante el registro',
         'Garantía de cumplimiento normativo'
@@ -229,16 +229,13 @@ const ServicesPage = () => {
                     {service.description}
                   </p>
 
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-foreground mb-3">Incluye:</h4>
-                    <div className="space-y-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-start gap-2">
-                          <CheckCircle2 size={16} className="text-text mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="mb-6 space-y-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-start gap-2">
+                        <CheckCircle2 size={16} className="text-text mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">{feature}</span>
+                      </div>
+                    ))}
                   </div>
 
                   <VoltikButton variant="voltik" size="lg" className="w-full border-primary/40 hover:border-primary" asChild>
