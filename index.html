@@ -235,22 +235,22 @@
 
     <!-- Google reCAPTCHA v3 -->
     <script>
-      // Load reCAPTCHA only if domain is configured
+      // Load reCAPTCHA for all domains (including localhost for testing)
       (function() {
         const domain = window.location.hostname;
-        if (domain === 'voltik.es' || domain === 'www.voltik.es') {
-          const script = document.createElement('script');
-          script.src = 'https://www.google.com/recaptcha/api.js?render=6Lft8dkrAAAAAMLeuF9nGQVsQelP7wIAJVGPHtF6';
-          script.async = true;
-          script.defer = true;
-          script.onload = function() {
-            console.log('reCAPTCHA loaded successfully');
-          };
-          script.onerror = function() {
-            console.warn('reCAPTCHA failed to load - continuing without it');
-          };
-          document.head.appendChild(script);
-        }
+        console.log('Loading reCAPTCHA for domain:', domain);
+        
+        const script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js?render=6Lft8dkrAAAAAMLeuF9nGQVsQelP7wIAJVGPHtF6';
+        script.async = true;
+        script.defer = true;
+        script.onload = function() {
+          console.log('reCAPTCHA loaded successfully for domain:', domain);
+        };
+        script.onerror = function() {
+          console.warn('reCAPTCHA failed to load for domain:', domain);
+        };
+        document.head.appendChild(script);
       })();
     </script>
     <!-- End Google reCAPTCHA v3 -->
