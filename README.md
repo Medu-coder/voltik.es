@@ -46,10 +46,6 @@ Sitio web de Voltik (instalaciones eléctricas en Córdoba) construido con Vite 
     - Subida de archivos PDF con validación (máximo 10MB)
     - Integración con reCAPTCHA v3 (solo cuando hay archivo)
     - Envío dual: Google Forms (fallback) + Backend API
-  - **Configuración:**
-    - Google Forms: `GOOGLE_FORM_URL` (fallback)
-    - Backend API: `BACKEND_URL` (principal)
-    - reCAPTCHA: `RECAPTCHA_SITE_KEY` (clave de sitio)
   - **Flujo de usuario:**
     1. Completar datos básicos
     2. Seleccionar archivo PDF (opcional)
@@ -80,20 +76,9 @@ Sitio web de Voltik (instalaciones eléctricas en Córdoba) construido con Vite 
 
 ## Configuración de reCAPTCHA
 - **Script**: Cargado en `index.html` con la clave de sitio
-- **Clave de sitio**: `6Lft8dkrAAAAAMLeuF9nGQVsQelP7wIAJVGPHtF6`
 - **Componente**: `src/components/ui/ReCaptcha.tsx` (reCAPTCHA v3)
 - **Configuración**: Solo se ejecuta cuando el usuario hace clic en "Verificar"
-- **Dominios permitidos**: `localhost` y `voltik.es` (configurar en Google reCAPTCHA Admin)
 
 ## Analítica (GTM + GA4)
-- Carga: solo Google Tag Manager en `index.html` (no se incluye GA4 directo). ID actual: `GTM-5R9ZBQFP`.
-- Envío de pageviews en SPA: `src/app/analytics/RouteAnalytics.tsx` envía a `dataLayer` un evento `pageview` en cada cambio de ruta. El primer page_view lo deja para GTM (evita duplicados).
-  - Payload enviado: `{ event: 'pageview', page_title, page_location, page_path }`.
-- Integración recomendada en GTM:
-  - Crear variables de Data Layer `page_title`, `page_location` y (opcional) `page_path`.
-  - Crear un trigger de Custom Event `pageview`.
-  - Crear etiqueta de GA4 (evento) `page_view` que use el trigger `pageview` y mapee los parámetros anteriores.
-  - Si mantienes el page_view automático del Google tag, no habrá duplicados porque el primer page_view no lo emite el código (ver `RouteAnalytics.tsx`).
-
-## Para agentes/IA
-Consulta `AGENT.md` para una guía detallada de navegación del código, patrones y recetas (añadir páginas, posts, habilitar canales de contacto, etc.).
+- Carga: solo Google Tag Manager en `index.html` (no se incluye GA4 directo)
+- Envío de pageviews en SPA: `src/app/analytics/RouteAnalytics.tsx` envía a `dataLayer` un evento `pageview` en cada cambio de ruta
