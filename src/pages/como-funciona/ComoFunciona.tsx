@@ -74,15 +74,18 @@ const ComoFuncionaPage = () => {
       />
       <Header />
 
-      <main className="pt-16 md:pt-20">
+      <main id="main-content" className="pt-16 md:pt-20">
         {/* Hero */}
         <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
           {/* Background image */}
           <div className="absolute inset-0 z-0 opacity-20">
             <img
               src={voltikLogo}
-              alt="Ahorro energético con Voltik"
+              alt="Proceso de ahorro energético con Voltik - Análisis de factura de luz en 3 pasos"
               className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
+              loading="lazy"
+              width="400"
+              height="300"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
           </div>
@@ -93,7 +96,8 @@ const ComoFuncionaPage = () => {
                 Así de fácil es ahorrar con nosotros
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                Nuestro equipo se encarga de todo el trabajo pesado para que tú solo tengas que subir tu factura y aprobar la mejor oferta.
+                Nuestro equipo de ingenieros eléctricos se encarga de todo el trabajo pesado para que tú solo tengas que subir tu factura de luz y aprobar la mejor oferta. 
+                Conoce todos nuestros <a href="/servicios" className="text-muted-foreground hover:text-foreground underline hover:no-underline transition-colors">servicios de eficiencia energética</a>.
               </p>
             </div>
           </div>
@@ -107,7 +111,8 @@ const ComoFuncionaPage = () => {
                 Nuestro proceso en 3 pasos
               </h2>
               <p className="text-lg text-muted-foreground">
-                Un proceso simple y transparente diseñado para maximizar tu ahorro energético.
+                Un proceso simple y transparente diseñado para maximizar tu ahorro energético. 
+                Descubre <a href="/#testimonios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">las experiencias de nuestros clientes</a>.
               </p>
             </div>
 

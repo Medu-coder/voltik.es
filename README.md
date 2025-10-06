@@ -62,12 +62,21 @@ Sitio web de Voltik (instalaciones eléctricas en Córdoba) construido con Vite 
 - Configuración y mapeo a Tailwind en `tailwind.config.ts`.
 
 ## SEO y despliegue
-- Metadatos base en `index.html` (OG/Twitter base, `lang=es`, `robots`, preconnect fonts) y JSON‑LD `LocalBusiness`.
-- SEO per‑route: `src/app/seo/Seo.tsx` permite fijar `title`, `description`, `og:*`, `twitter:*`, `robots` y JSON‑LD por página. Está integrado en Servicios, Blog, BlogArticle, Privacidad y 404.
-- Canonical: `src/app/seo/Canonical.tsx` mantiene `<link rel="canonical">` según la ruta y `VITE_SITE_URL`.
-- Robots: `public/robots.txt`.
-- Sitemap: autogenerado por `scripts/generate-sitemap.mjs` en `prebuild` (usa `SITE_URL`).
-- Vercel: `vercel.json` con `rewrites` a `index.html`, `framework: "vite"` e instalación con `npm ci`.
+- **Metadatos optimizados** en `index.html` (OG/Twitter, `lang=es`, `robots`, preconnect fonts) y JSON‑LD `ProfessionalService` completo.
+- **SEO per‑route**: `src/app/seo/Seo.tsx` permite fijar `title`, `description`, `og:*`, `twitter:*`, `robots` y JSON‑LD por página. Integrado en todas las páginas.
+- **Canonical**: `src/app/seo/Canonical.tsx` mantiene `<link rel="canonical">` según la ruta y `VITE_SITE_URL`.
+- **Robots**: `public/robots.txt` optimizado con crawl delays y directivas específicas.
+- **Sitemap**: autogenerado por `scripts/generate-sitemap.mjs` en `prebuild` con prioridades optimizadas (usa `SITE_URL`).
+- **Vercel**: `vercel.json` con `rewrites` a `index.html`, `framework: "vite"` e instalación con `npm ci`.
+
+### Optimizaciones SEO implementadas
+- **Schema Markup**: ProfessionalService, FAQPage, Service, Organization+Review, BreadcrumbList, OfferCatalog
+- **Core Web Vitals**: LCP, FID, CLS optimizados con preloading, code splitting y lazy loading
+- **Performance**: Bundle splitting inteligente, assets inline, lazy loading de componentes
+- **Mobile-First**: Responsive design, touch targets, viewport optimizado
+- **Accesibilidad**: ARIA labels, skip links, navegación por teclado
+- **Keywords**: Integración estratégica de palabras clave en títulos, descripciones y contenido
+- **Enlaces**: 15+ enlaces internos optimizados + 5 enlaces externos a autoridades del sector
 
 ## Configuración de reCAPTCHA
 - **Script**: Cargado en `index.html` con la clave de sitio

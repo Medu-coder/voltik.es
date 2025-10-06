@@ -83,15 +83,24 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
   - Algunos canales (teléfono/WhatsApp/email) están comentados o “temporalmente deshabilitados”. Habilítalos retirando comentarios y actualizando números/URLs.
 
 ## SEO y analítica
-- Metas base: `index.html` (title, description, OG/Twitter y favicon) + JSON‑LD `LocalBusiness`.
-- SEO per‑route: `src/app/seo/Seo.tsx` para title/description/OG/Twitter/robots/JSON‑LD por página.
-- Canonical: `src/app/seo/Canonical.tsx` fija `<link rel="canonical">` usando `VITE_SITE_URL`.
-- Robots: `public/robots.txt`
-- Sitemap:
-  - Generador: `scripts/generate-sitemap.mjs`
+- **Metas base optimizadas**: `index.html` (title, description, OG/Twitter, favicon) + JSON‑LD `ProfessionalService` completo.
+- **SEO per‑route**: `src/app/seo/Seo.tsx` para title/description/OG/Twitter/robots/JSON‑LD por página con metadatos de imagen.
+- **Canonical**: `src/app/seo/Canonical.tsx` fija `<link rel="canonical">` usando `VITE_SITE_URL`.
+- **Robots optimizado**: `public/robots.txt` con crawl delays y directivas específicas.
+- **Sitemap automático**:
+  - Generador: `scripts/generate-sitemap.mjs` con prioridades optimizadas
   - Hook: se ejecuta en `prebuild` y produce `public/sitemap.xml`.
-  - Incluye: `/`, `/servicios`, `/blog`, `/privacidad` + `/blog/:id` a partir de `blogPosts.ts`.
-- Analytics (GTM + GA4 mediante GTM):
+  - Incluye: `/`, `/servicios`, `/como-funciona`, `/formulario`, `/formulario-sec`, `/blog`, `/privacidad` + `/blog/:id` a partir de `blogPosts.ts`.
+- **Schema Markup implementado**:
+  - ProfessionalService, FAQPage, Service, Organization+Review, BreadcrumbList, OfferCatalog
+  - Breadcrumbs dinámicos en Header con nombres descriptivos
+  - Testimonios con schema Review estructurado
+- **Performance optimizado**:
+  - Bundle splitting inteligente por funcionalidad
+  - Lazy loading de componentes no críticos
+  - Preloading de recursos críticos
+  - Assets inline para archivos < 4kb
+- **Analytics (GTM + GA4 mediante GTM)**:
   - SPA pageviews desde `src/app/analytics/RouteAnalytics.tsx` → `dataLayer` `{ event: 'pageview', page_title, page_location, page_path }`.
   - El primer page_view lo envía GTM (se evita duplicado en el código).
   - Configurar en GTM una etiqueta GA4 de evento `page_view` con trigger Custom Event `pageview`.
@@ -128,6 +137,15 @@ Este archivo está diseñado para que un agente de IA (o cualquier desarrollador
 
 5) Habilitar WhatsApp/teléfono/email reales
    - En `Header`, `Footer` y `ContactForm`, descomenta bloques marcados y actualiza valores.
+
+6) Optimizaciones SEO implementadas
+   - **Schema Markup**: 6 tipos implementados (ProfessionalService, FAQPage, Service, etc.)
+   - **Performance**: Bundle splitting, lazy loading, preloading optimizado
+   - **Mobile-First**: Responsive design, touch targets, viewport optimizado
+   - **Accesibilidad**: ARIA labels, skip links, navegación por teclado
+   - **Keywords**: Integración estratégica en títulos, descripciones y contenido
+   - **Enlaces**: 15+ internos + 5 externos a autoridades del sector
+   - **Documentación completa**: Ver `SEO_OPTIMIZATION.md` para detalles
 
 ## Puntos de atención
 - `BlogArticle` usa `dangerouslySetInnerHTML`: el contenido debe ser HTML de confianza (interno).

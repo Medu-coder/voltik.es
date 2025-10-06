@@ -26,7 +26,8 @@ export default function Services() {
           </h2>
           <p className="text-lg text-muted-foreground">
             Somos asesores energéticos e ingenieros eléctricos colegiados. Realizamos todo tipo de gestiones técnicas y legales en tus instalaciones.<br />
-            Sencillo y sin complicaciones.
+            <a href="/servicios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">Conoce todos nuestros servicios</a> y 
+            <a href="/como-funciona" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors"> descubre cómo funciona</a>.
           </p>
         </div>
 

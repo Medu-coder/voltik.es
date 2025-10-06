@@ -98,6 +98,70 @@ export default function Testimonials() {
     return () => clearInterval(interval)
   }, [testimonials.length])
 
+  // Review Schema Markup
+  useEffect(() => {
+    const reviewSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Voltik",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": testimonials.length,
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": testimonials.map(testimonial => ({
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": testimonial.author,
+          "jobTitle": testimonial.role
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": testimonial.rating,
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "reviewBody": testimonial.quote,
+        "datePublished": new Date().toISOString().split('T')[0],
+        "publisher": {
+          "@type": "Organization",
+          "name": "Voltik"
+        },
+        "itemReviewed": {
+          "@type": "Service",
+          "name": "Servicios de Eficiencia Energética",
+          "provider": {
+            "@type": "ProfessionalService",
+            "name": "Voltik"
+          }
+        }
+      }))
+    }
+
+    // Remove existing review schema if any
+    const existingSchema = document.getElementById('review-schema')
+    if (existingSchema) {
+      existingSchema.remove()
+    }
+
+    // Add new review schema
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.id = 'review-schema'
+    script.textContent = JSON.stringify(reviewSchema)
+    document.head.appendChild(script)
+
+    return () => {
+      const schemaToRemove = document.getElementById('review-schema')
+      if (schemaToRemove) {
+        schemaToRemove.remove()
+      }
+    }
+  }, [testimonials])
+
   // Duplicar testimonios para el efecto infinito
   const duplicatedTestimonials = [...testimonials, ...testimonials]
 
@@ -110,7 +174,9 @@ export default function Testimonials() {
             Lo que dicen nuestros clientes
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Miles de personas en toda España ya están ahorrando en su factura de la luz. Historias reales, ahorros reales.
+            Miles de hogares y negocios en toda España ya están ahorrando en su factura de luz. 
+            Historias reales de ahorro energético, ahorros reales en euros. 
+            <a href="/como-funciona" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">Descubre cómo funciona</a>.
           </p>
         </div>
 

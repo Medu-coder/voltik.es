@@ -13,9 +13,10 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 opacity-40">
         <img
           src={heroImage}
-          alt="Familia ahorrando en factura de luz con Voltik - Servicios de eficiencia energética"
+          alt="Familia ahorrando factura de luz con Voltik - Análisis gratuito de eficiencia energética en 48h"
           className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
           loading="eager"
+          fetchPriority="high"
           width="800"
           height="600"
         />
@@ -27,12 +28,15 @@ export default function Hero() {
           <div className="lg:col-span-7 text-center lg:text-left">
 
             <div className="mb-6">
-              <img
-                src={voltikLogo}
-                alt="Voltik · Servicios de eficiencia energética"
-                className="h-16 md:h-20 w-auto mx-auto lg:mx-0"
-                loading="eager"
-              />
+            <img
+              src={voltikLogo}
+              alt="Voltik - Servicios de eficiencia energética y ahorro en factura de luz"
+              className="h-16 md:h-20 w-auto mx-auto lg:mx-0"
+              loading="eager"
+              fetchPriority="high"
+              width="200"
+              height="80"
+            />
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
@@ -40,16 +44,16 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg md:text-2xl text-foreground mb-8 lg:max-w-2xl mx-auto lg:mx-0">
-              Totalmente gratuito para ti.<br />
-              Envíanos tu última factura y mejoramos las condiciones.<br />
-              Sin compromiso y con una propuesta personalizada en menos de 48&nbsp;horas.
+              Servicio de análisis de factura de luz 100% gratuito.<br />
+              Sube tu factura eléctrica y recibe la mejor oferta energética.<br />
+              Sin compromiso y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">propuesta de ahorro personalizada en menos de 48&nbsp;horas</a>.
             </p>
 
             <div className="flex flex-col items-center sm:items-start gap-2">
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4">
                 <div className="flex flex-col items-center gap-2">
-                  <VoltikButton variant="primary" size="lg" className="shadow-lg shadow-primary/40" asChild>
-                    <a href="/formulario" className="group">
+                  <VoltikButton variant="primary" size="lg" className="shadow-lg shadow-primary/40 min-h-[48px] min-w-[200px]" asChild>
+                    <a href="/formulario" className="group flex items-center justify-center">
                       Empieza a ahorrar hoy
                       <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                     </a>
@@ -58,8 +62,8 @@ export default function Hero() {
                     *Gratis y en menos de 1 minuto
                   </span>
                 </div>
-                <VoltikButton variant="ghost" size="lg" className="bg-background/60 hover:bg-background/80" asChild>
-                  <a href="/como-funciona" className="group text-base">
+                <VoltikButton variant="ghost" size="lg" className="bg-background/60 hover:bg-background/80 min-h-[48px] min-w-[180px]" asChild>
+                  <a href="/como-funciona" className="group text-base flex items-center justify-center">
                     Ver cómo funciona
                     <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                   </a>

@@ -9,7 +9,106 @@ import Seo from '@/app/seo/Seo'
 
 const ServicesPage = () => {
   useEffect(() => {
-    // Mantiene comportamiento de scroll y otros efectos si se añaden en el futuro
+    // Service Schema Markup
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Servicios de Eficiencia Energética",
+      "description": "Servicios profesionales de eficiencia energética: certificados energéticos, boletines eléctricos (CIE) y análisis de facturas. Ingenieros colegiados para hogares y negocios en toda España.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Voltik",
+        "url": "https://voltik.es"
+      },
+      "serviceType": [
+        "Análisis de facturas eléctricas",
+        "Certificados de eficiencia energética", 
+        "Boletines eléctricos (CIE)",
+        "Optimización de tarifas energéticas"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "España"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Análisis gratuito de factura de luz",
+          "description": "Análisis personalizado de tu factura eléctrica con propuesta de ahorro en 48h",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2024-01-01",
+          "category": "Servicios de Eficiencia Energética"
+        },
+        {
+          "@type": "Offer", 
+          "name": "Certificados de eficiencia energética",
+          "description": "Certificados oficiales para venta o alquiler de inmuebles",
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2024-01-01",
+          "category": "Certificados Energéticos"
+        },
+        {
+          "@type": "Offer",
+          "name": "Boletines eléctricos (CIE)",
+          "description": "Tramitación y legalización de instalaciones eléctricas",
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2024-01-01",
+          "category": "Boletines Eléctricos"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Catálogo de Servicios de Eficiencia Energética",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Análisis de Factura de Luz",
+              "description": "Análisis gratuito y personalizado de tu factura eléctrica"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "Certificados Energéticos",
+              "description": "Certificados oficiales de eficiencia energética"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Boletines Eléctricos CIE",
+              "description": "Tramitación de boletines eléctricos"
+            }
+          }
+        ]
+      }
+    }
+
+    // Remove existing service schema if any
+    const existingSchema = document.getElementById('service-schema')
+    if (existingSchema) {
+      existingSchema.remove()
+    }
+
+    // Add new service schema
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.id = 'service-schema'
+    script.textContent = JSON.stringify(serviceSchema)
+    document.head.appendChild(script)
+
+    return () => {
+      const schemaToRemove = document.getElementById('service-schema')
+      if (schemaToRemove) {
+        schemaToRemove.remove()
+      }
+    }
   }, [])
 
   const mainService = {
@@ -100,16 +199,17 @@ const ServicesPage = () => {
       />
       <Header />
 
-      <main className="pt-16 md:pt-20">
+      <main id="main-content" className="pt-16 md:pt-20">
         {/* Hero */}
         <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
           {/* Background image */}
           <div className="absolute inset-0 z-0 opacity-20">
             <img
               src={heroElectricianImage}
-              alt="Ingeniero eléctrico realizando instalaciones de eficiencia energética - Voltik"
+              alt="Ingeniero eléctrico realizando certificados energéticos y boletines eléctricos - Voltik"
               className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
               width="800"
               height="600"
             />
@@ -123,8 +223,8 @@ const ServicesPage = () => {
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
                 Somos asesores energéticos e ingenieros eléctricos colegiados.<br />
-                Realizamos todo tipo de gestiones técnicas y legales en tus instalaciones.<br />
-                Sencillo y sin complicaciones.
+                Realizamos certificados energéticos, boletines eléctricos (CIE) y análisis energéticos y de tu factura.<br />
+                <a href="/como-funciona" className="text-muted-foreground hover:text-foreground underline hover:no-underline transition-colors">Servicio profesional para hogares y negocios en toda España</a>.
               </p>
             </div>
           </div>
@@ -210,8 +310,8 @@ const ServicesPage = () => {
                 Servicios que completan tu ahorro energético
               </h2>
               <p className="text-lg text-muted-foreground">
-              Somos asesores energéticos e ingenieros eléctricos colegiados. Realizamos todo tipo de gestiones técnicas y legales en tus instalaciones.<br />
-              Sencillo y sin complicaciones.
+              Somos asesores energéticos e ingenieros eléctricos colegiados. Realizamos certificados energéticos, boletines eléctricos (CIE) y análisis energéticos y de tus facturas.<br />
+              <a href="/como-funciona" className="text-muted-foreground hover:text-foreground underline hover:no-underline transition-colors">Servicio profesional para hogares y negocios en toda España</a>.
               </p>
             </div>
 
@@ -295,6 +395,67 @@ const ServicesPage = () => {
                   <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                 </a>
               </VoltikButton>
+            </div>
+          </div>
+        </section>
+
+        {/* External Resources */}
+        <section className="voltik-section bg-muted/40">
+          <div className="voltik-container px-4 lg:px-8">
+            <div className="text-center max-w-4xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Recursos oficiales y enlaces útiles
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Información oficial sobre eficiencia energética y regulaciones en España.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+              <div className="voltik-card flex flex-col">
+                <h3 className="text-lg font-semibold text-foreground mb-3">CNMC - Comisión Nacional de Mercados y Competencia</h3>
+                <p className="text-muted-foreground mb-4 flex-grow">
+                  Información oficial sobre el mercado eléctrico español y derechos del consumidor.
+                </p>
+                <a 
+                  href="https://www.cnmc.es/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-text hover:text-text/80 underline hover:no-underline transition-colors mt-auto"
+                >
+                  Visitar CNMC →
+                </a>
+              </div>
+
+              <div className="voltik-card flex flex-col">
+                <h3 className="text-lg font-semibold text-foreground mb-3">IDAE - Instituto para la Diversificación y Ahorro de la Energía</h3>
+                <p className="text-muted-foreground mb-4 flex-grow">
+                  Guías oficiales sobre eficiencia energética y certificados energéticos.
+                </p>
+                <a 
+                  href="https://www.idae.es/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-text hover:text-text/80 underline hover:no-underline transition-colors mt-auto"
+                >
+                  Visitar IDAE →
+                </a>
+              </div>
+
+              <div className="voltik-card flex flex-col">
+                <h3 className="text-lg font-semibold text-foreground mb-3">Red Eléctrica de España</h3>
+                <p className="text-muted-foreground mb-4 flex-grow">
+                  Información sobre el sistema eléctrico nacional y precios de la electricidad.
+                </p>
+                <a 
+                  href="https://www.ree.es/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-text hover:text-text/80 underline hover:no-underline transition-colors mt-auto"
+                >
+                  Visitar REE →
+                </a>
+              </div>
             </div>
           </div>
         </section>

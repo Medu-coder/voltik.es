@@ -109,7 +109,10 @@ function buildXml(urls) {
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <!-- sitemap.xml generado automáticamente en build -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Voltik - Servicios de eficiencia energética -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 ${items}
 </urlset>
 `;
@@ -126,11 +129,32 @@ function main() {
   const staticUrls = staticRoutes.map(route => {
     const filePath = getFileForRoute(route);
     
+    // Prioridades optimizadas por importancia SEO
+    let priority = '0.8';
+    let changefreq = 'weekly';
+    
+    if (route === '/') {
+      priority = '1.0';
+      changefreq = 'daily';
+    } else if (route === '/servicios' || route === '/como-funciona') {
+      priority = '0.9';
+      changefreq = 'weekly';
+    } else if (route === '/formulario' || route === '/formulario-sec') {
+      priority = '0.9';
+      changefreq = 'weekly';
+    } else if (route === '/blog') {
+      priority = '0.8';
+      changefreq = 'weekly';
+    } else if (route === '/privacidad') {
+      priority = '0.3';
+      changefreq = 'monthly';
+    }
+    
     return {
       loc: `${SITE_URL}${route}`,
       lastmod: gitLastModFor(filePath),
-      changefreq: route === '/' ? 'weekly' : 'weekly',
-      priority: route === '/' ? '1.0' : '0.9'
+      changefreq,
+      priority
     };
   });
 

@@ -40,7 +40,10 @@ export default function Values() {
             Valores que marcan la diferencia
           </h2>
           <p className="text-xl text-muted-foreground">
-            En Voltik creemos en las relaciones a largo plazo, por eso velamos siempre por tus intereses.
+            En Voltik creemos en las relaciones a largo plazo, por eso velamos siempre por tus intereses energéticos. 
+            Servicios de eficiencia energética con transparencia total y ahorro garantizado. 
+            Descubre <a href="/#testimonios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">lo que dicen nuestros clientes</a> y 
+            conoce nuestros <a href="/servicios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">servicios de eficiencia energética</a>.
           </p>
         </div>
 

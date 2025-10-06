@@ -5,12 +5,14 @@ import ProblemAgitation from '@/features/home/sections/ProblemAgitation';
 import ContactForm from '@/features/home/sections/ContactForm';
 import Services from '@/features/home/sections/Services';
 import Values from '@/features/home/sections/Values';
-import Testimonials from '@/features/home/sections/Testimonials';
-import Faqs from '@/features/home/sections/Faqs';
-import ContactOptions from '@/features/home/sections/ContactOptions';
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { useLocation } from 'react-router-dom';
 import Seo from '@/app/seo/Seo';
+
+// Lazy load non-critical components
+const LazyTestimonials = lazy(() => import('@/features/home/sections/Testimonials'));
+const LazyFaqs = lazy(() => import('@/features/home/sections/Faqs'));
+const LazyContactOptions = lazy(() => import('@/features/home/sections/ContactOptions'));
 
 const Index = () => {
   const location = useLocation();
@@ -39,15 +41,21 @@ const Index = () => {
         type="website"
       />
       <Header />
-      <main className="pt-16 md:pt-20">
+      <main id="main-content" className="pt-16 md:pt-20">
         <Hero />
         <ProblemAgitation />
         <ContactForm />
         <Services />
         <Values />
-        <Testimonials />
-        <Faqs />
-        <ContactOptions />
+        <Suspense fallback={<div className="h-32 bg-muted/20 animate-pulse rounded-lg mx-4" />}>
+          <LazyTestimonials />
+        </Suspense>
+        <Suspense fallback={<div className="h-32 bg-muted/20 animate-pulse rounded-lg mx-4" />}>
+          <LazyFaqs />
+        </Suspense>
+        <Suspense fallback={<div className="h-32 bg-muted/20 animate-pulse rounded-lg mx-4" />}>
+          <LazyContactOptions />
+        </Suspense>
       </main>
       <Footer />
     </div>

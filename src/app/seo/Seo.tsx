@@ -79,7 +79,11 @@ export default function Seo({
     const absImage = absoluteUrl(image)
     if (absImage) {
       upsertMeta("meta[property='og:image']", { property: 'og:image', content: absImage })
+      upsertMeta("meta[property='og:image:width']", { property: 'og:image:width', content: '800' })
+      upsertMeta("meta[property='og:image:height']", { property: 'og:image:height', content: '600' })
+      upsertMeta("meta[property='og:image:alt']", { property: 'og:image:alt', content: title || 'Voltik - Servicios de eficiencia energética' })
       upsertMeta("meta[name='twitter:image']", { name: 'twitter:image', content: absImage })
+      upsertMeta("meta[name='twitter:image:alt']", { name: 'twitter:image:alt', content: title || 'Voltik - Servicios de eficiencia energética' })
     }
 
     // Robots

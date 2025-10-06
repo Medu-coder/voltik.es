@@ -29,7 +29,7 @@ export default function ProblemAgitation() {
         <div className="max-w-6xl mx-auto grid gap-12">
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
-              ¿Estás harto de pagar facturas de luz desorbitadas?
+              ¿Pagas de más en tu factura de luz? Te ayudamos a ahorrar
             </h2>
 
             <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
@@ -61,7 +61,7 @@ export default function ProblemAgitation() {
               La solución Voltik
             </div>
             <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-8 text-center">
-              Analizamos tu factura y te enviamos la mejor oferta.<br />
+              <a href="/como-funciona" className="text-foreground hover:text-primary underline hover:no-underline transition-colors">Analizamos tu factura</a> y te enviamos la mejor oferta.<br />
               Gratis y sin complicaciones, nosotros nos encargamos de todo.<br />
               Deja que las eléctricas se peleen por ti.
             </h3>

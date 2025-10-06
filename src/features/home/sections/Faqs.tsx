@@ -1,4 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { useEffect } from 'react'
 
 const faqs = [
   {
@@ -28,6 +29,42 @@ const faqs = [
 ]
 
 export default function Faqs() {
+  useEffect(() => {
+    // FAQPage Schema Markup
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+
+    // Remove existing FAQ schema if any
+    const existingSchema = document.getElementById('faq-schema')
+    if (existingSchema) {
+      existingSchema.remove()
+    }
+
+    // Add new FAQ schema
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.id = 'faq-schema'
+    script.textContent = JSON.stringify(faqSchema)
+    document.head.appendChild(script)
+
+    return () => {
+      const schemaToRemove = document.getElementById('faq-schema')
+      if (schemaToRemove) {
+        schemaToRemove.remove()
+      }
+    }
+  }, [])
+
   return (
     <section id="faqs" className="voltik-section bg-muted/30">
       <div className="voltik-container px-4 lg:px-8 max-w-3xl mx-auto">

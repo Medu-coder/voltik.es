@@ -1,9 +1,13 @@
 # robots.txt — Voltik
+# Servicios de eficiencia energética y análisis de facturas de luz
+
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -11,12 +15,35 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
 
-# Evitar indexar artefactos de build o recursos internos (por si se publican)
+User-agent: WhatsApp
+Allow: /
+
+User-agent: *
+Allow: /
+Crawl-delay: 2
+
+# Evitar indexar artefactos de build o recursos internos
 Disallow: /assets-dev/
 Disallow: /__vite/
 Disallow: /node_modules/
+Disallow: /src/
+Disallow: /dist/
+Disallow: /tmp/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /tsconfig.json
+Disallow: /vite.config.ts
 
+# Permitir archivos importantes
+Allow: /favicon.ico
+Allow: /manifest.json
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Sitemaps
 Sitemap: https://voltik.es/sitemap.xml
