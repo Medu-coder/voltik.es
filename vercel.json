@@ -6,10 +6,7 @@
   "outputDirectory": "dist",
   "trailingSlash": false,
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "http://www.voltik.es/:path*", "destination": "https://voltik.es/:path*", "permanent": true },
-    { "source": "http://voltik.es/:path*", "destination": "https://voltik.es/:path*", "permanent": true },
-    { "source": "https://www.voltik.es/:path*", "destination": "https://voltik.es/:path*", "permanent": true }
+    { "source": "/index.html", "destination": "/", "permanent": true }
   ],
   "rewrites": [
     { "source": "/:path*", "destination": "/index.html" }
