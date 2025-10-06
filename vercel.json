@@ -12,11 +12,11 @@
     { "source": "https://www.voltik.es/:path*", "destination": "https://voltik.es/:path*", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/:path*", "destination": "/index.html" }
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "headers": [
         {
           "key": "X-Robots-Tag",
