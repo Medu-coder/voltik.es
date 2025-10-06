@@ -1,0 +1,7 @@
+# Redirects para Vercel/Netlify
+http://www.voltik.es/* https://voltik.es/:splat 301!
+http://voltik.es/* https://voltik.es/:splat 301!
+https://www.voltik.es/* https://voltik.es/:splat 301!
+
+# SPA fallback
+/* /index.html 200

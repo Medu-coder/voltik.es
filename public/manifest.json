@@ -1,0 +1,20 @@
+{
+  "name": "Voltik - Servicios de Eficiencia Energética",
+  "short_name": "Voltik",
+  "description": "Ahorra hasta 20% en tu factura de luz. Análisis gratuito de facturas eléctricas, certificados energéticos y boletines eléctricos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#DDE6D5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["business", "utilities", "productivity"],
+  "lang": "es",
+  "dir": "ltr"
+}

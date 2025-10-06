@@ -11,7 +11,7 @@ type SeoProps = {
   jsonLd?: Record<string, any> | Record<string, any>[]
 }
 
-const SITE_URL = (import.meta as any).env?.VITE_SITE_URL || 'https://voltik.es'
+const SITE_URL = 'https://voltik.es'
 
 function upsertMeta(selector: string, attrs: Record<string, string>) {
   let el = document.querySelector(selector) as HTMLMetaElement | null

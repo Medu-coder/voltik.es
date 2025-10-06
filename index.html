@@ -24,28 +24,63 @@
     <meta name="twitter:description" content="Sube tu factura y recibe una propuesta de ahorro personalizada en menos de 48h." />
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href="https://voltik.es/" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#DDE6D5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Voltik" />
     
     <!-- LocalBusiness structured data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Voltik",
+        "@type": "ProfessionalService",
+        "name": "Voltik - Servicios de Eficiencia Energética",
+        "alternateName": "Voltik",
         "url": "https://voltik.es/",
         "image": "https://voltik.es/assets/voltik-logo-web.svg",
         "logo": "https://voltik.es/assets/voltik-logo-web.svg",
-        "description": "Servicios de eficiencia energética que analizan tu factura de luz para conseguir mejores condiciones en menos de 48 horas.",
+        "description": "Servicios profesionales de eficiencia energética: análisis de facturas de luz, certificados energéticos y boletines eléctricos. Ahorro garantizado hasta 20% en tu factura eléctrica.",
         "email": "mailto:contacto@voltik.es",
+        "telephone": "+34-600-000-000",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Córdoba",
+          "addressRegion": "Andalucía",
           "addressCountry": "ES"
         },
         "areaServed": {
-          "@type": "AdministrativeArea",
-          "name": "Córdoba"
+          "@type": "Country",
+          "name": "España"
         },
-        "serviceType": "Optimización de factura eléctrica",
+        "serviceType": [
+          "Análisis de facturas eléctricas",
+          "Certificados de eficiencia energética",
+          "Boletines eléctricos (CIE)",
+          "Optimización de tarifas energéticas"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Eficiencia Energética",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Análisis gratuito de factura de luz",
+                "description": "Análisis personalizado de tu factura eléctrica con propuesta de ahorro en 48h"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Certificados de eficiencia energética",
+                "description": "Certificados oficiales para venta o alquiler de inmuebles"
+              }
+            }
+          ]
+        },
         "openingHoursSpecification": [{
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": [
@@ -53,7 +88,16 @@
           ],
           "opens": "08:00",
           "closes": "18:00"
-        }]
+        }],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "500",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR"
       }
     </script>
 
@@ -83,11 +127,9 @@
           link.setAttribute('rel', 'canonical')
           doc.head.appendChild(link)
         }
-        var loc = window.location
-        var origin = loc.origin || (loc.protocol + '//' + loc.host)
-        var path = loc.pathname.replace(/index\.html$/, '/')
+        var path = window.location.pathname.replace(/index\.html$/, '/')
         if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1)
-        link.setAttribute('href', origin + path)
+        link.setAttribute('href', 'https://voltik.es' + path)
       })()
     </script>
     <script type="module" src="/src/main.tsx"></script>

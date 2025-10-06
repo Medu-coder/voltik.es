@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const SITE_URL = (import.meta as any).env?.VITE_SITE_URL || 'https://voltik.es';
+const SITE_URL = 'https://voltik.es';
 
 export default function Canonical() {
   const { pathname } = useLocation();

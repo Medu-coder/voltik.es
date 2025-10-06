@@ -13,8 +13,11 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 opacity-40">
         <img
           src={heroImage}
-          alt="Factura de luz digital"
+          alt="Familia ahorrando en factura de luz con Voltik - Servicios de eficiencia energética"
           className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
+          loading="eager"
+          width="800"
+          height="600"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
       </div>

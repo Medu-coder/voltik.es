@@ -94,8 +94,8 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Voltik · Servicios de eficiencia energética"
-        description="Optimiza tu consumo eléctrico con servicios de certificados, boletines y proyectos de eficiencia. Analizamos tu factura y gestionamos todo el proceso para hogares y negocios."
+        title="Servicios de Eficiencia Energética | Voltik - Certificados y Boletines Eléctricos"
+        description="Servicios profesionales de eficiencia energética: certificados energéticos, boletines eléctricos (CIE) y análisis de facturas. Ingenieros colegiados para hogares y negocios en toda España."
         type="website"
       />
       <Header />
@@ -107,8 +107,11 @@ const ServicesPage = () => {
           <div className="absolute inset-0 z-0 opacity-20">
             <img
               src={heroElectricianImage}
-              alt="Eficiencia energética y ahorro en facturas"
+              alt="Ingeniero eléctrico realizando instalaciones de eficiencia energética - Voltik"
               className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
+              loading="lazy"
+              width="800"
+              height="600"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
           </div>
