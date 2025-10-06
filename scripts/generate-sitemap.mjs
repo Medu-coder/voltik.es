@@ -1,27 +1,18 @@
 // scripts/generate-sitemap.mjs
 import fs from 'node:fs';
-import path from 'node:path';
+import path from 'path';
 import { execSync } from 'node:child_process';
 
 // ------- Config -------
 const ROOT = process.cwd();
 const SITE_URL = process.env.SITE_URL || 'https://voltik.es';
 const BLOG_TS = path.join(ROOT, 'src', 'features', 'blog', 'data', 'blogPosts.ts');
+const APP_TSX = path.join(ROOT, 'src', 'App.tsx');
 const OUT_DIR = path.join(ROOT, 'public');
 const OUT_FILE = path.join(OUT_DIR, 'sitemap.xml');
 
-// Rutas "reales" rastreables (no ponemos anchors #... porque Google los ignora)
-const STATIC_ROUTES = [
-  '/',            // Home
-  '/servicios',   // Página de servicios
-  '/como-funciona', // Página cómo funciona
-  '/formulario',  // Formulario principal
-  '/formulario-sec', // Formulario secundario
-  '/blog',        // Listado blog
-  '/privacidad',  // Política de privacidad
-  // si mañana creas páginas "reales" (no secciones por hash), añádelas aquí:
-  // '/valores', '/casos-de-exito', etc.
-];
+// Rutas que NO queremos en el sitemap (404, catch-all, etc.)
+const EXCLUDED_ROUTES = ['*', 'not-found', '404'];
 
 // ------- Utils -------
 const today = () => new Date().toISOString().slice(0, 10);
@@ -36,6 +27,52 @@ function gitLastModFor(fileRelative) {
   } catch {
     return today();
   }
+}
+
+// Escanea App.tsx para extraer rutas automáticamente
+function extractRoutesFromApp() {
+  try {
+    const appContent = fs.readFileSync(APP_TSX, 'utf8');
+    
+    // Busca patrones de rutas: path="/ruta" o path="/:param"
+    const routeMatches = appContent.match(/path=["']([^"']+)["']/g) || [];
+    
+    const routes = routeMatches
+      .map(match => {
+        // Extrae la ruta del match: path="/ruta" -> "/ruta"
+        const route = match.match(/path=["']([^"']+)["']/)[1];
+        return route;
+      })
+      .filter(route => {
+        // Filtra rutas que queremos excluir
+        return !EXCLUDED_ROUTES.some(excluded => 
+          route.includes(excluded) || route.startsWith(':') || route.includes(':')
+        );
+      })
+      .sort(); // Ordena alfabéticamente
+    
+    console.log(`Rutas detectadas automáticamente: ${routes.join(', ')}`);
+    return routes;
+  } catch (error) {
+    console.warn('No se pudo escanear App.tsx, usando rutas por defecto:', error.message);
+    // Fallback a rutas conocidas
+    return ['/', '/servicios', '/como-funciona', '/formulario', '/formulario-sec', '/blog', '/privacidad'];
+  }
+}
+
+// Mapea rutas a archivos para detectar fechas de modificación
+function getFileForRoute(route) {
+  const routeToFile = {
+    '/': 'src/pages/home/Index.tsx',
+    '/servicios': 'src/pages/services/Services.tsx',
+    '/como-funciona': 'src/pages/como-funciona/ComoFunciona.tsx',
+    '/formulario': 'src/pages/formulario/Formulario.tsx',
+    '/formulario-sec': 'src/pages/formulario-sec/FormularioSec.tsx',
+    '/blog': 'src/pages/blog/Blog.tsx',
+    '/privacidad': 'src/pages/privacy/Privacy.tsx',
+  };
+  
+  return routeToFile[route] || 'src/App.tsx'; // Fallback a App.tsx
 }
 
 // Extrae ids y (opcional) date de cada post desde blogPosts.ts con regex robusta
@@ -82,27 +119,22 @@ function main() {
   // 1) Asegura public/
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  // 2) Rutas estáticas con lastmod desde git si es posible
-  const staticUrls = STATIC_ROUTES.map(route => {
-    // Heurística para lastmod de cada página estática (puedes ajustar)
-    // Home: usa src/pages/home/Index.tsx; Blog: src/pages/blog/Blog.tsx, etc.
-    let probe = 'src/pages/home/Index.tsx';
-    if (route === '/servicios') probe = 'src/pages/services/Services.tsx';
-    if (route === '/como-funciona') probe = 'src/pages/como-funciona/ComoFunciona.tsx';
-    if (route === '/formulario') probe = 'src/pages/formulario/Formulario.tsx';
-    if (route === '/formulario-sec') probe = 'src/pages/formulario-sec/FormularioSec.tsx';
-    if (route === '/blog') probe = 'src/pages/blog/Blog.tsx';
-    if (route === '/privacidad') probe = 'src/pages/privacy/Privacy.tsx';
-
+  // 2) Escanea App.tsx para obtener rutas automáticamente
+  const staticRoutes = extractRoutesFromApp();
+  
+  // 3) Genera URLs estáticas con lastmod desde git
+  const staticUrls = staticRoutes.map(route => {
+    const filePath = getFileForRoute(route);
+    
     return {
       loc: `${SITE_URL}${route}`,
-      lastmod: gitLastModFor(probe),
+      lastmod: gitLastModFor(filePath),
       changefreq: route === '/' ? 'weekly' : 'weekly',
       priority: route === '/' ? '1.0' : '0.9'
     };
   });
 
-  // 3) Rutas dinámicas del blog desde blogPosts.ts
+  // 4) Rutas dinámicas del blog desde blogPosts.ts
   const tsText = fs.readFileSync(BLOG_TS, 'utf8');
   const posts = parseBlogPosts(tsText);
   const blogUrls = posts.map(p => ({
@@ -112,11 +144,13 @@ function main() {
     priority: '0.8'
   }));
 
-  // 4) Monta el XML final
+  // 5) Monta el XML final
   const urls = [...staticUrls, ...blogUrls];
   const xml = buildXml(urls);
   fs.writeFileSync(OUT_FILE, xml, 'utf8');
-  console.log(`sitemap.xml generado con ${urls.length} URLs → ${path.relative(ROOT, OUT_FILE)}`);
+  console.log(`sitemap.xml generado automáticamente con ${urls.length} URLs → ${path.relative(ROOT, OUT_FILE)}`);
+  console.log(`- ${staticUrls.length} páginas estáticas`);
+  console.log(`- ${blogUrls.length} artículos del blog`);
 }
 
 main();
