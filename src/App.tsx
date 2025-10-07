@@ -14,7 +14,6 @@ import BlogArticle from "./pages/blog/BlogArticle";
 import Privacy from "./pages/privacy/Privacy";
 import Canonical from "./app/seo/Canonical";
 import RouteAnalytics from "./app/analytics/RouteAnalytics";
-import MetricoolTracker from "./components/analytics/MetricoolTracker";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +25,6 @@ const App = () => {
         <Sonner />
         <Canonical />
         <RouteAnalytics />
-        <MetricoolTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/servicios" element={<ServicesPage />} />
