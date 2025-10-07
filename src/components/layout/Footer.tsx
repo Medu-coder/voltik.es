@@ -194,13 +194,15 @@ export default function Footer() {
                 serviceName="Teléfono"
                 description="El servicio telefónico estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
               />
-              <div
-                className="p-2 opacity-50 cursor-not-allowed"
-                aria-label="Facebook (próximamente)"
-                title="Facebook (próximamente)"
+              <a
+                href="https://www.facebook.com/61581742987193/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 hover:bg-background/10 rounded-lg transition-colors"
+                aria-label="Facebook"
               >
                 <Facebook size={20} />
-              </div>
+              </a>
             </div>
           </div>
         </div>
