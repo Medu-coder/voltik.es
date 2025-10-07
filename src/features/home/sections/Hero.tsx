@@ -44,9 +44,9 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg md:text-2xl text-foreground mb-8 lg:max-w-2xl mx-auto lg:mx-0">
-              Servicio de análisis de factura de luz 100% gratuito.<br />
-              Sube tu factura eléctrica y recibe la mejor oferta energética.<br />
-              Sin compromiso y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">propuesta de ahorro personalizada en menos de 48&nbsp;horas</a>.
+              Servicios de eficiencia energética.<br />
+              Sube tu factura de luz y recibe la mejor oferta.<br />
+              Sin compromiso y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">oferta de ahorro personalizada en menos de 48&nbsp;horas</a>.
             </p>
 
             <div className="flex flex-col items-center sm:items-start gap-2">

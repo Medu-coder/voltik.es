@@ -39,9 +39,9 @@ export default function Values() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Valores que marcan la diferencia
           </h2>
-          <p className="text-xl text-muted-foreground">
-            En Voltik creemos en las relaciones a largo plazo, por eso velamos siempre por tus intereses energéticos. 
-            Servicios de eficiencia energética con transparencia total y ahorro garantizado. 
+          <p className="text-lg text-muted-foreground">
+            En Voltik creemos en las relaciones a largo plazo, por eso velamos siempre por tus intereses energéticos. <br />
+            Servicios de eficiencia energética con transparencia total y ahorro garantizado. <br />
             Descubre <a href="/#testimonios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">lo que dicen nuestros clientes</a> y 
             conoce nuestros <a href="/servicios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">servicios de eficiencia energética</a>.
           </p>

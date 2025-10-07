@@ -217,13 +217,13 @@ const ServicesPage = () => {
           </div>
           
           <div className="voltik-container px-4 lg:px-8 relative z-10">
-            <div className="text-center max-w-4xl mx-auto mb-12">
+            <div className="text-center w-full mb-12">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Servicios de eficiencia energética
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8">
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 w-full px-4 sm:px-6 md:px-8 lg:px-12">
                 Somos asesores energéticos e ingenieros eléctricos colegiados.<br />
-                Realizamos certificados energéticos, boletines eléctricos (CIE) y análisis energéticos y de tu factura.<br />
+                Realizamos certificados energéticos, boletines eléctricos (CIE) y te asesoramos energéticamente.<br />
                 <a href="/como-funciona" className="text-muted-foreground hover:text-foreground underline hover:no-underline transition-colors">Servicio profesional para hogares y negocios en toda España</a>.
               </p>
             </div>
@@ -310,7 +310,8 @@ const ServicesPage = () => {
                 Servicios que completan tu ahorro energético
               </h2>
               <p className="text-lg text-muted-foreground">
-              Somos asesores energéticos e ingenieros eléctricos colegiados. Realizamos certificados energéticos, boletines eléctricos (CIE) y análisis energéticos y de tus facturas.<br />
+              Somos asesores energéticos e ingenieros eléctricos colegiados.<br />
+              Realizamos certificados energéticos, boletines eléctricos (CIE) y te asesoramos energéticamente.<br />
               <a href="/como-funciona" className="text-muted-foreground hover:text-foreground underline hover:no-underline transition-colors">Servicio profesional para hogares y negocios en toda España</a>.
               </p>
             </div>
@@ -386,7 +387,7 @@ const ServicesPage = () => {
                 ¿Listo para empezar a ahorrar?
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Sube tu factura y recibe tu propuesta personalizada en menos de 48h. 
+                Sube tu factura y recibe tu propuesta personalizada en menos de 48h.<br /> 
                 Gratis y sin compromiso.
               </p>
               <VoltikButton variant="voltik" size="lg" asChild>

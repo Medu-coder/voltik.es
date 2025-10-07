@@ -96,7 +96,7 @@ const ComoFuncionaPage = () => {
                 Así de fácil es ahorrar con nosotros
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                Nuestro equipo de ingenieros eléctricos se encarga de todo el trabajo pesado para que tú solo tengas que subir tu factura de luz y aprobar la mejor oferta. 
+                Nuestro equipo de ingenieros eléctricos se encarga de todo el trabajo pesado para que tú solo tengas que subir tu factura de luz y aprobar la mejor oferta.<br />
                 Conoce todos nuestros <a href="/servicios" className="text-muted-foreground hover:text-foreground underline hover:no-underline transition-colors">servicios de eficiencia energética</a>.
               </p>
             </div>
@@ -111,7 +111,7 @@ const ComoFuncionaPage = () => {
                 Nuestro proceso en 3 pasos
               </h2>
               <p className="text-lg text-muted-foreground">
-                Un proceso simple y transparente diseñado para maximizar tu ahorro energético. 
+                Un proceso simple y transparente diseñado para maximizar tu ahorro energético.<br /> 
                 Descubre <a href="/#testimonios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">las experiencias de nuestros clientes</a>.
               </p>
             </div>
@@ -182,7 +182,7 @@ const ComoFuncionaPage = () => {
                 ¿Listo para empezar a ahorrar?
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Sube tu factura y recibe tu propuesta personalizada en menos de 48h. 
+                Sube tu factura y recibe tu propuesta personalizada en menos de 48h.<br /> 
                 Gratis y sin compromiso.
               </p>
               <VoltikButton variant="voltik" size="lg" asChild>

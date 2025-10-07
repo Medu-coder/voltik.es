@@ -80,10 +80,10 @@ export default function Faqs() {
         <Accordion type="single" collapsible defaultValue="faq-0" className="bg-background/80 border border-primary/20 rounded-xl divide-y">
           {faqs.map((faq, index) => (
             <AccordionItem key={faq.question} value={`faq-${index}`} className="px-4">
-              <AccordionTrigger className="text-base font-semibold text-foreground py-4">
+              <AccordionTrigger className="text-md font-semibold text-foreground py-4">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
+              <AccordionContent className="text-muted-foreground text-base leading-relaxed">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

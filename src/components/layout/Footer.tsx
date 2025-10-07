@@ -58,10 +58,10 @@ export default function Footer() {
                   <span>Toda España</span>
                 </div>
                 
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <Clock size={18} className="mr-3 text-primary" />
                   <span>Lun-Vie 9:00-18:00</span>
-                </div>
+                </div> */}
               </div>
             </div>
 
