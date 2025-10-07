@@ -127,82 +127,89 @@ export default function Footer() {
               © {currentYear} Voltik · Servicios de eficiencia energética. Todos los derechos reservados.
             </div>
             
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              <a
-                href="mailto:contacto@voltik.es"
-                className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                aria-label="Email"
-              >
-                <Mail size={20} />
-              </a>
-              
-              <a
-                href="https://www.linkedin.com/company/voltik-es"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-              
-              <a
-                href="https://www.instagram.com/voltik_es"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
-              
-              <a
-                href="https://x.com/voltikenergy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                aria-label="Twitter"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.98-7.496 13.98-13.98 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-              </a>
-              
-              <ComingSoonModal
-                trigger={
-                  <button
-                    className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                    aria-label="WhatsApp (próximamente)"
-                  >
-                    <MessageCircle size={20} />
-                  </button>
-                }
-                serviceName="WhatsApp"
-                description="WhatsApp estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
-              />
+            {/* Contact and Social Links */}
+            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
+              {/* Contact Channels */}
+              <div className="flex items-center space-x-4">
+                <a
+                  href="mailto:contacto@voltik.es"
+                  className="p-2 hover:bg-background/10 rounded-lg transition-colors flex items-center justify-center"
+                  aria-label="Email"
+                >
+                  <Mail size={20} />
+                </a>
+                
+                <ComingSoonModal
+                  trigger={
+                    <button
+                      className="p-2 hover:bg-background/10 rounded-lg transition-colors"
+                      aria-label="WhatsApp (próximamente)"
+                    >
+                      <MessageCircle size={20} />
+                    </button>
+                  }
+                  serviceName="WhatsApp"
+                  description="WhatsApp estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
+                />
 
-              <ComingSoonModal
-                trigger={
-                  <button
-                    className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                    aria-label="Teléfono (próximamente)"
-                  >
-                    <Phone size={20} />
-                  </button>
-                }
-                serviceName="Teléfono"
-                description="El servicio telefónico estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
-              />
-              <a
-                href="https://www.facebook.com/61581742987193/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
-              </a>
+                <ComingSoonModal
+                  trigger={
+                    <button
+                      className="p-2 hover:bg-background/10 rounded-lg transition-colors"
+                      aria-label="Teléfono (próximamente)"
+                    >
+                      <Phone size={20} />
+                    </button>
+                  }
+                  serviceName="Teléfono"
+                  description="El servicio telefónico estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
+                />
+              </div>
+              
+              {/* Social Media */}
+              <div className="flex items-center space-x-4">
+                <a
+                  href="https://www.linkedin.com/company/voltik-es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 hover:bg-background/10 rounded-lg transition-colors flex items-center justify-center"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={20} />
+                </a>
+                
+                <a
+                  href="https://www.instagram.com/voltik_es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 hover:bg-background/10 rounded-lg transition-colors flex items-center justify-center"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={20} />
+                </a>
+                
+                <a
+                  href="https://www.facebook.com/61581742987193/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 hover:bg-background/10 rounded-lg transition-colors flex items-center justify-center"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={20} />
+                </a>
+                
+                <a
+                  href="https://x.com/voltikenergy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 hover:bg-background/10 rounded-lg transition-colors flex items-center justify-center"
+                  aria-label="Twitter"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.98-7.496 13.98-13.98 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
