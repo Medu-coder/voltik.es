@@ -58,13 +58,25 @@ const BlogArticle = () => {
 
         {/* Hero o cabecera del artículo */}
         <section className="voltik-section hero-bg">
-          <div className="voltik-container text-center">
-            <img src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg mb-8" />
-            <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-2">{post.title}</h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4">{post.subtitle}</p>
-            <p className="text-sm text-muted-foreground mb-4">
+          <div className="voltik-container text-center max-w-5xl">
+            <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">{post.title}</h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-6">{post.subtitle}</p>
+            <p className="text-sm text-muted-foreground">
               {post.date} • {post.readTime} • {post.category}
             </p>
+          </div>
+        </section>
+
+        {/* Imagen del artículo */}
+        <section className="py-8">
+          <div className="voltik-container max-w-5xl mx-auto">
+            <div className="relative w-full aspect-video bg-muted rounded-lg overflow-hidden">
+              <img 
+                src={post.image} 
+                alt={post.title} 
+                className="w-full h-full object-cover" 
+              />
+            </div>
           </div>
         </section>
 

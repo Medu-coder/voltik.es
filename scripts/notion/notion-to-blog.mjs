@@ -14,34 +14,80 @@ const __dirname = path.dirname(__filename);
 
 // Función para convertir Markdown de Notion a HTML
 function notionToHtml(markdown) {
-  return markdown
-    // Convertir encabezados
-    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+  // Dividir en líneas para procesamiento más controlado
+  const lines = markdown.split('\n');
+  let result = [];
+  let inList = false;
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     
-    // Convertir negritas
+    // Encabezados
+    if (line.match(/^### (.*)$/)) {
+      if (inList) {
+        result.push('</ul>');
+        inList = false;
+      }
+      result.push(`<h3>${line.replace(/^### /, '')}</h3>`);
+    } else if (line.match(/^## (.*)$/)) {
+      if (inList) {
+        result.push('</ul>');
+        inList = false;
+      }
+      result.push(`<h2>${line.replace(/^## /, '')}</h2>`);
+    } else if (line.match(/^# (.*)$/)) {
+      if (inList) {
+        result.push('</ul>');
+        inList = false;
+      }
+      result.push(`<h1>${line.replace(/^# /, '')}</h1>`);
+    }
+    // Listas
+    else if (line.match(/^[\s]*[-*+] (.*)$/)) {
+      if (!inList) {
+        result.push('<ul>');
+        inList = true;
+      }
+      result.push(`<li>${line.replace(/^[\s]*[-*+] /, '')}</li>`);
+    } else if (line.match(/^[\s]*\d+\. (.*)$/)) {
+      if (!inList) {
+        result.push('<ul>');
+        inList = true;
+      }
+      result.push(`<li>${line.replace(/^[\s]*\d+\. /, '')}</li>`);
+    }
+    // Párrafos
+    else if (line.trim() !== '') {
+      if (inList) {
+        result.push('</ul>');
+        inList = false;
+      }
+      result.push(`<p>${line}</p>`);
+    }
+    // Líneas vacías
+    else {
+      if (inList) {
+        result.push('</ul>');
+        inList = false;
+      }
+    }
+  }
+  
+  // Cerrar lista si quedó abierta
+  if (inList) {
+    result.push('</ul>');
+  }
+  
+  // Unir todo y aplicar formateo adicional
+  let html = result.join('');
+  
+  // Convertir negritas, cursivas y enlaces
+  html = html
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    
-    // Convertir cursivas
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    
-    // Convertir listas no ordenadas
-    .replace(/^[\s]*[-*+] (.*$)/gim, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-    
-    // Convertir listas ordenadas
-    .replace(/^[\s]*\d+\. (.*$)/gim, '<li>$1</li>')
-    
-    // Convertir párrafos (líneas que no son encabezados, listas, etc.)
-    .replace(/^(?!<[h|u|o]|<li>)(.+)$/gim, '<p>$1</p>')
-    
-    // Limpiar párrafos vacíos
-    .replace(/<p><\/p>/g, '')
-    
-    // Limpiar espacios extra
-    .replace(/\n\s*\n/g, '\n')
-    .trim();
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  
+  return html;
 }
 
 // Función para generar ID único
