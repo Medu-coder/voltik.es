@@ -343,15 +343,15 @@
 
   /* Staggered animations - Performance Optimized */
   .scroll-animate-stagger {
-    opacity: 0;
-    transform: translate3d(0, 20px, 0);
+    opacity: 0 !important;
+    transform: translate3d(0, 20px, 0) !important;
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     will-change: opacity, transform;
   }
 
   .scroll-animate-stagger.animate-in {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) !important;
   }
 
   /* Stagger delays - Only apply to direct children in same container */

@@ -45,14 +45,14 @@ export default function ProblemAgitation() {
                   key={point.title}
                   className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-destructive/5 to-destructive/10 border border-destructive/20 p-6 flex flex-col scroll-animate-stagger ${index === 2 ? 'sm:col-span-2 sm:justify-self-center sm:max-w-sm lg:col-span-1 lg:justify-self-stretch lg:max-w-none' : ''} ${sectionVisible ? 'animate-in' : ''}`}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-destructive/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-destructive/5 to-transparent opacity-0 group-hover:opacity-100"></div>
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-start gap-3">
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-destructive to-destructive/80 text-white text-sm font-bold shadow-md group-hover:scale-110 transition-transform duration-300">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-destructive to-destructive/80 text-white text-sm font-bold shadow-md">
                         {index + 1}
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-destructive mb-3 group-hover:text-destructive/90 transition-colors">{point.title}</h3>
+                        <h3 className="text-xl font-bold text-destructive mb-3 group-hover:text-destructive/90">{point.title}</h3>
                         <p className="text-muted-foreground leading-relaxed flex-1">{point.description}</p>
                       </div>
                     </div>
@@ -71,7 +71,7 @@ export default function ProblemAgitation() {
               La solución Voltik
             </div>
             <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-8 text-center">
-              <a href="/como-funciona" className="text-foreground hover:text-primary underline hover:no-underline transition-colors">Analizamos tu factura</a> y te enviamos la mejor oferta.<br />
+              <a href="/como-funciona" className="text-foreground hover:text-primary underline hover:no-underline">Analizamos tu factura</a> y te enviamos la mejor oferta.<br />
               Gratis y sin complicaciones, nosotros nos encargamos de todo.<br />
               Deja que las eléctricas se peleen por ti.
             </h3>
@@ -82,10 +82,10 @@ export default function ProblemAgitation() {
                   key={text}
                   className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 p-6 flex flex-col scroll-animate-stagger ${index === 2 ? 'sm:col-span-2 sm:justify-self-center sm:max-w-sm lg:col-span-1 lg:justify-self-stretch lg:max-w-none' : ''} ${solutionVisible ? 'animate-in' : ''}`}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100"></div>
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-start gap-3">
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80 text-text text-md font-bold shadow-md group-hover:scale-110 transition-transform duration-300">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80 text-text text-md font-bold shadow-md">
                         {index + 1}
                       </div>
                       <p className="text-base md:text-lg text-muted-foreground leading-relaxed flex-1">{text}</p>
@@ -99,7 +99,7 @@ export default function ProblemAgitation() {
               <VoltikButton variant="voltik" size="lg" asChild>
                 <a href="/formulario" className="group">
                   Quiero mi oferta ya
-                  <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight size={20} className="ml-2 group-hover:translate-x-1" />
                 </a>
               </VoltikButton>
             </div>
