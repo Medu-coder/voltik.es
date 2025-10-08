@@ -158,7 +158,7 @@ const blogPosts: BlogPost[] = [
   ctaLabel: 'Reduce tu factura de la luz',
   ctaLink: '/formulario'
 },
-  // añade más artículos aquí
+// añade más artículos aquí
 ];
 
 export default blogPosts;
