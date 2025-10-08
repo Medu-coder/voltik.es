@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { Star, Quote, MapPin, TrendingDown } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
+import useScrollAnimation from '@/hooks/use-scroll-animation'
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
 
   const testimonials = [
     {
@@ -169,7 +171,10 @@ export default function Testimonials() {
     <section id="testimonios" className="voltik-section bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="voltik-container px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div 
+          ref={sectionRef}
+          className={`text-center mb-16 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Lo que dicen nuestros clientes
           </h2>

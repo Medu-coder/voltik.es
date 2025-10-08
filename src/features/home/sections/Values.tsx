@@ -1,6 +1,9 @@
 import { BadgeCheck, Clock3, Lightbulb, Handshake } from 'lucide-react'
+import useScrollAnimation from '@/hooks/use-scroll-animation'
 
 export default function Values() {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
+
   const differentiators = [
     {
       icon: BadgeCheck,
@@ -35,7 +38,10 @@ export default function Values() {
   return (
     <section id="beneficios" className="voltik-section bg-muted/30">
       <div className="voltik-container px-4 lg:px-8">
-        <div className="text-center max-w-5xl mx-auto mb-12">
+        <div 
+          ref={sectionRef}
+          className={`text-center max-w-5xl mx-auto mb-12 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Valores que marcan la diferencia
           </h2>
@@ -47,11 +53,11 @@ export default function Values() {
           </p>
         </div>
 
-        <div className="voltik-grid-4">
-          {differentiators.map((item) => (
+        <div className="voltik-grid-4 stagger-container">
+          {differentiators.map((item, index) => (
             <article
               key={item.title}
-              className="voltik-card text-left relative overflow-hidden group flex flex-col h-full"
+              className={`voltik-card text-left relative overflow-hidden group flex flex-col h-full scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${item.accent}`}>

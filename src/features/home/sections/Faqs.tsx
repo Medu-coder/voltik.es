@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { useEffect } from 'react'
+import useScrollAnimation from '@/hooks/use-scroll-animation'
 
 const faqs = [
   {
@@ -29,6 +30,8 @@ const faqs = [
 ]
 
 export default function Faqs() {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
+
   useEffect(() => {
     // FAQPage Schema Markup
     const faqSchema = {
@@ -68,7 +71,10 @@ export default function Faqs() {
   return (
     <section id="faqs" className="voltik-section bg-muted/30">
       <div className="voltik-container px-4 lg:px-8 max-w-3xl mx-auto">
-        <div className="text-center mb-10">
+        <div 
+          ref={sectionRef}
+          className={`text-center mb-10 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Preguntas frecuentes
           </h2>
@@ -77,7 +83,7 @@ export default function Faqs() {
           </p>
         </div>
 
-        <Accordion type="single" collapsible defaultValue="faq-0" className="bg-background/80 border border-primary/20 rounded-xl divide-y">
+        <Accordion type="single" collapsible defaultValue="faq-0" className={`bg-background/80 border border-primary/20 rounded-xl divide-y scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}>
           {faqs.map((faq, index) => (
             <AccordionItem key={faq.question} value={`faq-${index}`} className="px-4">
               <AccordionTrigger className="text-md font-semibold text-foreground py-4">

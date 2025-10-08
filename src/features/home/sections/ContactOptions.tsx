@@ -1,12 +1,18 @@
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { MessageCircle, Phone, Mail } from 'lucide-react'
 import ComingSoonModal from '@/components/ui/ComingSoonModal'
+import useScrollAnimation from '@/hooks/use-scroll-animation'
 
 export default function ContactOptions() {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
+
   return (
     <section id="contacto-alternativo" className="voltik-section">
       <div className="voltik-container px-4 lg:px-8 max-w-4xl mx-auto text-center">
-        <div className="voltik-card bg-primary/10 border-primary/30">
+        <div 
+          ref={sectionRef}
+          className={`voltik-card bg-primary/10 border-primary/30 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+        >
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             ¿Prefieres que te contactemos por otro canal?
           </h2>

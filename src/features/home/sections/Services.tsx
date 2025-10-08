@@ -1,7 +1,10 @@
 import { FileText, ScrollText } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
+import useScrollAnimation from '@/hooks/use-scroll-animation'
 
 export default function Services() {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
+
   const secondaryServices = [
     {
       title: 'Certificados de eficiencia energética',
@@ -20,7 +23,10 @@ export default function Services() {
   return (
     <section id="servicios" className="voltik-section">
       <div className="voltik-container px-4 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto mb-12">
+        <div 
+          ref={sectionRef}
+          className={`text-center max-w-4xl mx-auto mb-12 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
             Servicios que completan tu ahorro energético
           </h2>
@@ -32,11 +38,11 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="voltik-grid-2">
-          {secondaryServices.map((service) => (
+        <div className="voltik-grid-2 stagger-container">
+          {secondaryServices.map((service, index) => (
             <article
               key={service.title}
-              className="voltik-card h-full flex flex-col justify-between transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className={`voltik-card h-full flex flex-col justify-between scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
             >
               <div>
                 <div className="flex items-center gap-3 mb-4">

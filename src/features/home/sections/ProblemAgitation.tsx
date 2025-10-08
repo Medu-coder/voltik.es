@@ -1,7 +1,11 @@
 import { ArrowRight } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
+import useScrollAnimation from '@/hooks/use-scroll-animation'
 
 export default function ProblemAgitation() {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
+  const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimation()
+
   const painPoints = [
     {
       title: 'Pagas de más cada mes',
@@ -27,16 +31,19 @@ export default function ProblemAgitation() {
     <section id="problema" className="voltik-section bg-muted/40">
       <div className="voltik-container px-4 lg:px-8">
         <div className="max-w-6xl mx-auto grid gap-12">
-          <div className="space-y-6">
+          <div 
+            ref={sectionRef}
+            className={`space-y-6 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
               ¿Pagas de más en tu factura de luz? Te ayudamos a ahorrar
             </h2>
 
-            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch stagger-container">
               {painPoints.map((point, index) => (
                 <div
                   key={point.title}
-                  className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-destructive/5 to-destructive/10 border border-destructive/20 p-6 transition-all duration-300 hover:shadow-lg hover:shadow-destructive/10 hover:-translate-y-1 flex flex-col ${index === 2 ? 'sm:col-span-2 sm:justify-self-center sm:max-w-sm lg:col-span-1 lg:justify-self-stretch lg:max-w-none' : ''}`}
+                  className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-destructive/5 to-destructive/10 border border-destructive/20 p-6 flex flex-col scroll-animate-stagger ${index === 2 ? 'sm:col-span-2 sm:justify-self-center sm:max-w-sm lg:col-span-1 lg:justify-self-stretch lg:max-w-none' : ''} ${sectionVisible ? 'animate-in' : ''}`}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-destructive/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative z-10 flex flex-col h-full">
@@ -55,7 +62,10 @@ export default function ProblemAgitation() {
             </div>
           </div>
 
-          <div className="voltik-card bg-background relative overflow-hidden">
+          <div 
+            ref={solutionRef}
+            className={`voltik-card bg-background relative overflow-hidden scroll-animate-stagger ${solutionVisible ? 'animate-in' : ''}`}
+          >
             <div className="absolute inset-y-0 right-0 w-1/3 bg-primary/10 blur-2xl" aria-hidden />
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/20 text-primary-foreground text-sm font-medium mb-6">
               La solución Voltik
@@ -66,11 +76,11 @@ export default function ProblemAgitation() {
               Deja que las eléctricas se peleen por ti.
             </h3>
 
-            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch stagger-container">
               {solutionHighlights.map((text, index) => (
                 <div
                   key={text}
-                  className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 flex flex-col ${index === 2 ? 'sm:col-span-2 sm:justify-self-center sm:max-w-sm lg:col-span-1 lg:justify-self-stretch lg:max-w-none' : ''}`}
+                  className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 p-6 flex flex-col scroll-animate-stagger ${index === 2 ? 'sm:col-span-2 sm:justify-self-center sm:max-w-sm lg:col-span-1 lg:justify-self-stretch lg:max-w-none' : ''} ${solutionVisible ? 'animate-in' : ''}`}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative z-10 flex flex-col h-full">
