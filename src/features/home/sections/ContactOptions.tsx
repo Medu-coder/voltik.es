@@ -1,10 +1,10 @@
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { MessageCircle, Phone, Mail } from 'lucide-react'
 import ComingSoonModal from '@/components/ui/ComingSoonModal'
-import useScrollAnimation from '@/hooks/use-scroll-animation'
+import { useScrollAnimationOptimized } from '@/hooks/use-scroll-animation-optimized'
 
 export default function ContactOptions() {
-  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimationOptimized()
 
   return (
     <section id="contacto-alternativo" className="voltik-section">

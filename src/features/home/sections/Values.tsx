@@ -1,8 +1,8 @@
 import { BadgeCheck, Clock3, Lightbulb, Handshake } from 'lucide-react'
-import useScrollAnimation from '@/hooks/use-scroll-animation'
+import { useScrollAnimationOptimized } from '@/hooks/use-scroll-animation-optimized'
 
 export default function Values() {
-  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimationOptimized()
 
   const differentiators = [
     {
@@ -40,7 +40,7 @@ export default function Values() {
       <div className="voltik-container px-4 lg:px-8">
         <div 
           ref={sectionRef}
-          className={`text-center max-w-5xl mx-auto mb-12 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+          className="text-center max-w-5xl mx-auto mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Valores que marcan la diferencia

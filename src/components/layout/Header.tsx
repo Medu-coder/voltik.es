@@ -97,7 +97,7 @@ export default function Header() {
       </a>
       
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
           isScrolled 
             ? 'bg-background/95 backdrop-blur-md shadow-md' 
             : 'bg-transparent'
@@ -119,6 +119,7 @@ export default function Header() {
               fetchPriority="high"
               width="120"
               height="40"
+              style={{ willChange: 'auto' }}
             />
           </a>
 

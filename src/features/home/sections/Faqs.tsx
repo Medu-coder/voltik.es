@@ -1,6 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { useEffect } from 'react'
-import useScrollAnimation from '@/hooks/use-scroll-animation'
+import { useScrollAnimationOptimized } from '@/hooks/use-scroll-animation-optimized'
 
 const faqs = [
   {
@@ -30,7 +30,7 @@ const faqs = [
 ]
 
 export default function Faqs() {
-  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimationOptimized()
 
   useEffect(() => {
     // FAQPage Schema Markup
@@ -73,7 +73,7 @@ export default function Faqs() {
       <div className="voltik-container px-4 lg:px-8 max-w-3xl mx-auto">
         <div 
           ref={sectionRef}
-          className={`text-center mb-10 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+          className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Preguntas frecuentes

@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { Star, Quote, MapPin, TrendingDown } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
-import useScrollAnimation from '@/hooks/use-scroll-animation'
+import { useScrollAnimationOptimized } from '@/hooks/use-scroll-animation-optimized'
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimationOptimized()
 
   const testimonials = [
     {

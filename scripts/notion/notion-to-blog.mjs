@@ -14,69 +14,82 @@ const __dirname = path.dirname(__filename);
 
 // Función para convertir Markdown de Notion a HTML
 function notionToHtml(markdown) {
-  // Dividir en líneas para procesamiento más controlado
   const lines = markdown.split('\n');
-  let result = [];
+  const result = [];
   let inList = false;
+  
+  // Función para cerrar lista si está abierta
+  const closeList = () => {
+    if (inList) {
+      result.push('</ul>');
+      inList = false;
+    }
+  };
+  
+  // Función para abrir lista si no está abierta
+  const openList = () => {
+    if (!inList) {
+      result.push('<ul>');
+      inList = true;
+    }
+  };
+  
+  // Función para detectar si una línea es un encabezado con negritas
+  const isBoldHeading = (line) => {
+    const trimmed = line.trim();
+    // Línea que empieza y termina con ** y no contiene texto largo (máximo 60 caracteres)
+    return trimmed.match(/^\*\*(.+)\*\*\s*$/) && 
+           trimmed.length <= 60;
+  };
+  
+  // Función para detectar si una línea es una lista
+  const isListItem = (line) => {
+    return line.match(/^[\s]*[-*+] /) || line.match(/^[\s]*\d+\. /);
+  };
+  
+  // Función para detectar si una línea es un encabezado con #
+  const isHashHeading = (line) => {
+    return line.match(/^#{1,3} /);
+  };
   
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
+    const trimmedLine = line.trim();
     
-    // Encabezados
-    if (line.match(/^### (.*)$/)) {
-      if (inList) {
-        result.push('</ul>');
-        inList = false;
-      }
-      result.push(`<h3>${line.replace(/^### /, '')}</h3>`);
-    } else if (line.match(/^## (.*)$/)) {
-      if (inList) {
-        result.push('</ul>');
-        inList = false;
-      }
-      result.push(`<h2>${line.replace(/^## /, '')}</h2>`);
-    } else if (line.match(/^# (.*)$/)) {
-      if (inList) {
-        result.push('</ul>');
-        inList = false;
-      }
-      result.push(`<h1>${line.replace(/^# /, '')}</h1>`);
+    // Líneas vacías - cerrar listas pero no añadir nada
+    if (trimmedLine === '') {
+      closeList();
+      continue;
     }
-    // Listas
-    else if (line.match(/^[\s]*[-*+] (.*)$/)) {
-      if (!inList) {
-        result.push('<ul>');
-        inList = true;
-      }
-      result.push(`<li>${line.replace(/^[\s]*[-*+] /, '')}</li>`);
-    } else if (line.match(/^[\s]*\d+\. (.*)$/)) {
-      if (!inList) {
-        result.push('<ul>');
-        inList = true;
-      }
-      result.push(`<li>${line.replace(/^[\s]*\d+\. /, '')}</li>`);
+    
+    // Encabezados con #, ##, ###
+    if (isHashHeading(line)) {
+      closeList();
+      const level = line.match(/^(#{1,3})/)[1].length;
+      const text = line.replace(/^#{1,3} /, '');
+      result.push(`<h${level}>${text}</h${level}>`);
     }
-    // Párrafos
-    else if (line.trim() !== '') {
-      if (inList) {
-        result.push('</ul>');
-        inList = false;
-      }
-      result.push(`<p>${line}</p>`);
+    // Encabezados con negritas (como "**Lo mejor**")
+    else if (isBoldHeading(line)) {
+      closeList();
+      const headingText = trimmedLine.replace(/^\*\*(.*)\*\*\s*$/, '$1');
+      result.push(`<h4><strong>${headingText}</strong></h4>`);
     }
-    // Líneas vacías
+    // Elementos de lista
+    else if (isListItem(line)) {
+      openList();
+      const listText = line.replace(/^[\s]*[-*+] /, '').replace(/^[\s]*\d+\. /, '');
+      result.push(`<li>${listText}</li>`);
+    }
+    // Párrafos normales
     else {
-      if (inList) {
-        result.push('</ul>');
-        inList = false;
-      }
+      closeList();
+      result.push(`<p>${line}</p>`);
     }
   }
   
-  // Cerrar lista si quedó abierta
-  if (inList) {
-    result.push('</ul>');
-  }
+  // Cerrar lista si quedó abierta al final
+  closeList();
   
   // Unir todo y aplicar formateo adicional
   let html = result.join('');

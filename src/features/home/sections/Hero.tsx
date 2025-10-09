@@ -36,6 +36,7 @@ export default function Hero() {
               fetchPriority="high"
               width="200"
               height="80"
+              style={{ willChange: 'auto' }}
             />
             </div>
 

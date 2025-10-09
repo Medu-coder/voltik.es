@@ -1,7 +1,8 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/features/home/sections/Hero';
-import ProblemAgitation from '@/features/home/sections/ProblemAgitation';
+import ProblemSection from '@/features/home/sections/ProblemSection';
+import SolutionSection from '@/features/home/sections/SolutionSection';
 import ContactForm from '@/features/home/sections/ContactForm';
 import Services from '@/features/home/sections/Services';
 import Values from '@/features/home/sections/Values';
@@ -43,7 +44,8 @@ const Index = () => {
       <Header />
       <main id="main-content" className="pt-16 md:pt-20">
         <Hero />
-        <ProblemAgitation />
+        <ProblemSection />
+        <SolutionSection />
         <ContactForm />
         <Services />
         <Values />

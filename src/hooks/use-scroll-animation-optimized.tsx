@@ -4,17 +4,20 @@ interface UseScrollAnimationOptions {
   threshold?: number;
   rootMargin?: string;
   triggerOnce?: boolean;
+  delay?: number; // Nuevo: delay personalizado
 }
 
-// Global observer instance for better performance
+// Observer global optimizado
 let globalObserver: IntersectionObserver | null = null;
 const observedElements = new WeakMap<Element, () => void>();
+const animationQueue = new Set<Element>(); // Cola de animaciones
 
-export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
+export const useScrollAnimationOptimized = (options: UseScrollAnimationOptions = {}) => {
   const {
-    threshold = 0.1,
-    rootMargin = '0px 0px -50px 0px',
-    triggerOnce = true
+    threshold = 0.2, // Menos sensible
+    rootMargin = '0px 0px -100px 0px', // Más conservador
+    triggerOnce = true,
+    delay = 0
   } = options;
 
   const [isVisible, setIsVisible] = useState(false);
@@ -24,48 +27,53 @@ export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
     const element = entry.target;
     const callback = observedElements.get(element);
     
-    if (entry.isIntersecting) {
-      if (callback) {
-        callback();
-        if (triggerOnce) {
-          globalObserver?.unobserve(element);
-          observedElements.delete(element);
+    if (entry.isIntersecting && callback) {
+      // Añadir a cola de animaciones
+      animationQueue.add(element);
+      
+      // Procesar con delay para evitar reflows masivos
+      setTimeout(() => {
+        if (animationQueue.has(element)) {
+          callback();
+          animationQueue.delete(element);
+          
+          if (triggerOnce) {
+            globalObserver?.unobserve(element);
+            observedElements.delete(element);
+          }
         }
-      }
+      }, delay);
     } else if (!triggerOnce && callback) {
-      // Reset visibility if not triggerOnce
       setIsVisible(false);
     }
-  }, [triggerOnce]);
+  }, [triggerOnce, delay]);
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
-    // Create global observer if it doesn't exist
+    // Crear observer global si no existe (usar valores por defecto)
     if (!globalObserver) {
       globalObserver = new IntersectionObserver(handleIntersection, {
-        threshold,
-        rootMargin,
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px',
       });
     }
 
-    // Store the callback for this element
     const callback = () => setIsVisible(true);
     observedElements.set(element, callback);
-
-    // Observe the element
     globalObserver.observe(element);
 
     return () => {
       if (globalObserver) {
         globalObserver.unobserve(element);
         observedElements.delete(element);
+        animationQueue.delete(element);
       }
     };
-  }, [threshold, rootMargin, handleIntersection]);
+  }, [handleIntersection]);
 
   return { ref, isVisible };
 };
 
-export default useScrollAnimation;
+export default useScrollAnimationOptimized;

@@ -59,7 +59,7 @@ function extractContent(content) {
       contentStart = true;
       continue;
     }
-    if (contentStart && !line.startsWith('**') && !line.startsWith('---') && line.trim() !== '') {
+    if (contentStart && !line.startsWith('---') && line.trim() !== '') {
       articleContent.push(line);
     }
   }

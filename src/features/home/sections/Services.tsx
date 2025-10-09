@@ -1,9 +1,9 @@
 import { FileText, ScrollText } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
-import useScrollAnimation from '@/hooks/use-scroll-animation'
+import { useScrollAnimationOptimized } from '@/hooks/use-scroll-animation-optimized'
 
 export default function Services() {
-  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation()
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimationOptimized()
 
   const secondaryServices = [
     {
@@ -25,7 +25,7 @@ export default function Services() {
       <div className="voltik-container px-4 lg:px-8">
         <div 
           ref={sectionRef}
-          className={`text-center max-w-4xl mx-auto mb-12 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+          className="text-center max-w-4xl mx-auto mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
             Servicios que completan tu ahorro energético
