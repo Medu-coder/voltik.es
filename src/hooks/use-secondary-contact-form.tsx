@@ -17,7 +17,7 @@ interface FormErrors {
   tipo_servicio?: string
 }
 
-const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScIlNgMWJlNWdF7zVI71jIhEurAXt9AtQp9vqovjkr_jkOzmw/formResponse'
+const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScI4ugEbSZbhcgAnHfAo7naEVkcFn0O7JIjIMRElxkI-v8cYA/formResponse'
 const RECAPTCHA_SITE_KEY = '6Lft8dkrAAAAAMLeuF9nGQVsQelP7wIAJVGPHtF6'
 
 export const useSecondaryContactForm = () => {

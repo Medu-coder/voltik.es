@@ -16,7 +16,7 @@ interface FormErrors {
   archivo?: string
 }
 
-const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdaF5kkJAPlsVZYph1V01g0ZflxRoQLxWlylTo6L5nDNh3I9g/formResponse'
+const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScVqqjhm_CgcYRNYoU6stFXVrJZn_59lhjnZ2XvV4XZ7XTqtg/formResponse'
 const RECAPTCHA_SITE_KEY = '6Lft8dkrAAAAAMLeuF9nGQVsQelP7wIAJVGPHtF6'
 const BACKEND_URL = 'https://backend-voltik-invoices.vercel.app/api/public/intake'
 
