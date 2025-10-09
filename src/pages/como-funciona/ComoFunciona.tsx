@@ -61,7 +61,7 @@ const ComoFuncionaPage = () => {
     {
       icon: CheckCircle2,
       title: 'Sin compromiso',
-      description: 'Analizamos tu factura gratis. Solo pagas si decides cambiar de tarifa.'
+      description: 'Analizamos tu factura gratis y te envíamos las mejores ofertas. Tú decides si quieres comenzar a ahorrar.'
     }
   ]
 
