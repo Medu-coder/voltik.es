@@ -1,6 +1,6 @@
 # Voltik · Web corporativa
 
-Sitio web de Voltik (instalaciones eléctricas en Córdoba) construido con Vite + React + TypeScript y Tailwind, con un pequeño Design System propio.
+Sitio web de Voltik construido con Vite + React + TypeScript y Tailwind, con un pequeño Design System propio.
 
 ## Tecnologías
 - Vite, React 18, TypeScript, React Router
