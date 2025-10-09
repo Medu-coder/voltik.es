@@ -129,120 +129,118 @@ export default function ContactForm({
         </div>
 
         <div className="rounded-xl border border-dashed border-primary/50 bg-primary/5 p-6">
-          <div className="flex items-start gap-4">
-            <UploadCloud size={28} className="text-primary mt-1" />
-            <div className="flex-1">
-              <p className="text-base font-semibold text-foreground mb-1">Subir factura (PDF)</p>
-              <p className="text-sm text-muted-foreground mb-4">
-                Selecciona tu factura PDF para un análisis más preciso. Máximo 10 MB.
-              </p>
-              
-              {!file ? (
-                <div>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="application/pdf"
-                    onChange={handleFileChange}
-                    className="hidden"
-                    id="file-upload"
-                  />
-                  <VoltikButton 
-                    type="button"
-                    variant="outline" 
-                    size="sm" 
-                    className="mt-2"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      fileInputRef.current?.click()
-                    }}
-                  >
-                    <UploadCloud size={16} className="mr-2" />
-                    Seleccionar archivo PDF
-                  </VoltikButton>
+          <div className="flex items-center gap-3 mb-4">
+            <UploadCloud size={20} className="text-primary" />
+            <p className="text-base font-semibold text-foreground">Subir factura (PDF)</p>
+          </div>
+          <p className="text-sm text-muted-foreground mb-4 text-left">
+            Selecciona tu factura PDF para un análisis más preciso. Máximo 10 MB.
+          </p>
+          
+          {!file ? (
+            <div>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="application/pdf"
+                onChange={handleFileChange}
+                className="hidden"
+                id="file-upload"
+              />
+              <VoltikButton 
+                type="button"
+                variant="outline" 
+                size="sm" 
+                className="mt-2"
+                onClick={(e) => {
+                  e.preventDefault()
+                  fileInputRef.current?.click()
+                }}
+              >
+                <UploadCloud size={16} className="mr-2" />
+                Seleccionar archivo PDF
+              </VoltikButton>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 p-3 bg-background rounded-lg border">
+                <FileText size={20} className="text-primary flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-foreground" title={file.name}>
+                    {file.name.length > 30 ? `${file.name.substring(0, 30)}...` : file.name}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {(file.size / 1024 / 1024).toFixed(2)} MB
+                  </p>
                 </div>
-              ) : (
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 p-3 bg-background rounded-lg border">
-                    <FileText size={20} className="text-primary flex-shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-foreground" title={file.name}>
-                        {file.name.length > 30 ? `${file.name.substring(0, 30)}...` : file.name}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        {(file.size / 1024 / 1024).toFixed(2)} MB
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        handleRemoveFile()
-                      }}
-                      className="p-1 hover:bg-destructive/10 rounded transition-colors flex-shrink-0"
-                    >
-                      <X size={16} className="text-destructive" />
-                    </button>
-                  </div>
-                  
-                  {fileError && (
-                    <p className="text-sm text-destructive" role="alert">
-                      {fileError}
-                    </p>
-                  )}
-                  
-                  {isFileValid && showRecaptcha && (
-                    <div className={`space-y-3 p-4 rounded-lg transition-all duration-300 ${
-                      recaptchaToken 
-                        ? 'bg-voltik-success/10 border border-voltik-success/30' 
-                        : 'bg-gray-50 border border-gray-200'
-                    }`}>
-                      <div className="text-center">
-                        <div className="flex items-center justify-center gap-2 mb-3">
-                          {recaptchaToken && (
-                            <div className="w-5 h-5 rounded-full bg-voltik-success flex items-center justify-center">
-                              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                              </svg>
-                            </div>
-                          )}
-                          <p className={`text-sm font-medium ${
-                            recaptchaToken ? 'text-voltik-success' : 'text-gray-700'
-                          }`}>
-                            {recaptchaToken ? 'Verificación completada' : 'Verificación de seguridad'}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex justify-center">
-                        <ReCaptcha
-                          siteKey={RECAPTCHA_SITE_KEY}
-                          onVerify={handleRecaptchaVerify}
-                          onError={handleRecaptchaError}
-                        />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-xs text-gray-500">
-                          Este sitio está protegido por reCAPTCHA y se aplican la 
-                          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
-                            Política de privacidad
-                          </a> y los 
-                          <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
-                            Términos de servicio
-                          </a> de Google.
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleRemoveFile()
+                  }}
+                  className="p-1 hover:bg-destructive/10 rounded transition-colors flex-shrink-0"
+                >
+                  <X size={16} className="text-destructive" />
+                </button>
+              </div>
               
-              {errors.archivo && (
-                <p className="mt-2 text-sm text-destructive" role="alert">
-                  {errors.archivo}
+              {fileError && (
+                <p className="text-sm text-destructive" role="alert">
+                  {fileError}
                 </p>
               )}
+              
+              {isFileValid && showRecaptcha && (
+                <div className={`space-y-3 p-4 rounded-lg transition-all duration-300 ${
+                  recaptchaToken 
+                    ? 'bg-voltik-success/10 border border-voltik-success/30' 
+                    : 'bg-gray-50 border border-gray-200'
+                }`}>
+                  <div className="text-center">
+                    <div className="flex items-center justify-center gap-2 mb-3">
+                      {recaptchaToken && (
+                        <div className="w-5 h-5 rounded-full bg-voltik-success flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                      )}
+                      <p className={`text-sm font-medium ${
+                        recaptchaToken ? 'text-voltik-success' : 'text-gray-700'
+                      }`}>
+                        {recaptchaToken ? 'Verificación completada' : 'Verificación de seguridad'}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex justify-center">
+                    <ReCaptcha
+                      siteKey={RECAPTCHA_SITE_KEY}
+                      onVerify={handleRecaptchaVerify}
+                      onError={handleRecaptchaError}
+                    />
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xs text-gray-500">
+                      Este sitio está protegido por reCAPTCHA y se aplican la 
+                      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
+                        Política de privacidad
+                      </a> y los 
+                      <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
+                        Términos de servicio
+                      </a> de Google.
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
+          )}
+          
+          {errors.archivo && (
+            <p className="mt-2 text-sm text-destructive" role="alert">
+              {errors.archivo}
+            </p>
+          )}
         </div>
 
         <VoltikButton 

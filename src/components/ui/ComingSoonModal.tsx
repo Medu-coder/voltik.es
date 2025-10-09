@@ -29,9 +29,9 @@ export default function ComingSoonModal({ trigger, serviceName, description }: C
         <div className="flex gap-3 mt-4">
           <a
             href="mailto:contacto@voltik.es"
-            className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md text-sm font-medium text-center transition-colors"
+            className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center gap-2"
           >
-            <Mail size={16} className="inline mr-2" />
+            <Mail size={16} />
             Contactar por Email
           </a>
           <button

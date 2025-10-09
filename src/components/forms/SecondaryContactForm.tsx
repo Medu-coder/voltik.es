@@ -170,54 +170,52 @@ export default function SecondaryContactForm({
         {/* reCAPTCHA */}
         {showRecaptcha && (
           <div className="rounded-xl border border-dashed border-primary/50 bg-primary/5 p-6">
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                 <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                 </svg>
               </div>
-              <div className="flex-1">
-                <p className="text-base font-semibold text-foreground mb-1">Verificación de seguridad</p>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Completa la verificación para enviar tu solicitud de forma segura.
-                </p>
-                
-                <div className="space-y-4">
-                  <div className="text-center">
-                    <div className="flex items-center justify-center gap-2 mb-3">
-                      {recaptchaToken && (
-                        <div className="w-5 h-5 rounded-full bg-voltik-success flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                      )}
-                      <p className={`text-sm font-medium ${
-                        recaptchaToken ? 'text-voltik-success' : 'text-gray-700'
-                      }`}>
-                        {recaptchaToken ? 'Verificación completada' : 'Verificación de seguridad'}
-                      </p>
+              <p className="text-base font-semibold text-foreground">Verificación de seguridad</p>
+            </div>
+            <p className="text-sm text-muted-foreground mb-4 text-left">
+              Completa la verificación para enviar tu solicitud de forma segura.
+            </p>
+            
+            <div className="space-y-4">
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  {recaptchaToken && (
+                    <div className="w-5 h-5 rounded-full bg-voltik-success flex items-center justify-center">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
                     </div>
-                  </div>
-                  <div className="flex justify-center">
-                    <ReCaptcha
-                      siteKey={RECAPTCHA_SITE_KEY}
-                      onVerify={handleRecaptchaVerify}
-                      onError={handleRecaptchaError}
-                    />
-                  </div>
-                  <div className="text-center">
-                    <p className="text-xs text-gray-500">
-                      Este sitio está protegido por reCAPTCHA y se aplican la 
-                      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
-                        Política de privacidad
-                      </a> y los 
-                      <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
-                        Términos de servicio
-                      </a> de Google.
-                    </p>
-                  </div>
+                  )}
+                  <p className={`text-sm font-medium ${
+                    recaptchaToken ? 'text-voltik-success' : 'text-gray-700'
+                  }`}>
+                    {recaptchaToken ? 'Verificación completada' : 'Verificación de seguridad'}
+                  </p>
                 </div>
+              </div>
+              <div className="flex justify-center">
+                <ReCaptcha
+                  siteKey={RECAPTCHA_SITE_KEY}
+                  onVerify={handleRecaptchaVerify}
+                  onError={handleRecaptchaError}
+                />
+              </div>
+              <div className="text-center">
+                <p className="text-xs text-gray-500">
+                  Este sitio está protegido por reCAPTCHA y se aplican la 
+                  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
+                    Política de privacidad
+                  </a> y los 
+                  <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
+                    Términos de servicio
+                  </a> de Google.
+                </p>
               </div>
             </div>
           </div>
