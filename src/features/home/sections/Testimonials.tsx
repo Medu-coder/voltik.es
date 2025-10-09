@@ -169,7 +169,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonios" className="voltik-section bg-gradient-to-br from-primary/5 to-secondary/5">
-      <div className="voltik-container px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12">
+      <div className="voltik-container">
         {/* Header */}
         <div 
           ref={sectionRef}
@@ -178,10 +178,10 @@ export default function Testimonials() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Lo que dicen nuestros clientes
           </h2>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
             Miles de hogares y negocios en toda España ya están ahorrando en su factura de luz.<br /> 
             Historias reales de ahorro energético, ahorros reales en euros.<br /> 
-            <a href="/como-funciona" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">Descubre cómo funciona</a>.
+            <a href="/como-funciona" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">Descubre cómo funciona</a>
           </p>
         </div>
 

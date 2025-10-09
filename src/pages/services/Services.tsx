@@ -216,12 +216,12 @@ const ServicesPage = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
           </div>
           
-          <div className="voltik-container px-4 lg:px-8 relative z-10">
+          <div className="voltik-container relative z-10">
             <div className="text-center w-full mb-12">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Servicios de eficiencia energética
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 w-full px-4 sm:px-6 md:px-8 lg:px-12">
+              <p className="text-lg md:text-xl text-muted-foreground mb-8">
                 Somos asesores energéticos e ingenieros eléctricos colegiados.<br />
                 Realizamos certificados energéticos, boletines eléctricos (CIE) y te asesoramos energéticamente.<br />
                 <a href="/como-funciona" className="text-muted-foreground hover:text-foreground underline hover:no-underline transition-colors">Servicio profesional para hogares y negocios en toda España</a>.
@@ -232,7 +232,7 @@ const ServicesPage = () => {
 
         {/* Main Service - Ahorro en factura */}
         <section className="voltik-section">
-          <div className="voltik-container px-4 lg:px-8">
+          <div className="voltik-container">
             <div className="max-w-6xl mx-auto">
               <div className="voltik-card bg-gradient-to-br from-primary/5 to-secondary/10 border border-primary/20 p-8 md:p-12">
                 <div className="text-center mb-12">
@@ -304,7 +304,7 @@ const ServicesPage = () => {
 
         {/* Secondary Services */}
         <section className="voltik-section">
-          <div className="voltik-container px-4 lg:px-8">
+          <div className="voltik-container">
             <div className="text-center max-w-4xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
                 Servicios que completan tu ahorro energético
@@ -353,7 +353,7 @@ const ServicesPage = () => {
 
         {/* Benefits */}
         <section className="voltik-section bg-secondary/30">
-          <div className="voltik-container px-4 lg:px-8">
+          <div className="voltik-container">
             <div className="text-center max-w-4xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 ¿Por qué elegir Voltik?
@@ -381,7 +381,7 @@ const ServicesPage = () => {
 
         {/* CTA Final */}
         <section className="voltik-section">
-          <div className="voltik-container px-4 lg:px-8">
+          <div className="voltik-container">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                 ¿Listo para empezar a ahorrar?
@@ -402,7 +402,7 @@ const ServicesPage = () => {
 
         {/* External Resources */}
         <section className="voltik-section bg-muted/40">
-          <div className="voltik-container px-4 lg:px-8">
+          <div className="voltik-container">
             <div className="text-center max-w-4xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Recursos oficiales y enlaces útiles

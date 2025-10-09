@@ -5,7 +5,7 @@ export default function ContactFormSection() {
 
   return (
     <section id="formulario" className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20">
-      <div className="voltik-container px-4 lg:px-8">
+      <div className="voltik-container">
         <div className="text-center max-w-4xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
             Recibe tu oferta personalizada en menos de 48h
@@ -34,7 +34,7 @@ export default function ContactFormSection() {
                 <div>
                   <h3 className="text-lg font-semibold text-foreground">Tus datos son tuyos</h3>
                   <p className="text-sm text-muted-foreground">
-                    No almacenamos tus datos. Solo los usamos para preparar tu oferta.
+                    No almacenamos tus datos. Solo los usamos para preparar tu oferta
                   </p>
                 </div>
               </div>
@@ -52,7 +52,7 @@ export default function ContactFormSection() {
                 <div>
                   <h3 className="text-lg font-semibold text-foreground">Respuesta en menos de 48h</h3>
                   <p className="text-sm text-muted-foreground">
-                    Te enviamos un informe claro con la mejor propuesta de ahorro para tu consumo real.
+                    Te enviamos un informe claro con la mejor propuesta de ahorro para tu consumo real
                   </p>
                 </div>
               </div>

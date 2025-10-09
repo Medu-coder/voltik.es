@@ -6,14 +6,14 @@ export default function SolutionSection() {
   const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimationOptimized()
 
   const solutionHighlights = [
-    'Sube tu factura de luz y recibe la mejor oferta personalizada en menos de 48 horas.',
-    'Nosotros nos encargamos de todo el papeleo y trámites. Tú solo ahorras.',
-    'Sin compromiso ni permanencia. Cambias cuando quieras y ahorras desde el primer mes.',
+    'Sube tu factura de luz y recibe la mejor oferta personalizada en menos de 48 horas',
+    'Nosotros nos encargamos de todo el papeleo y trámites. Tú solo ahorras',
+    'Sin compromiso ni permanencia. Cambias cuando quieras y ahorras desde el primer mes',
   ]
 
   return (
     <section id="solucion" className="voltik-section pt-6 md:pt-8 lg:pt-10">
-      <div className="voltik-container px-4 lg:px-8">
+      <div className="voltik-container">
         <div className="max-w-6xl mx-auto">
           <div 
             ref={solutionRef}

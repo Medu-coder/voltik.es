@@ -6,21 +6,21 @@ export default function ProblemSection() {
   const painPoints = [
     {
       title: 'Pagas de más cada mes',
-      description: 'Las tarifas antiguas y los cambios de mercado disparan tu factura sin avisar.',
+      description: 'Las tarifas antiguas y los cambios de mercado disparan tu factura sin avisar',
     },
     {
       title: 'No sabes si tu tarifa es la mejor',
-      description: 'Hay cientos de ofertas y tarifas diferentes. Es imposible saber cuál te conviene más.',
+      description: 'Hay cientos de ofertas y tarifas diferentes. Es imposible saber cuál te conviene más',
     },
     {
       title: 'Cambiar de compañía da pereza',
-      description: 'Trámites, papeleo, llamadas... Te desanimas antes de empezar y sigues pagando de más.',
+      description: 'Trámites, papeleo, llamadas... Te desanimas antes de empezar y sigues pagando de más',
     },
   ]
 
   return (
     <section id="problema" className="voltik-section bg-muted/40 pb-6 md:pb-8 lg:pb-10">
-      <div className="voltik-container px-4 lg:px-8">
+      <div className="voltik-container">
         <div className="max-w-6xl mx-auto">
           <div 
             ref={sectionRef}

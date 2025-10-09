@@ -8,16 +8,16 @@ export default function ContactOptions() {
 
   return (
     <section id="contacto-alternativo" className="voltik-section">
-      <div className="voltik-container px-4 lg:px-8 max-w-4xl mx-auto text-center">
+      <div className="voltik-container max-w-4xl mx-auto text-center">
         <div 
           ref={sectionRef}
           className={`voltik-card bg-primary/10 border-primary/30 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
         >
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            ¿Prefieres que te contactemos por otro canal?
+            ¿Prefieres que contactarnos por otro canal?
           </h2>
           <p className="text-muted-foreground mb-8">
-            Si lo prefieres, escríbenos directamente o llámanos. Resolveremos todas tus dudas inmediatamente.
+            Si lo prefieres, escríbenos directamente o llámanos. Resolveremos todas tus dudas inmediatamente
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <VoltikButton variant="voltik" size="lg" asChild className="md:flex-1">

@@ -38,7 +38,7 @@ export default function SecondaryContactForm({
   }
 
   return (
-    <div className={`voltik-card p-8 ${className}`}>
+    <div className={`voltik-card ${className}`}>
       {showTitle && (
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">

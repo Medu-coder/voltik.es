@@ -53,7 +53,7 @@ const FormularioSec = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
           </div>
           
-          <div className="voltik-container px-4 lg:px-8 relative z-10">
+          <div className="voltik-container relative z-10">
             <div className="text-center max-w-4xl mx-auto mb-12">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Servicios técnicos profesionales
@@ -69,7 +69,7 @@ const FormularioSec = () => {
 
         {/* Form */}
         <section id="formulario-sec" className="voltik-section">
-          <div className="voltik-container px-4 lg:px-8">
+          <div className="voltik-container">
             <div className="max-w-4xl mx-auto">
               <div className="grid gap-8 lg:grid-cols-2 items-start">
                 {/* Formulario */}

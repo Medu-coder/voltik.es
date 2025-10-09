@@ -90,7 +90,7 @@ const ComoFuncionaPage = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
           </div>
           
-          <div className="voltik-container px-4 lg:px-8 relative z-10">
+          <div className="voltik-container relative z-10">
             <div className="text-center max-w-4xl mx-auto mb-12">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Así de fácil es ahorrar con nosotros
@@ -105,7 +105,7 @@ const ComoFuncionaPage = () => {
 
         {/* Process Steps */}
         <section className="voltik-section">
-          <div className="voltik-container px-4 lg:px-8">
+          <div className="voltik-container">
             <div className="text-center max-w-4xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Nuestro proceso en 3 pasos
@@ -148,7 +148,7 @@ const ComoFuncionaPage = () => {
 
         {/* Benefits */}
         <section className="voltik-section bg-secondary/30">
-          <div className="voltik-container px-4 lg:px-8">
+          <div className="voltik-container">
             <div className="text-center max-w-4xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 ¿Por qué elegir Voltik?
@@ -176,7 +176,7 @@ const ComoFuncionaPage = () => {
 
         {/* CTA Final */}
         <section className="voltik-section">
-          <div className="voltik-container px-4 lg:px-8">
+          <div className="voltik-container">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                 ¿Listo para empezar a ahorrar?

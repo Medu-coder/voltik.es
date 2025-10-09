@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
       </div>
 
-      <div className="voltik-container relative z-10 px-4 lg:px-8">
+      <div className="voltik-container relative z-10">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
           <div className="lg:col-span-7 text-center lg:text-left">
 
@@ -41,12 +41,12 @@ export default function Hero() {
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
-              Tu asesor energético de confianza para que empieces a ahorrar hoy.
+              Tu asesor energético de confianza para que empieces a ahorrar hoy
             </h1>
 
             <p className="text-lg md:text-2xl text-foreground mb-8 lg:max-w-2xl mx-auto lg:mx-0">
-              Servicios de eficiencia energética.<br />
-              Sube tu factura de luz y recibe la mejor oferta.<br />
+              Servicios de eficiencia energética<br />
+              Sube tu factura de luz y recibe la mejor oferta<br />
               Sin compromiso y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">oferta de ahorro personalizada en menos de 48&nbsp;horas</a>.
             </p>
 
@@ -111,7 +111,7 @@ export default function Hero() {
                 </div>
               </div>
               <p className="mt-6 text-sm font-semibold text-muted-foreground text-center">
-                Más de 5.000 hogares y negocios ya confían en Voltik para ahorrar en su factura eléctrica.
+                Más de 5.000 hogares y negocios ya confían en Voltik para ahorrar en su factura eléctrica
               </p>
             </div>
           </div>

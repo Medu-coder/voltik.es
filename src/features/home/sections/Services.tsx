@@ -8,13 +8,13 @@ export default function Services() {
   const secondaryServices = [
     {
       title: 'Certificados de eficiencia energética',
-      description: 'Preparamos el certificado oficial que necesitas para vender o alquilar tu inmueble, incluyendo asesoramiento sobre mejoras de consumo.',
+      description: 'Preparamos el certificado oficial que necesitas para vender o alquilar tu inmueble, incluyendo asesoramiento sobre mejoras de consumo',
       icon: FileText,
       cta: 'Solicitar certificado',
     },
     {
       title: 'Boletines eléctricos (CIE)',
-      description: 'Tramitamos y legalizamos tu instalación para altas nuevas, cambios de potencia o revisiones obligatorias ante la distribuidora.',
+      description: 'Tramitamos y legalizamos tu instalación para altas nuevas, cambios de potencia o revisiones obligatorias ante la distribuidora',
       icon: ScrollText,
       cta: 'Solicitar boletín',
     },
@@ -22,7 +22,7 @@ export default function Services() {
 
   return (
     <section id="servicios" className="voltik-section">
-      <div className="voltik-container px-4 lg:px-8">
+      <div className="voltik-container">
         <div 
           ref={sectionRef}
           className="text-center max-w-4xl mx-auto mb-12"

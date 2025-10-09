@@ -70,7 +70,7 @@ export default function Faqs() {
 
   return (
     <section id="faqs" className="voltik-section bg-muted/30">
-      <div className="voltik-container px-4 lg:px-8 max-w-3xl mx-auto">
+      <div className="voltik-container max-w-3xl mx-auto">
         <div 
           ref={sectionRef}
           className="text-center mb-10"
@@ -79,7 +79,7 @@ export default function Faqs() {
             Preguntas frecuentes
           </h2>
           <p className="text-lg text-muted-foreground">
-            No queremos que tengas dudas, por eso resolvemos las más habituales.
+            No queremos que tengas dudas, por eso resolvemos las más habituales
           </p>
         </div>
 

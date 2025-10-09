@@ -61,7 +61,7 @@ const Privacy = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
           </div>
           
-          <div className="voltik-container px-4 lg:px-8 relative z-10">
+          <div className="voltik-container relative z-10">
             <div className="text-center max-w-4xl mx-auto">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
@@ -84,7 +84,7 @@ const Privacy = () => {
 
         {/* Content */}
         <section className="voltik-section">
-          <div className="voltik-container px-4 lg:px-8">
+          <div className="voltik-container">
             <div className="max-w-4xl mx-auto">
               {/* Introduction */}
               <div className="voltik-card bg-gradient-to-br from-primary/5 to-secondary/10 border border-primary/20 mb-12">

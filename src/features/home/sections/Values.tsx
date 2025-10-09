@@ -8,28 +8,28 @@ export default function Values() {
     {
       icon: BadgeCheck,
       title: 'Transparencia total',
-      description: 'Te mostramos comparativas reales y sin letra pequeña para que elijas con seguridad.',
+      description: 'Te mostramos comparativas reales y sin letra pequeña para que elijas con seguridad',
       accent: 'bg-voltik-secondary/40 text-text',
       metric: '+8.000 informes emitidos',
     },
     {
       icon: Clock3,
       title: 'Ágiles y profesionales',
-      description: 'Tu informe personalizado llega en menos de 48 horas, solo necesitamos tu aprobación para tramitar todo por ti.',
+      description: 'Tu informe personalizado llega en menos de 48 horas, solo necesitamos tu aprobación para tramitar todo por ti',
       accent: 'bg-voltik-success/15 text-text',
       metric: 'Tiempo de respuesta < 48h',
     },
     {
       icon: Lightbulb,
       title: 'Experiencia en el sector',
-      description: 'Más de 10 años gestionando tarifas y proyectos para hogares, comercios e industria.',
+      description: 'Más de 10 años gestionando tarifas y proyectos para hogares, comercios e industria',
       accent: 'bg-voltik-secondary/40 text-text',
       metric: '10 años de experiencia',
     },
     {
       icon: Handshake,
       title: 'Confianza y seguridad',
-      description: 'Nosotros negociamos por ti, pero la última palabra siempre es tuya. Sin compromisos.',
+      description: 'Nosotros negociamos por ti, pero la última palabra siempre es tuya. Sin compromisos',
       accent: 'bg-voltik-success/15 text-text',
       metric: '98% clientes satisfechos',
     },
@@ -37,7 +37,7 @@ export default function Values() {
 
   return (
     <section id="beneficios" className="voltik-section bg-muted/30">
-      <div className="voltik-container px-4 lg:px-8">
+      <div className="voltik-container">
         <div 
           ref={sectionRef}
           className="text-center max-w-5xl mx-auto mb-12"
