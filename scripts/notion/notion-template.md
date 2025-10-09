@@ -5,7 +5,9 @@
 **Título:** [Escribe aquí el título del artículo]
 **Subtítulo:** [Escribe aquí el subtítulo descriptivo]
 **Excerpt:** [Resumen corto de 1-2 líneas que aparecerá en la lista del blog]
-**Categoría:** [Movilidad Eléctrica / Energía Solar / Eficiencia Energética]
+**Categoría:** Movilidad Eléctrica  // Para una sola categoría
+// o
+**Categoría:** Mercado Eléctrico, Precio de la luz  // Para múltiples categorías (separadas por comas)
 **Tags:** [tag1, tag2, tag3]
 **Destacado:** [Sí / No]
 **Imagen:** [nombre-del-archivo.jpg]
@@ -61,12 +63,20 @@ Más contenido con párrafos separados.
 ✅ **Listas:** - elemento
 ✅ **Párrafos:** Separados por líneas en blanco
 
+## Categorías Múltiples
+
+✅ **Una categoría:** `**Categoría:** Movilidad Eléctrica`
+✅ **Múltiples categorías:** `**Categoría:** Mercado Eléctrico, Precio de la luz`
+- Separa las categorías con comas
+- Los espacios se eliminan automáticamente
+- Se generará un array: `['Mercado Eléctrico', 'Precio de la luz']`
+
 ## Ejemplo Completo
 
 **Título:** Paneles solares en 2025: Guía completa
 **Subtítulo:** Todo lo que necesitas saber sobre energía solar residencial
 **Excerpt:** Descubre las ventajas, costes y proceso de instalación de paneles solares en tu hogar.
-**Categoría:** Energía Solar
+**Categoría:** Energía Solar, Eficiencia Energética
 **Tags:** [paneles-solares, energía-renovable, ahorro-energético]
 **Destacado:** Sí
 **Imagen:** paneles-solares-2025.jpg

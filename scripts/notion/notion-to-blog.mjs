@@ -151,7 +151,7 @@ Puedes usar **negritas** y *cursivas*.
 Texto normal con párrafos separados.
 
 **Conclusión:** Este es el final del artículo.`,
-    category: 'Movilidad Eléctrica', // o 'Energía Solar', etc.
+    category: 'Movilidad Eléctrica', // o ['Mercado Eléctrico', 'Precio de la luz'] para múltiples
     tags: ['tag1', 'tag2', 'tag3'],
     featured: false,
     imageName: 'nombre-imagen.jpg', // Nombre del archivo de imagen
@@ -193,6 +193,14 @@ Texto normal con párrafos separados.
   console.log('\nCódigo para añadir al blog:');
   console.log('==============================');
   
+  // Función para formatear categoría (string o array)
+  const formatCategory = (category) => {
+    if (Array.isArray(category)) {
+      return JSON.stringify(category);
+    }
+    return `'${category}'`;
+  };
+
   // Generar código para copiar y pegar
   const codeToAdd = `{
   id: '${id}',
@@ -202,7 +210,7 @@ Texto normal con párrafos separados.
   content: \`${contentHtml}\`,
   date: '${date}',
   readTime: '${readTime}',
-  category: '${articleData.category}',
+  category: ${formatCategory(articleData.category)},
   tags: [${articleData.tags.map(tag => `'${tag}'`).join(', ')}],
   featured: ${articleData.featured},
   image: '/blog/${articleData.imageName}',

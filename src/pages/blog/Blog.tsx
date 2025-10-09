@@ -11,14 +11,17 @@ const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
 
-  const categories = ['all', ...Array.from(new Set(blogPosts.map(post => post.category)))]
+  const categories = ['all', ...Array.from(new Set(blogPosts.flatMap(post => 
+    Array.isArray(post.category) ? post.category : [post.category]
+  )))]
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
     
-    const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory
+    const postCategories = Array.isArray(post.category) ? post.category : [post.category]
+    const matchesCategory = selectedCategory === 'all' || postCategories.includes(selectedCategory)
 
     return matchesSearch && matchesCategory
   })
@@ -32,6 +35,15 @@ const Blog = () => {
       month: 'long',
       day: 'numeric'
     })
+  }
+
+  const renderCategories = (category: string | string[]) => {
+    const categories = Array.isArray(category) ? category : [category]
+    return categories.map((cat, index) => (
+      <span key={index} className="px-3 py-1 bg-secondary/20 text-secondary-foreground text-xs font-medium rounded-full">
+        {cat}
+      </span>
+    ))
   }
 
   useEffect(() => {
@@ -109,13 +121,11 @@ const Blog = () => {
               <div className="voltik-grid-2 mb-16">
                 {featuredPosts.map((post) => (
                   <article key={post.id} className="voltik-card group hover:scale-105 transition-all duration-300">
-                    <div className="flex items-center gap-2 mb-4">
+                    <div className="flex items-center gap-2 mb-4 flex-wrap">
                       <span className="px-3 py-1 bg-primary/20 text-text text-xs font-medium rounded-full">
                         Destacado
                       </span>
-                      <span className="px-3 py-1 bg-secondary/20 text-secondary-foreground text-xs font-medium rounded-full">
-                        {post.category}
-                      </span>
+                      {renderCategories(post.category)}
                     </div>
                     
                     <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
@@ -171,10 +181,8 @@ const Blog = () => {
               <div className="voltik-grid-3">
                 {regularPosts.map((post) => (
                   <article key={post.id} className="voltik-card group hover:scale-105 transition-all duration-300">
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="px-3 py-1 bg-secondary/20 text-secondary-foreground text-xs font-medium rounded-full">
-                        {post.category}
-                      </span>
+                    <div className="flex items-center gap-2 mb-4 flex-wrap">
+                      {renderCategories(post.category)}
                     </div>
                     
                     <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors">

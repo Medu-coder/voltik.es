@@ -62,7 +62,7 @@ const BlogArticle = () => {
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">{post.title}</h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-6">{post.subtitle}</p>
             <p className="text-sm text-muted-foreground">
-              {post.date} • {post.readTime} • {post.category}
+              {post.date} • {post.readTime} • {Array.isArray(post.category) ? post.category.join(' • ') : post.category}
             </p>
           </div>
         </section>

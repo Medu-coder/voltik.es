@@ -26,7 +26,13 @@ function extractMetadata(content) {
     } else if (line.startsWith('**Excerpt:**')) {
       metadata.excerpt = line.replace('**Excerpt:**', '').trim();
     } else if (line.startsWith('**Categoría:**')) {
-      metadata.category = line.replace('**Categoría:**', '').trim();
+      const categoryStr = line.replace('**Categoría:**', '').trim();
+      // Si contiene comas, es múltiple categorías
+      if (categoryStr.includes(',')) {
+        metadata.category = categoryStr.split(',').map(cat => cat.trim());
+      } else {
+        metadata.category = categoryStr;
+      }
     } else if (line.startsWith('**Tags:**')) {
       const tagsStr = line.replace('**Tags:**', '').trim();
       metadata.tags = tagsStr.split(',').map(tag => tag.trim().replace(/[\[\]]/g, ''));
@@ -81,6 +87,14 @@ function addToBlogPosts(blogPost) {
       throw new Error('No se encontró el punto de inserción en blogPosts.ts');
     }
     
+    // Función para formatear categoría (string o array)
+    const formatCategory = (category) => {
+      if (Array.isArray(category)) {
+        return JSON.stringify(category);
+      }
+      return `'${category}'`;
+    };
+
     // Generar el código del artículo
     const articleCode = `{
   id: '${blogPost.id}',
@@ -90,7 +104,7 @@ function addToBlogPosts(blogPost) {
   content: \`${blogPost.content.replace(/`/g, '\\`')}\`,
   date: '${blogPost.date}',
   readTime: '${blogPost.readTime}',
-  category: '${blogPost.category}',
+  category: ${formatCategory(blogPost.category)},
   tags: [${blogPost.tags.map(tag => `'${tag}'`).join(', ')}],
   featured: ${blogPost.featured},
   image: '${blogPost.image}',
@@ -133,7 +147,7 @@ function importFromNotion() {
     const exampleContent = `**Título:** Mi nuevo artículo
 **Subtítulo:** Descripción del artículo
 **Excerpt:** Resumen corto del artículo
-**Categoría:** Movilidad Eléctrica
+**Categoría:** Movilidad Eléctrica, Eficiencia Energética
 **Tags:** [tag1, tag2, tag3]
 **Destacado:** No
 **Imagen:** mi-articulo.jpg
