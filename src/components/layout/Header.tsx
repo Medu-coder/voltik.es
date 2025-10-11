@@ -152,8 +152,8 @@ export default function Header() {
             <VoltikButton variant="voltik" size="md" asChild>
               <a href="/formulario" className="flex items-center">
                 Subir mi factura
-                <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-voltik-success/20 text-voltik-success font-semibold">
-                  Gratis
+                <span className="ml-1 px-1.5 py-0.5 text-xs rounded-full bg-voltik-success/20 text-voltik-success font-bold md:ml-2 md:px-2">
+                  GRATIS
                 </span>
               </a>            
             </VoltikButton>

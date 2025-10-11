@@ -40,14 +40,16 @@ export default function Hero() {
             />
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
-              Tu asesor energético de confianza para que empieces a ahorrar hoy
-            </h1>
+            <div className="mb-6">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
+                Tu asesor energético de confianza para que empieces a ahorrar hoy
+              </h1>
+            </div>
 
             <p className="text-lg md:text-2xl text-foreground mb-8 lg:max-w-2xl mx-auto lg:mx-0">
               Servicios de eficiencia energética<br />
               Sube tu factura de luz y recibe la mejor oferta<br />
-              Sin compromiso y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">oferta de ahorro personalizada en menos de 48&nbsp;horas</a>.
+              Sin compromiso, totalmente gratis y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">oferta de ahorro personalizada en menos de 48&nbsp;horas</a>.
             </p>
 
             <div className="flex flex-col items-center sm:items-start gap-2">
@@ -59,8 +61,8 @@ export default function Hero() {
                       <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                     </a>
                   </VoltikButton>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wide text-center">
-                    *Gratis y en menos de 1 minuto
+                  <span className="text-sm text-voltik-success font-bold uppercase tracking-wide text-center">
+                    100% GRATIS - SIN COSTE - 0€
                   </span>
                 </div>
                 <VoltikButton variant="ghost" size="lg" className="bg-background/60 hover:bg-background/80 min-h-[48px] min-w-[180px]" asChild>

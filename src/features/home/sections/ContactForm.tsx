@@ -7,12 +7,15 @@ export default function ContactFormSection() {
     <section id="formulario" className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20">
       <div className="voltik-container">
         <div className="text-center max-w-4xl mx-auto mb-12">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-voltik-success/20 border border-voltik-success/30 text-voltik-success text-sm font-medium mb-4">
+            No pagas nada · Servicio 100% gratuito · 0€
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
             Recibe tu oferta personalizada en menos de 48h
           </h2>
           <p className="text-xl text-muted-foreground">
-            Completa el formulario, sube tu factura PDF y nuestros asesores te enviarán la mejor propuesta.<br />
-            Gratis y sin compromiso.
+            Completa el formulario, sube tu factura PDF y nuestros asesores te enviarán la mejor propuesta gratis.<br />
+            <strong>No pagas nada. Sin compromiso.</strong>
           </p>
           <p className="text-md text-muted-foreground mt-2">
             Tus datos solo se utilizan para buscar la mejor oferta para ti. No los almacenamos.

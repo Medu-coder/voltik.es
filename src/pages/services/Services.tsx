@@ -236,6 +236,9 @@ const ServicesPage = () => {
             <div className="max-w-6xl mx-auto">
               <div className="voltik-card bg-gradient-to-br from-primary/5 to-secondary/10 border border-primary/20 p-8 md:p-12">
                 <div className="text-center mb-12">
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-voltik-success/20 border border-voltik-success/30 text-voltik-success text-sm font-medium mb-4">
+                    Servicio totalmente gratis
+                  </div>
                   <div className="flex items-center justify-center gap-3 mb-6">
                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                       <mainService.icon size={36} className="text-text" />
@@ -388,7 +391,7 @@ const ServicesPage = () => {
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Sube tu factura y recibe tu propuesta personalizada en menos de 48h.<br /> 
-                Gratis y sin compromiso.
+                <strong>Totalmente gratis y sin compromiso.</strong>
               </p>
               <VoltikButton variant="voltik" size="lg" asChild>
                 <a href="/formulario" className="group">

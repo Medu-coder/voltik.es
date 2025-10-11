@@ -16,12 +16,12 @@ const ComoFuncionaPage = () => {
       title: 'Sube tu factura',
       description: 'Adjunta tu última factura de luz junto con tus datos de contacto. Tardas menos de un minuto.',
       icon: Upload,
-      details: [
-        'Sube un PDF o una foto de tu factura',
-        'No almacenamos tus datos',
-        'Datos protegidos por RGPD',
-        'Gratis y sin compromiso'
-      ]
+        details: [
+          'Sube un PDF o una foto de tu factura',
+          'No almacenamos tus datos',
+          'Datos protegidos por RGPD',
+          'Todo 100% gratis: no pasas nada'
+        ]
     },
     {
       title: 'Analizamos tu consumo',
@@ -38,12 +38,12 @@ const ComoFuncionaPage = () => {
       title: 'Recibe tu oferta',
       description: 'En menos de 48h tendrás una propuesta personalizada. Tú decides si te encaja.',
       icon: Sparkles,
-      details: [
-        'Propuesta personalizada en 48h',
-        'Informe detallado de ahorro',
-        'Tú tienes la última palabra',
-        'Solo tienes que aceptar la oferta'
-      ]
+        details: [
+          'Propuesta personalizada en 48h',
+          'Informe detallado de ahorro',
+          'Tú tienes la última palabra',
+          'Todo 100% gratis: no pasas nada'
+        ]
     },
   ]
 
@@ -60,8 +60,8 @@ const ComoFuncionaPage = () => {
     },
     {
       icon: CheckCircle2,
-      title: 'Sin compromiso',
-      description: 'Analizamos tu factura gratis y te envíamos las mejores ofertas. Tú decides si quieres comenzar a ahorrar.'
+      title: 'Sin compromiso y gratis',
+      description: 'Analizamos tu factura gratis y te envíamos las mejores ofertas. Sin coste alguno. Tú decides si quieres comenzar a ahorrar.'
     }
   ]
 
@@ -183,7 +183,7 @@ const ComoFuncionaPage = () => {
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Sube tu factura y recibe tu propuesta personalizada en menos de 48h.<br /> 
-                Gratis y sin compromiso.
+                <strong>Totalmente gratis y sin compromiso.</strong>
               </p>
               <VoltikButton variant="voltik" size="lg" asChild>
                 <a href="/formulario" className="group">

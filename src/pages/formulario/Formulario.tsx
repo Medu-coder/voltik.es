@@ -41,7 +41,7 @@ const FormularioPage = () => {
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
                 Analizamos tu factura y te enviamos la mejor oferta personalizada.<br />
-                Gratis y sin complicaciones, nosotros nos encargamos de todo.<br />
+                <strong>Gratis. No pagas nada. Sin complicaciones.</strong> Nosotros nos encargamos de todo.<br />
                 Deja que las eléctricas se peleen por ti.
               </p>
             </div>
@@ -49,12 +49,30 @@ const FormularioPage = () => {
         </section>
 
         {/* Form */}
-        <section id="formulario" className="voltik-section">
+        <section id="formulario" className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20">
           <div className="voltik-container">
+            <div className="text-center max-w-4xl mx-auto mb-12">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-voltik-success/20 border border-voltik-success/30 text-voltik-success text-sm font-medium mb-6">
+                No pagas nada · Servicio 100% gratuito · 0€
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
+                Recibe tu oferta personalizada en menos de 48h
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Completa el formulario, sube tu factura PDF y nuestros asesores te enviarán la mejor propuesta.<br />
+                <strong>Gratis. No pagas nada. Sin compromiso.</strong>
+              </p>
+              <p className="text-md text-muted-foreground mt-2">
+                Tus datos solo se utilizan para buscar la mejor oferta para ti. No los almacenamos.
+              </p>
+            </div>
             <div className="max-w-4xl mx-auto">
               <div className="grid gap-8 lg:grid-cols-2 items-start">
                 {/* Formulario */}
-                <ContactForm />
+                <ContactForm 
+                  showTitle={false}
+                  className="bg-background/95"
+                />
 
                 {/* Benefits */}
                 <div className="space-y-6">

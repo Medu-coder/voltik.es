@@ -20,12 +20,13 @@ export default function SolutionSection() {
             className="voltik-card bg-background relative overflow-hidden"
           >
             <div className="absolute inset-y-0 right-0 w-1/3 bg-primary/10 blur-2xl" aria-hidden />
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/20 text-primary-foreground text-sm font-medium mb-6">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/20 text-primary-foreground text-sm font-medium mb-4">
               La solución Voltik
             </div>
             <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-8 text-center">
               <a href="/como-funciona" className="text-foreground hover:text-primary underline hover:no-underline">Analizamos tu factura</a> y te enviamos la mejor oferta.<br />
-              Gratis y sin complicaciones, nosotros nos encargamos de todo.<br />
+              Gratis. Sin coste. Sin compromiso. <br />
+              Nosotros nos encargamos de todo.<br />
               Deja que las eléctricas se peleen por ti.
             </h3>
 
