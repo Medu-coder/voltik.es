@@ -14,7 +14,7 @@ export default function ContactOptions() {
           className={`voltik-card bg-primary/10 border-primary/30 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
         >
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            ¿Prefieres que contactarnos por otro canal?
+            ¿Prefieres contactarnos por otro canal?
           </h2>
           <p className="text-muted-foreground mb-8">
             Si lo prefieres, escríbenos directamente o llámanos. Resolveremos todas tus dudas inmediatamente
