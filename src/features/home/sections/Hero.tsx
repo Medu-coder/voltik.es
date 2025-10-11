@@ -49,7 +49,7 @@ export default function Hero() {
             <p className="text-lg md:text-2xl text-foreground mb-8 lg:max-w-2xl mx-auto lg:mx-0">
               Servicios de eficiencia energética<br />
               Sube tu factura de luz y recibe la mejor oferta<br />
-              Sin compromiso, totalmente gratis y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">oferta de ahorro personalizada en menos de 48&nbsp;horas</a>.
+              Sin compromiso, totalmente gratis y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">oferta de ahorro en menos de 48&nbsp;horas</a>.
             </p>
 
             <div className="flex flex-col items-center sm:items-start gap-2">
