@@ -43,7 +43,7 @@ const BlogArticle = () => {
             name: 'Voltik · Servicios de eficiencia energética',
             logo: {
               '@type': 'ImageObject',
-              url: '/assets/voltik-logo-web.svg',
+              url: '/voltik-logo-web.svg',
             },
           },
           mainEntityOfPage: {

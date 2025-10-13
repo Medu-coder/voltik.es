@@ -8,7 +8,7 @@ const urlsToCache = [
   '/formulario',
   '/formulario-sec',
   '/privacidad',
-  '/assets/voltik-logo-web.svg',
+  '/voltik-logo-web.svg',
   '/assets/hero-family.png',
   '/assets/hero-electrician.jpg',
   '/manifest.json'
