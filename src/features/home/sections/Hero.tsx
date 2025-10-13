@@ -1,7 +1,7 @@
 import { ArrowRight, Upload, PiggyBank, ShieldCheck, Zap } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import heroImage from '@/assets/hero-family.png'
-import voltikLogo from '@/assets/voltik-logo-web.svg'
+import VoltikLogo from '@/components/ui/VoltikLogo'
 
 export default function Hero() {
   return (
@@ -28,15 +28,9 @@ export default function Hero() {
           <div className="lg:col-span-7 text-center lg:text-left">
 
             <div className="mb-6 -mt-4 md:mt-0">
-            <img
-              src={voltikLogo}
-              alt="Voltik - Servicios de eficiencia energética y ahorro en factura de luz"
+            <VoltikLogo
               className="h-16 md:h-20 w-auto mx-auto lg:mx-0"
-              loading="eager"
-              fetchPriority="high"
-              width="200"
-              height="80"
-              style={{ willChange: 'auto' }}
+              alt="Voltik - Servicios de eficiencia energética y ahorro en factura de luz"
             />
             </div>
 

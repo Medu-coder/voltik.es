@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
-import voltikLogo from '@/assets/voltik-logo-web.svg'
+import VoltikLogo from '@/components/ui/VoltikLogo'
 import { useLocation } from 'react-router-dom'
 
 export default function Header() {
@@ -111,15 +111,9 @@ export default function Header() {
             className="flex-shrink-0 hover:opacity-80 transition-opacity"
             aria-label="Voltik · Servicios de eficiencia energética"
           >
-            <img 
-              src={voltikLogo} 
+            <VoltikLogo 
               alt="Voltik - Servicios de eficiencia energética y ahorro en factura de luz" 
               className="h-8 md:h-10 w-auto"
-              loading="eager"
-              fetchPriority="high"
-              width="120"
-              height="40"
-              style={{ willChange: 'auto' }}
             />
           </a>
 

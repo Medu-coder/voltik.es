@@ -3,7 +3,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { Upload, BarChart3, Sparkles, CheckCircle2, Clock, ShieldCheck, ArrowRight } from 'lucide-react'
-import voltikLogo from '@/assets/voltik-logo-web.svg'
+import VoltikLogo from '@/components/ui/VoltikLogo'
 import Seo from '@/app/seo/Seo'
 
 const ComoFuncionaPage = () => {
@@ -79,13 +79,9 @@ const ComoFuncionaPage = () => {
         <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
           {/* Background image */}
           <div className="absolute inset-0 z-0 opacity-20">
-            <img
-              src={voltikLogo}
+            <VoltikLogo
               alt="Proceso de ahorro energético con Voltik - Análisis de factura de luz en 3 pasos"
               className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
-              loading="lazy"
-              width="400"
-              height="300"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
           </div>

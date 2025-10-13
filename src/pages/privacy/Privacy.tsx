@@ -1,7 +1,7 @@
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Shield, Lock, Eye, Trash2, Download, AlertCircle, Mail, Phone } from 'lucide-react'
-import voltikLogo from '@/assets/voltik-logo-web.svg'
+import VoltikLogo from '@/components/ui/VoltikLogo'
 import Seo from '@/app/seo/Seo'
 
 const Privacy = () => {
@@ -53,8 +53,7 @@ const Privacy = () => {
         <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
           {/* Background image */}
           <div className="absolute inset-0 z-0 opacity-20">
-            <img
-              src={voltikLogo}
+            <VoltikLogo
               alt="Ahorro energético con Voltik"
               className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
             />

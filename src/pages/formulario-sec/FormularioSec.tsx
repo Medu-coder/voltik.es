@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer'
 import SecondaryContactForm from '@/components/forms/SecondaryContactForm'
 import { Clock, ShieldCheck, Lock, BadgeCheck } from 'lucide-react'
 import { useSecondaryContactForm } from '@/hooks/use-secondary-contact-form'
-import voltikLogo from '@/assets/voltik-logo-web.svg'
+import VoltikLogo from '@/components/ui/VoltikLogo'
 import Seo from '@/app/seo/Seo'
 
 const FormularioSec = () => {
@@ -45,8 +45,7 @@ const FormularioSec = () => {
         <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
           {/* Background image */}
           <div className="absolute inset-0 z-0 opacity-20">
-            <img
-              src={voltikLogo}
+            <VoltikLogo
               alt="Servicios técnicos con Voltik"
               className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
             />

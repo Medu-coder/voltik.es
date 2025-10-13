@@ -2,7 +2,7 @@ import { Home, ArrowLeft, UploadCloud, MessageCircle, Mail, Phone } from 'lucide
 import { VoltikButton } from '@/components/ui/voltik-button'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import voltikLogo from '@/assets/voltik-logo-web.svg'
+import VoltikLogo from '@/components/ui/VoltikLogo'
 import Seo from '@/app/seo/Seo'
 
 const NotFound = () => {

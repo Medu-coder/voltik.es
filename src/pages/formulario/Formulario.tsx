@@ -3,7 +3,7 @@ import Footer from '@/components/layout/Footer'
 import ContactForm from '@/components/forms/ContactForm'
 import { Clock, ShieldCheck, Lock, BadgeCheck } from 'lucide-react'
 import { useContactForm } from '@/hooks/use-contact-form'
-import voltikLogo from '@/assets/voltik-logo-web.svg'
+import VoltikLogo from '@/components/ui/VoltikLogo'
 import Seo from '@/app/seo/Seo'
 
 const FormularioPage = () => {
@@ -26,8 +26,7 @@ const FormularioPage = () => {
         <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
           {/* Background image */}
           <div className="absolute inset-0 z-0 opacity-20">
-            <img
-              src={voltikLogo}
+            <VoltikLogo
               alt="Ahorro energético con Voltik"
               className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
             />

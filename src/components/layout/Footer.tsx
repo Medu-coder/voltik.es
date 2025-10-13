@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, Clock, MessageCircle, UploadCloud, Facebook, Instagram, Linkedin } from 'lucide-react'
 import ComingSoonModal from '@/components/ui/ComingSoonModal'
-import voltikLogo from '@/assets/voltik-logo-web.svg'
+import VoltikLogo from '@/components/ui/VoltikLogo'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -14,13 +14,9 @@ export default function Footer() {
             
             {/* Company Info */}
             <div className="lg:col-span-2">
-              <img 
-                src={voltikLogo} 
+              <VoltikLogo 
                 alt="Voltik - Servicios de eficiencia energética" 
                 className="h-8 mb-4 filter brightness-0 invert"
-                loading="lazy"
-                width="120"
-                height="40"
               />
               <p className="text-background/80 mb-6 max-w-md">
                 Servicios de <a href="/servicios" className="text-background/80 hover:text-primary underline hover:no-underline transition-colors">eficiencia energética</a> para hogares y negocios. 
