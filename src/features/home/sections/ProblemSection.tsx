@@ -5,7 +5,7 @@ export default function ProblemSection() {
 
   const painPoints = [
     {
-      title: 'Pagas de más cada mes',
+      title: 'Pagas mucho de luz cada mes',
       description: 'Las tarifas antiguas y los cambios de mercado disparan tu factura sin avisar',
     },
     {

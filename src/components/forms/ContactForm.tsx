@@ -134,7 +134,8 @@ export default function ContactForm({
             <p className="text-base font-semibold text-foreground">Subir factura (PDF)</p>
           </div>
           <p className="text-sm text-muted-foreground mb-4 text-left">
-            Selecciona tu factura PDF para un análisis más preciso. Máximo 10 MB.
+            Selecciona tu factura PDF.<br />
+            Máximo 10 MB.
           </p>
           
           {!file ? (

@@ -27,7 +27,7 @@ export default function Hero() {
         <div className="grid gap-12 lg:grid-cols-12 items-center">
           <div className="lg:col-span-7 text-center lg:text-left">
 
-            <div className="mb-6">
+            <div className="mb-6 -mt-4 md:mt-0">
             <img
               src={voltikLogo}
               alt="Voltik - Servicios de eficiencia energética y ahorro en factura de luz"
@@ -40,16 +40,15 @@ export default function Hero() {
             />
             </div>
 
-            <div className="mb-6">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
+            <div className="mb-6 -mt-2 md:mt-0">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-10">
                 Tu asesor energético de confianza para que empieces a ahorrar hoy
               </h1>
             </div>
 
             <p className="text-lg md:text-2xl text-foreground mb-8 lg:max-w-2xl mx-auto lg:mx-0">
-              Servicios de eficiencia energética<br />
-              Sube tu factura de luz y recibe la mejor oferta<br />
-              Sin compromiso, totalmente gratis y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">oferta de ahorro en menos de 48&nbsp;horas</a>.
+              Sube tu factura de luz, recibe la mejor oferta y comienza a ahorrar.<br />
+              Sin compromiso, totalmente gratis y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">una oferta en menos de 48&nbsp;horas</a>.
             </p>
 
             <div className="flex flex-col items-center sm:items-start gap-2">
@@ -57,7 +56,7 @@ export default function Hero() {
                 <div className="flex flex-col items-center gap-2">
                   <VoltikButton variant="primary" size="lg" className="shadow-lg shadow-primary/40 min-h-[48px] min-w-[200px]" asChild>
                     <a href="/formulario" className="group flex items-center justify-center">
-                      Empieza a ahorrar hoy
+                      Quiero ahorrar
                       <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
                     </a>
                   </VoltikButton>
