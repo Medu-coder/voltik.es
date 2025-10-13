@@ -14,8 +14,8 @@ const animationQueue = new Set<Element>(); // Cola de animaciones
 
 export const useScrollAnimationOptimized = (options: UseScrollAnimationOptions = {}) => {
   const {
-    threshold = 0.2, // Menos sensible
-    rootMargin = '0px 0px -100px 0px', // Más conservador
+    threshold = 0.15, // Más sensible para activar antes
+    rootMargin = '0px 0px -50px 0px', // Menos conservador para activar antes
     triggerOnce = true,
     delay = 0
   } = options;
@@ -55,8 +55,8 @@ export const useScrollAnimationOptimized = (options: UseScrollAnimationOptions =
     // Crear observer global si no existe (usar valores por defecto)
     if (!globalObserver) {
       globalObserver = new IntersectionObserver(handleIntersection, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px',
       });
     }
 

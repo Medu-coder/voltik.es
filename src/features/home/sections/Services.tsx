@@ -33,8 +33,8 @@ export default function Services() {
           <p className="text-lg text-muted-foreground">
             Somos asesores energéticos e ingenieros eléctricos colegiados.<br />
             Realizamos todo tipo de gestiones técnicas y legales en tus instalaciones.<br />
-            <a href="/servicios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">Conoce todos nuestros servicios</a> y 
-            <a href="/como-funciona" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors"> descubre cómo funciona</a>.
+            <a href="/servicios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-all duration-base ease-out hover:-translate-y-0.5">Conoce todos nuestros servicios</a> y 
+            <a href="/como-funciona" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-all duration-base ease-out hover:-translate-y-0.5"> descubre cómo funciona</a>.
           </p>
         </div>
 

@@ -51,7 +51,7 @@ export default function Hero() {
                   <VoltikButton variant="primary" size="lg" className="shadow-lg shadow-primary/40 min-h-[48px] min-w-[200px]" asChild>
                     <a href="/formulario" className="group flex items-center justify-center">
                       Quiero ahorrar
-                      <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight size={20} className="ml-2 transition-transform duration-base ease-out group-hover:translate-x-1" />
                     </a>
                   </VoltikButton>
                   <span className="text-sm text-voltik-success font-bold uppercase tracking-wide text-center">
@@ -61,22 +61,22 @@ export default function Hero() {
                 <VoltikButton variant="ghost" size="lg" className="bg-background/60 hover:bg-background/80 min-h-[48px] min-w-[180px]" asChild>
                   <a href="/como-funciona" className="group text-base flex items-center justify-center">
                     Ver cómo funciona
-                    <ArrowRight size={20} className="ml-2 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight size={20} className="ml-2 transition-transform duration-base ease-out group-hover:translate-x-1" />
                   </a>
                 </VoltikButton>
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12">
-              <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20">
+              <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20 hover:bg-background/80 hover:border-primary/40 transition-all duration-base ease-out hover:-translate-y-0.5 hover:shadow-md">
                 <Zap size={20} className="text-foreground" />
                 <span className="text-sm font-medium">La misma luz por menos dinero</span>
               </div>
-              <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20">
+              <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20 hover:bg-background/80 hover:border-primary/40 transition-all duration-base ease-out hover:-translate-y-0.5 hover:shadow-md">
                 <PiggyBank size={20} className="text-foreground" />
                 <span className="text-sm font-medium">Ahorro medio del 20%</span>
               </div>
-              <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20">
+              <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20 hover:bg-background/80 hover:border-primary/40 transition-all duration-base ease-out hover:-translate-y-0.5 hover:shadow-md">
                 <ShieldCheck size={20} className="text-foreground" />
                 <span className="text-sm font-medium">No almacenamos tus datos</span>
               </div>

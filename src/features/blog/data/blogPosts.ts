@@ -21,7 +21,7 @@ const blogPosts: BlogPost[] = [
     title: 'Instalación de puntos de recarga para vehículos eléctricos: Guía completa 2025',
     subtitle: 'La guía definitiva para instalar tu punto de recarga',
     excerpt: 'Todo lo que necesitas saber sobre la instalación de wallbox en tu hogar o negocio…',
-    content: `<p>Con el crecimiento de la movilidad eléctrica, disponer de un punto de recarga en casa o en tu negocio se ha convertido en una necesidad para ahorrar tiempo y dinero. En esta guía te explicamos todo lo que debes saber para instalar un wallbox en 2025, desde los requisitos legales hasta los pasos que debes seguir.</p>
+    content: `<p>Con el crecimiento de la movilidad eléctrica, disponer de un punto de recarga en casa o en tu negocio se ha convertido en una necesidad para ahorrar tiempo y dinero. En esta guía te explicamos todo lo que debes saber para instalar un wallbox en 2025, desde los requisitos legales hasta los pasos que debes seguir.</p>
 
 <h2>¿Por qué instalar un wallbox en 2025?</h2>
 <p>Instalar un punto de recarga privado te ofrece numerosas ventajas frente a la recarga pública. Entre ellas:</p>
