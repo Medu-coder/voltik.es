@@ -69,15 +69,15 @@ export default function Hero() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12">
               <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20">
-                <Zap size={20} className="text-text" />
+                <Zap size={20} className="text-foreground" />
                 <span className="text-sm font-medium">La misma luz por menos dinero</span>
               </div>
               <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20">
-                <PiggyBank size={20} className="text-text" />
+                <PiggyBank size={20} className="text-foreground" />
                 <span className="text-sm font-medium">Ahorro medio del 20%</span>
               </div>
               <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20">
-                <ShieldCheck size={20} className="text-text" />
+                <ShieldCheck size={20} className="text-foreground" />
                 <span className="text-sm font-medium">No almacenamos tus datos</span>
               </div>
             </div>

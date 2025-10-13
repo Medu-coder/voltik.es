@@ -210,6 +210,17 @@
       transform: translateZ(0);
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+      /* Forzar composición de capa para evitar parpadeo */
+      -webkit-perspective: 1000;
+      perspective: 1000;
+    }
+    
+    /* Optimizar contenedores absolutos del Hero */
+    #hero .absolute {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
   }
 
@@ -218,6 +229,31 @@
     max-width: 100%;
     height: auto;
     content-visibility: auto;
+  }
+
+  /* Fix específico para parpadeo de imagen Hero en momentum scrolling iOS */
+  @supports (-webkit-touch-callout: none) {
+    #hero .absolute img {
+      /* Forzar composición de capa independiente */
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-perspective: 1000px;
+      perspective: 1000px;
+      /* Evitar repaint durante scroll */
+      will-change: transform;
+    }
+    
+    /* Optimizar el contenedor de la imagen del Hero */
+    #hero .absolute {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      /* Forzar nueva capa de composición */
+      isolation: isolate;
+    }
   }
 
   /* Performance optimizations */
