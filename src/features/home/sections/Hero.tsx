@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
       </div>
 
-      <div className="voltik-container relative z-10">
+      <div className="voltik-container relative">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
           <div className="lg:col-span-7 text-center lg:text-left">
 

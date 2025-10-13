@@ -176,13 +176,19 @@
     }
   }
   
-  /* Smooth animations */
-  * {
+  /* Smooth animations - Excluir Hero para evitar parpadeo en Safari iOS */
+  *:not(#hero):not(#hero *) {
     transition: color var(--transition-fast), 
                 background-color var(--transition-fast),
                 border-color var(--transition-fast),
                 transform var(--transition-base),
                 opacity var(--transition-fast);
+  }
+
+  /* Aislar Hero de interferencias de otras secciones */
+  #hero {
+    contain: layout style paint;
+    isolation: isolate;
   }
 
   /* Image optimization */
