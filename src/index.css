@@ -210,17 +210,6 @@
       transform: translateZ(0);
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      /* Forzar composición de capa para evitar parpadeo */
-      -webkit-perspective: 1000;
-      perspective: 1000;
-    }
-    
-    /* Optimizar contenedores absolutos del Hero */
-    #hero .absolute {
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
     }
   }
 
@@ -231,55 +220,6 @@
     content-visibility: auto;
   }
 
-  /* Fix específico para parpadeo de imagen Hero en momentum scrolling iOS */
-  @supports (-webkit-touch-callout: none) {
-    #hero {
-      /* Forzar nueva capa de composición para toda la sección */
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      /* Forzar aceleración por hardware en toda la sección */
-      will-change: transform;
-    }
-    
-    #hero .absolute img {
-      /* Forzar composición de capa independiente más agresiva */
-      -webkit-transform: translate3d(0, 0, 1px);
-      transform: translate3d(0, 0, 1px);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      -webkit-perspective: 1000px;
-      perspective: 1000px;
-      /* Evitar repaint durante scroll */
-      will-change: transform;
-      /* Forzar GPU layer */
-      -webkit-filter: translateZ(0);
-      filter: translateZ(0);
-    }
-    
-    /* Optimizar el contenedor de la imagen del Hero */
-    #hero .absolute {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      /* Forzar nueva capa de composición */
-      isolation: isolate;
-      /* Forzar GPU layer */
-      -webkit-filter: translateZ(0);
-      filter: translateZ(0);
-    }
-    
-    /* Optimización específica para momentum scrolling hacia arriba */
-    #hero .absolute img {
-      /* Forzar composición durante scroll rápido */
-      -webkit-transform-style: preserve-3d;
-      transform-style: preserve-3d;
-      /* Evitar reflow durante momentum scrolling */
-      contain: layout style paint;
-    }
-  }
 
   /* Performance optimizations */
   .voltik-container {
@@ -396,62 +336,6 @@
     will-change: auto;
   }
 
-  /* Solución específica para bounce scroll de iOS Safari */
-  @supports (-webkit-touch-callout: none) {
-    /* Forzar composición más agresiva para momentum scrolling hacia arriba */
-    #hero .absolute img {
-      /* Mantener en GPU layer durante todo el scroll */
-      -webkit-transform: translate3d(0, 0, 0.1px);
-      transform: translate3d(0, 0, 0.1px);
-      /* Forzar composición independiente */
-      -webkit-transform-style: preserve-3d;
-      transform-style: preserve-3d;
-      /* Evitar reflow completo */
-      contain: strict;
-      /* Mantener en GPU durante momentum scrolling */
-      -webkit-filter: blur(0px);
-      filter: blur(0px);
-    }
-    
-    /* Fix específico para bounce scroll desde el top */
-    #hero {
-      /* Evitar que el Hero se mueva durante bounce scroll */
-      -webkit-overflow-scrolling: touch;
-      /* Forzar que la imagen se mantenga fija durante bounce */
-      position: relative;
-    }
-    
-    #hero .absolute {
-      /* Mantener el contenedor de la imagen estable durante bounce */
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      /* Evitar que se mueva con el bounce */
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      /* Forzar composición independiente del bounce */
-      isolation: isolate;
-    }
-    
-    #hero .absolute img {
-      /* Mantener la imagen completamente estática durante bounce scroll */
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      /* Evitar cualquier movimiento durante bounce */
-      -webkit-transform: translate3d(0, 0, 0) !important;
-      transform: translate3d(0, 0, 0) !important;
-      /* Forzar que no se vea afectada por el bounce */
-      will-change: auto;
-      /* Mantener en GPU layer pero sin animación */
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-  }
 
   /* Reduce motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
@@ -462,11 +346,5 @@
       will-change: auto;
     }
     
-    /* Desactivar fixes de momentum scrolling si se reduce motion */
-    #hero .absolute img {
-      position: static !important;
-      transform: none !important;
-      will-change: auto !important;
-    }
   }
 }
