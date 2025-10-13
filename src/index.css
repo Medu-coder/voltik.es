@@ -191,6 +191,28 @@
     isolation: isolate;
   }
 
+  /* Safari iOS momentum scrolling fix */
+  @supports (-webkit-touch-callout: none) {
+    #hero {
+      /* Forzar hardware acceleration para momentum scrolling */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      
+      /* Optimizar momentum scrolling */
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Optimizar imágenes del Hero para momentum scrolling */
+    #hero img {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+  }
+
   /* Image optimization */
   img {
     max-width: 100%;
