@@ -10,7 +10,7 @@ export default function Hero() {
       className="relative overflow-hidden min-h-screen flex items-center pt-16 pb-16 md:pt-20 md:pb-24 bg-gradient-to-br from-primary/40 via-primary/20 to-secondary/30"
     >
       {/* Background image */}
-      <div className="absolute inset-0 z-0 opacity-40">
+      <div className="absolute inset-0 opacity-40">
         <img
           src={heroImage}
           alt="Familia ahorrando factura de luz con Voltik - Análisis gratuito de eficiencia energética en 48h"
