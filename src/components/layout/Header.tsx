@@ -3,11 +3,13 @@ import { Menu, X } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import VoltikLogo from '@/components/ui/VoltikLogo'
 import { useLocation } from 'react-router-dom'
+import { useFaqNavigation } from '@/hooks/use-faq-navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
+  const { handleFaqClick } = useFaqNavigation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,7 +87,7 @@ export default function Header() {
     { href: '/', label: 'Inicio' },
     { href: '/como-funciona', label: 'Cómo funciona' },
     { href: '/servicios', label: 'Servicios' },
-    { href: '/#faqs', label: 'Preguntas frecuentes' },
+    { href: '/#faqs', label: 'Preguntas frecuentes', isFaq: true },
     { href: '/blog', label: 'Blog' },
   ]
 
@@ -123,6 +125,7 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
+                onClick={item.isFaq ? handleFaqClick : undefined}
                 className="relative text-foreground/80 hover:text-foreground transition-colors text-base font-medium group"
               >
                 {item.label}
@@ -172,8 +175,13 @@ export default function Header() {
                 <a
                   key={item.href}
                   href={item.href}
+                  onClick={(e) => {
+                    if (item.isFaq) {
+                      handleFaqClick(e)
+                    }
+                    setIsMenuOpen(false)
+                  }}
                   className="block px-4 py-4 text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-colors rounded-lg min-h-[44px] flex items-center"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </a>

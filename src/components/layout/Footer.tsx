@@ -1,9 +1,11 @@
 import { Phone, Mail, MapPin, Clock, MessageCircle, UploadCloud, Facebook, Instagram, Linkedin } from 'lucide-react'
 import ComingSoonModal from '@/components/ui/ComingSoonModal'
 import VoltikLogo from '@/components/ui/VoltikLogo'
+import { useFaqNavigation } from '@/hooks/use-faq-navigation'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const { handleFaqClick } = useFaqNavigation()
 
   return (
     <footer className="bg-foreground text-background">
@@ -79,7 +81,7 @@ export default function Footer() {
                 <li><a href="/como-funciona" className="hover:text-primary transition-colors">Cómo funciona</a></li>
                 <li><a href="/#testimonios" className="hover:text-primary transition-colors">Testimonios</a></li>
                 <li><a href="/blog" className="hover:text-primary transition-colors">Blog Voltik</a></li>
-                <li><a href="/#faqs" className="hover:text-primary transition-colors">FAQs</a></li>
+                <li><a href="/#faqs" onClick={handleFaqClick} className="hover:text-primary transition-colors">FAQs</a></li>
                 <li><a href="/privacidad" className="hover:text-primary transition-colors">Política de privacidad</a></li>
               </ul>
             </div>
