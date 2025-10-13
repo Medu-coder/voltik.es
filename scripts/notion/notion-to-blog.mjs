@@ -75,6 +75,14 @@ function notionToHtml(markdown) {
       const headingText = trimmedLine.replace(/^\*\*(.*)\*\*\s*$/, '$1');
       result.push(`<h4><strong>${headingText}</strong></h4>`);
     }
+    // Continuación de elementos de lista (líneas que empiezan con "(" u otro texto relacionado)
+    else if (inList && result.length > 0 && /^<li>/.test(result[result.length - 1]) && trimmedLine.startsWith('(')) {
+      // Añadir el texto al último elemento de la lista antes de cerrar </li>
+      result[result.length - 1] = result[result.length - 1].replace(
+        /<\/li>$/,
+        ` ${trimmedLine}</li>`
+      );
+    }
     // Elementos de lista
     else if (isListItem(line)) {
       openList();
