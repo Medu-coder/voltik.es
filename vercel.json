@@ -16,7 +16,7 @@
     { "source": "/privacidad/", "destination": "/privacidad", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+    { "source": "/((?!assets/|.*\\.svg|.*\\.ico|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.gif|.*\\.webp|.*\\.css|.*\\.js|.*\\.json|.*\\.xml|.*\\.txt).*)", "destination": "/index.html" }
   ],
   "headers": [
     {

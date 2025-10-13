@@ -1,10 +1,8 @@
 /// <reference types="vite/client" />
 
-// Declaraciones globales para Metricool
-declare global {
-  interface Window {
-    beTracker: {
-      t: (config: { hash: string }) => void;
-    };
-  }
+declare module "*.svg" {
+  import React = require("react");
+  export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  const src: string;
+  export default src;
 }
