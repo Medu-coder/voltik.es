@@ -19,6 +19,7 @@ interface FormErrors {
 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScVqqjhm_CgcYRNYoU6stFXVrJZn_59lhjnZ2XvV4XZ7XTqtg/formResponse'
 const RECAPTCHA_SITE_KEY = '6Lft8dkrAAAAAMLeuF9nGQVsQelP7wIAJVGPHtF6'
 const BACKEND_URL = 'https://backend-voltik-invoices.vercel.app/api/public/intake'
+const EXTERNAL_API_BASE_URL = 'https://api.voltik.es/api/solicitudes/externa'
 
 export const useContactForm = () => {
   const { toast } = useToast()
@@ -185,6 +186,15 @@ export const useContactForm = () => {
         backendPayload.append('recaptchaToken', recaptchaToken)
       }
 
+      const externalPayload = new FormData()
+      externalPayload.append('nombreCompleto', formData.nombre)
+      externalPayload.append('correo', formData.email)
+      externalPayload.append('telefono', formData.telefono)
+
+      if (file) {
+        externalPayload.append('archivo', file)
+      }
+
       // Enviar al backend con todos los datos
       try {
         const response = await fetch(BACKEND_URL, {
@@ -197,7 +207,20 @@ export const useContactForm = () => {
         }
         
       } catch (backendError) {
-        console.error('Error enviando al backend:', backendError.message)
+        console.error('Error enviando al backend:', backendError instanceof Error ? backendError.message : backendError)
+      }
+
+      try {
+        const externalResponse = await fetch(`${EXTERNAL_API_BASE_URL}`, {
+          method: 'POST',
+          body: externalPayload,
+        })
+
+        if (!externalResponse.ok) {
+          console.error('Error del endpoint externo:', externalResponse.status, externalResponse.statusText)
+        }
+      } catch (externalError) {
+        console.error('Error enviando al endpoint externo:', externalError instanceof Error ? externalError.message : externalError)
       }
 
       setSubmitted(true)
