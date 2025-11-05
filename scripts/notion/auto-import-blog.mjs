@@ -80,11 +80,18 @@ function addToBlogPosts(blogPost) {
   try {
     let content = fs.readFileSync(blogPostsPath, 'utf8');
     
-    // Encontrar la línea "// añade más artículos aquí"
-    const insertPoint = content.indexOf('// añade más artículos aquí');
-    
-    if (insertPoint === -1) {
-      throw new Error('No se encontró el punto de inserción en blogPosts.ts');
+    // Encontrar el inicio del array de artículos
+    const arrayDeclaration = 'const blogPosts: BlogPost[] = [';
+    const arrayStart = content.indexOf(arrayDeclaration);
+
+    if (arrayStart === -1) {
+      throw new Error('No se encontró la declaración del array blogPosts en blogPosts.ts');
+    }
+
+    const newlineAfterArrayStart = content.indexOf('\n', arrayStart);
+
+    if (newlineAfterArrayStart === -1) {
+      throw new Error('No se pudo determinar el punto de inserción en blogPosts.ts');
     }
     
     // Función para formatear categoría (string o array)
@@ -113,6 +120,7 @@ function addToBlogPosts(blogPost) {
 },`;
     
     // Insertar el artículo
+    const insertPoint = newlineAfterArrayStart + 1;
     const newContent = content.slice(0, insertPoint) + articleCode + '\n' + content.slice(insertPoint);
     
     // Escribir el archivo actualizado
