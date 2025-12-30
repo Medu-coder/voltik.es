@@ -18,10 +18,9 @@ interface FormErrors {
 
 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScVqqjhm_CgcYRNYoU6stFXVrJZn_59lhjnZ2XvV4XZ7XTqtg/formResponse'
 const RECAPTCHA_SITE_KEY = '6Lft8dkrAAAAAMLeuF9nGQVsQelP7wIAJVGPHtF6'
-const BACKEND_URL = 'https://backend-voltik-invoices.vercel.app/api/public/intake'
-const EXTERNAL_API_BASE_URL = 'https://api.voltik.es/api/solicitudes/externa'
+const API_BASE_URL = 'https://api.voltik.es/api/solicitudes/externa'
 
-export const useContactForm = () => {
+export const useContactForm = (fuente?: string) => {
   const { toast } = useToast()
   const today = new Date().toISOString().slice(0, 10)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -172,55 +171,32 @@ export const useContactForm = () => {
         body: googleFormPayload,
       })
 
-      // Enviar al backend con todos los datos
-      const backendPayload = new FormData()
-      backendPayload.append('fecha', formData.fecha)
-      backendPayload.append('nombre', formData.nombre)
-      backendPayload.append('email', formData.email)
-      backendPayload.append('telefono', formData.telefono)
+      // Preparar payload para el backend
+      const payload = new FormData()
+      payload.append('nombreCompleto', formData.nombre)
+      payload.append('correo', formData.email)
+      payload.append('telefono', formData.telefono)
+
+      if (file) {
+        payload.append('archivo', file)
+      }
       
-      if (file) {
-        backendPayload.append('archivo', file)
-      }
-      if (recaptchaToken) {
-        backendPayload.append('recaptchaToken', recaptchaToken)
+      if (fuente) {
+        payload.append('fuente', fuente)
       }
 
-      const externalPayload = new FormData()
-      externalPayload.append('nombreCompleto', formData.nombre)
-      externalPayload.append('correo', formData.email)
-      externalPayload.append('telefono', formData.telefono)
-
-      if (file) {
-        externalPayload.append('archivo', file)
-      }
-
-      // Enviar al backend con todos los datos
+      // Enviar al backend
       try {
-        const response = await fetch(BACKEND_URL, {
+        const response = await fetch(API_BASE_URL, {
           method: 'POST',
-          body: backendPayload,
+          body: payload,
         })
-        
+
         if (!response.ok) {
           console.error('Error del backend:', response.status, response.statusText)
         }
-        
-      } catch (backendError) {
-        console.error('Error enviando al backend:', backendError instanceof Error ? backendError.message : backendError)
-      }
-
-      try {
-        const externalResponse = await fetch(`${EXTERNAL_API_BASE_URL}`, {
-          method: 'POST',
-          body: externalPayload,
-        })
-
-        if (!externalResponse.ok) {
-          console.error('Error del endpoint externo:', externalResponse.status, externalResponse.statusText)
-        }
-      } catch (externalError) {
-        console.error('Error enviando al endpoint externo:', externalError instanceof Error ? externalError.message : externalError)
+      } catch (error) {
+        console.error('Error enviando al backend:', error instanceof Error ? error.message : error)
       }
 
       setSubmitted(true)

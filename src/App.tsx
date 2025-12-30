@@ -12,6 +12,7 @@ import FormularioPage from "./pages/formulario/Formulario";
 import FormularioSecPage from "./pages/formulario-sec/FormularioSec";
 import BlogArticle from "./pages/blog/BlogArticle";
 import Privacy from "./pages/privacy/Privacy";
+import LandingPrapartments from "./pages/landing-prapartments/LandingPrapartments";
 import Canonical from "./app/seo/Canonical";
 import RouteAnalytics from "./app/analytics/RouteAnalytics";
 
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogArticle />} />
           <Route path="/privacidad" element={<Privacy />} />
+          <Route path="/landing-colectivos-prapartments" element={<LandingPrapartments />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

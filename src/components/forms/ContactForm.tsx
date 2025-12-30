@@ -9,13 +9,15 @@ interface ContactFormProps {
   subtitle?: string
   showTitle?: boolean
   className?: string
+  fuente?: string
 }
 
 export default function ContactForm({ 
   title = "Envía tu factura",
   subtitle = "Tardas menos de 1 minuto. Gratis y sin compromiso.",
   showTitle = true,
-  className = ""
+  className = "",
+  fuente
 }: ContactFormProps) {
   const {
     formData,
@@ -36,7 +38,7 @@ export default function ContactForm({
     handleSubmit,
     resetForm,
     RECAPTCHA_SITE_KEY
-  } = useContactForm()
+  } = useContactForm(fuente)
 
   // Si el formulario se ha enviado exitosamente, mostrar pantalla de éxito
   if (submitted) {
