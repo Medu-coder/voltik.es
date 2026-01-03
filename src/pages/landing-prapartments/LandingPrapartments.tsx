@@ -41,12 +41,18 @@ const LandingPrapartments = () => {
             </h1>
             <div className="flex flex-col items-center gap-4 sm:gap-5">
               <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-5 md:gap-8">
-                <img
-                  src="/partners/logo-pr.png"
-                  alt="P&R Apartments"
-                  className="h-20 md:h-18 w-auto drop-shadow-lg"
-                  loading="lazy"
-                />
+                <a
+                  href="https://prapartments.es"
+                  className="inline-flex items-center hover:opacity-80 transition-opacity"
+                  aria-label="P&R Apartments - Ir a la página principal"
+                >
+                  <img
+                    src="/partners/logo-pr.png"
+                    alt="P&R Apartments"
+                    className="h-20 md:h-18 w-auto drop-shadow-lg"
+                    loading="lazy"
+                  />
+                </a>
                 <span className="text-sm uppercase tracking-[0.5em] text-muted-foreground">by</span>
                 <a
                   href="https://voltik.es"
