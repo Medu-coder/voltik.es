@@ -27,7 +27,7 @@ const LandingPrapartments = () => {
   return (
     <>
       <Seo
-        title="Envía tu factura - Voltik · Colectivos Prapartments"
+        title="Voltik · Colectivo P&R Apartments - Envía tu factura y ahorra en luz"
         description="Sube tu factura de la luz y recibe una propuesta personalizada de ahorro en menos de 48h. Gratis y sin compromiso."
         type="website"
       />
