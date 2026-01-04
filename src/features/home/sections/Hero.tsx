@@ -1,31 +1,26 @@
-import { ArrowRight, Upload, PiggyBank, ShieldCheck, Zap } from 'lucide-react'
+import { ArrowRight, PiggyBank, ShieldCheck, Zap } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import heroImage from '@/assets/hero-family.png'
 import VoltikLogo from '@/components/ui/VoltikLogo'
 
 export default function Hero() {
+  const highlights = [
+    { icon: Zap, text: 'La misma luz por menos dinero' },
+    { icon: PiggyBank, text: 'Ahorro medio del 20%' },
+    { icon: ShieldCheck, text: 'No almacenamos tus datos' },
+  ]
+
   return (
     <section
       id="hero"
-      className="relative overflow-hidden min-h-screen flex items-center pt-16 pb-16 md:pt-20 md:pb-24 bg-gradient-to-br from-primary/40 via-primary/20 to-secondary/30"
+      className="relative overflow-hidden pt-20 pb-28 md:pt-24 md:pb-32 lg:pb-36 bg-gradient-to-br from-secondary/60 via-background to-primary/20"
     >
-      {/* Background image */}
-      <div className="absolute inset-0 opacity-40">
-        <img
-          src={heroImage}
-          alt="Familia ahorrando factura de luz con Voltik - Análisis gratuito de eficiencia energética en 48h"
-          className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
-          loading="eager"
-          fetchPriority="high"
-          width="800"
-          height="600"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
-      </div>
+      <div className="absolute -top-24 right-0 h-64 w-64 rounded-full bg-primary/25 blur-3xl" aria-hidden />
+      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-secondary/40 blur-3xl" aria-hidden />
 
-      <div className="voltik-container relative">
-        <div className="grid gap-12 lg:grid-cols-12 items-center">
-          <div className="lg:col-span-7 text-center lg:text-left">
+      <div className="voltik-container-narrow relative">
+        <div className="grid gap-12 lg:grid-cols-12 items-center mb-16 md:mb-20 lg:mb-24">
+          <div className="lg:col-span-6 text-center lg:text-left">
 
             <div className="mb-6 -mt-4 md:mt-0">
             <VoltikLogo
@@ -35,14 +30,17 @@ export default function Hero() {
             </div>
 
             <div className="mb-6 -mt-2 md:mt-0">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-10">
+              <div className="voltik-chip mx-auto lg:mx-0 mb-4">
+                100% gratis · Oferta en 48h
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
                 Tu asesor energético de confianza para que empieces a ahorrar hoy
               </h1>
             </div>
 
-            <p className="text-lg md:text-2xl text-foreground mb-8 lg:max-w-2xl mx-auto lg:mx-0">
+            <p className="text-lg md:text-2xl text-foreground mb-8 lg:max-w-xl mx-auto lg:mx-0">
               Sube tu factura de luz, recibe la mejor oferta y comienza a ahorrar.<br />
-              Sin compromiso, totalmente gratis y con <a href="/como-funciona" className="text-foreground hover:text-foreground underline hover:no-underline transition-colors">una oferta en menos de 48&nbsp;horas</a>.
+              Sin compromiso, totalmente gratis y con una oferta en menos de 48&nbsp;horas.
             </p>
 
             <div className="flex flex-col items-center sm:items-start gap-2">
@@ -55,7 +53,8 @@ export default function Hero() {
                     </a>
                   </VoltikButton>
                   <span className="text-sm text-voltik-success font-bold uppercase tracking-wide text-center">
-                    100% GRATIS - SIN COSTE - 0€
+                    Totalmente gratuito. <br />
+                    ¡SIN COSTE!
                   </span>
                 </div>
                 <VoltikButton variant="ghost" size="lg" className="bg-background/60 hover:bg-background/80 min-h-[48px] min-w-[180px]" asChild>
@@ -67,49 +66,64 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12">
-              <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20 hover:bg-background/80 hover:border-primary/40 transition-all duration-base ease-out hover:-translate-y-0.5 hover:shadow-md">
-                <Zap size={20} className="text-foreground" />
-                <span className="text-sm font-medium">La misma luz por menos dinero</span>
-              </div>
-              <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20 hover:bg-background/80 hover:border-primary/40 transition-all duration-base ease-out hover:-translate-y-0.5 hover:shadow-md">
-                <PiggyBank size={20} className="text-foreground" />
-                <span className="text-sm font-medium">Ahorro medio del 20%</span>
-              </div>
-              <div className="flex items-center justify-center sm:justify-start gap-3 bg-background/70 rounded-xl px-4 py-3 border border-primary/20 hover:bg-background/80 hover:border-primary/40 transition-all duration-base ease-out hover:-translate-y-0.5 hover:shadow-md">
-                <ShieldCheck size={20} className="text-foreground" />
-                <span className="text-sm font-medium">No almacenamos tus datos</span>
-              </div>
-            </div>
           </div>
 
-          <div className="lg:col-span-5">
-            <div className="voltik-card bg-background/95 backdrop-blur-sm border-0 shadow-2xl rounded-3xl max-w-sm mx-auto">
-              <div className="flex items-center justify-between mb-8">
-                <div>
-                  <p className="text-sm text-muted-foreground">Ahorro estimado</p>
-                  <p className="text-2xl font-semibold text-primary-foreground">23%</p>
+          <div className="lg:col-span-6">
+            <div className="relative max-w-xl mx-auto">
+              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary/20 blur-3xl" aria-hidden />
+              <div className="relative overflow-hidden rounded-[3rem] border border-primary/20 shadow-2xl">
+                <img
+                  src={heroImage}
+                  alt="Familia ahorrando factura de luz con Voltik - Análisis gratuito de eficiencia energética en 48h"
+                  className="h-72 w-full object-cover md:h-[420px] lg:h-[480px]"
+                  loading="eager"
+                  fetchPriority="high"
+                  width="900"
+                  height="700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-background/70 via-transparent to-transparent" />
+              </div>
+              <div className="absolute -bottom-10 left-6 right-6 rounded-[2.5rem] bg-background/90 border border-primary/15 p-5 shadow-xl backdrop-blur-sm">
+                <div className="grid grid-cols-2 gap-4 text-left">
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Ahorro estimado</p>
+                    <p className="text-2xl font-semibold text-foreground">23%</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Tiempo medio</p>
+                    <p className="text-2xl font-semibold text-foreground">&lt; 48h</p>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-sm text-muted-foreground">Tiempo medio de respuesta</p>
-                  <p className="text-2xl font-semibold text-primary-foreground">&lt; 48h</p>
+                <div className="mt-4 grid gap-3">
+                  <div className="rounded-2xl border border-primary/10 p-3 bg-secondary/30">
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Ejemplo negocio</p>
+                    <p className="text-lg font-semibold text-foreground">Ahorro anual 1.280€</p>
+                  </div>
+                  <div className="rounded-2xl border border-primary/10 p-3 bg-secondary/30">
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Ejemplo hogar</p>
+                    <p className="text-lg font-semibold text-foreground">Ahorro anual 456€</p>
+                  </div>
                 </div>
               </div>
-              <div className="space-y-4">
-                <div className="rounded-xl border-0 p-4 bg-secondary/30">
-                  <p className="text-sm text-muted-foreground uppercase tracking-wide mb-1">Ejemplo factura negocio</p>
-                  <p className="text-2xl font-semibold text-foreground">Ahorro anual 1.280€</p>
-                </div>
-                <div className="rounded-xl border-0 p-4 bg-secondary/30">
-                  <p className="text-sm text-muted-foreground uppercase tracking-wide mb-1">Ejemplo factura hogar</p>
-                  <p className="text-2xl font-semibold text-foreground">Ahorro anual 456€</p>
-                </div>
-              </div>
-              <p className="mt-6 text-sm font-semibold text-muted-foreground text-center">
-                Más de 5.000 hogares y negocios ya confían en Voltik para ahorrar en su factura eléctrica
-              </p>
             </div>
           </div>
+        </div>
+
+        <div className="relative rounded-[3rem] bg-secondary/50 border border-primary/15 px-6 py-6 shadow-sm">
+          <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+            {highlights.map((item) => (
+              <div
+                key={item.text}
+                className="flex items-center gap-2 rounded-full bg-background/90 border border-primary/20 px-5 py-3 text-sm font-semibold text-foreground shadow-sm"
+              >
+                <item.icon size={18} className="text-foreground" />
+                <span>{item.text}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-center text-sm font-semibold text-muted-foreground">
+            Más de 5.000 hogares y negocios ya confían en Voltik para ahorrar en su factura eléctrica
+          </p>
         </div>
       </div>
     </section>

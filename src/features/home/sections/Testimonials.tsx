@@ -168,8 +168,10 @@ export default function Testimonials() {
   const duplicatedTestimonials = [...testimonials, ...testimonials]
 
   return (
-    <section id="testimonios" className="voltik-section bg-gradient-to-br from-primary/5 to-secondary/5">
-      <div className="voltik-container">
+    <section id="testimonios" className="voltik-section-airy relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/10">
+      <div className="absolute -top-24 left-0 h-64 w-64 rounded-full bg-primary/20 blur-3xl" aria-hidden />
+      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-secondary/25 blur-3xl" aria-hidden />
+      <div className="voltik-container-narrow relative">
         {/* Header */}
         <div 
           ref={sectionRef}
@@ -181,7 +183,7 @@ export default function Testimonials() {
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
             Miles de hogares y negocios en toda España ya están ahorrando en su factura de luz.<br /> 
             Historias reales de ahorro energético, ahorros reales en euros.<br /> 
-            <a href="/como-funciona" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">Descubre cómo funciona</a>
+            <a href="/como-funciona" className="voltik-inline-link">Descubre cómo funciona</a>
           </p>
         </div>
 
@@ -201,7 +203,7 @@ export default function Testimonials() {
                 className="flex-shrink-0 px-2 sm:px-3"
                 style={{ width: `${100 / (testimonials.length * 2)}%` }}
               >
-                <div className="voltik-card bg-background/95 backdrop-blur-sm border border-primary/20 p-6 h-full">
+                <div className="voltik-card bg-background/95 backdrop-blur-sm border border-primary/20 shadow-lg hover:shadow-xl p-6 h-full">
                   {/* Savings Badge */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/40 text-text text-sm font-semibold">

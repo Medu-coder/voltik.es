@@ -1,14 +1,17 @@
 import { ShieldCheck, Clock, Lock } from 'lucide-react'
 import ContactForm from '@/components/forms/ContactForm'
+import residentialImage from '@/assets/residential-service.jpg'
 
 export default function ContactFormSection() {
 
   return (
-    <section id="formulario" className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20">
-      <div className="voltik-container">
-        <div className="text-center max-w-4xl mx-auto mb-12">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-voltik-success/20 border border-voltik-success/30 text-voltik-success text-sm font-medium mb-4">
-            No pagas nada · Servicio 100% gratuito · 0€
+    <section id="formulario" className="voltik-section-airy relative overflow-hidden bg-gradient-to-br from-primary/10 via-background/80 to-secondary/20">
+      <div className="absolute -top-24 right-0 h-64 w-64 rounded-full bg-primary/20 blur-3xl" aria-hidden />
+      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-secondary/25 blur-3xl" aria-hidden />
+      <div className="voltik-container-narrow relative">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="voltik-chip mx-auto mb-4">
+            No pagas nada · Servicio totalmente gratuito
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
             Recibe tu oferta personalizada en menos de 48h
@@ -26,12 +29,25 @@ export default function ContactFormSection() {
           <div className="lg:col-span-7">
             <ContactForm 
               showTitle={false}
-              className="bg-background/95"
+              className="bg-background/95 border border-primary/20 shadow-xl backdrop-blur-sm"
             />
           </div>
 
           <aside className="lg:col-span-5 space-y-6">
-            <div className="voltik-card bg-background/80">
+            <div className="relative overflow-hidden rounded-[3rem] border border-primary/20 shadow-xl">
+              <img
+                src={residentialImage}
+                alt="Hogar con consumo optimizado y ahorro energético"
+                className="h-56 w-full object-cover md:h-64 lg:h-72"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 rounded-[2rem] bg-background/85 p-4 shadow-lg">
+                <p className="text-sm font-semibold text-foreground">Ahorro real en tu factura</p>
+                <p className="text-xs text-muted-foreground">Comparamos tarifas y te enviamos la mejor oferta en 48h.</p>
+              </div>
+            </div>
+            <div className="voltik-card bg-background/85 border border-primary/10 shadow-lg">
               <div className="flex items-start gap-4 mb-4">
                 <Lock size={24} className="text-text" />
                 <div>
@@ -61,10 +77,10 @@ export default function ContactFormSection() {
               </div>
             </div>
 
-            <div className="voltik-card bg-secondary/20 border-secondary/40 text-sm text-muted-foreground">
+            <div className="voltik-card bg-secondary/20 border-secondary/40 text-sm text-muted-foreground shadow-md">
               <p>
                 Al enviar el formulario aceptas que podamos contactarte para compartir tu propuesta de ahorro. Consulta la
-                <a href="/privacidad" className="ml-1 underline text-foreground hover:text-primary">política de privacidad</a> para más información.
+                <a href="/privacidad" className="ml-1 voltik-inline-link">política de privacidad</a> para más información.
               </p>
             </div>
           </aside>

@@ -12,6 +12,11 @@ let globalObserver: IntersectionObserver | null = null;
 const observedElements = new WeakMap<Element, () => void>();
 const animationQueue = new Set<Element>(); // Cola de animaciones
 
+const isInViewport = (element: Element, offset = 50) => {
+  const rect = element.getBoundingClientRect();
+  return rect.top < window.innerHeight - offset && rect.bottom > 0;
+};
+
 export const useScrollAnimationOptimized = (options: UseScrollAnimationOptions = {}) => {
   const {
     threshold = 0.15, // Más sensible para activar antes
@@ -64,7 +69,33 @@ export const useScrollAnimationOptimized = (options: UseScrollAnimationOptions =
     observedElements.set(element, callback);
     globalObserver.observe(element);
 
+    const checkAndTrigger = () => {
+      const current = ref.current;
+      if (!current) return;
+      if (isInViewport(current)) {
+        callback();
+        if (triggerOnce) {
+          globalObserver?.unobserve(current);
+          observedElements.delete(current);
+          animationQueue.delete(current);
+        }
+      }
+    };
+
+    const rafId = requestAnimationFrame(checkAndTrigger);
+    const handlePageShow = () => {
+      if (document.visibilityState === 'visible') {
+        requestAnimationFrame(checkAndTrigger);
+      }
+    };
+
+    window.addEventListener('pageshow', handlePageShow);
+    document.addEventListener('visibilitychange', handlePageShow);
+
     return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('pageshow', handlePageShow);
+      document.removeEventListener('visibilitychange', handlePageShow);
       if (globalObserver) {
         globalObserver.unobserve(element);
         observedElements.delete(element);

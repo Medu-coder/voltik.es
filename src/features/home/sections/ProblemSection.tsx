@@ -19,13 +19,20 @@ export default function ProblemSection() {
   ]
 
   return (
-    <section id="problema" className="voltik-section bg-muted/40 pb-6 md:pb-8 lg:pb-10">
-      <div className="voltik-container">
-        <div className="max-w-6xl mx-auto">
+    <section id="problema" className="voltik-section-compact relative overflow-hidden bg-secondary/20">
+      <div className="absolute -top-24 right-0 h-56 w-56 rounded-full bg-destructive/10 blur-3xl" aria-hidden />
+      <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-primary/10 blur-3xl" aria-hidden />
+      <div className="voltik-container-narrow relative">
+        <div className="max-w-5xl mx-auto">
           <div 
             ref={sectionRef}
             className="space-y-6"
           >
+            <div className="flex justify-center">
+              <div className="voltik-chip">
+                El problema
+              </div>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
               ¿Pagas de más en tu factura de luz? Te ayudamos a ahorrar
             </h2>
@@ -34,8 +41,9 @@ export default function ProblemSection() {
               {painPoints.map((point, index) => (
                 <div
                   key={point.title}
-                  className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-destructive/5 to-destructive/10 border border-destructive/20 p-6 flex flex-col scroll-animate-stagger ${index === 2 ? 'sm:col-span-2 sm:justify-self-center sm:max-w-sm lg:col-span-1 lg:justify-self-stretch lg:max-w-none' : ''} ${sectionVisible ? 'animate-in' : ''}`}
+                  className={`group relative overflow-hidden rounded-[2.5rem] bg-background/90 border border-destructive/20 p-6 flex flex-col shadow-lg hover:shadow-2xl backdrop-blur-sm scroll-animate-stagger ${index === 2 ? 'sm:col-span-2 sm:justify-self-center sm:max-w-sm lg:col-span-1 lg:justify-self-stretch lg:max-w-none' : ''} ${sectionVisible ? 'animate-in' : ''}`}
                 >
+                  <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 to-transparent opacity-70"></div>
                   <div className="absolute inset-0 bg-gradient-to-br from-destructive/5 to-transparent opacity-0 group-hover:opacity-100"></div>
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-start gap-3">

@@ -69,8 +69,9 @@ export default function Faqs() {
   }, [])
 
   return (
-    <section id="faqs" className="voltik-section bg-muted/30">
-      <div className="voltik-container max-w-3xl mx-auto">
+    <section id="faqs" className="voltik-section-compact relative overflow-hidden bg-muted/20">
+      <div className="absolute -top-20 right-0 h-56 w-56 rounded-full bg-secondary/20 blur-3xl" aria-hidden />
+      <div className="voltik-container-tight relative">
         <div 
           ref={sectionRef}
           className="text-center mb-10"
@@ -83,7 +84,7 @@ export default function Faqs() {
           </p>
         </div>
 
-        <Accordion type="single" collapsible defaultValue="faq-0" className={`bg-background/80 border border-primary/20 rounded-xl divide-y scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}>
+        <Accordion type="single" collapsible defaultValue="faq-0" className={`bg-background/80 border border-primary/20 rounded-[2.5rem] divide-y scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}>
           {faqs.map((faq, index) => (
             <AccordionItem key={faq.question} value={`faq-${index}`} className="px-4">
               <AccordionTrigger className="text-md font-semibold text-foreground py-4">

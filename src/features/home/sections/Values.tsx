@@ -36,8 +36,9 @@ export default function Values() {
   ]
 
   return (
-    <section id="beneficios" className="voltik-section bg-muted/30">
-      <div className="voltik-container">
+    <section id="beneficios" className="voltik-section-compact relative overflow-hidden bg-muted/20">
+      <div className="absolute -top-24 right-0 h-64 w-64 rounded-full bg-primary/15 blur-3xl" aria-hidden />
+      <div className="voltik-container-narrow relative">
         <div 
           ref={sectionRef}
           className="text-center max-w-5xl mx-auto mb-12"
@@ -48,8 +49,8 @@ export default function Values() {
           <p className="text-lg text-muted-foreground">
             En Voltik creemos en las relaciones a largo plazo, por eso velamos siempre por tus intereses energéticos. <br />
             Servicios de eficiencia energética con transparencia total y ahorro garantizado. <br />
-            Descubre <a href="/#testimonios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">lo que dicen nuestros clientes</a> y 
-            conoce nuestros <a href="/servicios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-colors">servicios de eficiencia energética</a>.
+            Descubre <a href="/#testimonios" className="voltik-inline-link">lo que dicen nuestros clientes</a> y 
+            conoce nuestros <a href="/servicios" className="voltik-inline-link">servicios de eficiencia energética</a>.
           </p>
         </div>
 
@@ -57,7 +58,7 @@ export default function Values() {
           {differentiators.map((item, index) => (
             <article
               key={item.title}
-              className={`voltik-card text-left relative overflow-hidden group flex flex-col h-full scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+              className={`voltik-card bg-background/95 border border-primary/10 shadow-lg text-left relative overflow-hidden group flex flex-col h-full scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${item.accent}`}>

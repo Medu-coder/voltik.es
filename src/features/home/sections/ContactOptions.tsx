@@ -7,12 +7,16 @@ export default function ContactOptions() {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimationOptimized()
 
   return (
-    <section id="contacto-alternativo" className="voltik-section">
-      <div className="voltik-container max-w-4xl mx-auto text-center">
+    <section id="contacto-alternativo" className="voltik-section-compact relative overflow-hidden">
+      <div className="absolute -top-24 left-0 h-64 w-64 rounded-full bg-primary/15 blur-3xl" aria-hidden />
+      <div className="voltik-container-narrow max-w-4xl mx-auto text-center relative">
         <div 
           ref={sectionRef}
-          className={`voltik-card bg-primary/10 border-primary/30 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+          className={`voltik-card bg-primary/10 border-primary/30 shadow-xl rounded-3xl scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
         >
+          <div className="voltik-chip mx-auto mb-4">
+            Canales directos
+          </div>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             ¿Prefieres contactarnos por otro canal?
           </h2>

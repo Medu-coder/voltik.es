@@ -72,7 +72,7 @@ export default function ContactForm({
             value={formData.nombre}
             onChange={handleChange}
             placeholder="Tu nombre y apellidos"
-            className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
+            className={`w-full px-5 py-3 rounded-full border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
               errors.nombre ? 'border-destructive bg-destructive/5' : 'border-input bg-background hover:border-primary/50'
             }`}
             required
@@ -95,7 +95,7 @@ export default function ContactForm({
             value={formData.email}
             onChange={handleChange}
             placeholder="tu@email.com"
-            className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
+            className={`w-full px-5 py-3 rounded-full border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
               errors.email ? 'border-destructive bg-destructive/5' : 'border-input bg-background hover:border-primary/50'
             }`}
             required
@@ -118,7 +118,7 @@ export default function ContactForm({
             value={formData.telefono}
             onChange={handleChange}
             placeholder="687 654 321"
-            className={`w-full px-4 py-3 rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
+            className={`w-full px-5 py-3 rounded-full border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
               errors.telefono ? 'border-destructive bg-destructive/5' : 'border-input bg-background hover:border-primary/50'
             }`}
             required
@@ -130,7 +130,7 @@ export default function ContactForm({
           )}
         </div>
 
-        <div className="rounded-xl border border-dashed border-primary/50 bg-primary/5 p-6">
+        <div className="rounded-[2.5rem] border border-dashed border-primary/50 bg-primary/5 p-6">
           <div className="flex items-center gap-3 mb-4">
             <UploadCloud size={20} className="text-primary" />
             <p className="text-base font-semibold text-foreground">Subir factura (PDF)</p>
@@ -166,7 +166,7 @@ export default function ContactForm({
             </div>
           ) : (
             <div className="space-y-3">
-              <div className="flex items-center gap-3 p-3 bg-background rounded-lg border">
+              <div className="flex items-center gap-3 p-3 bg-background rounded-2xl border">
                 <FileText size={20} className="text-primary flex-shrink-0" />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-foreground" title={file.name}>
@@ -195,7 +195,7 @@ export default function ContactForm({
               )}
               
               {isFileValid && showRecaptcha && (
-                <div className={`space-y-3 p-4 rounded-lg transition-all duration-300 ${
+                <div className={`space-y-3 p-4 rounded-[2rem] transition-all duration-300 ${
                   recaptchaToken 
                     ? 'bg-voltik-success/10 border border-voltik-success/30' 
                     : 'bg-gray-50 border border-gray-200'

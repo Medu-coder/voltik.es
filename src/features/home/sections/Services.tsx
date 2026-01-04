@@ -1,6 +1,8 @@
 import { FileText, ScrollText } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { useScrollAnimationOptimized } from '@/hooks/use-scroll-animation-optimized'
+import commercialImage from '@/assets/commercial-service.jpg'
+import emergencyImage from '@/assets/emergency-service.jpg'
 
 export default function Services() {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimationOptimized()
@@ -11,18 +13,23 @@ export default function Services() {
       description: 'Preparamos el certificado oficial que necesitas para vender o alquilar tu inmueble, incluyendo asesoramiento sobre mejoras de consumo',
       icon: FileText,
       cta: 'Solicitar certificado',
+      image: commercialImage,
+      imageAlt: 'Técnico evaluando eficiencia energética en un local comercial',
     },
     {
       title: 'Boletines eléctricos (CIE)',
       description: 'Tramitamos y legalizamos tu instalación para altas nuevas, cambios de potencia o revisiones obligatorias ante la distribuidora',
       icon: ScrollText,
       cta: 'Solicitar boletín',
+      image: emergencyImage,
+      imageAlt: 'Instalación eléctrica revisada por técnicos certificados',
     },
   ]
 
   return (
-    <section id="servicios" className="voltik-section">
-      <div className="voltik-container">
+    <section id="servicios" className="voltik-section-compact relative overflow-hidden">
+      <div className="absolute -top-20 left-0 h-56 w-56 rounded-full bg-secondary/25 blur-3xl" aria-hidden />
+      <div className="voltik-container-narrow relative">
         <div 
           ref={sectionRef}
           className="text-center max-w-4xl mx-auto mb-12"
@@ -33,18 +40,27 @@ export default function Services() {
           <p className="text-lg text-muted-foreground">
             Somos asesores energéticos e ingenieros eléctricos colegiados.<br />
             Realizamos todo tipo de gestiones técnicas y legales en tus instalaciones.<br />
-            <a href="/servicios" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-all duration-base ease-out hover:-translate-y-0.5">Conoce todos nuestros servicios</a> y 
-            <a href="/como-funciona" className="text-muted-foreground hover:text-primary underline hover:no-underline transition-all duration-base ease-out hover:-translate-y-0.5"> descubre cómo funciona</a>.
+            <a href="/servicios" className="voltik-inline-link">Conoce todos nuestros servicios</a> y{" "}
+            <a href="/como-funciona" className="voltik-inline-link">descubre cómo funciona</a>.
           </p>
         </div>
 
         <div className="voltik-grid-2 stagger-container">
-          {secondaryServices.map((service, index) => (
+          {secondaryServices.map((service) => (
             <article
               key={service.title}
-              className={`voltik-card h-full flex flex-col justify-between scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
+              className={`voltik-card bg-background/95 border border-primary/10 shadow-lg h-full flex flex-col justify-between scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
             >
               <div>
+                <div className="relative mb-5 overflow-hidden rounded-[2.5rem] border border-primary/10">
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    className="h-40 w-full object-cover md:h-44"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                </div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-8 h-8 rounded-lg bg-primary/60 flex items-center justify-center">
                     <service.icon size={22} className="text-text" />

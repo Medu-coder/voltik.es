@@ -237,13 +237,61 @@
   .voltik-container {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
+  .voltik-container-narrow {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .voltik-container-tight {
+    @apply max-w-3xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .voltik-pill {
+    @apply rounded-full;
+  }
+
+  .voltik-pill-outline {
+    @apply rounded-full border border-primary/20 bg-background/80;
+  }
+
+  .voltik-nav-pill {
+    @apply flex items-center gap-6 rounded-full bg-secondary/60 px-6 py-3 shadow-sm border border-primary/15;
+  }
+
+  .voltik-nav-link {
+    @apply relative text-foreground/80 hover:text-foreground transition-colors text-base font-semibold;
+  }
+
+  .voltik-chip {
+    @apply inline-flex items-center gap-2 rounded-full bg-primary/30 px-4 py-2 text-sm font-semibold text-foreground;
+  }
+
+  .voltik-inline-link {
+    @apply inline-flex items-center rounded-full bg-secondary/50 px-3 py-1 text-foreground/90 font-semibold transition-colors hover:bg-secondary/70 hover:text-foreground;
+  }
+
   .voltik-section {
     @apply py-12 md:py-16 lg:py-20;
   }
-  
+
+  .voltik-section-airy {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .voltik-section-compact {
+    @apply py-8 md:py-12 lg:py-14;
+  }
+
   .voltik-card {
-    @apply bg-card rounded-xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-base ease-out w-full hover:-translate-y-1;
+    @apply bg-card rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-base ease-out w-full hover:-translate-y-1 border border-primary/10;
+  }
+
+  .voltik-surface {
+    @apply bg-background/85 border border-primary/10 rounded-3xl shadow-lg backdrop-blur-sm;
+  }
+
+  .voltik-card-float {
+    @apply bg-background/90 border border-primary/20 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-base ease-out w-full hover:-translate-y-1;
   }
   
   .voltik-grid {

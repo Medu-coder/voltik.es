@@ -101,8 +101,8 @@ export default function Header() {
       <header 
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
           isScrolled 
-            ? 'bg-background/95 backdrop-blur-md shadow-md' 
-            : 'bg-transparent'
+            ? 'bg-background/90 backdrop-blur-md shadow-md' 
+            : 'bg-background/70 backdrop-blur-sm'
         }`}
       >
       <div className="voltik-container">
@@ -120,18 +120,20 @@ export default function Header() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8" aria-label="Navegación principal">
-            {navigationItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={item.isFaq ? handleFaqClick : undefined}
-                className="relative text-foreground/80 hover:text-foreground transition-colors text-base font-medium group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
-              </a>
-            ))}
+          <nav className="hidden lg:flex items-center" aria-label="Navegación principal">
+            <div className="voltik-nav-pill">
+              {navigationItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={item.isFaq ? handleFaqClick : undefined}
+                  className="voltik-nav-link group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-primary transition-transform duration-200 group-hover:scale-x-100"></span>
+                </a>
+              ))}
+            </div>
           </nav>
 
           {/* CTA Buttons - Desktop */}
@@ -146,7 +148,7 @@ export default function Header() {
                       600 00 00 00
             </a>
             */}
-            <VoltikButton variant="voltik" size="md" asChild>
+            <VoltikButton variant="voltik" size="md" className="shadow-lg" asChild>
               <a href="/formulario" className="flex items-center">
                 Subir mi factura
                 <span className="ml-1 px-1.5 py-0.5 text-xs rounded-full bg-voltik-success/20 text-voltik-success font-bold md:ml-2 md:px-2">
@@ -169,7 +171,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-md">
+          <div className="lg:hidden mx-4 mt-3 rounded-3xl border border-primary/15 bg-secondary/60 shadow-lg backdrop-blur-md">
             <nav className="py-4 space-y-2" aria-label="Navegación móvil">
               {navigationItems.map((item) => (
                 <a
@@ -181,14 +183,14 @@ export default function Header() {
                     }
                     setIsMenuOpen(false)
                   }}
-                  className="block px-4 py-4 text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-colors rounded-lg min-h-[44px] flex items-center"
+                  className="block px-4 py-4 text-foreground/80 hover:text-foreground hover:bg-background/60 transition-colors rounded-full min-h-[44px] flex items-center"
                 >
                   {item.label}
                 </a>
               ))}
               
               {/* Mobile CTA */}
-              <div className="px-4 pt-4 border-t border-border space-y-3">
+              <div className="px-4 pt-4 border-t border-primary/15 space-y-3">
                 {/*
                 <a
                   href="tel:+34600000000"
@@ -215,7 +217,7 @@ export default function Header() {
                 </a>
                 */}
 
-                <VoltikButton variant="voltik" className="w-full" asChild>
+                <VoltikButton variant="voltik" className="w-full shadow-lg" asChild>
                   <a href="/formulario" onClick={() => setIsMenuOpen(false)}>
                     Subir mi factura
                   </a>

@@ -21,8 +21,8 @@ export default function Footer() {
                 className="h-8 mb-4 filter brightness-0 invert"
               />
               <p className="text-background/80 mb-6 max-w-md">
-                Servicios de <a href="/servicios" className="text-background/80 hover:text-primary underline hover:no-underline transition-colors">eficiencia energética</a> para hogares y negocios. 
-                <a href="/como-funciona" className="text-background/80 hover:text-primary underline hover:no-underline transition-colors">Analizamos tu factura de luz</a> y negociamos las mejores condiciones para que empieces a ahorrar ahora.
+                Servicios de <a href="/servicios" className="voltik-inline-link text-background/90 bg-background/10 hover:bg-background/20 hover:text-background">eficiencia energética</a> para hogares y negocios. 
+                <a href="/como-funciona" className="voltik-inline-link text-background/90 bg-background/10 hover:bg-background/20 hover:text-background">Analizamos tu factura de luz</a> y negociamos las mejores condiciones para que empieces a ahorrar ahora.
               </p>
               
               {/* Contact Info */}
