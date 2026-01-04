@@ -20,8 +20,8 @@ export default function TrustBar() {
   ]
 
   return (
-    <section id="confianza" className="voltik-section-compact relative overflow-hidden bg-secondary/30">
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/10 via-background to-secondary/10" aria-hidden />
+    <section id="confianza" className="voltik-section-compact relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-primary/10" aria-hidden />
       <div className="voltik-container-narrow relative">
         <div ref={sectionRef} className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center stagger-container">
           {highlights.map((item) => (

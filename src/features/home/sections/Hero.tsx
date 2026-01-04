@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pt-20 pb-28 md:pt-24 md:pb-32 lg:pb-36 bg-gradient-to-br from-secondary/60 via-background to-primary/20"
+      className="relative overflow-hidden pt-20 pb-28 md:pt-24 md:pb-32 lg:pb-36 bg-gradient-to-br from-primary/60 via-background to-secondary/20"
     >
       <div className="absolute -top-24 right-0 h-64 w-64 rounded-full bg-primary/25 blur-3xl" aria-hidden />
       <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-secondary/40 blur-3xl" aria-hidden />
@@ -53,11 +53,11 @@ export default function Hero() {
                     </a>
                   </VoltikButton>
                   <span className="text-sm text-voltik-success font-bold uppercase tracking-wide text-center">
-                    Totalmente gratuito. <br />
+                    Totalmente gratuito <br />
                     ¡SIN COSTE!
                   </span>
                 </div>
-                <VoltikButton variant="ghost" size="lg" className="bg-background/60 hover:bg-background/80 min-h-[48px] min-w-[180px]" asChild>
+                <VoltikButton variant="ghost" size="lg" className="bg-background/60 hover:bg-background/80 border-muted-foreground/70 min-h-[48px] min-w-[180px]" asChild>
                   <a href="/como-funciona" className="group text-base flex items-center justify-center">
                     Ver cómo funciona
                     <ArrowRight size={20} className="ml-2 transition-transform duration-base ease-out group-hover:translate-x-1" />

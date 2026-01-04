@@ -69,7 +69,7 @@ export default function Faqs() {
   }, [])
 
   return (
-    <section id="faqs" className="voltik-section-compact relative overflow-hidden bg-muted/20">
+    <section id="faqs" className="voltik-section-compact relative overflow-hidden">
       <div className="absolute -top-20 right-0 h-56 w-56 rounded-full bg-secondary/20 blur-3xl" aria-hidden />
       <div className="voltik-container-tight relative">
         <div 

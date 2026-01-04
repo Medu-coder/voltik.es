@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voltik · Paleta de color</title>
+  <style>
+    :root {
+      --voltik-primary: #DDE6D5;
+      --voltik-secondary: #F4E7C1;
+      --voltik-neutral-light: #FCFCFC;
+      --voltik-neutral-dark: #4F4F4F;
+      --voltik-background: #FFFFFF;
+      --voltik-text: #1A1A1A;
+      --voltik-success: #16A34A;
+      --voltik-error: #C97E7E;
+      --voltik-warning: #FBBF24;
+      --voltik-info: #60A5FA;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: Arial, sans-serif;
+      color: #1A1A1A;
+      background: #FFFFFF;
+    }
+    h1 {
+      font-size: 24px;
+      margin: 0 0 16px 0;
+    }
+    p {
+      margin: 0 0 24px 0;
+      color: #4F4F4F;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .swatch {
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .color {
+      height: 90px;
+    }
+    .meta {
+      padding: 12px;
+    }
+    .name {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Paleta Voltik</h1>
+  <p>Colores corporativos definidos en <code>src/index.css</code>.</p>
+
+  <div class="grid">
+    <div class="swatch">
+      <div class="color" style="background: var(--voltik-primary)"></div>
+      <div class="meta"><div class="name">Primario</div><code>#DDE6D5</code></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background: var(--voltik-secondary)"></div>
+      <div class="meta"><div class="name">Secundario</div><code>#F4E7C1</code></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background: var(--voltik-neutral-light)"></div>
+      <div class="meta"><div class="name">Neutro claro</div><code>#FCFCFC</code></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background: var(--voltik-neutral-dark)"></div>
+      <div class="meta"><div class="name">Neutro oscuro</div><code>#4F4F4F</code></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background: var(--voltik-background)"></div>
+      <div class="meta"><div class="name">Fondo</div><code>#FFFFFF</code></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background: var(--voltik-text)"></div>
+      <div class="meta"><div class="name">Texto</div><code>#1A1A1A</code></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background: var(--voltik-success)"></div>
+      <div class="meta"><div class="name">Éxito</div><code>#16A34A</code></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background: var(--voltik-error)"></div>
+      <div class="meta"><div class="name">Error</div><code>#C97E7E</code></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background: var(--voltik-warning)"></div>
+      <div class="meta"><div class="name">Warning</div><code>#FBBF24</code></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background: var(--voltik-info)"></div>
+      <div class="meta"><div class="name">Info</div><code>#60A5FA</code></div>
+    </div>
+  </div>
+</body>
+</html>

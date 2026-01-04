@@ -110,7 +110,7 @@ export default function Footer() {
               </a>
               <a
                 href="/como-funciona"
-                className="inline-flex items-center px-6 py-3 bg-background text-foreground rounded-lg border border-primary/40 hover:border-primary/80 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-background text-foreground rounded-lg border border-muted-foreground/60 hover:border-muted-foreground transition-colors"
               >
                 Ver cómo funciona
               </a>

@@ -36,7 +36,7 @@ export default function Values() {
   ]
 
   return (
-    <section id="beneficios" className="voltik-section-compact relative overflow-hidden bg-muted/20">
+    <section id="beneficios" className="voltik-section-compact relative overflow-hidden">
       <div className="absolute -top-24 right-0 h-64 w-64 rounded-full bg-primary/15 blur-3xl" aria-hidden />
       <div className="voltik-container-narrow relative">
         <div 
