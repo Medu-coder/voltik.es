@@ -41,7 +41,7 @@ export default function Services() {
             Somos asesores energéticos e ingenieros eléctricos colegiados.<br />
             Realizamos todo tipo de gestiones técnicas y legales en tus instalaciones.<br />
             <a href="/servicios" className="voltik-inline-link text-md">Conoce todos nuestros servicios</a> y{" "}
-            <a href="/como-funciona" className="voltik-inline-link text-md">descubre cómo funciona</a>.
+            <a href="/como-funciona" className="voltik-inline-link text-md">descubre cómo funciona</a>
           </p>
         </div>
 

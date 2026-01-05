@@ -50,7 +50,7 @@ export default function Values() {
             En Voltik creemos en las relaciones a largo plazo, por eso velamos siempre por tus intereses energéticos. <br />
             Servicios de eficiencia energética con transparencia total y ahorro garantizado. <br />
             Descubre <a href="/#testimonios" className="voltik-inline-link">lo que dicen nuestros clientes</a> y 
-            conoce nuestros <a href="/servicios" className="voltik-inline-link">servicios de eficiencia energética</a>.
+            conoce nuestros <a href="/servicios" className="voltik-inline-link">servicios de eficiencia energética</a>
           </p>
         </div>
 
