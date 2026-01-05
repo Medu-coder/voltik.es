@@ -47,7 +47,7 @@ const Index = () => {
         <ProblemSection />
         <SolutionSection />
         <ContactForm />
-        <Services />
+        {/* <Services /> */}
         <Values />
         <Suspense fallback={<div className="h-32 bg-muted/20 animate-pulse rounded-lg mx-4" />}>
           <LazyTestimonials />
