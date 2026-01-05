@@ -76,7 +76,7 @@ export default function Faqs() {
           ref={sectionRef}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             Preguntas frecuentes
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -87,7 +87,7 @@ export default function Faqs() {
         <Accordion type="single" collapsible defaultValue="faq-0" className={`bg-background/80 border border-primary/20 rounded-[2.5rem] divide-y scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}>
           {faqs.map((faq, index) => (
             <AccordionItem key={faq.question} value={`faq-${index}`} className="px-4">
-              <AccordionTrigger className="text-md font-semibold text-foreground py-4">
+              <AccordionTrigger className="text-base font-semibold text-foreground py-4">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground text-base leading-relaxed">

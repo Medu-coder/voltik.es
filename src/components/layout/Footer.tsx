@@ -41,11 +41,11 @@ export default function Footer() {
                 </div>
                 */}
                 
-                <div className="flex items-center">
-                  <Mail size={18} className="mr-3 text-primary" />
+                <div className="flex items-start gap-3">
+                  <Mail size={18} className="text-primary" />
                   <a 
                     href="mailto:contacto@voltik.es" 
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-primary transition-colors leading-tight"
                   >
                     contacto@voltik.es
                   </a>

@@ -177,7 +177,7 @@ export default function Testimonials() {
           ref={sectionRef}
           className={`text-center mb-16 scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
             Lo que dicen nuestros clientes
           </h2>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">

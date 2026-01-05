@@ -36,7 +36,7 @@ export default function Hero() {
             </div>
 
             <p className="text-lg md:text-2xl text-foreground mb-8 lg:max-w-xl mx-auto lg:mx-0">
-              Sube tu factura de luz, recibe la mejor oferta y comienza a ahorrar.<br />
+              Sube tu factura de luz o gas, recibe la mejor oferta y comienza a ahorrar.<br />
               Sin compromiso, totalmente gratis y con una oferta en menos de 48&nbsp;horas.
             </p>
 

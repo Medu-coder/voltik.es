@@ -355,7 +355,7 @@ const ServicesPage = () => {
         </section>
 
         {/* Benefits */}
-        <section className="voltik-section bg-secondary/30">
+        <section className="voltik-section bg-secondary/10">
           <div className="voltik-container">
             <div className="text-center max-w-4xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { Upload, BarChart3, Sparkles, CheckCircle2, Clock, ShieldCheck, ArrowRight } from 'lucide-react'
 import VoltikLogo from '@/components/ui/VoltikLogo'
+import analisis from '@/assets/analisis-factura.png'
 import Seo from '@/app/seo/Seo'
 
 const ComoFuncionaPage = () => {
@@ -78,12 +79,14 @@ const ComoFuncionaPage = () => {
         {/* Hero */}
         <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
           {/* Background image */}
-          <div className="absolute inset-0 z-0 opacity-20">
-            <VoltikLogo
-              alt="Proceso de ahorro energético con Voltik - Análisis de factura de luz en 3 pasos"
-              className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
+          <div className="absolute inset-0 z-0 opacity-60">
+            <img
+              src={analisis}
+              alt="Proceso de análisis de factura con Voltik"
+              className="w-full h-full object-cover object-center lg:object-[70%_60%]"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-transparent" />
           </div>
           
           <div className="voltik-container relative z-10">
@@ -93,7 +96,7 @@ const ComoFuncionaPage = () => {
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
                 Nuestro equipo de ingenieros eléctricos se encarga de todo el trabajo pesado para que tú solo tengas que subir tu factura de luz y aprobar la mejor oferta.<br />
-                Conoce todos nuestros <a href="/servicios" className="text-muted-foreground hover:text-foreground underline hover:no-underline transition-colors">servicios de eficiencia energética</a>.
+                Conoce también todos nuestros <a href="/servicios" className="text-muted-foreground hover:text-foreground underline hover:no-underline transition-colors">servicios de eficiencia energética</a>.
               </p>
             </div>
           </div>
@@ -143,7 +146,7 @@ const ComoFuncionaPage = () => {
         </section>
 
         {/* Benefits */}
-        <section className="voltik-section bg-secondary/30">
+        <section className="voltik-section bg-secondary/10">
           <div className="voltik-container">
             <div className="text-center max-w-4xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

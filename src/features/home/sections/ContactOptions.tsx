@@ -14,9 +14,6 @@ export default function ContactOptions() {
           ref={sectionRef}
           className={`voltik-card bg-primary/10 border-primary/30 shadow-xl rounded-3xl scroll-animate-stagger ${sectionVisible ? 'animate-in' : ''}`}
         >
-          <div className="voltik-chip mx-auto mb-4">
-            Canales directos
-          </div>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             ¿Prefieres contactarnos por otro canal?
           </h2>

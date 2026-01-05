@@ -1,6 +1,6 @@
 import { ShieldCheck, Clock, Lock } from 'lucide-react'
 import ContactForm from '@/components/forms/ContactForm'
-import residentialImage from '@/assets/residential-service.jpg'
+import envio from '@/assets/envio-factura.png'
 
 export default function ContactFormSection() {
 
@@ -13,7 +13,7 @@ export default function ContactFormSection() {
           <div className="voltik-chip mx-auto mb-4">
             No pagas nada · Servicio totalmente gratuito
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
             Recibe tu oferta personalizada en menos de 48h
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -36,7 +36,7 @@ export default function ContactFormSection() {
           <aside className="lg:col-span-5 space-y-6">
             <div className="relative overflow-hidden rounded-[3rem] border border-primary/20 shadow-xl">
               <img
-                src={residentialImage}
+                src={envio}
                 alt="Hogar con consumo optimizado y ahorro energético"
                 className="h-56 w-full object-cover md:h-64 lg:h-72"
                 loading="lazy"

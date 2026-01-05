@@ -1,8 +1,8 @@
 import { FileText, ScrollText } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { useScrollAnimationOptimized } from '@/hooks/use-scroll-animation-optimized'
-import commercialImage from '@/assets/commercial-service.jpg'
-import emergencyImage from '@/assets/emergency-service.jpg'
+import certificado from '@/assets/Certificado.png'
+import boletin from '@/assets/cie.png'
 
 export default function Services() {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimationOptimized()
@@ -13,7 +13,7 @@ export default function Services() {
       description: 'Preparamos el certificado oficial que necesitas para vender o alquilar tu inmueble, incluyendo asesoramiento sobre mejoras de consumo',
       icon: FileText,
       cta: 'Solicitar certificado',
-      image: commercialImage,
+      image: certificado,
       imageAlt: 'Técnico evaluando eficiencia energética en un local comercial',
     },
     {
@@ -21,7 +21,7 @@ export default function Services() {
       description: 'Tramitamos y legalizamos tu instalación para altas nuevas, cambios de potencia o revisiones obligatorias ante la distribuidora',
       icon: ScrollText,
       cta: 'Solicitar boletín',
-      image: emergencyImage,
+      image: boletin,
       imageAlt: 'Instalación eléctrica revisada por técnicos certificados',
     },
   ]
@@ -34,14 +34,14 @@ export default function Services() {
           ref={sectionRef}
           className="text-center max-w-4xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
             Servicios que completan tu ahorro energético
           </h2>
           <p className="text-lg text-muted-foreground">
             Somos asesores energéticos e ingenieros eléctricos colegiados.<br />
             Realizamos todo tipo de gestiones técnicas y legales en tus instalaciones.<br />
-            <a href="/servicios" className="voltik-inline-link">Conoce todos nuestros servicios</a> y{" "}
-            <a href="/como-funciona" className="voltik-inline-link">descubre cómo funciona</a>.
+            <a href="/servicios" className="voltik-inline-link text-md">Conoce todos nuestros servicios</a> y{" "}
+            <a href="/como-funciona" className="voltik-inline-link text-md">descubre cómo funciona</a>.
           </p>
         </div>
 

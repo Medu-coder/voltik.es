@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { useScrollAnimationOptimized } from '@/hooks/use-scroll-animation-optimized'
-import electricianImage from '@/assets/hero-electrician.jpg'
+import analisisImage from '@/assets/analisis-factura.png'
 
 export default function SolutionSection() {
   const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimationOptimized()
@@ -43,7 +43,7 @@ export default function SolutionSection() {
                   {solutionHighlights.map((text, index) => (
                     <div
                       key={text}
-                      className={`group relative overflow-hidden rounded-[2.5rem] bg-secondary/30 border border-primary/20 p-6 flex flex-col shadow-lg hover:shadow-2xl backdrop-blur-sm scroll-animate-stagger ${solutionVisible ? 'animate-in' : ''}`}
+                      className={`group relative overflow-hidden rounded-[2.5rem] bg-primary/20 border border-primary/20 p-6 flex flex-col shadow-lg hover:shadow-2xl backdrop-blur-sm scroll-animate-stagger ${solutionVisible ? 'animate-in' : ''}`}
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-70"></div>
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100"></div>
@@ -64,7 +64,7 @@ export default function SolutionSection() {
               <div className="lg:col-span-5">
                 <div className="relative overflow-hidden rounded-[3rem] border border-primary/20 shadow-xl">
                   <img
-                    src={electricianImage}
+                    src={analisisImage}
                     alt="Técnico eléctrico revisando instalación para optimizar el consumo"
                     className="h-64 w-full object-cover md:h-72 lg:h-[420px]"
                     loading="lazy"
@@ -77,7 +77,7 @@ export default function SolutionSection() {
                 </div>
               </div>
             </div>
-            <div className="mt-5 flex justify-center">
+            <div className="mt-10 flex justify-center">
               <VoltikButton variant="voltik" size="lg" asChild>
                 <a href="/formulario" className="group">
                   Quiero mi oferta ya

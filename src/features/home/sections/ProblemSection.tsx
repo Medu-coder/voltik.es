@@ -31,7 +31,7 @@ export default function ProblemSection() {
             ref={sectionRef}
             className="space-y-6"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center">
+            <h2 className="text-xl md:text-3xl font-bold text-foreground text-center">
               ¿Pagas de más en tu factura de luz? Te ayudamos a ahorrar
             </h2>
 
