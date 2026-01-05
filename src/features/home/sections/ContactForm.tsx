@@ -5,7 +5,7 @@ import residentialImage from '@/assets/residential-service.jpg'
 export default function ContactFormSection() {
 
   return (
-    <section id="formulario" className="voltik-section-airy relative overflow-hidden bg-gradient-to-br from-primary/10 via-background/80 to-secondary/20">
+    <section id="formulario" className="py-10 relative overflow-hidden">
       <div className="absolute -top-24 right-0 h-64 w-64 rounded-full bg-primary/20 blur-3xl" aria-hidden />
       <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-secondary/25 blur-3xl" aria-hidden />
       <div className="voltik-container-narrow relative">

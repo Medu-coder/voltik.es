@@ -99,11 +99,11 @@ export default function Header() {
       </a>
       
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-          isScrolled 
-            ? 'bg-background/90 backdrop-blur-md shadow-md' 
-            : 'bg-background/70 backdrop-blur-sm'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        isScrolled 
+          ? 'bg-transparent backdrop-blur-md shadow-md' 
+          : 'bg-transparent backdrop-blur-sm'
+      }`}
       >
       <div className="voltik-container">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -121,7 +121,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center" aria-label="Navegación principal">
-            <div className="voltik-nav-pill">
+            <div className="voltik-nav-pill border-2 border-primary/40 shadow-[0_15px_45px_rgba(15,23,42,0.35)]">
               {navigationItems.map((item) => (
                 <a
                   key={item.href}
@@ -171,8 +171,8 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden mx-4 mt-3 rounded-3xl border border-primary/15 bg-secondary/60 shadow-lg backdrop-blur-md">
-            <nav className="py-4 space-y-2" aria-label="Navegación móvil">
+          <div className="lg:hidden mx-4 mt-4 mb-4 rounded-3xl border border-primary/15 bg-background/75 shadow-lg backdrop-blur-md px-4 py-4">
+            <nav className="space-y-3" aria-label="Navegación móvil">
               {navigationItems.map((item) => (
                 <a
                   key={item.href}
@@ -183,7 +183,7 @@ export default function Header() {
                     }
                     setIsMenuOpen(false)
                   }}
-                  className="block px-4 py-4 text-foreground/80 hover:text-foreground hover:bg-background/60 transition-colors rounded-full min-h-[44px] flex items-center"
+                  className="block px-4 py-4 text-foreground/90 hover:text-foreground hover:bg-background/90 transition-colors rounded-full min-h-[44px] flex items-center"
                 >
                   {item.label}
                 </a>

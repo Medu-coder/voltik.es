@@ -19,7 +19,10 @@ export default function ProblemSection() {
   ]
 
   return (
-    <section id="problema" className="voltik-section-compact relative overflow-hidden">
+    <section
+      id="problema"
+      className="py-7 relative overflow-hidden"
+    >
       <div className="absolute -top-24 right-0 h-56 w-56 rounded-full bg-destructive/10 blur-3xl" aria-hidden />
       <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-primary/10 blur-3xl" aria-hidden />
       <div className="voltik-container-narrow relative">
@@ -28,7 +31,7 @@ export default function ProblemSection() {
             ref={sectionRef}
             className="space-y-6"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center">
               ¿Pagas de más en tu factura de luz? Te ayudamos a ahorrar
             </h2>
 

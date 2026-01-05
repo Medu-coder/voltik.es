@@ -255,7 +255,7 @@
   }
 
   .voltik-nav-pill {
-    @apply flex items-center gap-6 rounded-full bg-secondary/60 px-6 py-3 shadow-sm border border-primary/15;
+    @apply flex items-center gap-6 rounded-full px-6 py-3;
   }
 
   .voltik-nav-link {

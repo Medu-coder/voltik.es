@@ -13,7 +13,10 @@ export default function SolutionSection() {
   ]
 
   return (
-    <section id="solucion" className="voltik-section-compact relative overflow-hidden">
+    <section
+      id="solucion"
+      className="voltik-section-compact relative overflow-hidden"
+    >
       <div className="absolute -top-24 left-8 h-56 w-56 rounded-full bg-primary/15 blur-3xl" aria-hidden />
       <div className="voltik-container-narrow relative">
         <div className="max-w-5xl mx-auto">
@@ -74,7 +77,7 @@ export default function SolutionSection() {
                 </div>
               </div>
             </div>
-            <div className="mt-10 flex justify-center">
+            <div className="mt-5 flex justify-center">
               <VoltikButton variant="voltik" size="lg" asChild>
                 <a href="/formulario" className="group">
                   Quiero mi oferta ya
