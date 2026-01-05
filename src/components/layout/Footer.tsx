@@ -21,8 +21,8 @@ export default function Footer() {
                 className="h-8 mb-4 filter brightness-0 invert"
               />
               <p className="text-background/80 mb-6 max-w-md">
-                Servicios de <a href="/servicios" className="voltik-inline-link text-background/90 bg-background/10 hover:bg-background/20 hover:text-background">eficiencia energética</a> para hogares y negocios. 
-                <a href="/como-funciona" className="voltik-inline-link text-background/90 bg-background/10 hover:bg-background/20 hover:text-background">Analizamos tu factura de luz</a> y negociamos las mejores condiciones para que empieces a ahorrar ahora.
+                Servicios de <a href="/servicios" className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">eficiencia energética</a> para hogares y negocios. 
+                <a href="/como-funciona" className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">Analizamos tu factura de luz</a> y negociamos las mejores condiciones para que empieces a ahorrar ahora.
               </p>
               
               {/* Contact Info */}
@@ -67,10 +67,10 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold text-lg mb-4 text-primary">Servicios</h3>
               <ul className="space-y-2 text-background/80" role="list">
-                <li><a href="/formulario" className="hover:text-primary transition-colors">Ahorro en tu factura de luz</a></li>
-                <li><a href="/formulario-sec" className="hover:text-primary transition-colors">Certificados de eficiencia energética</a></li>
-                <li><a href="/formulario-sec" className="hover:text-primary transition-colors">Boletines eléctricos (CIE)</a></li>
-                <li><a href="/servicios" className="hover:text-primary transition-colors">Servicios profesionales</a></li>
+                <li><a href="/formulario" className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">Ahorro en tu factura de luz</a></li>
+                <li><a href="/formulario-sec" className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">Certificados de eficiencia energética</a></li>
+                <li><a href="/formulario-sec" className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">Boletines eléctricos (CIE)</a></li>
+                <li><a href="/servicios" className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">Servicios profesionales</a></li>
               </ul>
             </div>
 
@@ -78,11 +78,11 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold text-lg mb-4 text-primary">Empresa</h3>
               <ul className="space-y-2 text-background/80" role="list">
-                <li><a href="/como-funciona" className="hover:text-primary transition-colors">Cómo funciona</a></li>
-                <li><a href="/#testimonios" className="hover:text-primary transition-colors">Testimonios</a></li>
-                <li><a href="/blog" className="hover:text-primary transition-colors">Blog Voltik</a></li>
-                <li><a href="/#faqs" onClick={handleFaqClick} className="hover:text-primary transition-colors">FAQs</a></li>
-                <li><a href="/privacidad" className="hover:text-primary transition-colors">Política de privacidad</a></li>
+                <li><a href="/como-funciona" className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">Cómo funciona</a></li>
+                <li><a href="/#testimonios" className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">Testimonios</a></li>
+                <li><a href="/blog" className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">Blog Voltik</a></li>
+                <li><a href="/#faqs" onClick={handleFaqClick} className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">FAQs</a></li>
+                <li><a href="/privacidad" className="voltik-inline-link-simple text-background/90 hover:text-primary transition-colors">Política de privacidad</a></li>
               </ul>
             </div>
           </div>

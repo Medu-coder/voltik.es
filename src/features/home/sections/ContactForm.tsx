@@ -80,7 +80,7 @@ export default function ContactFormSection() {
             <div className="voltik-card bg-secondary/20 border-secondary/40 text-sm text-muted-foreground shadow-md">
               <p>
                 Al enviar el formulario aceptas que podamos contactarte para compartir tu propuesta de ahorro. Consulta la
-                <a href="/privacidad" className="ml-1 voltik-inline-link">política de privacidad</a> para más información.
+                <a href="/privacidad" className="voltik-inline-link-simple ml-1">política de privacidad</a> para más información.
               </p>
             </div>
           </aside>
