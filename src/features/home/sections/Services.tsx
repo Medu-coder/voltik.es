@@ -1,7 +1,7 @@
 import { FileText, ScrollText } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { useScrollAnimationOptimized } from '@/hooks/use-scroll-animation-optimized'
-import certificado from '@/assets/Certificado.png'
+import certificado from '@/assets/certificado.png'
 import boletin from '@/assets/cie.png'
 
 export default function Services() {
