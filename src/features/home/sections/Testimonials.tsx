@@ -169,8 +169,6 @@ export default function Testimonials() {
 
   return (
     <section id="testimonios" className="voltik-section-airy relative overflow-hidden">
-      <div className="absolute -top-24 left-0 h-64 w-64 rounded-full bg-primary/20 blur-3xl" aria-hidden />
-      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-secondary/25 blur-3xl" aria-hidden />
       <div className="voltik-container-narrow relative">
         {/* Header */}
         <div 

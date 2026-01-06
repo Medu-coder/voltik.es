@@ -3,7 +3,6 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { Upload, BarChart3, Sparkles, CheckCircle2, Clock, ShieldCheck, ArrowRight } from 'lucide-react'
-import VoltikLogo from '@/components/ui/VoltikLogo'
 import analisis from '@/assets/analisis-factura.png'
 import Seo from '@/app/seo/Seo'
 

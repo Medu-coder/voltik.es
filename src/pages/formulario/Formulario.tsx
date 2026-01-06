@@ -4,6 +4,7 @@ import ContactForm from '@/components/forms/ContactForm'
 import { Clock, ShieldCheck, Lock, BadgeCheck } from 'lucide-react'
 import { useContactForm } from '@/hooks/use-contact-form'
 import VoltikLogo from '@/components/ui/VoltikLogo'
+import familia from '@/assets/hero-family.png'
 import Seo from '@/app/seo/Seo'
 
 const FormularioPage = () => {
@@ -25,12 +26,14 @@ const FormularioPage = () => {
         {/* Hero */}
         <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
           {/* Background image */}
-          <div className="absolute inset-0 z-0 opacity-20">
-            <VoltikLogo
-              alt="Ahorro energético con Voltik"
-              className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
+          <div className="absolute inset-0 z-0 opacity-60">
+            <img
+              src={familia}
+              alt="Proceso de análisis de factura con Voltik"
+              className="w-full h-full object-cover object-center lg:object-[70%_60%]"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-background/60 to-transparent" />
           </div>
           
           <div className="voltik-container relative z-10">
@@ -51,8 +54,8 @@ const FormularioPage = () => {
         <section id="formulario" className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20">
           <div className="voltik-container">
             <div className="text-center max-w-4xl mx-auto mb-12">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-voltik-success/20 border border-voltik-success/30 text-voltik-success text-sm font-medium mb-6">
-                No pagas nada · Servicio 100% gratuito · 0€
+              <div className="voltik-chip mx-auto mb-4">
+                No pagas nada · Servicio totalmente gratuito
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
                 Recibe tu oferta personalizada en menos de 48h

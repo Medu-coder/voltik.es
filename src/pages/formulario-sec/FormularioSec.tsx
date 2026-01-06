@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer'
 import SecondaryContactForm from '@/components/forms/SecondaryContactForm'
 import { Clock, ShieldCheck, Lock, BadgeCheck } from 'lucide-react'
 import { useSecondaryContactForm } from '@/hooks/use-secondary-contact-form'
-import VoltikLogo from '@/components/ui/VoltikLogo'
+import certificado from '@/assets/certificado.png'
 import Seo from '@/app/seo/Seo'
 
 const FormularioSec = () => {
@@ -44,14 +44,17 @@ const FormularioSec = () => {
         {/* Hero */}
         <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
           {/* Background image */}
-          <div className="absolute inset-0 z-0 opacity-20">
-            <VoltikLogo
-              alt="Servicios técnicos con Voltik"
-              className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
+          <div className="absolute inset-0 z-0 opacity-60">
+            <img
+              src={certificado}
+              alt="Proceso de análisis de factura con Voltik"
+              className="w-full h-full object-cover object-center lg:object-[70%_60%]"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-background/10 via-background/50 to-transparent" />
           </div>
-          
+
+
           <div className="voltik-container relative z-10">
             <div className="text-center max-w-4xl mx-auto mb-12">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">

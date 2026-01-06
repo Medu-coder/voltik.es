@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer'
 import ContactForm from '@/features/home/sections/ContactForm'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import { FileText, ScrollText, PiggyBank, Clock, ShieldCheck, CheckCircle2, ArrowRight, Upload, BarChart3, Sparkles } from 'lucide-react'
-import heroElectricianImage from '@/assets/hero-electrician.jpg'
+import analisis from '@/assets/analisis-factura.png'
 import Seo from '@/app/seo/Seo'
 
 const ServicesPage = () => {
@@ -203,17 +203,14 @@ const ServicesPage = () => {
         {/* Hero */}
         <section className="voltik-section bg-gradient-to-br from-primary/10 to-secondary/20 relative overflow-hidden">
           {/* Background image */}
-          <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute inset-0 z-0 opacity-60">
             <img
-              src={heroElectricianImage}
-              alt="Ingeniero eléctrico realizando certificados energéticos y boletines eléctricos - Voltik"
-              className="w-full h-full object-contain sm:object-cover object-top sm:object-center"
-              loading="eager"
-              fetchPriority="high"
-              width="800"
-              height="600"
+              src={analisis}
+              alt="Proceso de análisis de factura con Voltik"
+              className="w-full h-full object-cover object-center lg:object-[70%_60%]"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-transparent" />
           </div>
           
           <div className="voltik-container relative z-10">
@@ -236,9 +233,6 @@ const ServicesPage = () => {
             <div className="max-w-6xl mx-auto">
               <div className="voltik-card bg-gradient-to-br from-primary/5 to-secondary/10 border border-primary/20 p-8 md:p-12">
                 <div className="text-center mb-12">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-voltik-success/20 border border-voltik-success/30 text-voltik-success text-sm font-medium mb-4">
-                    Servicio totalmente gratis
-                  </div>
                   <div className="flex items-center justify-center gap-3 mb-6">
                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                       <mainService.icon size={36} className="text-text" />

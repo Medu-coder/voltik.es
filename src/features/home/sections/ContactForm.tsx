@@ -6,8 +6,6 @@ export default function ContactFormSection() {
 
   return (
     <section id="formulario" className="py-10 relative overflow-hidden">
-      <div className="absolute -top-24 right-0 h-64 w-64 rounded-full bg-primary/20 blur-3xl" aria-hidden />
-      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-secondary/25 blur-3xl" aria-hidden />
       <div className="voltik-container-narrow relative">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="voltik-chip mx-auto mb-4">

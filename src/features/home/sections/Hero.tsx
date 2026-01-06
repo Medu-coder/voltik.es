@@ -15,9 +15,6 @@ export default function Hero() {
       id="hero"
       className="relative overflow-hidden py-10"
     >
-      <div className="absolute -top-24 right-0 h-64 w-64 rounded-full bg-primary/25 blur-3xl" aria-hidden />
-      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-secondary/40 blur-3xl" aria-hidden />
-
       <div className="voltik-container-narrow relative">
         <div className="grid gap-12 lg:grid-cols-12 items-center mb-12">
           <div className="lg:col-span-6 text-center lg:text-left">

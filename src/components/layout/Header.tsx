@@ -183,7 +183,7 @@ export default function Header() {
                     }
                     setIsMenuOpen(false)
                   }}
-                  className="block px-4 py-4 text-foreground/90 hover:text-foreground hover:bg-background/90 transition-colors rounded-full min-h-[44px] flex items-center"
+                  className="block px-4 py-4 text-foreground/90 hover:text-foreground hover:bg-accent transition-colors rounded-full min-h-[44px] flex items-center"
                 >
                   {item.label}
                 </a>
