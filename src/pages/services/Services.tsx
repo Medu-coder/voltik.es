@@ -121,7 +121,7 @@ const ServicesPage = () => {
       'Negociación directa con comercializadoras',
       'Propuesta personalizada en menos de 48h',
       'Sin compromiso ni permanencia',
-      'Ahorro medio del 20% garantizado'
+      'Ahorro medio del 23%'
     ],
     process: [
       {

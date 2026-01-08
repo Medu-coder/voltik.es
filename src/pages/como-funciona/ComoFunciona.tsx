@@ -20,7 +20,7 @@ const ComoFuncionaPage = () => {
           'Sube un PDF o una foto de tu factura',
           'No almacenamos tus datos',
           'Datos protegidos por RGPD',
-          'Todo 100% gratis: no pasas nada'
+          'Somos ágiles y transparentes'
         ]
     },
     {
@@ -42,7 +42,7 @@ const ComoFuncionaPage = () => {
           'Propuesta personalizada en 48h',
           'Informe detallado de ahorro',
           'Tú tienes la última palabra',
-          'Todo 100% gratis: no pasas nada'
+          'Todo 100% gratis: no pagas nada'
         ]
     },
   ]
