@@ -12,7 +12,7 @@ const OUT_DIR = path.join(ROOT, 'public');
 const OUT_FILE = path.join(OUT_DIR, 'sitemap.xml');
 
 // Rutas que NO queremos en el sitemap (404, catch-all, etc.)
-const EXCLUDED_ROUTES = ['*', 'not-found', '404'];
+const EXCLUDED_ROUTES = ['*', 'not-found', '404', 'landing-colectivos-prapartments'];
 
 // ------- Utils -------
 const today = () => new Date().toISOString().slice(0, 10);
