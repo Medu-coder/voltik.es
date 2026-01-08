@@ -13,7 +13,7 @@ Sitio web de Voltik construido con Vite + React + TypeScript y Tailwind, con un 
 - Entrada HTML: `index.html`
 - Bootstrap React: `src/main.tsx`
 - Rutas y providers: `src/App.tsx` (incluye React Query, toasts, tooltips y `<Canonical />`)
-- Páginas: `src/pages/home/Index.tsx`, `src/pages/services/Services.tsx`, `src/pages/blog/Blog.tsx`, `src/pages/blog/BlogArticle.tsx`, `src/pages/privacy/Privacy.tsx`, `src/pages/not-found/NotFound.tsx`
+- Páginas: `src/pages/home/Index.tsx`, `src/pages/services/Services.tsx`, `src/pages/como-funciona/ComoFunciona.tsx`, `src/pages/formulario/Formulario.tsx`, `src/pages/formulario-sec/FormularioSec.tsx`, `src/pages/blog/Blog.tsx`, `src/pages/blog/BlogArticle.tsx`, `src/pages/privacy/Privacy.tsx`, `src/pages/landing-prapartments/LandingPrapartments.tsx`, `src/pages/not-found/NotFound.tsx`
 - Secciones Home: `src/features/home/sections/*`
 - Layout: `src/components/layout/*` (Header, Footer)
 - UI compartida: `src/components/ui/*` (incl. `voltik-button.tsx`, `ReCaptcha.tsx`)
@@ -21,6 +21,7 @@ Sitio web de Voltik construido con Vite + React + TypeScript y Tailwind, con un 
 - Datos Blog: `src/features/blog/data/blogPosts.ts` + imágenes en `public/blog/`
 - Estilos y tokens: `src/index.css`, `src/design-system/*`, `tailwind.config.ts`
 - SEO: `public/robots.txt`, `scripts/generate-sitemap.mjs` (genera `public/sitemap.xml` en build) y `<Canonical />` (`src/app/seo/Canonical.tsx`)
+- Navegación rápida para agentes/IA: `AGENTS.md`
 
 ## Scripts
 - `npm run dev`: servidor de desarrollo
