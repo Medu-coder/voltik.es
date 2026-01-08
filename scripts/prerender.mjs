@@ -1,7 +1,8 @@
 import { spawn } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
-import { chromium } from 'playwright'
+import chromium from '@sparticuz/chromium'
+import puppeteer from 'puppeteer-core'
 
 const ROOT = process.cwd()
 const DIST_DIR = path.join(ROOT, 'dist')
@@ -51,6 +52,49 @@ async function waitForServer(url, retries = 20) {
   throw new Error('Preview server did not start in time')
 }
 
+function localChromePath() {
+  const candidates = []
+  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+    candidates.push(process.env.PUPPETEER_EXECUTABLE_PATH)
+  }
+  if (process.platform === 'darwin') {
+    candidates.push('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')
+    candidates.push('/Applications/Chromium.app/Contents/MacOS/Chromium')
+  } else if (process.platform === 'win32') {
+    candidates.push('C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe')
+    candidates.push('C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe')
+  } else {
+    candidates.push('/usr/bin/google-chrome')
+    candidates.push('/usr/bin/chromium')
+  }
+
+  for (const candidate of candidates) {
+    if (candidate && fs.existsSync(candidate)) {
+      return candidate
+    }
+  }
+  return null
+}
+
+async function resolveExecutable() {
+  const local = localChromePath()
+  if (local) {
+    return {
+      executablePath: local,
+      args: [],
+      defaultViewport: undefined,
+      headless: true,
+    }
+  }
+
+  return {
+    executablePath: await chromium.executablePath(),
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    headless: chromium.headless,
+  }
+}
+
 async function prerender() {
   const staticRoutes = extractRoutesFromApp()
   const blogIds = parseBlogPosts(fs.readFileSync(BLOG_TS, 'utf8'))
@@ -64,26 +108,25 @@ async function prerender() {
   try {
     await waitForServer(`${BASE_URL}/`)
 
-    const browser = await chromium.launch({ headless: true })
-    const page = await browser.newPage()
-
-    await page.route('**/*', route => {
-      const url = route.request().url()
-      if (/googletagmanager\.com/.test(url) || /google-analytics\.com/.test(url) || /google\.com\/recaptcha/.test(url) || /tracker\.metricool\.com/.test(url)) {
-        return route.abort()
-      }
-      return route.continue()
+    const executable = await resolveExecutable()
+    const browser = await puppeteer.launch({
+      args: executable.args,
+      defaultViewport: executable.defaultViewport,
+      executablePath: executable.executablePath,
+      headless: executable.headless,
     })
 
     for (const route of routes) {
+      const page = await browser.newPage()
       const url = `${BASE_URL}${route}`
       await page.goto(url, { waitUntil: 'domcontentloaded' })
-      await page.waitForTimeout(1500)
+      await new Promise(resolve => setTimeout(resolve, 1500))
 
       const html = await page.content()
       const outFile = routeToFile(route)
       fs.mkdirSync(path.dirname(outFile), { recursive: true })
       fs.writeFileSync(outFile, html, 'utf8')
+      await page.close()
     }
 
     await browser.close()
