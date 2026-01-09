@@ -111,6 +111,13 @@ function notionToHtml(markdown) {
   return html;
 }
 
+function escapeTemplateLiteral(value) {
+  return value
+    .replace(/\\/g, '\\\\')
+    .replace(/`/g, '\\`')
+    .replace(/\$\{/g, '\\${');
+}
+
 // Función para generar ID único
 function generateId(title) {
   return title
@@ -171,6 +178,7 @@ Texto normal con párrafos separados.
   const id = generateId(articleData.title);
   const contentHtml = notionToHtml(articleData.content);
   const readTime = estimateReadTime(contentHtml);
+  const safeContentHtml = escapeTemplateLiteral(contentHtml);
   const date = new Date().toISOString().split('T')[0]; // Fecha actual
   
   // Crear objeto del artículo
@@ -215,7 +223,7 @@ Texto normal con párrafos separados.
   title: '${articleData.title}',
   subtitle: '${articleData.subtitle}',
   excerpt: '${articleData.excerpt}',
-  content: \`${contentHtml}\`,
+  content: \`${safeContentHtml}\`,
   date: '${date}',
   readTime: '${readTime}',
   category: ${formatCategory(articleData.category)},
@@ -246,4 +254,4 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   createBlogPost();
 }
 
-export { notionToHtml, generateId, estimateReadTime };
+export { notionToHtml, generateId, estimateReadTime, escapeTemplateLiteral };

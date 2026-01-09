@@ -180,6 +180,9 @@ export const useContactForm = (fuente?: string) => {
       if (file) {
         payload.append('archivo', file)
       }
+      if (recaptchaToken) {
+        payload.append('recaptchaToken', recaptchaToken)
+      }
       
       if (fuente) {
         payload.append('fuente', fuente)

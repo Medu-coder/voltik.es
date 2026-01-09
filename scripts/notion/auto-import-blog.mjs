@@ -8,7 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { notionToHtml, generateId, estimateReadTime } from './notion-to-blog.mjs';
+import { notionToHtml, generateId, estimateReadTime, escapeTemplateLiteral } from './notion-to-blog.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -103,12 +103,12 @@ function addToBlogPosts(blogPost) {
     };
 
     // Generar el código del artículo
-    const articleCode = `{
+  const articleCode = `{
   id: '${blogPost.id}',
   title: '${blogPost.title}',
   subtitle: '${blogPost.subtitle}',
   excerpt: '${blogPost.excerpt}',
-  content: \`${blogPost.content.replace(/`/g, '\\`')}\`,
+  content: \`${escapeTemplateLiteral(blogPost.content)}\`,
   date: '${blogPost.date}',
   readTime: '${blogPost.readTime}',
   category: ${formatCategory(blogPost.category)},

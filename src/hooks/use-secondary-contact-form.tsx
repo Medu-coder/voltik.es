@@ -139,6 +139,9 @@ export const useSecondaryContactForm = () => {
       googleFormPayload.append('entry.725191283', formData.telefono)
       googleFormPayload.append('entry.916166591', formData.tipo_servicio)
       googleFormPayload.append('entry.1602707373', formData.comentarios || 'Sin comentarios adicionales')
+      if (recaptchaToken) {
+        googleFormPayload.append('recaptchaToken', recaptchaToken)
+      }
 
       // Enviar a Google Forms
       await fetch(GOOGLE_FORM_URL, {

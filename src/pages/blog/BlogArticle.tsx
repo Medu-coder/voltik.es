@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { VoltikButton } from '@/components/ui/voltik-button';
 import { useEffect } from 'react';
 import Seo from '@/app/seo/Seo'
+import { sanitizeHtml } from '@/lib/sanitize-html'
 
 
 const BlogArticle = () => {
@@ -18,6 +19,8 @@ const BlogArticle = () => {
     // si no encuentra el post, renderiza tu componente NotFound
     return <div>Artículo no encontrado.</div>;
   }
+
+  const sanitizedContent = sanitizeHtml(post.content)
 
   return (
     <>
@@ -83,7 +86,7 @@ const BlogArticle = () => {
         {/* Contenido del artículo */}
         <section className="voltik-section">
           <div className="voltik-container max-w-3xl mx-auto prose prose-neutral">
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
 
             {/* CTA adaptado */}
             <div className="mt-8 flex justify-center">
