@@ -1,7 +1,9 @@
-import { UploadCloud, FileText, X } from 'lucide-react'
+import { UploadCloud, FileText, X, MessageCircle } from 'lucide-react'
 import { VoltikButton } from '@/components/ui/voltik-button'
 import ReCaptcha from '@/components/ui/ReCaptcha'
 import { useContactForm } from '@/hooks/use-contact-form'
+import { pushDataLayerEvent } from '@/lib/analytics'
+import { getWhatsAppUrlBySource } from '@/lib/whatsapp'
 import ContactFormSuccess from './ContactFormSuccess'
 
 interface ContactFormProps {
@@ -40,9 +42,18 @@ export default function ContactForm({
     RECAPTCHA_SITE_KEY
   } = useContactForm(fuente)
 
+  const whatsappPreFormUrl = getWhatsAppUrlBySource(fuente, 'pre_form')
+  const whatsappPostFormUrl = getWhatsAppUrlBySource(fuente, 'post_form')
+
   // Si el formulario se ha enviado exitosamente, mostrar pantalla de éxito
   if (submitted) {
-    return <ContactFormSuccess onReset={resetForm} className={className} />
+    return (
+      <ContactFormSuccess
+        onReset={resetForm}
+        className={className}
+        whatsappUrl={whatsappPostFormUrl}
+      />
+    )
   }
 
   return (
@@ -57,6 +68,35 @@ export default function ContactForm({
           </p>
         </div>
       )}
+
+      <div className="mb-6 rounded-[2rem] border border-green-500/20 bg-green-50/60 p-4 text-center">
+        <p className="text-sm text-muted-foreground mb-3">
+          ¿Prefieres escribirnos por WhatsApp?
+        </p>
+        <VoltikButton
+          variant="outline"
+          size="md"
+          asChild
+          className="border-green-500 text-green-600 hover:bg-green-50 hover:border-green-600 hover:text-green-700"
+        >
+          <a
+            href={whatsappPreFormUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              pushDataLayerEvent({
+                event: 'whatsapp_cta_click',
+                cta_layer: 'pre_form',
+                cta_location: 'contact_form_card',
+                cta_message: 'pre_form',
+              })
+            }
+          >
+            <MessageCircle size={18} className="mr-2" />
+            WhatsApp
+          </a>
+        </VoltikButton>
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-6" noValidate>
         <input type="hidden" name="fecha" value={formData.fecha} readOnly />

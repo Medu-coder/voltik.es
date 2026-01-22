@@ -2,6 +2,8 @@ import { VoltikButton } from '@/components/ui/voltik-button'
 import { MessageCircle, Phone, Mail } from 'lucide-react'
 import ComingSoonModal from '@/components/ui/ComingSoonModal'
 import { useScrollAnimationOptimized } from '@/hooks/use-scroll-animation-optimized'
+import { pushDataLayerEvent } from '@/lib/analytics'
+import { WHATSAPP_URL_PRE_FORM } from '@/lib/whatsapp'
 
 export default function ContactOptions() {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimationOptimized()
@@ -27,16 +29,30 @@ export default function ContactOptions() {
               </a>
             </VoltikButton>
 
-            <ComingSoonModal
-              trigger={
-                <VoltikButton variant="outline" size="lg" className="md:flex-1 border-green-500 text-green-600 hover:bg-green-50 hover:border-green-600 hover:text-green-700">
-                  <MessageCircle size={20} className="mr-2" />
-                  WhatsApp
-                </VoltikButton>
-              }
-              serviceName="WhatsApp"
-              description="WhatsApp estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
-            />
+            <VoltikButton
+              variant="outline"
+              size="lg"
+              asChild
+              className="md:flex-1 border-green-500 text-green-600 hover:bg-green-50 hover:border-green-600 hover:text-green-700"
+            >
+              <a
+                href={WHATSAPP_URL_PRE_FORM}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  pushDataLayerEvent({
+                    event: 'whatsapp_cta_click',
+                    cta_layer: 'pre_form',
+                    cta_location: 'home_contact_options',
+                    cta_message: 'pre_form',
+                  })
+                }
+                aria-label="Abrir WhatsApp"
+              >
+                <MessageCircle size={20} className="mr-2" />
+                WhatsApp
+              </a>
+            </VoltikButton>
 
             <ComingSoonModal
               trigger={

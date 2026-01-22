@@ -2,6 +2,8 @@ import { Phone, Mail, MapPin, Clock, MessageCircle, UploadCloud, Facebook, Insta
 import ComingSoonModal from '@/components/ui/ComingSoonModal'
 import VoltikLogo from '@/components/ui/VoltikLogo'
 import { useFaqNavigation } from '@/hooks/use-faq-navigation'
+import { pushDataLayerEvent } from '@/lib/analytics'
+import { WHATSAPP_URL_PRE_FORM } from '@/lib/whatsapp'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -137,18 +139,23 @@ export default function Footer() {
                   <Mail size={20} />
                 </a>
                 
-                <ComingSoonModal
-                  trigger={
-                    <button
-                      className="p-2 hover:bg-background/10 rounded-lg transition-colors"
-                      aria-label="WhatsApp (próximamente)"
-                    >
-                      <MessageCircle size={20} />
-                    </button>
+                <a
+                  href={WHATSAPP_URL_PRE_FORM}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 hover:bg-background/10 rounded-lg transition-colors"
+                  aria-label="WhatsApp"
+                  onClick={() =>
+                    pushDataLayerEvent({
+                      event: 'whatsapp_cta_click',
+                      cta_layer: 'pre_form',
+                      cta_location: 'footer',
+                      cta_message: 'pre_form',
+                    })
                   }
-                  serviceName="WhatsApp"
-                  description="WhatsApp estará disponible próximamente. Por ahora, puedes contactarnos por email y te responderemos lo antes posible."
-                />
+                >
+                  <MessageCircle size={20} />
+                </a>
 
                 <ComingSoonModal
                   trigger={
